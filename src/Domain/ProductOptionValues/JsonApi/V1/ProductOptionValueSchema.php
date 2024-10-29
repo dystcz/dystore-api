@@ -5,9 +5,11 @@ namespace Dystcz\LunarApi\Domain\ProductOptionValues\JsonApi\V1;
 use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
 use Dystcz\LunarApi\Support\Models\Actions\SchemaType;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsTo;
+use LaravelJsonApi\Eloquent\Fields\Relations\HasMany;
 use LaravelJsonApi\Eloquent\Fields\Str;
 use Lunar\Models\Contracts\ProductOption;
 use Lunar\Models\Contracts\ProductOptionValue;
+use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ProductOptionValueSchema extends Schema
 {
@@ -22,6 +24,7 @@ class ProductOptionValueSchema extends Schema
     public function includePaths(): iterable
     {
         return [
+            'images',
             'product_option',
 
             ...parent::includePaths(),
@@ -48,6 +51,11 @@ class ProductOptionValueSchema extends Schema
                 ->serializeUsing(
                     static fn ($relation) => $relation->withoutLinks()
                 ),
+
+            HasMany::make('images', 'images')
+                ->type(SchemaType::get(Media::class))
+                ->canCount()
+                ->countAs('images_count'),
 
             ...parent::fields(),
         ];
