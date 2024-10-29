@@ -56,7 +56,7 @@ class CheckoutCart implements CheckoutCartContract
         }
 
         if (Config::get('lunar-api.general.checkout.forget_cart_after_order_creation', true)) {
-            $this->cartSession->forget();
+            $this->cartSession->forget(delete: false);
         }
 
         OrderCreated::dispatch($model);
