@@ -22,6 +22,9 @@ class ProductOptionSchema extends Schema
     public function includePaths(): iterable
     {
         return [
+            'product_option_values',
+            'product_option_values.images',
+
             ...parent::includePaths(),
         ];
     }

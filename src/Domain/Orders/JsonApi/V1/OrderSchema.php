@@ -89,6 +89,9 @@ class OrderSchema extends Schema
             'product_lines.purchasable.thumbnail',
             'product_lines.purchasable.product',
             'product_lines.purchasable.product.thumbnail',
+            'product_lines.purchasable.product_option_values',
+            'product_lines.purchasable.product_option_values.images',
+            'product_lines.purchasable.product_option_values.product_option',
 
             // Shipping lines
             'shipping_lines',

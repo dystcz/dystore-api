@@ -87,6 +87,13 @@ class ProductSchema extends Schema
             'collections.default_url',
             'collections.group',
 
+            'product_option.product_option_values',
+            'product_option.product_option_values.images',
+
+            'product_option_values',
+            'product_option_values.images',
+            'product_option_values.product_option',
+
             'product_type',
             'tags',
 

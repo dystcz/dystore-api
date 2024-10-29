@@ -68,6 +68,10 @@ class ProductVariantSchema extends Schema
             'urls',
             'values',
 
+            'product_option_values',
+            'product_option_values.images',
+            'product_option_values.product_option',
+
             ...parent::includePaths(),
         ];
     }
