@@ -140,7 +140,8 @@ class CartSchema extends Schema
 
             HasMany::make('cart_lines', 'lines')
                 ->type(SchemaType::get(CartLine::class))
-                ->retainFieldName(),
+                ->retainFieldName()
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             HasMany::make('cart_addresses', 'addresses')
                 ->type(SchemaType::get(CartAddress::class))

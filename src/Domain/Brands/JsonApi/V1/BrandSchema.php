@@ -49,10 +49,12 @@ class BrandSchema extends Schema
 
             HasOne::make('default_url', 'defaultUrl')
                 ->type(SchemaType::get(Url::class))
-                ->retainFieldName(),
+                ->retainFieldName()
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             HasOne::make('thumbnail')
-                ->type(SchemaType::get(Media::class)),
+                ->type(SchemaType::get(Media::class))
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             HasMany::make('urls')
                 ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),

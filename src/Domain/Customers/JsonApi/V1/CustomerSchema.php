@@ -53,9 +53,11 @@ class CustomerSchema extends Schema
 
             HasMany::make('orders')
                 ->canCount()
-                ->countAs('orders_count'),
+                ->countAs('orders_count')
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
-            HasMany::make('addresses'),
+            HasMany::make('addresses')
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             BelongsToMany::make('users')
                 ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),

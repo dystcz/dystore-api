@@ -7,6 +7,7 @@ use Dystcz\LunarApi\Support\Models\Actions\SchemaType;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsTo;
 use LaravelJsonApi\Eloquent\Fields\Relations\HasMany;
 use LaravelJsonApi\Eloquent\Fields\Str;
+use LaravelJsonApi\Eloquent\Resources\Relation;
 use Lunar\Models\Contracts\ProductOption;
 use Lunar\Models\Contracts\ProductOptionValue;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
@@ -52,14 +53,13 @@ class ProductOptionValueSchema extends Schema
             BelongsTo::make('product_option', 'option')
                 ->readOnly()
                 ->type(SchemaType::get(ProductOption::class))
-                ->serializeUsing(
-                    static fn ($relation) => $relation->withoutLinks()
-                ),
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             HasMany::make('images', 'images')
                 ->type(SchemaType::get(Media::class))
                 ->canCount()
-                ->countAs('images_count'),
+                ->countAs('images_count')
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             ...parent::fields(),
         ];

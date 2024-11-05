@@ -36,6 +36,7 @@ class ProductTypeSchema extends Schema
     {
         return [
             $this->idField(),
+
             Str::make('name'),
 
             // HasMany::make('mapped_attributes', 'mappedAttributes')

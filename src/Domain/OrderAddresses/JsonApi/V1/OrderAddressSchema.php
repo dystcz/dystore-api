@@ -42,6 +42,7 @@ class OrderAddressSchema extends Schema
             Str::make('first_name'),
             Str::make('last_name'),
             Str::make('company_name'),
+
             Str::make('company_in', 'meta')
                 ->serializeUsing(
                     static fn (?ArrayObject $value) => $value?->collect()->get('company_in') ?? null,
@@ -50,6 +51,7 @@ class OrderAddressSchema extends Schema
                 ->serializeUsing(
                     static fn (?ArrayObject $value) => $value?->collect()->get('company_tin') ?? null,
                 ),
+
             Str::make('line_one'),
             Str::make('line_two'),
             Str::make('line_three'),

@@ -8,6 +8,7 @@ use LaravelJsonApi\Eloquent\Fields\Relations\HasOne;
 use LaravelJsonApi\Eloquent\Fields\Str;
 use LaravelJsonApi\Eloquent\Filters\Where;
 use LaravelJsonApi\Eloquent\Filters\WhereIdIn;
+use LaravelJsonApi\Eloquent\Resources\Relation;
 use Lunar\Models\Contracts\Product;
 use Lunar\Models\Contracts\ProductAssociation;
 
@@ -39,10 +40,12 @@ class ProductAssociationSchema extends Schema
             Str::make('type'),
 
             HasOne::make('target')
-                ->type(SchemaType::get(Product::class)),
+                ->type(SchemaType::get(Product::class))
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             HasOne::make('parent')
-                ->type(SchemaType::get(Product::class)),
+                ->type(SchemaType::get(Product::class))
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             ...parent::fields(),
         ];
