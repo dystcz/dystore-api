@@ -42,7 +42,7 @@ class UrlSchema extends Schema
 
             Where::make('slug'),
 
-            ...parent::fields(),
+            ...parent::filters(),
         ];
     }
 }
