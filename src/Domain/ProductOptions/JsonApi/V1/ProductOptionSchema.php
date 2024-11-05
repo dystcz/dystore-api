@@ -6,6 +6,7 @@ use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
 use Dystcz\LunarApi\Support\Models\Actions\SchemaType;
 use LaravelJsonApi\Eloquent\Fields\Relations\HasMany;
 use LaravelJsonApi\Eloquent\Fields\Str;
+use LaravelJsonApi\Eloquent\Resources\Relation;
 use Lunar\Models\Contracts\ProductOption;
 use Lunar\Models\Contracts\ProductOptionValue;
 
@@ -56,9 +57,7 @@ class ProductOptionSchema extends Schema
                 ->type(SchemaType::get(ProductOptionValue::class))
                 ->canCount()
                 ->countAs('product_option_values_count')
-                ->serializeUsing(
-                    static fn ($relation) => $relation->withoutLinks()
-                ),
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             ...parent::fields(),
         ];

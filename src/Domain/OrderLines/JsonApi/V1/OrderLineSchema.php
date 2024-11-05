@@ -11,6 +11,7 @@ use LaravelJsonApi\Eloquent\Fields\Number;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsTo;
 use LaravelJsonApi\Eloquent\Fields\Relations\MorphTo;
 use LaravelJsonApi\Eloquent\Fields\Str;
+use LaravelJsonApi\Eloquent\Resources\Relation;
 use Lunar\Models\Contracts\OrderLine;
 use Lunar\Models\Contracts\Product;
 use Lunar\Models\Contracts\ProductVariant;
@@ -96,14 +97,10 @@ class OrderLineSchema extends Schema
             ArrayHash::make('meta'),
 
             BelongsTo::make('order')
-                ->serializeUsing(
-                    static fn ($relation) => $relation->withoutLinks(),
-                ),
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             BelongsTo::make('currency')
-                ->serializeUsing(
-                    static fn ($relation) => $relation->withoutLinks(),
-                ),
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             MorphTo::make('purchasable', 'purchasable')
                 ->types(
@@ -111,9 +108,7 @@ class OrderLineSchema extends Schema
                     SchemaType::get(ProductVariant::class),
                     SchemaType::get(ShippingOption::class),
                 )
-                ->serializeUsing(
-                    static fn ($relation) => $relation->withoutLinks(),
-                ),
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             ...parent::fields(),
         ];

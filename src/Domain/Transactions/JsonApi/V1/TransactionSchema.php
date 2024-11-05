@@ -9,6 +9,7 @@ use LaravelJsonApi\Eloquent\Fields\Number;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsTo;
 use LaravelJsonApi\Eloquent\Fields\Str;
 use LaravelJsonApi\Eloquent\Filters\WhereIdIn;
+use LaravelJsonApi\Eloquent\Resources\Relation;
 use Lunar\Models\Contracts\Transaction;
 
 class TransactionSchema extends Schema
@@ -54,9 +55,7 @@ class TransactionSchema extends Schema
                 ->hidden(),
 
             BelongsTo::make('currency')
-                ->serializeUsing(
-                    static fn ($relation) => $relation->withoutLinks(),
-                ),
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             ...parent::fields(),
         ];

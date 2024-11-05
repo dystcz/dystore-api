@@ -23,7 +23,7 @@ class ProductsController extends Controller implements ProductsControllerContrac
     public function read(?ProductContract $product, ProductQuery $query): void
     {
         /** @var Product $product */
-        $productId = $product?->id;
+        $productId = $product?->getKey();
 
         if ($productId && App::has('lunar-api-product-views')) {
             dispatch(fn () => App::get('lunar-api-product-views')->record($productId));

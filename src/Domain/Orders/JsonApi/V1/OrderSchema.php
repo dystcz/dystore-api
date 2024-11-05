@@ -188,23 +188,28 @@ class OrderSchema extends Schema
 
             HasMany::make('order_lines', 'lines')
                 ->retainFieldName()
-                ->type(SchemaType::get(OrderLine::class)),
+                ->type(SchemaType::get(OrderLine::class))
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             HasMany::make('product_lines', 'productLines')
                 ->retainFieldName()
-                ->type(SchemaType::get(OrderLine::class)),
+                ->type(SchemaType::get(OrderLine::class))
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             HasMany::make('digital_lines', 'digitalLines')
                 ->retainFieldName()
-                ->type(SchemaType::get(OrderLine::class)),
+                ->type(SchemaType::get(OrderLine::class))
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             HasMany::make('physical_lines', 'physicalLines')
                 ->retainFieldName()
-                ->type(SchemaType::get(OrderLine::class)),
+                ->type(SchemaType::get(OrderLine::class))
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             HasMany::make('shipping_lines', 'shippingLines')
                 ->retainFieldName()
-                ->type(SchemaType::get(OrderLine::class)),
+                ->type(SchemaType::get(OrderLine::class))
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             HasMany::make('payment_lines', 'paymentLines')
                 ->retainFieldName()

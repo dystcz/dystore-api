@@ -10,6 +10,7 @@ use LaravelJsonApi\Eloquent\Fields\Relations\BelongsToMany;
 use LaravelJsonApi\Eloquent\Fields\Relations\HasMany;
 use LaravelJsonApi\Eloquent\Fields\Relations\HasOne;
 use LaravelJsonApi\Eloquent\Fields\Str;
+use LaravelJsonApi\Eloquent\Resources\Relation;
 use Lunar\Models\Contracts\Customer;
 use Lunar\Models\Contracts\Order;
 
@@ -67,23 +68,17 @@ class UserSchema extends Schema
             HasOne::make('avatar', 'avatar')
                 ->readOnly()
                 ->type('media')
-                ->serializeUsing(
-                    static fn ($relation) => $relation->withoutLinks(),
-                ),
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             HasMany::make('orders')
                 ->type(SchemaType::get(Order::class))
                 ->readOnly()
-                ->serializeUsing(
-                    static fn ($relation) => $relation->withoutLinks(),
-                ),
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             BelongsToMany::make('customers')
                 ->type(SchemaType::get(Customer::class))
                 ->readOnly()
-                ->serializeUsing(
-                    static fn ($relation) => $relation->withoutLinks(),
-                ),
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             ...parent::fields(),
         ];

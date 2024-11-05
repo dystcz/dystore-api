@@ -1,5 +1,11 @@
 # Changelog
 
+## 1.0.0-beta.4
+
+### Changes
+
+-   Removed relationship links from responses by default
+
 ## 1.0.0-beta.3
 
 ### Changes
@@ -20,6 +26,7 @@
 -   Added create new password endpoint (`GET` `/auth/-actions/reset-password/{token}`)
 -   Added `variantValues` relationship to `Product` model
 -   Added `product_option_values` relationship to `ProductSchema` (scoped to variant values using `variantValues` relationship)
+-   Added `product_option_handle` to `ProductOptionValueSchema`
 
 ### ⚠️ Breaking changes
 
