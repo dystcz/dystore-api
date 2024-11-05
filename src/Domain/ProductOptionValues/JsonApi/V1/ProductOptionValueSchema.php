@@ -45,6 +45,10 @@ class ProductOptionValueSchema extends Schema
                     fn (ProductOptionValue $model, string $attribute) => $model->translate($attribute),
                 ),
 
+            Str::make('product_option_handle', 'handle')
+                ->readOnly()
+                ->on('option'),
+
             BelongsTo::make('product_option', 'option')
                 ->readOnly()
                 ->type(SchemaType::get(ProductOption::class))
