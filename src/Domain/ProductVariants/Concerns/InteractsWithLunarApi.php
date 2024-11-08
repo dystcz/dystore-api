@@ -13,6 +13,7 @@ use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 use InvalidArgumentException;
 use Lunar\Base\Traits\HasUrls;
@@ -85,6 +86,24 @@ trait InteractsWithLunarApi
                 default => null,
             }
         );
+    }
+
+    /**
+     * Get either variant thumbnail or fallback to product thumbnail.
+     */
+    public function getThumbnail(): ?Media
+    {
+        return $this->thumbnail ?? $this->product->thumbnail;
+    }
+
+    /**
+     * Get either variant images or fallback to product images.
+     */
+    public function getImages(): Collection
+    {
+        return $this->images->isNotEmpty()
+            ? $this->images
+            : $this->product->images;
     }
 
     /**
