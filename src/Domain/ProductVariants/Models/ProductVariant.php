@@ -4,7 +4,6 @@ namespace Dystcz\LunarApi\Domain\ProductVariants\Models;
 
 use Dystcz\LunarApi\Base\Contracts\HasAvailability;
 use Dystcz\LunarApi\Base\Contracts\Translatable;
-use Dystcz\LunarApi\Domain\Products\Models\Product;
 use Dystcz\LunarApi\Domain\ProductVariants\Concerns\InteractsWithLunarApi;
 use Dystcz\LunarApi\Domain\ProductVariants\Contracts\ProductVariant as ProductVariantContract;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
