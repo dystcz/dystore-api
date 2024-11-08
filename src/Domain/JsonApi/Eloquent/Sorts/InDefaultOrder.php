@@ -42,6 +42,14 @@ class InDefaultOrder implements SortField
      */
     public function sort($query, string $direction = 'asc')
     {
-        return $query->defaultOrder();
+        if (method_exists($query, 'defaultOrder')) {
+            return $query->defaultOrder();
+        }
+
+        if (method_exists($query, 'ordered')) {
+            return $query->ordered();
+        }
+
+        return $query;
     }
 }
