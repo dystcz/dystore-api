@@ -3,6 +3,7 @@
 namespace Dystcz\LunarApi\Domain\Media\JsonApi\V1;
 
 use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
+use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Sorts\InDefaultOrder;
 use LaravelJsonApi\Eloquent\Fields\ArrayHash;
 use LaravelJsonApi\Eloquent\Fields\ID;
 use LaravelJsonApi\Eloquent\Fields\Str;
@@ -14,6 +15,11 @@ class MediaSchema extends Schema
      * {@inheritDoc}
      */
     public static string $model = Media::class;
+
+    /**
+     * {@inheritDoc}
+     */
+    protected $defaultSort = 'ordered';
 
     /**
      * {@inheritDoc}
@@ -47,6 +53,18 @@ class MediaSchema extends Schema
             ArrayHash::make('custom_properties'),
 
             ...parent::fields(),
+        ];
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function sortables(): iterable
+    {
+        return [
+            ...parent::sortables(),
+
+            InDefaultOrder::make('ordered'),
         ];
     }
 }
