@@ -127,6 +127,10 @@ class AttributeData extends Attribute
     {
         $value = parent::serialize($model);
 
+        if (is_null($value)) {
+            return Hash::cast([]);
+        }
+
         if (is_iterable($model->attributes) && count($model->attributes) > 0) {
             $attributes = $model->attributes
                 ->where('attribute_type', $model->getMorphClass())
