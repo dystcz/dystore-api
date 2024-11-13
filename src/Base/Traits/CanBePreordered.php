@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Traits;
+namespace Dystore\Api\Base\Traits;
 
 use Carbon\Carbon;
-use Dystcz\LunarApi\Base\Contracts\Translatable;
+use Dystore\Api\Base\Contracts\Translatable;
 use Throwable;
 
 trait CanBePreordered

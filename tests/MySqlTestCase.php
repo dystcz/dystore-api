@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Tests;
+namespace Dystore\Api\Tests;
 
 use Illuminate\Foundation\Application;
 

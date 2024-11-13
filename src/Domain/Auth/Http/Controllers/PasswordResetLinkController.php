@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\Http\Controllers;
+namespace Dystore\Api\Domain\Auth\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Auth\Contracts\PasswordResetLinkController as PasswordResetLinkControllerContract;
-use Dystcz\LunarApi\Domain\Auth\JsonApi\V1\ForgottenPasswordRequest;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Auth\Contracts\PasswordResetLinkController as PasswordResetLinkControllerContract;
+use Dystore\Api\Domain\Auth\JsonApi\V1\ForgottenPasswordRequest;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Support\Facades\Password;
 use LaravelJsonApi\Core\Responses\DataResponse;

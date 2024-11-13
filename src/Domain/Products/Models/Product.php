@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Products\Models;
+namespace Dystore\Api\Domain\Products\Models;
 
-use Dystcz\LunarApi\Domain\Products\Builders\ProductBuilder;
-use Dystcz\LunarApi\Domain\Products\Concerns\InteractsWithLunarApi;
-use Dystcz\LunarApi\Domain\Products\Contracts\Product as ProductContract;
+use Dystore\Api\Domain\Products\Builders\ProductBuilder;
+use Dystore\Api\Domain\Products\Concerns\InteractsWithLunarApi;
+use Dystore\Api\Domain\Products\Contracts\Product as ProductContract;
 use Lunar\Models\Product as LunarProduct;
 
 /**

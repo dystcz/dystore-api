@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\JsonApi\Queries;
+namespace Dystore\Api\Domain\JsonApi\Queries;
 
 use Illuminate\Support\Facades\Config;
 use LaravelJsonApi\Laravel\Http\Requests\ResourceQuery;

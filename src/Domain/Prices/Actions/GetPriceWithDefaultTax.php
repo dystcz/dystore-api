@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Prices\Actions;
+namespace Dystore\Api\Domain\Prices\Actions;
 
 use Lunar\Base\Purchasable;
 use Lunar\DataTypes\Price;

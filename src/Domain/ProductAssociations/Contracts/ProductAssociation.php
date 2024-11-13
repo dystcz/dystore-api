@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductAssociations\Contracts;
+namespace Dystore\Api\Domain\ProductAssociations\Contracts;
 
 use Lunar\Models\Contracts\ProductAssociation as LunarProductAssociation;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Support\Config\Data;
+namespace Dystore\Api\Support\Config\Data;
 
 use Exception;
 use Illuminate\Support\Str;

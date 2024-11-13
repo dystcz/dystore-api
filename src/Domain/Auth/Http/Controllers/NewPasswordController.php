@@ -1,14 +1,14 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\Http\Controllers;
+namespace Dystore\Api\Domain\Auth\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Auth\Actions\CompletePasswordReset;
-use Dystcz\LunarApi\Domain\Auth\Actions\ResetUserPassword;
-use Dystcz\LunarApi\Domain\Auth\Contracts\NewPasswordController as NewPasswordControllerContract;
-use Dystcz\LunarApi\Domain\Auth\JsonApi\V1\NewPasswordRequest;
-use Dystcz\LunarApi\Domain\Users\Contracts\User as UserContract;
-use Dystcz\LunarApi\Domain\Users\Models\User;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Auth\Actions\CompletePasswordReset;
+use Dystore\Api\Domain\Auth\Actions\ResetUserPassword;
+use Dystore\Api\Domain\Auth\Contracts\NewPasswordController as NewPasswordControllerContract;
+use Dystore\Api\Domain\Auth\JsonApi\V1\NewPasswordRequest;
+use Dystore\Api\Domain\Users\Contracts\User as UserContract;
+use Dystore\Api\Domain\Users\Models\User;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Contracts\Auth\PasswordBroker;
 use Illuminate\Contracts\Support\Responsable;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Channels\Concerns;
+namespace Dystore\Api\Domain\Channels\Concerns;
 
-use Dystcz\LunarApi\Domain\Channels\Factories\ChannelFactory;
-use Dystcz\LunarApi\Hashids\Traits\HashesRouteKey;
+use Dystore\Api\Domain\Channels\Factories\ChannelFactory;
+use Dystore\Api\Hashids\Traits\HashesRouteKey;
 
 trait InteractsWithLunarApi
 {

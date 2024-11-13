@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\PaymentOptions\JsonApi\V1;
+namespace Dystore\Api\Domain\PaymentOptions\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\PaymentOptions\Entities\PaymentOptionStorage;
-use Dystcz\LunarApi\Domain\PaymentOptions\JsonApi\V1\Capabilities\QueryPaymentOptions;
+use Dystore\Api\Domain\PaymentOptions\Entities\PaymentOptionStorage;
+use Dystore\Api\Domain\PaymentOptions\JsonApi\V1\Capabilities\QueryPaymentOptions;
 use LaravelJsonApi\Contracts\Store\QueriesAll;
 use LaravelJsonApi\NonEloquent\AbstractRepository;
 

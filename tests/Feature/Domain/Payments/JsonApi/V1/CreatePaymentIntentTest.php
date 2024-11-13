@@ -1,9 +1,9 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Carts\Factories\CartFactory;
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
-use Dystcz\LunarApi\Domain\Orders\Models\Order;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Carts\Factories\CartFactory;
+use Dystore\Api\Domain\Carts\Models\Cart;
+use Dystore\Api\Domain\Orders\Models\Order;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\URL;
 

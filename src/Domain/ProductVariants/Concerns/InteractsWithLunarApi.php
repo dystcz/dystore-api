@@ -1,14 +1,14 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductVariants\Concerns;
+namespace Dystore\Api\Domain\ProductVariants\Concerns;
 
-use Dystcz\LunarApi\Base\Enums\PurchasableStatus;
-use Dystcz\LunarApi\Base\Traits\InteractsWithAvailability;
-use Dystcz\LunarApi\Domain\Attributes\Traits\InteractsWithAttributes;
-use Dystcz\LunarApi\Domain\Products\Models\Product;
-use Dystcz\LunarApi\Domain\ProductVariants\Factories\ProductVariantFactory;
-use Dystcz\LunarApi\Domain\ProductVariants\Models\ProductVariantMedia;
-use Dystcz\LunarApi\Hashids\Traits\HashesRouteKey;
+use Dystore\Api\Base\Enums\PurchasableStatus;
+use Dystore\Api\Base\Traits\InteractsWithAvailability;
+use Dystore\Api\Domain\Attributes\Traits\InteractsWithAttributes;
+use Dystore\Api\Domain\Products\Models\Product;
+use Dystore\Api\Domain\ProductVariants\Factories\ProductVariantFactory;
+use Dystore\Api\Domain\ProductVariants\Models\ProductVariantMedia;
+use Dystore\Api\Hashids\Traits\HashesRouteKey;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;

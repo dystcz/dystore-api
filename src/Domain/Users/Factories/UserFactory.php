@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\Factories;
+namespace Dystore\Api\Domain\Users\Factories;
 
-use Dystcz\LunarApi\Domain\Users\Models\User;
+use Dystore\Api\Domain\Users\Models\User;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 

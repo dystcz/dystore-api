@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\PaymentAdapters;
+namespace Dystore\Api\Domain\Payments\PaymentAdapters;
 
 class CashOnDeliveryPaymentAdapter extends OfflinePaymentAdapter
 {

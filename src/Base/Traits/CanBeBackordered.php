@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Traits;
+namespace Dystore\Api\Base\Traits;
 
-use Dystcz\LunarApi\Base\Enums\PurchasableStatus;
+use Dystore\Api\Base\Enums\PurchasableStatus;
 
 trait CanBeBackordered
 {

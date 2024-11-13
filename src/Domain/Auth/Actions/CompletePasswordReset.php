@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\Actions;
+namespace Dystore\Api\Domain\Auth\Actions;
 
-use Dystcz\LunarApi\Domain\Users\Models\User;
-use Dystcz\LunarApi\Support\Actions\Action;
+use Dystore\Api\Domain\Users\Models\User;
+use Dystore\Api\Support\Actions\Action;
 use Illuminate\Auth\Events\PasswordReset;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Str;

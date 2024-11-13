@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Base;
+namespace Dystore\Api\Base;
 
 use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
 use Illuminate\Foundation\Bus\DispatchesJobs;

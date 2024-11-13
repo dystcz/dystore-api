@@ -1,7 +1,7 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Products\Factories\ProductFactory;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Products\Factories\ProductFactory;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Lunar\Models\Tag;
 

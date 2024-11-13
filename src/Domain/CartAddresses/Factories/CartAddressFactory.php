@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CartAddresses\Factories;
+namespace Dystore\Api\Domain\CartAddresses\Factories;
 
 use Lunar\Database\Factories\CartAddressFactory as LunarCartAddressFactory;
 use Lunar\Models\Country;

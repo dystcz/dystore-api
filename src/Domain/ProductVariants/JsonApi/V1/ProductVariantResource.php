@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductVariants\JsonApi\V1;
+namespace Dystore\Api\Domain\ProductVariants\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Resources\JsonApiResource;
-use Dystcz\LunarApi\Domain\ProductVariants\Models\ProductVariant;
+use Dystore\Api\Domain\JsonApi\Resources\JsonApiResource;
+use Dystore\Api\Domain\ProductVariants\Models\ProductVariant;
 use Illuminate\Http\Request;
 
 class ProductVariantResource extends JsonApiResource

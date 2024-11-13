@@ -1,11 +1,11 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\Http\Controllers;
+namespace Dystore\Api\Domain\Auth\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Auth\Contracts\AuthUserOrdersController as AuthUserOrdersControllerContract;
-use Dystcz\LunarApi\Domain\Users\JsonApi\V1\UserSchema;
-use Dystcz\LunarApi\Domain\Users\Models\User;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Auth\Contracts\AuthUserOrdersController as AuthUserOrdersControllerContract;
+use Dystore\Api\Domain\Users\JsonApi\V1\UserSchema;
+use Dystore\Api\Domain\Users\Models\User;
 use LaravelJsonApi\Core\Responses\RelatedResponse;
 use LaravelJsonApi\Laravel\Http\Requests\ResourceQuery;
 

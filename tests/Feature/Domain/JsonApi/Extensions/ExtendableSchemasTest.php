@@ -1,9 +1,9 @@
 <?php
 
-use Dystcz\LunarApi\Base\Manifests\SchemaManifest;
-use Dystcz\LunarApi\Tests\Feature\Domain\JsonApi\Extensions\ExtendableSchemasMock;
-use Dystcz\LunarApi\Tests\Feature\Domain\JsonApi\Extensions\ServerMock;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Base\Manifests\SchemaManifest;
+use Dystore\Api\Tests\Feature\Domain\JsonApi\Extensions\ExtendableSchemasMock;
+use Dystore\Api\Tests\Feature\Domain\JsonApi\Extensions\ServerMock;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\App;
 use LaravelJsonApi\Eloquent\Fields\Str;

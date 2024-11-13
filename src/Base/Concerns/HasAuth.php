@@ -1,11 +1,11 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Concerns;
+namespace Dystore\Api\Base\Concerns;
 
-use Dystcz\LunarApi\Domain\Carts\Contracts\CheckoutCart;
-use Dystcz\LunarApi\Domain\Users\Contracts\CreatesNewUsers;
-use Dystcz\LunarApi\Domain\Users\Contracts\CreatesUserFromCart;
-use Dystcz\LunarApi\Domain\Users\Contracts\RegistersUser;
+use Dystore\Api\Domain\Carts\Contracts\CheckoutCart;
+use Dystore\Api\Domain\Users\Contracts\CreatesNewUsers;
+use Dystore\Api\Domain\Users\Contracts\CreatesUserFromCart;
+use Dystore\Api\Domain\Users\Contracts\RegistersUser;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Auth;

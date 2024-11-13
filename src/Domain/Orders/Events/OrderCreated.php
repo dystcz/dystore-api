@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Events;
+namespace Dystore\Api\Domain\Orders\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Lunar\Models\Contracts\Order as OrderContract;

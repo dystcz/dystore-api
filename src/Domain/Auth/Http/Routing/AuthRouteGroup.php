@@ -1,15 +1,15 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\Http\Routing;
+namespace Dystore\Api\Domain\Auth\Http\Routing;
 
-use Dystcz\LunarApi\Domain\Auth\Contracts\AuthController;
-use Dystcz\LunarApi\Domain\Auth\Contracts\AuthUserOrdersController;
-use Dystcz\LunarApi\Domain\Auth\Contracts\PasswordResetLinkController;
-use Dystcz\LunarApi\Domain\Auth\Contracts\RegisterUserWithoutPasswordController;
-use Dystcz\LunarApi\Domain\Auth\Http\Controllers\NewPasswordController;
-use Dystcz\LunarApi\Facades\LunarApi;
-use Dystcz\LunarApi\Routing\Contracts\RouteGroup as RouteGroupContract;
-use Dystcz\LunarApi\Routing\RouteGroup;
+use Dystore\Api\Domain\Auth\Contracts\AuthController;
+use Dystore\Api\Domain\Auth\Contracts\AuthUserOrdersController;
+use Dystore\Api\Domain\Auth\Contracts\PasswordResetLinkController;
+use Dystore\Api\Domain\Auth\Contracts\RegisterUserWithoutPasswordController;
+use Dystore\Api\Domain\Auth\Http\Controllers\NewPasswordController;
+use Dystore\Api\Facades\LunarApi;
+use Dystore\Api\Routing\Contracts\RouteGroup as RouteGroupContract;
+use Dystore\Api\Routing\RouteGroup;
 use LaravelJsonApi\Laravel\Facades\JsonApiRoute;
 use LaravelJsonApi\Laravel\Routing\ActionRegistrar;
 use LaravelJsonApi\Laravel\Routing\ResourceRegistrar;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\JsonApi\V1;
+namespace Dystore\Api\Domain\Carts\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
-use Dystcz\LunarApi\Domain\JsonApi\Resources\JsonApiResource;
+use Dystore\Api\Domain\Carts\Models\Cart;
+use Dystore\Api\Domain\JsonApi\Resources\JsonApiResource;
 use Illuminate\Http\Request;
 
 class CartResource extends JsonApiResource

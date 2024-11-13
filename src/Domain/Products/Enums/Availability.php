@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Products\Enums;
+namespace Dystore\Api\Domain\Products\Enums;
 
-use Dystcz\LunarApi\Base\Contracts\HasAvailability;
+use Dystore\Api\Base\Contracts\HasAvailability;
 use Illuminate\Contracts\Support\Arrayable;
 
 enum Availability: string implements Arrayable

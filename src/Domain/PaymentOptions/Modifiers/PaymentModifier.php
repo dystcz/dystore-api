@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\PaymentOptions\Modifiers;
+namespace Dystore\Api\Domain\PaymentOptions\Modifiers;
 
 use Lunar\Models\Cart;
 use Lunar\Models\Contracts\Cart as CartContract;

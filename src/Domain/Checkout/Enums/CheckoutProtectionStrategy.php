@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Checkout\Enums;
+namespace Dystore\Api\Domain\Checkout\Enums;
 
 enum CheckoutProtectionStrategy: string
 {

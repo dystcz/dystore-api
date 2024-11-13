@@ -1,12 +1,12 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Extensions;
+namespace Dystore\Api\Base\Extensions;
 
 use Closure;
-use Dystcz\LunarApi\Base\Contracts\Extendable;
-use Dystcz\LunarApi\Base\Contracts\SchemaExtension as SchemaExtensionContract;
-use Dystcz\LunarApi\Base\Data\ExtensionValue;
-use Dystcz\LunarApi\Base\Data\ExtensionValueCollection;
+use Dystore\Api\Base\Contracts\Extendable;
+use Dystore\Api\Base\Contracts\SchemaExtension as SchemaExtensionContract;
+use Dystore\Api\Base\Data\ExtensionValue;
+use Dystore\Api\Base\Data\ExtensionValueCollection;
 use InvalidArgumentException;
 use LaravelJsonApi\Eloquent\Fields\Relations\Relation;
 

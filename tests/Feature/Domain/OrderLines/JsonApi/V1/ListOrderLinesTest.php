@@ -1,7 +1,7 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Carts\Models\Cart;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(TestCase::class, RefreshDatabase::class);

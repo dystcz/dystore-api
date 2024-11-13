@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Attributes\Concerns;
+namespace Dystore\Api\Domain\Attributes\Concerns;
 
-use Dystcz\LunarApi\Hashids\Traits\HashesRouteKey;
+use Dystore\Api\Hashids\Traits\HashesRouteKey;
 
 trait InteractsWithLunarApi
 {

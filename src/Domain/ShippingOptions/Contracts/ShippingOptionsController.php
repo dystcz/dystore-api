@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ShippingOptions\Contracts;
+namespace Dystore\Api\Domain\ShippingOptions\Contracts;
 
 /**
- * @see \Dystcz\LunarApi\Domain\ShippingOptions\Http\Controllers\ShippingOptionsController
+ * @see \Dystore\Api\Domain\ShippingOptions\Http\Controllers\ShippingOptionsController
  */
 interface ShippingOptionsController {}

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Concerns;
+namespace Dystore\Api\Base\Concerns;
 
 trait HashesIds
 {

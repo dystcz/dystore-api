@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\Enums;
+namespace Dystore\Api\Domain\Payments\Enums;
 
 enum PaymentIntentStatus: string
 {

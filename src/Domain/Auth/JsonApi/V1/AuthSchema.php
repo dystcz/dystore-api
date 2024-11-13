@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\JsonApi\V1;
+namespace Dystore\Api\Domain\Auth\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\Auth\JsonApi\Proxies\AuthUser;
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\ProxySchema;
-use Dystcz\LunarApi\Domain\Users\JsonApi\V1\UserSchema;
+use Dystore\Api\Domain\Auth\JsonApi\Proxies\AuthUser;
+use Dystore\Api\Domain\JsonApi\Eloquent\ProxySchema;
+use Dystore\Api\Domain\Users\JsonApi\V1\UserSchema;
 use Illuminate\Support\Facades\App;
 
 class AuthSchema extends ProxySchema

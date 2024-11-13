@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\Actions;
+namespace Dystore\Api\Domain\Payments\Actions;
 
-use Dystcz\LunarApi\Domain\Payments\Contracts\PaymentIntent;
-use Dystcz\LunarApi\Domain\Payments\PaymentAdapters\PaymentAdaptersRegister;
-use Dystcz\LunarApi\Support\Actions\Action;
+use Dystore\Api\Domain\Payments\Contracts\PaymentIntent;
+use Dystore\Api\Domain\Payments\PaymentAdapters\PaymentAdaptersRegister;
+use Dystore\Api\Support\Actions\Action;
 use Lunar\Models\Contracts\Cart as CartContract;
 
 class CreatePaymentIntent extends Action

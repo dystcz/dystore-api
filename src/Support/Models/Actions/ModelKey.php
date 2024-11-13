@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Support\Models\Actions;
+namespace Dystore\Api\Support\Models\Actions;
 
-use Dystcz\LunarApi\Support\Actions\Action;
+use Dystore\Api\Support\Actions\Action;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Str;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Routing;
+namespace Dystore\Api\Routing;
 
-use Dystcz\LunarApi\Routing\Contracts\RouteGroup as RouteGroupContract;
+use Dystore\Api\Routing\Contracts\RouteGroup as RouteGroupContract;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductAssociations\JsonApi\V1;
+namespace Dystore\Api\Domain\ProductAssociations\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Queries\CollectionQuery;
+use Dystore\Api\Domain\JsonApi\Queries\CollectionQuery;
 
 class ProductAssociationCollectionQuery extends CollectionQuery
 {

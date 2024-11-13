@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\JsonApi\V1;
+namespace Dystore\Api\Domain\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Servers\Server as BaseServer;
+use Dystore\Api\Domain\JsonApi\Servers\Server as BaseServer;
 use Illuminate\Support\Facades\Config;
 
 class Server extends BaseServer

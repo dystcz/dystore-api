@@ -1,14 +1,14 @@
 
 <?php
 
-use Dystcz\LunarApi\Domain\Media\Factories\MediaFactory;
-use Dystcz\LunarApi\Domain\Prices\Factories\PriceFactory;
-use Dystcz\LunarApi\Domain\Prices\Models\Price;
-use Dystcz\LunarApi\Domain\Products\Models\Product;
-use Dystcz\LunarApi\Domain\ProductVariants\Factories\ProductVariantFactory;
-use Dystcz\LunarApi\Domain\ProductVariants\Models\ProductVariant;
-use Dystcz\LunarApi\Domain\Tags\Models\Tag;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Media\Factories\MediaFactory;
+use Dystore\Api\Domain\Prices\Factories\PriceFactory;
+use Dystore\Api\Domain\Prices\Models\Price;
+use Dystore\Api\Domain\Products\Models\Product;
+use Dystore\Api\Domain\ProductVariants\Factories\ProductVariantFactory;
+use Dystore\Api\Domain\ProductVariants\Models\ProductVariant;
+use Dystore\Api\Domain\Tags\Models\Tag;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(TestCase::class, RefreshDatabase::class);

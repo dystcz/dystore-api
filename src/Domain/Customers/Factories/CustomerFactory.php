@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Customers\Factories;
+namespace Dystore\Api\Domain\Customers\Factories;
 
-use Dystcz\LunarApi\Domain\OrderLines\Models\OrderLine;
-use Dystcz\LunarApi\Domain\Orders\Models\Order;
-use Dystcz\LunarApi\Domain\ProductVariants\Models\ProductVariant;
+use Dystore\Api\Domain\OrderLines\Models\OrderLine;
+use Dystore\Api\Domain\Orders\Models\Order;
+use Dystore\Api\Domain\ProductVariants\Models\ProductVariant;
 
 class CustomerFactory extends \Lunar\Database\Factories\CustomerFactory
 {

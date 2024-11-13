@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Collections\Factories;
+namespace Dystore\Api\Domain\Collections\Factories;
 
-use Dystcz\LunarApi\Domain\Media\Factories\MediaFactory;
+use Dystore\Api\Domain\Media\Factories\MediaFactory;
 use Illuminate\Support\Facades\Config;
 use Lunar\Database\Factories\CollectionFactory as LunarCollectionFactory;
 

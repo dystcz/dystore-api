@@ -1,7 +1,7 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Payments\Contracts\HandlePaymentWebhookController;
-use Dystcz\LunarApi\Support\Config\Actions\RegisterRoutesFromConfig;
+use Dystore\Api\Domain\Payments\Contracts\HandlePaymentWebhookController;
+use Dystore\Api\Support\Config\Actions\RegisterRoutesFromConfig;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Route;
 

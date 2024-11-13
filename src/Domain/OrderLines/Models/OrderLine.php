@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\OrderLines\Models;
+namespace Dystore\Api\Domain\OrderLines\Models;
 
-use Dystcz\LunarApi\Domain\OrderLines\Concerns\InteractsWithLunarApi;
-use Dystcz\LunarApi\Domain\OrderLines\Contracts\OrderLine as OrderLineContract;
+use Dystore\Api\Domain\OrderLines\Concerns\InteractsWithLunarApi;
+use Dystore\Api\Domain\OrderLines\Contracts\OrderLine as OrderLineContract;
 use Lunar\Models\OrderLine as LunarOrderLine;
 
 class OrderLine extends LunarOrderLine implements OrderLineContract

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ShippingOptions\JsonApi\V1;
+namespace Dystore\Api\Domain\ShippingOptions\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Queries\CollectionQuery;
+use Dystore\Api\Domain\JsonApi\Queries\CollectionQuery;
 
 class ShippingOptionCollectionQuery extends CollectionQuery
 {

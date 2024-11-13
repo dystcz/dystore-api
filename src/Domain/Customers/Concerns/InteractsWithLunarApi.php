@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Customers\Concerns;
+namespace Dystore\Api\Domain\Customers\Concerns;
 
-use Dystcz\LunarApi\Domain\Attributes\Traits\InteractsWithAttributes;
-use Dystcz\LunarApi\Domain\Customers\Factories\CustomerFactory;
-use Dystcz\LunarApi\Hashids\Traits\HashesRouteKey;
+use Dystore\Api\Domain\Attributes\Traits\InteractsWithAttributes;
+use Dystore\Api\Domain\Customers\Factories\CustomerFactory;
+use Dystore\Api\Hashids\Traits\HashesRouteKey;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 trait InteractsWithLunarApi

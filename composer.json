@@ -1,16 +1,18 @@
 {
-  "name": "dystcz/lunar-api",
-  "description": "Lunar API",
+  "name": "dystcz/dystore-api",
+  "description": "Dystore API layer for Lunar e-commerce package",
+  "homepage": "https://github.com/dystcz/dystore-api",
+  "license": "MIT",
+  "type": "library",
   "keywords": [
     "dystcz",
+    "dystopia",
     "lunar",
-    "lunar-api",
+    "dystore",
+    "dystore-api",
     "laravel",
     "php"
   ],
-  "homepage": "https://github.com/dystcz/lunar-api",
-  "license": "MIT",
-  "type": "library",
   "authors": [
     {
       "name": "Jakub Theimer",
@@ -45,12 +47,15 @@
   },
   "autoload": {
     "psr-4": {
-      "Dystcz\\LunarApi\\": "src"
-    }
+      "Dystore\\Api\\": "src"
+    },
+    "files": [
+      "autoload.php"
+    ]
   },
   "autoload-dev": {
     "psr-4": {
-      "Dystcz\\LunarApi\\Tests\\": "tests"
+      "Dystore\\Api\\Tests\\": "tests"
     }
   },
   "scripts": {
@@ -76,13 +81,10 @@
   "extra": {
     "laravel": {
       "providers": [
-        "Dystcz\\LunarApi\\LunarApiServiceProvider",
-        "Dystcz\\LunarApi\\JsonApiServiceProvider",
-        "Dystcz\\LunarApi\\LunarApiHashidsServiceProvider"
-      ],
-      "aliases": {
-        "LunarApi": "Dystcz\\LunarApi\\Facade\\LunarApi"
-      }
+        "Dystore\\Api\\LunarApiServiceProvider",
+        "Dystore\\Api\\JsonApiServiceProvider",
+        "Dystore\\Api\\LunarApiHashidsServiceProvider"
+      ]
     }
   },
   "minimum-stability": "dev",

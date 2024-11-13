@@ -1,11 +1,11 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Addresses\Models\Address;
-use Dystcz\LunarApi\Domain\Countries\Models\Country;
-use Dystcz\LunarApi\Domain\Customers\Models\Customer;
-use Dystcz\LunarApi\Domain\Users\Models\User;
-use Dystcz\LunarApi\Facades\LunarApi;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Addresses\Models\Address;
+use Dystore\Api\Domain\Countries\Models\Country;
+use Dystore\Api\Domain\Customers\Models\Customer;
+use Dystore\Api\Domain\Users\Models\User;
+use Dystore\Api\Facades\LunarApi;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 

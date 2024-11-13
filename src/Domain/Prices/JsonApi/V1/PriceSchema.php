@@ -1,13 +1,13 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Prices\JsonApi\V1;
+namespace Dystore\Api\Domain\Prices\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
-use Dystcz\LunarApi\Domain\Prices\Actions\GetComparePriceDiscount;
-use Dystcz\LunarApi\Domain\Prices\Actions\GetPrice;
-use Dystcz\LunarApi\Domain\Prices\Actions\GetPriceWithoutDefaultTax;
-use Dystcz\LunarApi\Domain\Prices\JsonApi\Filters\MaxPriceFilter;
-use Dystcz\LunarApi\Domain\Prices\JsonApi\Filters\MinPriceFilter;
+use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Domain\Prices\Actions\GetComparePriceDiscount;
+use Dystore\Api\Domain\Prices\Actions\GetPrice;
+use Dystore\Api\Domain\Prices\Actions\GetPriceWithoutDefaultTax;
+use Dystore\Api\Domain\Prices\JsonApi\Filters\MaxPriceFilter;
+use Dystore\Api\Domain\Prices\JsonApi\Filters\MinPriceFilter;
 use LaravelJsonApi\Eloquent\Fields\Boolean;
 use LaravelJsonApi\Eloquent\Fields\Map;
 use LaravelJsonApi\Eloquent\Fields\Number;

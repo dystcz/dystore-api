@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Tests\Feature\Domain\JsonApi\Extensions;
+namespace Dystore\Api\Tests\Feature\Domain\JsonApi\Extensions;
 
-use Dystcz\LunarApi\Domain\JsonApi\Resources\JsonApiResource;
+use Dystore\Api\Domain\JsonApi\Resources\JsonApiResource;
 
 class ProductResourceMock extends JsonApiResource
 {

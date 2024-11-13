@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\PaymentOptions\JsonApi\V1\Capabilities;
+namespace Dystore\Api\Domain\PaymentOptions\JsonApi\V1\Capabilities;
 
-use Dystcz\LunarApi\Domain\PaymentOptions\Entities\PaymentOptionStorage;
+use Dystore\Api\Domain\PaymentOptions\Entities\PaymentOptionStorage;
 use LaravelJsonApi\NonEloquent\Capabilities\QueryAll;
 
 class QueryPaymentOptions extends QueryAll

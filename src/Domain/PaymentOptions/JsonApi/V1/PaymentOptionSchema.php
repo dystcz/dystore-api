@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\PaymentOptions\JsonApi\V1;
+namespace Dystore\Api\Domain\PaymentOptions\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Core\Schema\TypeResolver;
-use Dystcz\LunarApi\Domain\PaymentOptions\Entities\PaymentOption;
+use Dystore\Api\Domain\JsonApi\Core\Schema\TypeResolver;
+use Dystore\Api\Domain\PaymentOptions\Entities\PaymentOption;
 use LaravelJsonApi\Core\Schema\Schema;
 use LaravelJsonApi\Eloquent\Fields\ArrayHash;
 use LaravelJsonApi\NonEloquent\Fields\Attribute;

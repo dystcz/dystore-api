@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Observers;
+namespace Dystore\Api\Domain\Orders\Observers;
 
-use Dystcz\LunarApi\Domain\Orders\Events\OrderStatusChanged;
+use Dystore\Api\Domain\Orders\Events\OrderStatusChanged;
 use Illuminate\Support\Facades\Event;
 use Lunar\Models\Contracts\Order as OrderContract;
 use Lunar\Models\Order;

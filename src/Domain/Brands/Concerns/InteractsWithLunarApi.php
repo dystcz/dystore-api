@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Brands\Concerns;
+namespace Dystore\Api\Domain\Brands\Concerns;
 
-use Dystcz\LunarApi\Domain\Brands\Factories\BrandFactory;
-use Dystcz\LunarApi\Hashids\Traits\HashesRouteKey;
+use Dystore\Api\Domain\Brands\Factories\BrandFactory;
+use Dystore\Api\Hashids\Traits\HashesRouteKey;
 
 trait InteractsWithLunarApi
 {

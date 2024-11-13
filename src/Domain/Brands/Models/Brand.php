@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Brands\Models;
+namespace Dystore\Api\Domain\Brands\Models;
 
-use Dystcz\LunarApi\Domain\Brands\Concerns\InteractsWithLunarApi;
-use Dystcz\LunarApi\Domain\Brands\Contracts\Brand as BrandContract;
+use Dystore\Api\Domain\Brands\Concerns\InteractsWithLunarApi;
+use Dystore\Api\Domain\Brands\Contracts\Brand as BrandContract;
 use Lunar\Models\Brand as LunarBrand;
 
 class Brand extends LunarBrand implements BrandContract

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Addresses\JsonApi\V1;
+namespace Dystore\Api\Domain\Addresses\JsonApi\V1;
 
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Validation\Validator;

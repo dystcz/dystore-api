@@ -1,11 +1,11 @@
 <?php
 
 use Carbon\Carbon;
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
-use Dystcz\LunarApi\Domain\Discounts\Factories\DiscountFactory;
-use Dystcz\LunarApi\Domain\Prices\Models\Price;
-use Dystcz\LunarApi\Domain\ProductVariants\Factories\ProductVariantFactory;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Carts\Models\Cart;
+use Dystore\Api\Domain\Discounts\Factories\DiscountFactory;
+use Dystore\Api\Domain\Prices\Models\Price;
+use Dystore\Api\Domain\ProductVariants\Factories\ProductVariantFactory;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Lunar\Base\CartSessionInterface;
 use Lunar\DiscountTypes\AmountOff;

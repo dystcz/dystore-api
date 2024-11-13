@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\Actions;
+namespace Dystore\Api\Domain\Payments\Actions;
 
-use Dystcz\LunarApi\Domain\Orders\Events\OrderPaymentSuccessful;
+use Dystore\Api\Domain\Orders\Events\OrderPaymentSuccessful;
 use Lunar\Base\DataTransferObjects\PaymentAuthorize;
 use Lunar\Facades\Payments;
 use Lunar\Models\Contracts\Cart as CartContract;

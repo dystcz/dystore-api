@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductOptions\Concerns;
+namespace Dystore\Api\Domain\ProductOptions\Concerns;
 
-use Dystcz\LunarApi\Domain\ProductOptions\Factories\ProductOptionFactory;
-use Dystcz\LunarApi\Hashids\Traits\HashesRouteKey;
+use Dystore\Api\Domain\ProductOptions\Factories\ProductOptionFactory;
+use Dystore\Api\Hashids\Traits\HashesRouteKey;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 trait InteractsWithLunarApi

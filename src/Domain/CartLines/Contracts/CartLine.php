@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CartLines\Contracts;
+namespace Dystore\Api\Domain\CartLines\Contracts;
 
 use Lunar\Models\Contracts\CartLine as LunarCartLine;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\TaxZones\Concerns;
+namespace Dystore\Api\Domain\TaxZones\Concerns;
 
-use Dystcz\LunarApi\Hashids\Traits\HashesRouteKey;
+use Dystore\Api\Hashids\Traits\HashesRouteKey;
 use Spatie\LaravelBlink\BlinkFacade;
 
 trait InteractsWithLunarApi

@@ -1,8 +1,8 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Carts\Factories\CartFactory;
-use Dystcz\LunarApi\Domain\Users\Models\User;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Carts\Factories\CartFactory;
+use Dystore\Api\Domain\Users\Models\User;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Auth\Events\Login;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\App;

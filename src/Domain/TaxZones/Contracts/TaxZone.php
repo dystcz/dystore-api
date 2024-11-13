@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\TaxZones\Contracts;
+namespace Dystore\Api\Domain\TaxZones\Contracts;
 
 use Lunar\Models\Contracts\TaxZone as LunarTaxZone;
 

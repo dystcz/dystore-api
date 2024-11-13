@@ -1,11 +1,11 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductVariants\Models;
+namespace Dystore\Api\Domain\ProductVariants\Models;
 
-use Dystcz\LunarApi\Base\Contracts\HasAvailability;
-use Dystcz\LunarApi\Base\Contracts\Translatable;
-use Dystcz\LunarApi\Domain\ProductVariants\Concerns\InteractsWithLunarApi;
-use Dystcz\LunarApi\Domain\ProductVariants\Contracts\ProductVariant as ProductVariantContract;
+use Dystore\Api\Base\Contracts\HasAvailability;
+use Dystore\Api\Base\Contracts\Translatable;
+use Dystore\Api\Domain\ProductVariants\Concerns\InteractsWithLunarApi;
+use Dystore\Api\Domain\ProductVariants\Contracts\ProductVariant as ProductVariantContract;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Collection;
 use Lunar\Models\ProductVariant as LunarPoductVariant;

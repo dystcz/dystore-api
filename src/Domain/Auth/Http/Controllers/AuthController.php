@@ -1,14 +1,14 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\Http\Controllers;
+namespace Dystore\Api\Domain\Auth\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Auth\JsonApi\V1\LoginRequest;
-use Dystcz\LunarApi\Domain\Users\Contracts\User as UserContract;
-use Dystcz\LunarApi\Domain\Users\JsonApi\V1\UserQuery;
-use Dystcz\LunarApi\Domain\Users\JsonApi\V1\UserSchema;
-use Dystcz\LunarApi\Domain\Users\Models\User;
-use Dystcz\LunarApi\Facades\LunarApi;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Auth\JsonApi\V1\LoginRequest;
+use Dystore\Api\Domain\Users\Contracts\User as UserContract;
+use Dystore\Api\Domain\Users\JsonApi\V1\UserQuery;
+use Dystore\Api\Domain\Users\JsonApi\V1\UserSchema;
+use Dystore\Api\Domain\Users\Models\User;
+use Dystore\Api\Facades\LunarApi;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;

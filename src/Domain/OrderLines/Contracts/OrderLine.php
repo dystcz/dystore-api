@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\OrderLines\Contracts;
+namespace Dystore\Api\Domain\OrderLines\Contracts;
 
 use Lunar\Models\Contracts\OrderLine as LunarOrderLine;
 

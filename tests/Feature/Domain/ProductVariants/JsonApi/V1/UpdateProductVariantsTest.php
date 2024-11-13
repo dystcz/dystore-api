@@ -1,9 +1,9 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Customers\Models\Customer;
-use Dystcz\LunarApi\Domain\ProductVariants\Models\ProductVariant;
-use Dystcz\LunarApi\Domain\Users\Models\User;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Customers\Models\Customer;
+use Dystore\Api\Domain\ProductVariants\Models\ProductVariant;
+use Dystore\Api\Domain\Users\Models\User;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(TestCase::class, RefreshDatabase::class);

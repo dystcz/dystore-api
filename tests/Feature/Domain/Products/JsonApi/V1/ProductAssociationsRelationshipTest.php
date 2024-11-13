@@ -1,10 +1,10 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Prices\Models\Price;
-use Dystcz\LunarApi\Domain\ProductAssociations\Models\ProductAssociation;
-use Dystcz\LunarApi\Domain\Products\Models\Product;
-use Dystcz\LunarApi\Domain\ProductVariants\Factories\ProductVariantFactory;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Prices\Models\Price;
+use Dystore\Api\Domain\ProductAssociations\Models\ProductAssociation;
+use Dystore\Api\Domain\Products\Models\Product;
+use Dystore\Api\Domain\ProductVariants\Factories\ProductVariantFactory;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(TestCase::class, RefreshDatabase::class);

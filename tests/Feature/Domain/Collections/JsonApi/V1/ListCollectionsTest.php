@@ -1,15 +1,15 @@
 <?php
 
-use Dystcz\LunarApi\Domain\CollectionGroups\Models\CollectionGroup;
-use Dystcz\LunarApi\Domain\Collections\Models\Collection;
-use Dystcz\LunarApi\Domain\Media\Factories\MediaFactory;
-use Dystcz\LunarApi\Domain\Prices\Factories\PriceFactory;
-use Dystcz\LunarApi\Domain\Prices\Models\Price;
-use Dystcz\LunarApi\Domain\Products\Models\Product;
-use Dystcz\LunarApi\Domain\ProductVariants\Factories\ProductVariantFactory;
-use Dystcz\LunarApi\Domain\ProductVariants\Models\ProductVariant;
-use Dystcz\LunarApi\Tests\Data\TestInclude;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\CollectionGroups\Models\CollectionGroup;
+use Dystore\Api\Domain\Collections\Models\Collection;
+use Dystore\Api\Domain\Media\Factories\MediaFactory;
+use Dystore\Api\Domain\Prices\Factories\PriceFactory;
+use Dystore\Api\Domain\Prices\Models\Price;
+use Dystore\Api\Domain\Products\Models\Product;
+use Dystore\Api\Domain\ProductVariants\Factories\ProductVariantFactory;
+use Dystore\Api\Domain\ProductVariants\Models\ProductVariant;
+use Dystore\Api\Tests\Data\TestInclude;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Collection as IlluminateCollection;
 

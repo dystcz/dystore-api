@@ -1,11 +1,11 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Products\Http\Controllers;
+namespace Dystore\Api\Domain\Products\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Products\Contracts\ProductsController as ProductsControllerContract;
-use Dystcz\LunarApi\Domain\Products\JsonApi\V1\ProductQuery;
-use Dystcz\LunarApi\Domain\Products\Models\Product;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Products\Contracts\ProductsController as ProductsControllerContract;
+use Dystore\Api\Domain\Products\JsonApi\V1\ProductQuery;
+use Dystore\Api\Domain\Products\Models\Product;
 use Illuminate\Support\Facades\App;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchMany;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchOne;

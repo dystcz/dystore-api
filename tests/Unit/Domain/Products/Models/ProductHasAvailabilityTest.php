@@ -1,12 +1,12 @@
 <?php
 
-use Dystcz\LunarApi\Base\Enums\PurchasableStatus;
-use Dystcz\LunarApi\Domain\Prices\Factories\PriceFactory;
-use Dystcz\LunarApi\Domain\Products\Enums\Availability;
-use Dystcz\LunarApi\Domain\Products\Factories\ProductFactory;
-use Dystcz\LunarApi\Domain\Products\Models\Product;
-use Dystcz\LunarApi\Domain\ProductVariants\Factories\ProductVariantFactory;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Base\Enums\PurchasableStatus;
+use Dystore\Api\Domain\Prices\Factories\PriceFactory;
+use Dystore\Api\Domain\Products\Enums\Availability;
+use Dystore\Api\Domain\Products\Factories\ProductFactory;
+use Dystore\Api\Domain\Products\Models\Product;
+use Dystore\Api\Domain\ProductVariants\Factories\ProductVariantFactory;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Lunar\FieldTypes\Text;

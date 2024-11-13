@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Tests\Stubs\Carts\Modifiers;
+namespace Dystore\Api\Tests\Stubs\Carts\Modifiers;
 
-use Dystcz\LunarApi\Domain\PaymentOptions\Entities\PaymentOption;
-use Dystcz\LunarApi\Domain\PaymentOptions\Facades\PaymentManifest;
-use Dystcz\LunarApi\Domain\PaymentOptions\Modifiers\PaymentModifier;
+use Dystore\Api\Domain\PaymentOptions\Entities\PaymentOption;
+use Dystore\Api\Domain\PaymentOptions\Facades\PaymentManifest;
+use Dystore\Api\Domain\PaymentOptions\Modifiers\PaymentModifier;
 use Lunar\DataTypes\Price;
 use Lunar\Models\Contracts\Cart as CartContract;
 use Lunar\Models\Contracts\Currency as CurrencyContract;

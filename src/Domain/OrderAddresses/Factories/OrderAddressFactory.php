@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\OrderAddresses\Factories;
+namespace Dystore\Api\Domain\OrderAddresses\Factories;
 
 use Lunar\Database\Factories\OrderAddressFactory as LunarOrderAddressFactory;
 

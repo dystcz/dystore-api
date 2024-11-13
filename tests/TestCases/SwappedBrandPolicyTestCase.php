@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Tests\TestCases;
+namespace Dystore\Api\Tests\TestCases;
 
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Support\Facades\Config;
 
 abstract class SwappedBrandPolicyTestCase extends TestCase
@@ -16,7 +16,7 @@ abstract class SwappedBrandPolicyTestCase extends TestCase
 
         Config::set(
             'lunar-api.domains.brands.policy',
-            \Dystcz\LunarApi\Tests\Stubs\Policies\TestBrandPolicy::class,
+            \Dystore\Api\Tests\Stubs\Policies\TestBrandPolicy::class,
         );
     }
 }

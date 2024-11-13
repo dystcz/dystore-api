@@ -1,12 +1,12 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Addresses\Http\Controllers;
+namespace Dystore\Api\Domain\Addresses\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Addresses\Contracts\AddressesController as AddressesControllerContract;
-use Dystcz\LunarApi\Domain\Addresses\JsonApi\V1\AddressQuery;
-use Dystcz\LunarApi\Domain\Addresses\JsonApi\V1\AddressRequest;
-use Dystcz\LunarApi\Domain\Addresses\JsonApi\V1\AddressSchema;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Addresses\Contracts\AddressesController as AddressesControllerContract;
+use Dystore\Api\Domain\Addresses\JsonApi\V1\AddressQuery;
+use Dystore\Api\Domain\Addresses\JsonApi\V1\AddressRequest;
+use Dystore\Api\Domain\Addresses\JsonApi\V1\AddressSchema;
 use LaravelJsonApi\Core\Responses\DataResponse;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\Destroy;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchMany;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Tests\Traits;
+namespace Dystore\Api\Tests\Traits;
 
-use Dystcz\LunarApi\Tests\Data\TestInclude;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Tests\Data\TestInclude;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;

@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\Actions;
+namespace Dystore\Api\Domain\Users\Actions;
 
-use Dystcz\LunarApi\Domain\Users\Contracts\CreatesNewUsers;
-use Dystcz\LunarApi\Domain\Users\Contracts\UserData;
+use Dystore\Api\Domain\Users\Contracts\CreatesNewUsers;
+use Dystore\Api\Domain\Users\Contracts\UserData;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Hash;

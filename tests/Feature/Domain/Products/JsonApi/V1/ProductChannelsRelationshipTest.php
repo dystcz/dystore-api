@@ -1,8 +1,8 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Channels\Models\Channel;
-use Dystcz\LunarApi\Domain\Products\Models\Product;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Channels\Models\Channel;
+use Dystore\Api\Domain\Products\Models\Product;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(TestCase::class, RefreshDatabase::class);

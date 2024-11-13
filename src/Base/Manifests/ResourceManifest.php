@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Manifests;
+namespace Dystore\Api\Base\Manifests;
 
-use Dystcz\LunarApi\Base\Contracts\ResourceExtension as ResourceExtensionContract;
-use Dystcz\LunarApi\Base\Contracts\ResourceManifest as ResourceManifestContract;
-use Dystcz\LunarApi\Domain\JsonApi\Resources\JsonApiResource;
+use Dystore\Api\Base\Contracts\ResourceExtension as ResourceExtensionContract;
+use Dystore\Api\Base\Contracts\ResourceManifest as ResourceManifestContract;
+use Dystore\Api\Domain\JsonApi\Resources\JsonApiResource;
 use Illuminate\Support\Facades\App;
 
 /**

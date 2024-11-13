@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Contracts;
+namespace Dystore\Api\Base\Contracts;
 
 use Closure;
 

@@ -1,6 +1,6 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Checkout\Enums\CheckoutProtectionStrategy;
+use Dystore\Api\Domain\Checkout\Enums\CheckoutProtectionStrategy;
 
 /*
  * Lunar API general configuration

@@ -1,11 +1,11 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Collections\JsonApi\V1;
+namespace Dystore\Api\Domain\Collections\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Fields\AttributeData;
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Sorts\InDefaultOrder;
-use Dystcz\LunarApi\Support\Models\Actions\SchemaType;
+use Dystore\Api\Domain\JsonApi\Eloquent\Fields\AttributeData;
+use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Domain\JsonApi\Eloquent\Sorts\InDefaultOrder;
+use Dystore\Api\Support\Models\Actions\SchemaType;
 use LaravelJsonApi\Eloquent\Fields\Number;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsTo;
 use LaravelJsonApi\Eloquent\Fields\Relations\HasMany;

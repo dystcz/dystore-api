@@ -1,6 +1,6 @@
 <?php
 
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(TestCase::class, RefreshDatabase::class);

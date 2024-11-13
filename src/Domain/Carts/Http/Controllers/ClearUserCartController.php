@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Http\Controllers;
+namespace Dystore\Api\Domain\Carts\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Carts\Contracts\ClearUserCartController as ClearUserCartControllerContract;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Carts\Contracts\ClearUserCartController as ClearUserCartControllerContract;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\App;
 use Lunar\Base\CartSessionInterface;

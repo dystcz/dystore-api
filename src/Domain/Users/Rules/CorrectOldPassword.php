@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\Rules;
+namespace Dystore\Api\Domain\Users\Rules;
 
 use Closure;
-use Dystcz\LunarApi\Domain\Users\Contracts\User;
+use Dystore\Api\Domain\Users\Contracts\User;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Support\Facades\Hash;
 

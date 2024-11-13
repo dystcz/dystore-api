@@ -1,14 +1,14 @@
 <?php
 
-namespace Dystcz\LunarApi\Tests;
+namespace Dystore\Api\Tests;
 
-use Dystcz\LunarApi\Domain\PaymentOptions\Modifiers\PaymentModifiers;
-use Dystcz\LunarApi\Facades\LunarApi;
-use Dystcz\LunarApi\Tests\Stubs\Carts\Modifiers\TestPaymentModifier;
-use Dystcz\LunarApi\Tests\Stubs\Carts\Modifiers\TestShippingModifier;
-use Dystcz\LunarApi\Tests\Stubs\Lunar\TestTaxDriver;
-use Dystcz\LunarApi\Tests\Stubs\Lunar\TestUrlGenerator;
-use Dystcz\LunarApi\Tests\Traits\JsonApiTestHelpers;
+use Dystore\Api\Domain\PaymentOptions\Modifiers\PaymentModifiers;
+use Dystore\Api\Facades\LunarApi;
+use Dystore\Api\Tests\Stubs\Carts\Modifiers\TestPaymentModifier;
+use Dystore\Api\Tests\Stubs\Carts\Modifiers\TestShippingModifier;
+use Dystore\Api\Tests\Stubs\Lunar\TestTaxDriver;
+use Dystore\Api\Tests\Stubs\Lunar\TestUrlGenerator;
+use Dystore\Api\Tests\Traits\JsonApiTestHelpers;
 use Illuminate\Contracts\Auth\Authenticatable as User;
 use Illuminate\Contracts\Config\Repository;
 use Illuminate\Contracts\Debug\ExceptionHandler;
@@ -100,12 +100,12 @@ abstract class TestCase extends OrchestraTestCase
             \Livewire\LivewireServiceProvider::class,
 
             // Lunar Api
-            \Dystcz\LunarApi\LunarApiServiceProvider::class,
-            \Dystcz\LunarApi\JsonApiServiceProvider::class,
+            \Dystore\Api\LunarApiServiceProvider::class,
+            \Dystore\Api\JsonApiServiceProvider::class,
 
             // Hashids
             \Vinkla\Hashids\HashidsServiceProvider::class,
-            \Dystcz\LunarApi\LunarApiHashidsServiceProvider::class,
+            \Dystore\Api\LunarApiHashidsServiceProvider::class,
         ];
     }
 
@@ -131,7 +131,7 @@ abstract class TestCase extends OrchestraTestCase
              */
             $config->set('auth.providers.users', [
                 'driver' => 'eloquent',
-                'model' => \Dystcz\LunarApi\Domain\Users\Models\User::class,
+                'model' => \Dystore\Api\Domain\Users\Models\User::class,
             ]);
 
             $config->set('auth.passwords.users', [

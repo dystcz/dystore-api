@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\JsonApi\V1;
+namespace Dystore\Api\Domain\Users\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\Users\Rules\CorrectOldPassword;
+use Dystore\Api\Domain\Users\Rules\CorrectOldPassword;
 use Illuminate\Validation\Rules\Password;
 use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
 

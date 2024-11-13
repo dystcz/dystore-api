@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Support\Actions;
+namespace Dystore\Api\Support\Actions;
 
 use Exception;
 

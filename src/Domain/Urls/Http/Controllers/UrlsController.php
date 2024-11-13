@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Urls\Http\Controllers;
+namespace Dystore\Api\Domain\Urls\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Urls\Contracts\UrlsController as UrlsControllerContract;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Urls\Contracts\UrlsController as UrlsControllerContract;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchMany;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchOne;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchRelated;

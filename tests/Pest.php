@@ -1,7 +1,7 @@
 <?php
 
-use Dystcz\LunarApi\Support\Models\Actions\ModelKey;
-use Dystcz\LunarApi\Tests\Stubs\Lunar\TestUrlGenerator;
+use Dystore\Api\Support\Models\Actions\ModelKey;
+use Dystore\Api\Tests\Stubs\Lunar\TestUrlGenerator;
 use Illuminate\Foundation\Testing\TestCase as IlluminateTestCase;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;

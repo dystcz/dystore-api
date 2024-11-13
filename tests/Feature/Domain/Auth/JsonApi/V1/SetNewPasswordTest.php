@@ -1,7 +1,7 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Users\Models\User;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Users\Models\User;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Password;

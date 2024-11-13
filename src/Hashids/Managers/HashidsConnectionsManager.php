@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Hashids\Managers;
+namespace Dystore\Api\Hashids\Managers;
 
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Collection;

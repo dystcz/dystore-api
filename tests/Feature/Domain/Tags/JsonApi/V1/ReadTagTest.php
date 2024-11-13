@@ -1,7 +1,7 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Tags\Models\Tag;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Tags\Models\Tag;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(TestCase::class, RefreshDatabase::class);

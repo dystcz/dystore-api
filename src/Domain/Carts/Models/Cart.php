@@ -1,11 +1,11 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Models;
+namespace Dystore\Api\Domain\Carts\Models;
 
-use Dystcz\LunarApi\Domain\Carts\Concerns\InteractsWithLunarApi;
-use Dystcz\LunarApi\Domain\Carts\Contracts\Cart as CartContract;
-use Dystcz\LunarApi\Domain\Carts\ValueObjects\PaymentBreakdown;
-use Dystcz\LunarApi\Domain\PaymentOptions\Entities\PaymentOption;
+use Dystore\Api\Domain\Carts\Concerns\InteractsWithLunarApi;
+use Dystore\Api\Domain\Carts\Contracts\Cart as CartContract;
+use Dystore\Api\Domain\Carts\ValueObjects\PaymentBreakdown;
+use Dystore\Api\Domain\PaymentOptions\Entities\PaymentOption;
 use Lunar\Base\ValueObjects\Cart\TaxBreakdown;
 use Lunar\DataTypes\Price;
 use Lunar\Models\Cart as LunarCart;

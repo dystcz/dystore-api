@@ -1,7 +1,7 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Brands\Models\Brand;
-use Dystcz\LunarApi\Tests\TestCases\SwappedBrandPolicyTestCase;
+use Dystore\Api\Domain\Brands\Models\Brand;
+use Dystore\Api\Tests\TestCases\SwappedBrandPolicyTestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\Config;
 
@@ -16,7 +16,7 @@ describe('policies', function () {
             ->create();
 
         $this->assertSame(
-            \Dystcz\LunarApi\Tests\Stubs\Policies\TestBrandPolicy::class,
+            \Dystore\Api\Tests\Stubs\Policies\TestBrandPolicy::class,
             Config::get('lunar-api.domains.brands.policy'),
         );
 

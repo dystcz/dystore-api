@@ -1,11 +1,11 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\Actions;
+namespace Dystore\Api\Domain\Users\Actions;
 
-use Dystcz\LunarApi\Domain\Users\Contracts\CreatesNewUsers;
-use Dystcz\LunarApi\Domain\Users\Contracts\RegistersUser;
-use Dystcz\LunarApi\Domain\Users\Contracts\UserData as UserDataContract;
-use Dystcz\LunarApi\Domain\Users\Data\UserData;
+use Dystore\Api\Domain\Users\Contracts\CreatesNewUsers;
+use Dystore\Api\Domain\Users\Contracts\RegistersUser;
+use Dystore\Api\Domain\Users\Contracts\UserData as UserDataContract;
+use Dystore\Api\Domain\Users\Data\UserData;
 use Illuminate\Auth\Events\Registered;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Event;

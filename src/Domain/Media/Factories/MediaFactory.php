@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Media\Factories;
+namespace Dystore\Api\Domain\Media\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;

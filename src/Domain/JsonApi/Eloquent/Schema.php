@@ -1,14 +1,14 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\JsonApi\Eloquent;
+namespace Dystore\Api\Domain\JsonApi\Eloquent;
 
-use Dystcz\LunarApi\Base\Contracts\Extendable as ExtendableContract;
-use Dystcz\LunarApi\Base\Contracts\SchemaExtension as SchemaExtensionContract;
-use Dystcz\LunarApi\Base\Contracts\SchemaManifest as SchemaManifestContract;
-use Dystcz\LunarApi\Domain\JsonApi\Contracts\Schema as SchemaContract;
-use Dystcz\LunarApi\Domain\JsonApi\Core\Schema\TypeResolver;
-use Dystcz\LunarApi\Facades\LunarApi;
-use Dystcz\LunarApi\Support\Models\Actions\ModelKey;
+use Dystore\Api\Base\Contracts\Extendable as ExtendableContract;
+use Dystore\Api\Base\Contracts\SchemaExtension as SchemaExtensionContract;
+use Dystore\Api\Base\Contracts\SchemaManifest as SchemaManifestContract;
+use Dystore\Api\Domain\JsonApi\Contracts\Schema as SchemaContract;
+use Dystore\Api\Domain\JsonApi\Core\Schema\TypeResolver;
+use Dystore\Api\Facades\LunarApi;
+use Dystore\Api\Support\Models\Actions\ModelKey;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;

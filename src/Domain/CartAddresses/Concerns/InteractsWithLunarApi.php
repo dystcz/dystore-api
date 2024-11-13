@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CartAddresses\Concerns;
+namespace Dystore\Api\Domain\CartAddresses\Concerns;
 
-use Dystcz\LunarApi\Domain\Addresses\Concerns\HasCompanyIdentifiersInMeta;
-use Dystcz\LunarApi\Domain\CartAddresses\Factories\CartAddressFactory;
-use Dystcz\LunarApi\Hashids\Traits\HashesRouteKey;
+use Dystore\Api\Domain\Addresses\Concerns\HasCompanyIdentifiersInMeta;
+use Dystore\Api\Domain\CartAddresses\Factories\CartAddressFactory;
+use Dystore\Api\Hashids\Traits\HashesRouteKey;
 
 trait InteractsWithLunarApi
 {

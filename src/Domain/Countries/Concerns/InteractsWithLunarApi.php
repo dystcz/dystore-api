@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Countries\Concerns;
+namespace Dystore\Api\Domain\Countries\Concerns;
 
-use Dystcz\LunarApi\Domain\Countries\Factories\CountryFactory;
-use Dystcz\LunarApi\Hashids\Traits\HashesRouteKey;
+use Dystore\Api\Domain\Countries\Factories\CountryFactory;
+use Dystore\Api\Hashids\Traits\HashesRouteKey;
 
 trait InteractsWithLunarApi
 {

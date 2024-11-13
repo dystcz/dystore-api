@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Transactions\Data;
+namespace Dystore\Api\Domain\Transactions\Data;
 
 use Carbon\Carbon;
 use Illuminate\Contracts\Support\Arrayable;

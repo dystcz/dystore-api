@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Validation;
+namespace Dystore\Api\Domain\Carts\Validation;
 
 use Lunar\Validation\BaseValidator;
 

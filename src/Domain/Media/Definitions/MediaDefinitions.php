@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Media\Definitions;
+namespace Dystore\Api\Domain\Media\Definitions;
 
 use Domain\Media\Data\ConversionData;
-use Dystcz\LunarApi\Domain\Media\Contracts\MediaDefinitions as MediaDefinitionsContract;
-use Dystcz\LunarApi\Domain\Media\Data\ConversionOptions;
+use Dystore\Api\Domain\Media\Contracts\MediaDefinitions as MediaDefinitionsContract;
+use Dystore\Api\Domain\Media\Data\ConversionOptions;
 use Lunar\Base\StandardMediaDefinitions;
 use Spatie\Image\Enums\Fit;
 use Spatie\MediaLibrary\Conversions\Conversion;

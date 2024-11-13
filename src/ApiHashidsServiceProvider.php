@@ -1,19 +1,19 @@
 <?php
 
-namespace Dystcz\LunarApi;
+namespace Dystore\Api;
 
-use Dystcz\LunarApi\Facades\LunarApi;
-use Dystcz\LunarApi\Hashids\Facades\HashidsConnections;
+use Dystore\Api\Facades\Api;
+use Dystore\Api\Hashids\Facades\HashidsConnections;
 use Illuminate\Support\ServiceProvider;
 
-class LunarApiHashidsServiceProvider extends ServiceProvider
+class ApiHashidsServiceProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
      */
     public function boot(): void
     {
-        if (LunarApi::usesHashids()) {
+        if (Api::usesHashids()) {
             HashidsConnections::registerConnections();
         }
     }
@@ -28,8 +28,8 @@ class LunarApiHashidsServiceProvider extends ServiceProvider
 
         // Register payment adapters register.
         $this->app->singleton(
-            \Dystcz\LunarApi\Hashids\Contracts\HashidsConnectionsManager::class,
-            fn () => new \Dystcz\LunarApi\Hashids\Managers\HashidsConnectionsManager,
+            \Dystore\Api\Hashids\Contracts\HashidsConnectionsManager::class,
+            fn () => new \Dystore\Api\Hashids\Managers\HashidsConnectionsManager,
         );
     }
 }

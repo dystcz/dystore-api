@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\OrderAddresses\Models;
+namespace Dystore\Api\Domain\OrderAddresses\Models;
 
-use Dystcz\LunarApi\Domain\OrderAddresses\Concerns\InteractsWithLunarApi;
-use Dystcz\LunarApi\Domain\OrderAddresses\Contracts\OrderAddress as OrderAddressContract;
+use Dystore\Api\Domain\OrderAddresses\Concerns\InteractsWithLunarApi;
+use Dystore\Api\Domain\OrderAddresses\Contracts\OrderAddress as OrderAddressContract;
 use Lunar\Models\OrderAddress as LunarOrderAddress;
 
 class OrderAddress extends LunarOrderAddress implements OrderAddressContract

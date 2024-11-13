@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Prices\Models;
+namespace Dystore\Api\Domain\Prices\Models;
 
-use Dystcz\LunarApi\Domain\Prices\Concerns\InteractsWithLunarApi;
-use Dystcz\LunarApi\Domain\Prices\Contracts\Price as PriceContract;
+use Dystore\Api\Domain\Prices\Concerns\InteractsWithLunarApi;
+use Dystore\Api\Domain\Prices\Contracts\Price as PriceContract;
 use Lunar\Models\Price as LunarPrice;
 
 class Price extends LunarPrice implements PriceContract

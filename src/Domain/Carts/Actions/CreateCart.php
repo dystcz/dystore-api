@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Actions;
+namespace Dystore\Api\Domain\Carts\Actions;
 
-use Dystcz\LunarApi\Support\Actions\Action;
+use Dystore\Api\Support\Actions\Action;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Support\Facades\App;
 use Lunar\Base\CartSessionInterface;

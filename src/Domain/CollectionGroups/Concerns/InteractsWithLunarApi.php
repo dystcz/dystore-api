@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CollectionGroups\Concerns;
+namespace Dystore\Api\Domain\CollectionGroups\Concerns;
 
-use Dystcz\LunarApi\Domain\CollectionGroups\Factories\CollectionGroupFactory;
-use Dystcz\LunarApi\Hashids\Traits\HashesRouteKey;
+use Dystore\Api\Domain\CollectionGroups\Factories\CollectionGroupFactory;
+use Dystore\Api\Hashids\Traits\HashesRouteKey;
 
 trait InteractsWithLunarApi
 {

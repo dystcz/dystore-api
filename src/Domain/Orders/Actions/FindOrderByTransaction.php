@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Actions;
+namespace Dystore\Api\Domain\Orders\Actions;
 
-use Dystcz\LunarApi\Domain\Payments\Data\PaymentIntent;
+use Dystore\Api\Domain\Payments\Data\PaymentIntent;
 use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Lunar\Models\Order;
 

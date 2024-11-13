@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Policies;
+namespace Dystore\Api\Domain\Orders\Policies;
 
-use Dystcz\LunarApi\Domain\Auth\Concerns\HandlesAuthorization;
-use Dystcz\LunarApi\Domain\Checkout\Enums\CheckoutProtectionStrategy;
+use Dystore\Api\Domain\Auth\Concerns\HandlesAuthorization;
+use Dystore\Api\Domain\Checkout\Enums\CheckoutProtectionStrategy;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;

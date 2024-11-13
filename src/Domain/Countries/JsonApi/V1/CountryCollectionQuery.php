@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Countries\JsonApi\V1;
+namespace Dystore\Api\Domain\Countries\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Queries\CollectionQuery;
+use Dystore\Api\Domain\JsonApi\Queries\CollectionQuery;
 use Illuminate\Support\Facades\Config;
 
 class CountryCollectionQuery extends CollectionQuery

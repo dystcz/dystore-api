@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Tests\Data;
+namespace Dystore\Api\Tests\Data;
 
 use Closure;
 use Illuminate\Database\Eloquent\Factories\Factory;

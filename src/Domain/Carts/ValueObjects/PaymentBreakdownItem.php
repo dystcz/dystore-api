@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\ValueObjects;
+namespace Dystore\Api\Domain\Carts\ValueObjects;
 
 use Lunar\DataTypes\Price;
 

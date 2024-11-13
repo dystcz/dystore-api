@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Countries\Http\Routing;
+namespace Dystore\Api\Domain\Countries\Http\Routing;
 
-use Dystcz\LunarApi\Domain\Countries\Contracts\CountriesController;
-use Dystcz\LunarApi\Routing\RouteGroup;
+use Dystore\Api\Domain\Countries\Contracts\CountriesController;
+use Dystore\Api\Routing\RouteGroup;
 use LaravelJsonApi\Laravel\Facades\JsonApiRoute;
 use LaravelJsonApi\Laravel\Routing\ResourceRegistrar;
 

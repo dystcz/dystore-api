@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\JsonApi\Servers;
+namespace Dystore\Api\Domain\JsonApi\Servers;
 
-use Dystcz\LunarApi\Base\Facades\SchemaManifestFacade;
+use Dystore\Api\Base\Facades\SchemaManifestFacade;
 use Illuminate\Support\Facades\Config;
 use LaravelJsonApi\Core\Server\Server as BaseServer;
 use LaravelJsonApi\Core\Support\AppResolver;

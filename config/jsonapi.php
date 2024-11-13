@@ -27,6 +27,6 @@ return [
     | class name of the server class.
     */
     'servers' => [
-        'v1' => Dystcz\LunarApi\Domain\JsonApi\V1\Server::class,
+        'v1' => Dystore\Api\Domain\JsonApi\V1\Server::class,
     ],
 ];

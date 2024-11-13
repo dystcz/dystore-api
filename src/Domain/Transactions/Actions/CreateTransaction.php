@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Transactions\Actions;
+namespace Dystore\Api\Domain\Transactions\Actions;
 
-use Dystcz\LunarApi\Domain\Transactions\Data\TransactionData;
+use Dystore\Api\Domain\Transactions\Data\TransactionData;
 use Lunar\Models\Transaction;
 
 class CreateTransaction

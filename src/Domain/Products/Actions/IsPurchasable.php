@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Products\Actions;
+namespace Dystore\Api\Domain\Products\Actions;
 
-use Dystcz\LunarApi\Domain\Products\Enums\Availability;
-use Dystcz\LunarApi\Domain\Products\Models\Product;
+use Dystore\Api\Domain\Products\Enums\Availability;
+use Dystore\Api\Domain\Products\Models\Product;
 use Illuminate\Support\Facades\Cache;
 use Lunar\Models\Contracts\Product as ProductContract;
 

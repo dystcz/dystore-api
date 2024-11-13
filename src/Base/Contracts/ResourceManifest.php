@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Contracts;
+namespace Dystore\Api\Base\Contracts;
 
-use Dystcz\LunarApi\Domain\JsonApi\Resources\JsonApiResource;
+use Dystore\Api\Domain\JsonApi\Resources\JsonApiResource;
 
 interface ResourceManifest extends Manifest
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\Http\Controllers;
+namespace Dystore\Api\Domain\Auth\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Auth\Contracts\RegisterUserWithoutPasswordController as RegisterUserWithoutPasswordControllerContract;
-use Dystcz\LunarApi\Domain\Auth\JsonApi\V1\UserWithoutPasswordRequest;
-use Dystcz\LunarApi\Domain\Users\Contracts\RegistersUser;
-use Dystcz\LunarApi\Domain\Users\Data\UserData;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Auth\Contracts\RegisterUserWithoutPasswordController as RegisterUserWithoutPasswordControllerContract;
+use Dystore\Api\Domain\Auth\JsonApi\V1\UserWithoutPasswordRequest;
+use Dystore\Api\Domain\Users\Contracts\RegistersUser;
+use Dystore\Api\Domain\Users\Data\UserData;
 use LaravelJsonApi\Core\Responses\DataResponse;
 
 class RegisterUserWithoutPasswordController extends Controller implements RegisterUserWithoutPasswordControllerContract

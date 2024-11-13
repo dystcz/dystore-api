@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Hashids\Contracts;
+namespace Dystore\Api\Hashids\Contracts;
 
 use Illuminate\Support\Collection;
 

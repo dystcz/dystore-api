@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Addresses\Http\Enums;
+namespace Dystore\Api\Domain\Addresses\Http\Enums;
 
 enum AddressType: string
 {

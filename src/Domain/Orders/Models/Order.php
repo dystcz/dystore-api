@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Models;
+namespace Dystore\Api\Domain\Orders\Models;
 
-use Dystcz\LunarApi\Domain\Orders\Concerns\InteractsWithLunarApi;
-use Dystcz\LunarApi\Domain\Orders\Contracts\Order as OrderContract;
+use Dystore\Api\Domain\Orders\Concerns\InteractsWithLunarApi;
+use Dystore\Api\Domain\Orders\Contracts\Order as OrderContract;
 use Lunar\Models\Order as LunarOrder;
 
 /**

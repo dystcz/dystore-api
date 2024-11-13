@@ -1,14 +1,14 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Products\Concerns;
+namespace Dystore\Api\Domain\Products\Concerns;
 
-use Dystcz\LunarApi\Domain\Prices\Models\Price;
-use Dystcz\LunarApi\Domain\Products\Actions\IsPurchasable;
-use Dystcz\LunarApi\Domain\Products\Builders\ProductBuilder;
-use Dystcz\LunarApi\Domain\Products\Factories\ProductFactory;
-use Dystcz\LunarApi\Domain\Products\Models\Product;
-use Dystcz\LunarApi\Domain\ProductTypes\Models\ProductType;
-use Dystcz\LunarApi\Hashids\Traits\HashesRouteKey;
+use Dystore\Api\Domain\Prices\Models\Price;
+use Dystore\Api\Domain\Products\Actions\IsPurchasable;
+use Dystore\Api\Domain\Products\Builders\ProductBuilder;
+use Dystore\Api\Domain\Products\Factories\ProductFactory;
+use Dystore\Api\Domain\Products\Models\Product;
+use Dystore\Api\Domain\ProductTypes\Models\ProductType;
+use Dystore\Api\Hashids\Traits\HashesRouteKey;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Casts\Attribute as Attr;
 use Illuminate\Database\Eloquent\Model;

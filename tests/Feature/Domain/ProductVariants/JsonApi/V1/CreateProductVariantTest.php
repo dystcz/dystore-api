@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Tests\Feature\Domain\ProductVariants\JsonApi\V1;
+namespace Dystore\Api\Tests\Feature\Domain\ProductVariants\JsonApi\V1;
 
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 
 uses(TestCase::class, RefreshDatabase::class);

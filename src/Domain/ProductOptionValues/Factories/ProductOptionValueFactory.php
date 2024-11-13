@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductOptionValues\Factories;
+namespace Dystore\Api\Domain\ProductOptionValues\Factories;
 
 use Lunar\Database\Factories\ProductOptionValueFactory as LunarProductOptionValueFactory;
 

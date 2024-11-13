@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Customers\Models;
+namespace Dystore\Api\Domain\Customers\Models;
 
-use Dystcz\LunarApi\Domain\Customers\Concerns\InteractsWithLunarApi;
-use Dystcz\LunarApi\Domain\Customers\Contracts\Customer as CustomerContract;
+use Dystore\Api\Domain\Customers\Concerns\InteractsWithLunarApi;
+use Dystore\Api\Domain\Customers\Contracts\Customer as CustomerContract;
 use Lunar\Models\Customer as LunarCustomer;
 
 /**

@@ -1,12 +1,12 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\Contracts;
+namespace Dystore\Api\Domain\Payments\Contracts;
 
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 
 /**
- * @see \Dystcz\LunarApi\Domain\Payments\Http\Controllers\HandlePaymentWebhookController
+ * @see \Dystore\Api\Domain\Payments\Http\Controllers\HandlePaymentWebhookController
  */
 interface HandlePaymentWebhookController
 {

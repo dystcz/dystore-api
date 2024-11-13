@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\Actions;
+namespace Dystore\Api\Domain\Payments\Actions;
 
 use Lunar\Models\Contracts\Order as OrderContract;
 use Lunar\Models\Contracts\Transaction as TransactionContract;

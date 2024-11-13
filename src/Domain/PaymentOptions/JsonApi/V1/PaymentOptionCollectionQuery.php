@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\PaymentOptions\JsonApi\V1;
+namespace Dystore\Api\Domain\PaymentOptions\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Queries\CollectionQuery;
+use Dystore\Api\Domain\JsonApi\Queries\CollectionQuery;
 
 class PaymentOptionCollectionQuery extends CollectionQuery
 {

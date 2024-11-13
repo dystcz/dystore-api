@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CollectionGroups\Factories;
+namespace Dystore\Api\Domain\CollectionGroups\Factories;
 
 use Lunar\Database\Factories\CollectionGroupFactory as LunarCollectionGroupFactory;
 

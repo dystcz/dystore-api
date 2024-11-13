@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\JsonApi\V1;
+namespace Dystore\Api\Domain\Orders\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Resources\JsonApiResource;
+use Dystore\Api\Domain\JsonApi\Resources\JsonApiResource;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\URL;
 use LaravelJsonApi\Core\Document\Link;

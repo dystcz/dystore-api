@@ -1,7 +1,7 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Products\Models\Product;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Products\Models\Product;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Lunar\Models\ProductOption;
 

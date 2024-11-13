@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\JsonApi\Eloquent;
+namespace Dystore\Api\Domain\JsonApi\Eloquent;
 
 use Illuminate\Database\Eloquent\Model;
 use LaravelJsonApi\Eloquent\Contracts\Parser;

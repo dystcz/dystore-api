@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Urls\Contracts;
+namespace Dystore\Api\Domain\Urls\Contracts;
 
 use Lunar\Models\Contracts\Url as LunarUrl;
 

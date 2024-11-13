@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Products\JsonApi\Filters;
+namespace Dystore\Api\Domain\Products\JsonApi\Filters;
 
-use Dystcz\LunarApi\Domain\JsonApi\Contracts\FilterCollection;
+use Dystore\Api\Domain\JsonApi\Contracts\FilterCollection;
 use Illuminate\Support\Collection;
 use LaravelJsonApi\Eloquent\Filters\Where;
 use Lunar\Models\Attribute;

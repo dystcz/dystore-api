@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Currencies\Concerns;
+namespace Dystore\Api\Domain\Currencies\Concerns;
 
-use Dystcz\LunarApi\Domain\Currencies\Factories\CurrencyFactory;
-use Dystcz\LunarApi\Hashids\Traits\HashesRouteKey;
+use Dystore\Api\Domain\Currencies\Factories\CurrencyFactory;
+use Dystore\Api\Hashids\Traits\HashesRouteKey;
 
 trait InteractsWithLunarApi
 {

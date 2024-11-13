@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\OrderAddresses\JsonApi\V1;
+namespace Dystore\Api\Domain\OrderAddresses\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Resources\JsonApiResource;
+use Dystore\Api\Domain\JsonApi\Resources\JsonApiResource;
 use Illuminate\Http\Request;
 
 class OrderAddressResource extends JsonApiResource

@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Tags\Http\Controllers;
+namespace Dystore\Api\Domain\Tags\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Tags\Contracts\TagsController as TagsControllerContract;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Tags\Contracts\TagsController as TagsControllerContract;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchMany;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchOne;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchRelated;

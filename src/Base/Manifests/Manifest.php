@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Manifests;
+namespace Dystore\Api\Base\Manifests;
 
-use Dystcz\LunarApi\Base\Contracts\Extendable;
+use Dystore\Api\Base\Contracts\Extendable;
 
 abstract class Manifest
 {

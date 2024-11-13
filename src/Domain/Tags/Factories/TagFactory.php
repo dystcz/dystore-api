@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Tags\Factories;
+namespace Dystore\Api\Domain\Tags\Factories;
 
 use Lunar\Database\Factories\TagFactory as LunarTagFactory;
 

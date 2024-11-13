@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Concerns;
+namespace Dystore\Api\Domain\Carts\Concerns;
 
-use Dystcz\LunarApi\Domain\Carts\Events\CartCreated;
-use Dystcz\LunarApi\Domain\Carts\Factories\CartFactory;
-use Dystcz\LunarApi\Hashids\Traits\HashesRouteKey;
+use Dystore\Api\Domain\Carts\Events\CartCreated;
+use Dystore\Api\Domain\Carts\Factories\CartFactory;
+use Dystore\Api\Hashids\Traits\HashesRouteKey;
 use Lunar\Models\Contracts\Cart as CartContract;
 
 trait InteractsWithLunarApi

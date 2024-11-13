@@ -1,11 +1,11 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Collections\Concerns;
+namespace Dystore\Api\Domain\Collections\Concerns;
 
-use Dystcz\LunarApi\Domain\Attributes\Traits\InteractsWithAttributes;
-use Dystcz\LunarApi\Domain\Collections\Factories\CollectionFactory;
-use Dystcz\LunarApi\Domain\Collections\Models\Collection;
-use Dystcz\LunarApi\Hashids\Traits\HashesRouteKey;
+use Dystore\Api\Domain\Attributes\Traits\InteractsWithAttributes;
+use Dystore\Api\Domain\Collections\Factories\CollectionFactory;
+use Dystore\Api\Domain\Collections\Models\Collection;
+use Dystore\Api\Hashids\Traits\HashesRouteKey;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Facades\Config;
 

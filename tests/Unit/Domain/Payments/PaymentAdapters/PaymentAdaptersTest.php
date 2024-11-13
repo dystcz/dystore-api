@@ -1,10 +1,10 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
-use Dystcz\LunarApi\Domain\Payments\Contracts\PaymentIntent;
-use Dystcz\LunarApi\Domain\Payments\PaymentAdapters\PaymentAdaptersRegister;
-use Dystcz\LunarApi\Tests\Stubs\Payments\PaymentAdapters\TestPaymentAdapter;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Carts\Models\Cart;
+use Dystore\Api\Domain\Payments\Contracts\PaymentIntent;
+use Dystore\Api\Domain\Payments\PaymentAdapters\PaymentAdaptersRegister;
+use Dystore\Api\Tests\Stubs\Payments\PaymentAdapters\TestPaymentAdapter;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;

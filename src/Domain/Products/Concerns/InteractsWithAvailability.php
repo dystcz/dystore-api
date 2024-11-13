@@ -1,11 +1,11 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Products\Concerns;
+namespace Dystore\Api\Domain\Products\Concerns;
 
-use Dystcz\LunarApi\Base\Traits\InteractsWithAvailability as BaseInteractsWithAvailability;
-use Dystcz\LunarApi\Domain\Products\Enums\Availability;
-use Dystcz\LunarApi\Domain\Products\Models\Product;
-use Dystcz\LunarApi\Domain\ProductVariants\Models\ProductVariant;
+use Dystore\Api\Base\Traits\InteractsWithAvailability as BaseInteractsWithAvailability;
+use Dystore\Api\Domain\Products\Enums\Availability;
+use Dystore\Api\Domain\Products\Models\Product;
+use Dystore\Api\Domain\ProductVariants\Models\ProductVariant;
 use Lunar\Models\Contracts\ProductVariant as ProductVariantContract;
 
 trait InteractsWithAvailability

@@ -1,6 +1,6 @@
 <?php
 
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;

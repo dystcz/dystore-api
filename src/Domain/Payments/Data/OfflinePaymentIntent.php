@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\Data;
+namespace Dystore\Api\Domain\Payments\Data;
 
-use Dystcz\LunarApi\Domain\Payments\Contracts\PaymentIntent as PaymentIntentContract;
-use Dystcz\LunarApi\Domain\Payments\Enums\PaymentIntentStatus;
+use Dystore\Api\Domain\Payments\Contracts\PaymentIntent as PaymentIntentContract;
+use Dystore\Api\Domain\Payments\Enums\PaymentIntentStatus;
 
 class OfflinePaymentIntent implements PaymentIntentContract
 {

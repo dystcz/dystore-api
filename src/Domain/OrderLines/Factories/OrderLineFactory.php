@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\OrderLines\Factories;
+namespace Dystore\Api\Domain\OrderLines\Factories;
 
-use Dystcz\LunarApi\Domain\Orders\Models\Order;
+use Dystore\Api\Domain\Orders\Models\Order;
 use Lunar\Database\Factories\OrderLineFactory as LunarOrderLineFactory;
 
 class OrderLineFactory extends LunarOrderLineFactory

@@ -1,11 +1,11 @@
 <?php
 
-use Dystcz\LunarApi\Domain\CartLines\Models\CartLine;
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
-use Dystcz\LunarApi\Domain\Prices\Models\Price;
-use Dystcz\LunarApi\Domain\ProductVariants\Factories\ProductVariantFactory;
-use Dystcz\LunarApi\Domain\ProductVariants\Models\ProductVariant;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\CartLines\Models\CartLine;
+use Dystore\Api\Domain\Carts\Models\Cart;
+use Dystore\Api\Domain\Prices\Models\Price;
+use Dystore\Api\Domain\ProductVariants\Factories\ProductVariantFactory;
+use Dystore\Api\Domain\ProductVariants\Models\ProductVariant;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Lunar\Facades\CartSession;
 use Lunar\Models\Currency;

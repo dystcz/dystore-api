@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\JsonApi\V1;
+namespace Dystore\Api\Domain\Carts\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\CartAddresses\Models\CartAddress;
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
+use Dystore\Api\Domain\CartAddresses\Models\CartAddress;
+use Dystore\Api\Domain\Carts\Models\Cart;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Validation\Validator;

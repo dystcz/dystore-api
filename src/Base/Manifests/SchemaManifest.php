@@ -1,12 +1,12 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Manifests;
+namespace Dystore\Api\Base\Manifests;
 
-use Dystcz\LunarApi\Base\Contracts\SchemaExtension as SchemaExtensionContract;
-use Dystcz\LunarApi\Base\Contracts\SchemaManifest as SchemaManifestContract;
-use Dystcz\LunarApi\Domain\JsonApi\Contracts\Schema as SchemaContract;
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
-use Dystcz\LunarApi\Support\Config\Collections\DomainConfigCollection;
+use Dystore\Api\Base\Contracts\SchemaExtension as SchemaExtensionContract;
+use Dystore\Api\Base\Contracts\SchemaManifest as SchemaManifestContract;
+use Dystore\Api\Domain\JsonApi\Contracts\Schema as SchemaContract;
+use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Support\Config\Collections\DomainConfigCollection;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
 
@@ -21,7 +21,7 @@ class SchemaManifest extends Manifest implements SchemaManifestContract
     protected Collection $schemas;
 
     /**
-     * @var Dystcz\LunarApi\Base\Contracts\SchemaExtension[]
+     * @var Dystore\Api\Base\Contracts\SchemaExtension[]
      */
     public array $extensions;
 

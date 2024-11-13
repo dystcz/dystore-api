@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Discounts\Data;
+namespace Dystore\Api\Domain\Discounts\Data;
 
 use Illuminate\Contracts\Support\Arrayable;
 use Lunar\Base\ValueObjects\Cart\DiscountBreakdown as LunarDiscountBreakdown;

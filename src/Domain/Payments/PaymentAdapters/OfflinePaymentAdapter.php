@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\PaymentAdapters;
+namespace Dystore\Api\Domain\Payments\PaymentAdapters;
 
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
-use Dystcz\LunarApi\Domain\Payments\Contracts\PaymentIntent as PaymentIntentContract;
-use Dystcz\LunarApi\Domain\Payments\Data\OfflinePaymentIntent;
+use Dystore\Api\Domain\Carts\Models\Cart;
+use Dystore\Api\Domain\Payments\Contracts\PaymentIntent as PaymentIntentContract;
+use Dystore\Api\Domain\Payments\Data\OfflinePaymentIntent;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Lunar\Models\Contracts\Cart as CartContract;

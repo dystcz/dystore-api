@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Rules;
+namespace Dystore\Api\Domain\Carts\Rules;
 
 use Lunar\Rules\ValidCoupon as LunarValidCoupon;
 

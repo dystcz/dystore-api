@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\Models;
+namespace Dystore\Api\Domain\Users\Models;
 
-use Dystcz\LunarApi\Domain\Users\Concerns\InteractsWithLunarApi;
-use Dystcz\LunarApi\Domain\Users\Contracts\User as UserContract;
-use Dystcz\LunarApi\Domain\Users\Factories\UserFactory;
+use Dystore\Api\Domain\Users\Concerns\InteractsWithLunarApi;
+use Dystore\Api\Domain\Users\Contracts\User as UserContract;
+use Dystore\Api\Domain\Users\Factories\UserFactory;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;

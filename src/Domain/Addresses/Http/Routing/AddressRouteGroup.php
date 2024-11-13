@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Addresses\Http\Routing;
+namespace Dystore\Api\Domain\Addresses\Http\Routing;
 
-use Dystcz\LunarApi\Domain\Addresses\Contracts\AddressesController;
-use Dystcz\LunarApi\Facades\LunarApi;
-use Dystcz\LunarApi\Routing\RouteGroup;
+use Dystore\Api\Domain\Addresses\Contracts\AddressesController;
+use Dystore\Api\Facades\LunarApi;
+use Dystore\Api\Routing\RouteGroup;
 use LaravelJsonApi\Laravel\Facades\JsonApiRoute;
 use LaravelJsonApi\Laravel\Routing\Relationships;
 use LaravelJsonApi\Laravel\Routing\ResourceRegistrar;

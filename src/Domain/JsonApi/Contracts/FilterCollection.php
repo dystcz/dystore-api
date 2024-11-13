@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\JsonApi\Contracts;
+namespace Dystore\Api\Domain\JsonApi\Contracts;
 
 interface FilterCollection
 {

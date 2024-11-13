@@ -1,12 +1,12 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Factories;
+namespace Dystore\Api\Domain\Carts\Factories;
 
-use Dystcz\LunarApi\Domain\CartAddresses\Models\CartAddress;
-use Dystcz\LunarApi\Domain\CartLines\Models\CartLine;
-use Dystcz\LunarApi\Domain\Currencies\Models\Currency;
-use Dystcz\LunarApi\Domain\Products\Models\Product;
-use Dystcz\LunarApi\Domain\ProductVariants\Models\ProductVariant;
+use Dystore\Api\Domain\CartAddresses\Models\CartAddress;
+use Dystore\Api\Domain\CartLines\Models\CartLine;
+use Dystore\Api\Domain\Currencies\Models\Currency;
+use Dystore\Api\Domain\Products\Models\Product;
+use Dystore\Api\Domain\ProductVariants\Models\ProductVariant;
 use Lunar\Models\Channel;
 
 class CartFactory extends \Lunar\Database\Factories\CartFactory

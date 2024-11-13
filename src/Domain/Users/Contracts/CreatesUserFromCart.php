@@ -1,5 +1,5 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\Contracts;
+namespace Dystore\Api\Domain\Users\Contracts;
 
 interface CreatesUserFromCart {}

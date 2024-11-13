@@ -1,12 +1,12 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Http\Controllers;
+namespace Dystore\Api\Domain\Orders\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Orders\Contracts\CheckOrderPaymentStatusController as CheckOrderPaymentStatusControllerContract;
-use Dystcz\LunarApi\Domain\Orders\JsonApi\V1\CheckOrderPaymentStatusQuery;
-use Dystcz\LunarApi\Domain\Orders\JsonApi\V1\OrderSchema;
-use Dystcz\LunarApi\Domain\Orders\Models\Order;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Orders\Contracts\CheckOrderPaymentStatusController as CheckOrderPaymentStatusControllerContract;
+use Dystore\Api\Domain\Orders\JsonApi\V1\CheckOrderPaymentStatusQuery;
+use Dystore\Api\Domain\Orders\JsonApi\V1\OrderSchema;
+use Dystore\Api\Domain\Orders\Models\Order;
 use LaravelJsonApi\Core\Responses\DataResponse;
 use Lunar\Models\Contracts\Order as OrderContract;
 

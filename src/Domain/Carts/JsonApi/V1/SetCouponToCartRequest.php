@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\JsonApi\V1;
+namespace Dystore\Api\Domain\Carts\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\Carts\Rules\ValidCoupon;
+use Dystore\Api\Domain\Carts\Rules\ValidCoupon;
 use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
 
 class SetCouponToCartRequest extends ResourceRequest

@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Actions;
+namespace Dystore\Api\Domain\Orders\Actions;
 
-use Dystcz\LunarApi\Domain\Orders\Contracts\OrderStatusContract;
-use Dystcz\LunarApi\Domain\Orders\Models\Order;
+use Dystore\Api\Domain\Orders\Contracts\OrderStatusContract;
+use Dystore\Api\Domain\Orders\Models\Order;
 use Lunar\Models\Contracts\Order as OrderContract;
 
 class ChangeOrderStatus

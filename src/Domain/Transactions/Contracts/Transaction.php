@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Transactions\Contracts;
+namespace Dystore\Api\Domain\Transactions\Contracts;
 
 use Lunar\Models\Contracts\Transaction as LunarTransaction;
 

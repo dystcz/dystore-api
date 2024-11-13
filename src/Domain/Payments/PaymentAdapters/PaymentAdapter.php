@@ -1,14 +1,14 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\PaymentAdapters;
+namespace Dystore\Api\Domain\Payments\PaymentAdapters;
 
 use BadMethodCallException;
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
-use Dystcz\LunarApi\Domain\Orders\Models\Order;
-use Dystcz\LunarApi\Domain\Payments\Contracts\PaymentIntent;
-use Dystcz\LunarApi\Domain\Payments\Enums\TransactionType;
-use Dystcz\LunarApi\Domain\Transactions\Actions\CreateTransaction;
-use Dystcz\LunarApi\Domain\Transactions\Data\TransactionData;
+use Dystore\Api\Domain\Carts\Models\Cart;
+use Dystore\Api\Domain\Orders\Models\Order;
+use Dystore\Api\Domain\Payments\Contracts\PaymentIntent;
+use Dystore\Api\Domain\Payments\Enums\TransactionType;
+use Dystore\Api\Domain\Transactions\Actions\CreateTransaction;
+use Dystore\Api\Domain\Transactions\Data\TransactionData;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;

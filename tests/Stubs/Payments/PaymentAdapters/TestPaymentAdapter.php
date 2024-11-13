@@ -1,11 +1,11 @@
 <?php
 
-namespace Dystcz\LunarApi\Tests\Stubs\Payments\PaymentAdapters;
+namespace Dystore\Api\Tests\Stubs\Payments\PaymentAdapters;
 
-use Dystcz\LunarApi\Domain\Payments\Contracts\PaymentIntent as PaymentIntentContract;
-use Dystcz\LunarApi\Domain\Payments\Data\PaymentIntent;
-use Dystcz\LunarApi\Domain\Payments\Enums\PaymentIntentStatus;
-use Dystcz\LunarApi\Domain\Payments\PaymentAdapters\PaymentAdapter;
+use Dystore\Api\Domain\Payments\Contracts\PaymentIntent as PaymentIntentContract;
+use Dystore\Api\Domain\Payments\Data\PaymentIntent;
+use Dystore\Api\Domain\Payments\Enums\PaymentIntentStatus;
+use Dystore\Api\Domain\Payments\PaymentAdapters\PaymentAdapter;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 use Lunar\Models\Contracts\Cart as CartContract;

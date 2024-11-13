@@ -1,11 +1,11 @@
 <?php
 
-use Dystcz\LunarApi\Domain\Brands\Models\Brand;
-use Dystcz\LunarApi\Domain\Customers\Models\Customer;
-use Dystcz\LunarApi\Domain\Media\Factories\MediaFactory;
-use Dystcz\LunarApi\Domain\Users\Models\User;
-use Dystcz\LunarApi\Tests\Data\TestInclude;
-use Dystcz\LunarApi\Tests\TestCase;
+use Dystore\Api\Domain\Brands\Models\Brand;
+use Dystore\Api\Domain\Customers\Models\Customer;
+use Dystore\Api\Domain\Media\Factories\MediaFactory;
+use Dystore\Api\Domain\Users\Models\User;
+use Dystore\Api\Tests\Data\TestInclude;
+use Dystore\Api\Tests\TestCase;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use Illuminate\Support\Collection;
 

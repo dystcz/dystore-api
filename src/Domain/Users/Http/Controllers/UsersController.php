@@ -1,18 +1,18 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\Http\Controllers;
+namespace Dystore\Api\Domain\Users\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Users\Contracts\RegistersUser;
-use Dystcz\LunarApi\Domain\Users\Contracts\User as UserContract;
-use Dystcz\LunarApi\Domain\Users\Contracts\UsersController as UsersControllerContract;
-use Dystcz\LunarApi\Domain\Users\Data\UserData;
-use Dystcz\LunarApi\Domain\Users\JsonApi\V1\CreateUserRequest;
-use Dystcz\LunarApi\Domain\Users\JsonApi\V1\UpdateUserRequest;
-use Dystcz\LunarApi\Domain\Users\JsonApi\V1\UserQuery;
-use Dystcz\LunarApi\Domain\Users\JsonApi\V1\UserSchema;
-use Dystcz\LunarApi\Domain\Users\Models\User;
-use Dystcz\LunarApi\Facades\LunarApi;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Users\Contracts\RegistersUser;
+use Dystore\Api\Domain\Users\Contracts\User as UserContract;
+use Dystore\Api\Domain\Users\Contracts\UsersController as UsersControllerContract;
+use Dystore\Api\Domain\Users\Data\UserData;
+use Dystore\Api\Domain\Users\JsonApi\V1\CreateUserRequest;
+use Dystore\Api\Domain\Users\JsonApi\V1\UpdateUserRequest;
+use Dystore\Api\Domain\Users\JsonApi\V1\UserQuery;
+use Dystore\Api\Domain\Users\JsonApi\V1\UserSchema;
+use Dystore\Api\Domain\Users\Models\User;
+use Dystore\Api\Facades\LunarApi;
 use Illuminate\Contracts\Auth\Guard;
 use LaravelJsonApi\Core\Responses\DataResponse;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchRelated;
