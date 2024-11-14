@@ -4,6 +4,7 @@ namespace Dystcz\LunarApi\Domain\Products\JsonApi\V1;
 
 use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Fields\AttributeData;
 use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
+use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Sorts\InDefaultOrder;
 use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Sorts\InRandomOrder;
 use Dystcz\LunarApi\Domain\Products\JsonApi\Filters\InStockFilter;
 use Dystcz\LunarApi\Domain\Products\JsonApi\Filters\ProductFilterCollection;
@@ -39,6 +40,11 @@ class ProductSchema extends Schema
      * {@inheritDoc}
      */
     public static string $model = Product::class;
+
+    /**
+     * {@inheritDoc}
+     */
+    protected $defaultSort = 'ordered';
 
     /**
      * Build an index query for this resource.
@@ -239,6 +245,8 @@ class ProductSchema extends Schema
     {
         return [
             ...parent::sortables(),
+
+            InDefaultOrder::make('ordered'),
 
             InRandomOrder::make('random'),
         ];
