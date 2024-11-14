@@ -128,6 +128,7 @@ trait InteractsWithLunarApi
                     ->whereIn('priceable_id', function ($query) use ($variantsTable) {
                         $query->select('variants.id')
                             ->from($variantsTable.' as variants')
+                            ->where('variants.deleted_at', null)
                             ->whereRaw("variants.product_id = {$variantsTable}.product_id");
                     })
                     ->orderBy($pricesTable.'.price', 'asc')
@@ -158,6 +159,7 @@ trait InteractsWithLunarApi
                     ->whereIn('priceable_id', function ($query) use ($variantsTable) {
                         $query->select('variants.id')
                             ->from($variantsTable.' as variants')
+                            ->where('variants.deleted_at', null)
                             ->whereRaw("variants.product_id = {$variantsTable}.product_id");
                     })
                     ->orderBy($pricesTable.'.price', 'desc')
@@ -185,6 +187,7 @@ trait InteractsWithLunarApi
                             ->where('priceable_type', (new (ProductVariant::modelClass()))->getMorphClass());
                     })
                     ->whereRaw("variants.product_id = {$variantsTable}.product_id")
+                    ->where('variants.deleted_at', null)
                     ->orderBy($pricesTable.'.price', 'asc')
                     ->limit(1);
             });
@@ -210,6 +213,7 @@ trait InteractsWithLunarApi
                             ->where('priceable_type', (new (ProductVariant::modelClass()))->getMorphClass());
                     })
                     ->whereRaw("variants.product_id = {$variantsTable}.product_id")
+                    ->where('variants.deleted_at', null)
                     ->orderBy($pricesTable.'.price', 'desc')
                     ->limit(1);
             });
