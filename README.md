@@ -2,7 +2,7 @@
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/dystcz/dystore-api.svg?style=flat-square)](https://packagist.org/packages/dystcz/dystore-api)
 [![Total Downloads](https://img.shields.io/packagist/dt/dystcz/dystore-api.svg?style=flat-square)](https://packagist.org/packages/dystcz/dystore-api)
-![GitHub Actions](https://github.com/dystcz/dystore-api/actions/workflows/tests.yaml/badge.svg)
+[![Tests](https://github.com/dystcz/dystore/actions/workflows/tests.yaml/badge.svg)](https://github.com/dystcz/dystore/actions/workflows/tests.yaml)
 
 > [!CAUTION]
 > This package is currently under heavy development. It is already used in production, however, you should proceed with caution.
