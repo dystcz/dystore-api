@@ -1,59 +1,59 @@
 {
-  "name": "dystcz/dystore-api",
-  "description": "Dystore API layer for Lunar e-commerce package",
-  "homepage": "https://github.com/dystcz/dystore",
-  "license": "MIT",
-  "type": "library",
-  "keywords": [
-    "dystopia",
-    "lunar",
-    "api",
-    "json-api",
-    "laravel",
-    "php"
-  ],
-  "authors": [
-    {
-      "name": "Dystopia",
-      "homepage": "https://dy.st/"
-    }
-  ],
-  "require": {
-    "php": "^8.2",
-    "illuminate/support": "^11.0",
-    "laravel-json-api/hashids": "^3.0",
-    "laravel-json-api/core": "4.1.0",
-    "laravel-json-api/laravel": "4.1.0",
-    "laravel-json-api/non-eloquent": "^4.0",
-    "lunarphp/lunar": "^1.0.0-beta.6",
-    "staudenmeir/eloquent-has-many-deep": "^1.20"
-  },
-  "autoload": {
-    "psr-4": {
-      "Dystore\\Api\\": "src",
-      "Dystore\\Api\\Database\\Factories\\": "database/factories",
-      "Dystore\\Api\\Database\\State\\": "database/state"
+    "name": "dystcz/dystore-api",
+    "description": "Dystore API layer for Lunar e-commerce package",
+    "homepage": "https://github.com/dystcz/dystore",
+    "license": "MIT",
+    "type": "library",
+    "keywords": [
+        "dystopia",
+        "lunar",
+        "api",
+        "json-api",
+        "laravel",
+        "php"
+    ],
+    "authors": [
+        {
+            "name": "Dystopia",
+            "homepage": "https://dy.st/"
+        }
+    ],
+    "require": {
+        "php": "^8.2",
+        "illuminate/support": "^11.0",
+        "laravel-json-api/hashids": "^3.0",
+        "laravel-json-api/core": "4.1.0",
+        "laravel-json-api/laravel": "4.1.0",
+        "laravel-json-api/non-eloquent": "^4.0",
+        "lunarphp/lunar": "^1.0.0-beta.6",
+        "staudenmeir/eloquent-has-many-deep": "^1.20"
     },
-    "files": [
-      "autoload.php"
-    ]
-  },
-  "config": {
-    "sort-packages": true,
-    "allow-plugins": {
-      "pestphp/pest-plugin": true,
-      "php-http/discovery": true
-    }
-  },
-  "extra": {
-    "laravel": {
-      "providers": [
-        "Dystore\\Api\\ApiServiceProvider",
-        "Dystore\\Api\\JsonApiServiceProvider",
-        "Dystore\\Api\\ApiHashidsServiceProvider"
-      ]
-    }
-  },
-  "minimum-stability": "dev",
-  "prefer-stable": true
+    "autoload": {
+        "psr-4": {
+            "Dystore\\Api\\": "src",
+            "Dystore\\Api\\Database\\Factories\\": "database/factories",
+            "Dystore\\Api\\Database\\State\\": "database/state"
+        },
+        "files": [
+            "autoload.php"
+        ]
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true,
+            "php-http/discovery": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Dystore\\Api\\ApiServiceProvider",
+                "Dystore\\Api\\JsonApiServiceProvider",
+                "Dystore\\Api\\ApiHashidsServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
 }
