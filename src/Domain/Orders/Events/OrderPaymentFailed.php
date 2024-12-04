@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Events;
+namespace Dystore\Api\Domain\Orders\Events;
 
-use Dystcz\LunarApi\Domain\Payments\Contracts\FailedPaymentEventContract;
-use Dystcz\LunarApi\Domain\Payments\Contracts\PaymentIntent;
-use Dystcz\LunarApi\Domain\Payments\PaymentAdapters\PaymentAdapter;
+use Dystore\Api\Domain\Payments\Contracts\FailedPaymentEventContract;
+use Dystore\Api\Domain\Payments\Contracts\PaymentIntent;
+use Dystore\Api\Domain\Payments\PaymentAdapters\PaymentAdapter;
 use Illuminate\Foundation\Events\Dispatchable;
 use Lunar\Models\Contracts\Order as OrderContract;
 use Lunar\Models\Order;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi;
+namespace Dystore\Api;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
@@ -13,16 +13,16 @@ class JsonApiServiceProvider extends ServiceProvider
     public function boot(): void
     {
         \LaravelJsonApi\Laravel\LaravelJsonApi::defaultResource(
-            \Dystcz\LunarApi\Domain\JsonApi\Resources\JsonApiResource::class,
+            \Dystore\Api\Domain\JsonApi\Resources\JsonApiResource::class,
         );
         \LaravelJsonApi\Laravel\LaravelJsonApi::defaultAuthorizer(
-            \Dystcz\LunarApi\Domain\JsonApi\Authorizers\Authorizer::class,
+            \Dystore\Api\Domain\JsonApi\Authorizers\Authorizer::class,
         );
         \LaravelJsonApi\Laravel\LaravelJsonApi::defaultQuery(
-            \Dystcz\LunarApi\Domain\JsonApi\Queries\Query::class,
+            \Dystore\Api\Domain\JsonApi\Queries\Query::class,
         );
         \LaravelJsonApi\Laravel\LaravelJsonApi::defaultCollectionQuery(
-            \Dystcz\LunarApi\Domain\JsonApi\Queries\CollectionQuery::class,
+            \Dystore\Api\Domain\JsonApi\Queries\CollectionQuery::class,
         );
         \LaravelJsonApi\Laravel\LaravelJsonApi::withCountQueryParameter(
             'with_count',
@@ -37,31 +37,31 @@ class JsonApiServiceProvider extends ServiceProvider
         // Register custom repository
         $this->app->bind(
             \LaravelJsonApi\Eloquent\Repository::class,
-            fn () => \Dystcz\LunarApi\Domain\JsonApi\Eloquent\Repository::class,
+            fn () => \Dystore\Api\Domain\JsonApi\Eloquent\Repository::class,
         );
 
         // Register schema extension implementation
         $this->app->bind(
-            \Dystcz\LunarApi\Base\Contracts\SchemaExtension::class,
-            fn (Application $app, mixed $params) => new \Dystcz\LunarApi\Base\Extensions\SchemaExtension(...$params),
+            \Dystore\Api\Base\Contracts\SchemaExtension::class,
+            fn (Application $app, mixed $params) => new \Dystore\Api\Base\Extensions\SchemaExtension(...$params),
         );
 
         // Register schema manifest implementation
         $this->app->singleton(
-            \Dystcz\LunarApi\Base\Contracts\SchemaManifest::class,
-            fn (Application $app) => new \Dystcz\LunarApi\Base\Manifests\SchemaManifest,
+            \Dystore\Api\Base\Contracts\SchemaManifest::class,
+            fn (Application $app) => new \Dystore\Api\Base\Manifests\SchemaManifest,
         );
 
         // Register resource extension implementation
         $this->app->bind(
-            \Dystcz\LunarApi\Base\Contracts\ResourceExtension::class,
-            fn (Application $app, mixed $params) => new \Dystcz\LunarApi\Base\Extensions\ResourceExtension(...$params),
+            \Dystore\Api\Base\Contracts\ResourceExtension::class,
+            fn (Application $app, mixed $params) => new \Dystore\Api\Base\Extensions\ResourceExtension(...$params),
         );
 
         // Register resource manifest implementation
         $this->app->singleton(
-            \Dystcz\LunarApi\Base\Contracts\ResourceManifest::class,
-            fn (Application $app) => new \Dystcz\LunarApi\Base\Manifests\ResourceManifest,
+            \Dystore\Api\Base\Contracts\ResourceManifest::class,
+            fn (Application $app) => new \Dystore\Api\Base\Manifests\ResourceManifest,
         );
     }
 }

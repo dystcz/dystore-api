@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Media\Contracts;
+namespace Dystore\Api\Domain\Media\Contracts;
 
-use Dystcz\LunarApi\Domain\Media\Data\ConversionOptions;
+use Dystore\Api\Domain\Media\Data\ConversionOptions;
 use Lunar\Base\MediaDefinitionsInterface;
 use Spatie\MediaLibrary\HasMedia;
 

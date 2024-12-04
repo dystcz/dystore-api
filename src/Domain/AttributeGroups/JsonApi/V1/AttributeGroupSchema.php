@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\AttributeGroups\JsonApi\V1;
+namespace Dystore\Api\Domain\AttributeGroups\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
 use Lunar\Models\Contracts\AttributeGroup;
 
 class AttributeGroupSchema extends Schema

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Media\Data;
+namespace Dystore\Api\Domain\Media\Data;
 
 use Illuminate\Contracts\Support\Arrayable;
 

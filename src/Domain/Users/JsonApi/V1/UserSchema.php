@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\JsonApi\V1;
+namespace Dystore\Api\Domain\Users\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
-use Dystcz\LunarApi\Domain\Users\Contracts\User;
-use Dystcz\LunarApi\Support\Models\Actions\SchemaType;
+use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Domain\Users\Contracts\User;
+use Dystore\Api\Support\Models\Actions\SchemaType;
 use LaravelJsonApi\Eloquent\Fields\Boolean;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsToMany;
 use LaravelJsonApi\Eloquent\Fields\Relations\HasMany;

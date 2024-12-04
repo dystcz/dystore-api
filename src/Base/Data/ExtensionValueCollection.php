@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Data;
+namespace Dystore\Api\Base\Data;
 
 use ArrayIterator;
-use Dystcz\LunarApi\Base\Contracts\Extendable;
+use Dystore\Api\Base\Contracts\Extendable;
 use IteratorAggregate;
 use Traversable;
 

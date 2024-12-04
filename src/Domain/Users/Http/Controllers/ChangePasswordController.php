@@ -1,13 +1,13 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\Http\Controllers;
+namespace Dystore\Api\Domain\Users\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Users\Contracts\ChangePasswordController as ChangePasswordControllerContract;
-use Dystcz\LunarApi\Domain\Users\Contracts\User as UserContract;
-use Dystcz\LunarApi\Domain\Users\JsonApi\V1\ChangePasswordRequest;
-use Dystcz\LunarApi\Domain\Users\JsonApi\V1\UserSchema;
-use Dystcz\LunarApi\Domain\Users\Models\User;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Users\Contracts\ChangePasswordController as ChangePasswordControllerContract;
+use Dystore\Api\Domain\Users\Contracts\User as UserContract;
+use Dystore\Api\Domain\Users\JsonApi\V1\ChangePasswordRequest;
+use Dystore\Api\Domain\Users\JsonApi\V1\UserSchema;
+use Dystore\Api\Domain\Users\Models\User;
 use Illuminate\Support\Facades\Hash;
 use LaravelJsonApi\Core\Responses\DataResponse;
 

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Hashids\Managers;
+namespace Dystore\Api\Hashids\Managers;
 
 use Illuminate\Database\Eloquent\Relations\Relation;
 use Illuminate\Support\Collection;
@@ -14,7 +14,7 @@ class HashidsConnectionsManager
     public function registerConnections(): void
     {
         Config::set(
-            'lunar-api.hashids.connections',
+            'dystore.hashids.connections',
             $this->getConnectionsFromModels()->toArray(),
         );
     }
@@ -24,7 +24,7 @@ class HashidsConnectionsManager
      */
     public function getConnections(): array
     {
-        return Config::get('lunar-api.hashids.connections', []);
+        return Config::get('dystore.hashids.connections', []);
     }
 
     /**
@@ -50,9 +50,9 @@ class HashidsConnectionsManager
             return [
                 $connectionKey => [
                     'salt' => $modelClass.Config::get('app.key'),
-                    'length' => Config::get('lunar-api.hashids.default_length', 16),
+                    'length' => Config::get('dystore.hashids.default_length', 16),
                     'alphabet' => Config::get(
-                        'lunar-api.hashids.default_alphabet',
+                        'dystore.hashids.default_alphabet',
                         'abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890',
                     ),
                 ],

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductVariants\Models;
+namespace Dystore\Api\Domain\ProductVariants\Models;
 
 use Illuminate\Database\Eloquent\Relations\Pivot;
 use Illuminate\Support\Facades\Config;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\Data;
+namespace Dystore\Api\Domain\Users\Data;
 
-use Dystcz\LunarApi\Domain\Users\Contracts\UserData as UserDataContract;
+use Dystore\Api\Domain\Users\Contracts\UserData as UserDataContract;
 
 class UserData implements UserDataContract
 {

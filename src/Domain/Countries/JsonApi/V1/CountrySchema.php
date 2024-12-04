@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Countries\JsonApi\V1;
+namespace Dystore\Api\Domain\Countries\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
 use LaravelJsonApi\Eloquent\Contracts\Paginator;
 use LaravelJsonApi\Eloquent\Fields\Str;
 use LaravelJsonApi\Eloquent\Pagination\PagePagination;

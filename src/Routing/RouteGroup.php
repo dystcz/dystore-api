@@ -1,12 +1,13 @@
 <?php
 
-namespace Dystcz\LunarApi\Routing;
+namespace Dystore\Api\Routing;
 
-use Dystcz\LunarApi\Routing\Contracts\RouteGroup as RouteGroupContract;
+use Dystore\Api\Routing\Contracts\RouteGroup as RouteGroupContract;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
 
+/** @phpstan-consistent-constructor */
 abstract class RouteGroup implements RouteGroupContract
 {
     public string $prefix = '';
@@ -22,7 +23,7 @@ abstract class RouteGroup implements RouteGroupContract
      *
      * @throws BindingResolutionException
      */
-    public function __construct(string $prefix = '', array|string $middleware = [])
+    final public function __construct(string $prefix = '', array|string $middleware = [])
     {
         $this->prefix = $prefix;
 

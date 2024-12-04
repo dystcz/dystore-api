@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Urls\JsonApi\V1;
+namespace Dystore\Api\Domain\Urls\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Queries\CollectionQuery;
+use Dystore\Api\Domain\JsonApi\Queries\CollectionQuery;
 
 class UrlCollectionQuery extends CollectionQuery
 {

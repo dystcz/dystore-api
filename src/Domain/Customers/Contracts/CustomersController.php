@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Customers\Contracts;
+namespace Dystore\Api\Domain\Customers\Contracts;
 
 /**
- * @see \Dystcz\LunarApi\Domain\Customers\Http\Controllers\CustomerController
+ * @see \Dystore\Api\Domain\Customers\Http\Controllers\CustomerController
  */
 interface CustomersController {}

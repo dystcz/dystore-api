@@ -1,12 +1,13 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Products\JsonApi\Filters;
+namespace Dystore\Api\Domain\Products\JsonApi\Filters;
 
 use Illuminate\Support\Str;
 use LaravelJsonApi\Eloquent\Contracts\Filter;
 use LaravelJsonApi\Eloquent\Filters\Concerns\DeserializesValue;
 use LaravelJsonApi\Eloquent\Filters\Concerns\HasColumn;
 
+/** @phpstan-consistent-constructor */
 class AttributeBoolFilter implements Filter
 {
     use DeserializesValue;

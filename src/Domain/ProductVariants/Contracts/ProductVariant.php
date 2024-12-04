@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductVariants\Contracts;
+namespace Dystore\Api\Domain\ProductVariants\Contracts;
 
-use Dystcz\LunarApi\Base\Contracts\HasAvailability;
+use Dystore\Api\Base\Contracts\HasAvailability;
 use Lunar\Models\Contracts\ProductVariant as LunarProductVariant;
 use Spatie\MediaLibrary\HasMedia;
 

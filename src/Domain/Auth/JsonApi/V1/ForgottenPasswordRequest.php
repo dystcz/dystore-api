@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\JsonApi\V1;
+namespace Dystore\Api\Domain\Auth\JsonApi\V1;
 
 use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
 
@@ -31,10 +31,10 @@ class ForgottenPasswordRequest extends ResourceRequest
     public function messages(): array
     {
         return [
-            'email.required' => __('lunar-api::validations.auth.email.required'),
-            'email.string' => __('lunar-api::validations.auth.email.string'),
-            'email.email' => __('lunar-api::validations.auth.email.email'),
-            'email.max' => __('lunar-api::validations.auth.email.max'),
+            'email.required' => __('dystore::validations.auth.email.required'),
+            'email.string' => __('dystore::validations.auth.email.string'),
+            'email.email' => __('dystore::validations.auth.email.email'),
+            'email.max' => __('dystore::validations.auth.email.max'),
         ];
     }
 }

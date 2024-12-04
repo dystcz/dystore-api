@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Policies;
+namespace Dystore\Api\Domain\Carts\Policies;
 
-use Dystcz\LunarApi\Domain\Auth\Concerns\HandlesAuthorization;
-use Dystcz\LunarApi\Domain\Carts\Contracts\CurrentSessionCart;
+use Dystore\Api\Domain\Auth\Concerns\HandlesAuthorization;
+use Dystore\Api\Domain\Carts\Contracts\CurrentSessionCart;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;

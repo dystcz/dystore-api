@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Tags\Policies;
+namespace Dystore\Api\Domain\Tags\Policies;
 
-use Dystcz\LunarApi\Domain\Auth\Concerns\HandlesAuthorization;
+use Dystore\Api\Domain\Auth\Concerns\HandlesAuthorization;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Lunar\Models\Contracts\Tag as TagContract;
 

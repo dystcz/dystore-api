@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Tags\Contracts;
+namespace Dystore\Api\Domain\Tags\Contracts;
 
 /**
- * @see \Dystcz\LunarApi\Domain\Tags\Http\Controllers\TagsController
+ * @see \Dystore\Api\Domain\Tags\Http\Controllers\TagsController
  */
 interface TagsController {}

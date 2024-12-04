@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductVariants\JsonApi\V1;
+namespace Dystore\Api\Domain\ProductVariants\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Fields\AttributeData;
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
-use Dystcz\LunarApi\Support\Models\Actions\SchemaType;
+use Dystore\Api\Domain\JsonApi\Eloquent\Fields\AttributeData;
+use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Support\Models\Actions\SchemaType;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
 use LaravelJsonApi\Eloquent\Fields\ArrayHash;

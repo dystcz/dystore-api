@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\Listeners;
+namespace Dystore\Api\Domain\Auth\Listeners;
 
 use Exception;
 use Illuminate\Auth\Events\Login;

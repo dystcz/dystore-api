@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductOptionValues\Contracts;
+namespace Dystore\Api\Domain\ProductOptionValues\Contracts;
 
 /**
- * @see \Dystcz\LunarApi\Domain\ProductOptionValues\Http\Controllers\ProductOptionValuesController
+ * @see \Dystore\Api\Domain\ProductOptionValues\Http\Controllers\ProductOptionValuesController
  */
 interface ProductOptionValuesController {}

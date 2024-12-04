@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\JsonApi\Eloquent\Fields;
+namespace Dystore\Api\Domain\JsonApi\Eloquent\Fields;
 
 use Closure;
 use LaravelJsonApi\Core\Json\Hash;

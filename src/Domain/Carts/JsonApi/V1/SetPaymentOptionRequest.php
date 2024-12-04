@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\JsonApi\V1;
+namespace Dystore\Api\Domain\Carts\JsonApi\V1;
 
 use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
 
@@ -29,8 +29,8 @@ class SetPaymentOptionRequest extends ResourceRequest
     public function messages(): array
     {
         return [
-            'payment_option.required' => __('lunar-api::validations.payments.set_payment_option.payment_option.required'),
-            'payment_option.string' => __('lunar-api::validations.payments.set_payment_option.payment_option.string'),
+            'payment_option.required' => __('dystore::validations.payments.set_payment_option.payment_option.required'),
+            'payment_option.string' => __('dystore::validations.payments.set_payment_option.payment_option.string'),
         ];
     }
 }

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\JsonApi\Authorizers;
+namespace Dystore\Api\Domain\JsonApi\Authorizers;
 
-use Dystcz\LunarApi\Domain\JsonApi\Contracts\Schema;
+use Dystore\Api\Domain\JsonApi\Contracts\Schema;
 use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;

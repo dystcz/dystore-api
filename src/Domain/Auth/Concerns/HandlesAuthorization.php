@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\Concerns;
+namespace Dystore\Api\Domain\Auth\Concerns;
 
 use Filament\Models\Contracts\FilamentUser;
 use Illuminate\Auth\Access\HandlesAuthorization as BaseHandlesAuthorization;

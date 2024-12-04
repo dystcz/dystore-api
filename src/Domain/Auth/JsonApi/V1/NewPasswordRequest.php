@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\JsonApi\V1;
+namespace Dystore\Api\Domain\Auth\JsonApi\V1;
 
 use Illuminate\Validation\Rules\Password;
 use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
@@ -40,14 +40,14 @@ class NewPasswordRequest extends ResourceRequest
     public function messages(): array
     {
         return [
-            'email.required' => __('lunar-api::validations.users.email.required'),
-            'email.email' => __('lunar-api::validations.users.email.email'),
-            'token.required' => __('lunar-api::validations.users.token.required'),
-            'token.string' => __('lunar-api::validations.users.token.string'),
-            'password.min' => __('lunar-api::validations.users.password.min'),
-            'password.required' => __('lunar-api::validations.users.password.required'),
-            'password.string' => __('lunar-api::validations.users.password.string'),
-            'password.confirmed' => __('lunar-api::validations.users.password.confirmed'),
+            'email.required' => __('dystore::validations.users.email.required'),
+            'email.email' => __('dystore::validations.users.email.email'),
+            'token.required' => __('dystore::validations.users.token.required'),
+            'token.string' => __('dystore::validations.users.token.string'),
+            'password.min' => __('dystore::validations.users.password.min'),
+            'password.required' => __('dystore::validations.users.password.required'),
+            'password.string' => __('dystore::validations.users.password.string'),
+            'password.confirmed' => __('dystore::validations.users.password.confirmed'),
         ];
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Traits;
+namespace Dystore\Api\Base\Traits;
 
-use Dystcz\LunarApi\Base\Contracts\HasAvailabilityStatus;
-use Dystcz\LunarApi\Domain\Products\Enums\Availability;
+use Dystore\Api\Base\Contracts\HasAvailabilityStatus;
+use Dystore\Api\Domain\Products\Enums\Availability;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 
 trait InteractsWithAvailability

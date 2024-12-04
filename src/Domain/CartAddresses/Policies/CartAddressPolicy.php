@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CartAddresses\Policies;
+namespace Dystore\Api\Domain\CartAddresses\Policies;
 
-use Dystcz\LunarApi\Domain\Auth\Concerns\HandlesAuthorization;
-use Dystcz\LunarApi\Domain\Carts\Contracts\CurrentSessionCart;
-use Dystcz\LunarApi\Facades\LunarApi;
+use Dystore\Api\Domain\Auth\Concerns\HandlesAuthorization;
+use Dystore\Api\Domain\Carts\Contracts\CurrentSessionCart;
+use Dystore\Api\Facades\Api;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -61,7 +61,7 @@ class CartAddressPolicy
             return false;
         }
 
-        if (LunarApi::usesHashids()) {
+        if (Api::usesHashids()) {
             $cartAddressCartId = (new (Cart::modelClass()))->decodedRouteKey($cartAddressCartId);
         }
 

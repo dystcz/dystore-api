@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductVariants\Factories;
+namespace Dystore\Api\Domain\ProductVariants\Factories;
 
-use Dystcz\LunarApi\Domain\Media\Factories\MediaFactory;
-use Dystcz\LunarApi\Domain\Prices\Models\Price;
-use Dystcz\LunarApi\Domain\Products\Models\Product;
+use Dystore\Api\Domain\Media\Factories\MediaFactory;
+use Dystore\Api\Domain\Prices\Models\Price;
+use Dystore\Api\Domain\Products\Models\Product;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
 use Lunar\FieldTypes\Text;

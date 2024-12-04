@@ -5,9 +5,10 @@
 ### Changes
 
 -   Removed relationship links from responses by default
--   Changed price taxation config to `lunar.pricing.stored_inclusive_of_tax` from `lunar-api.general.taxation.prices_with_default_tax`
+-   Changed price taxation config to `lunar.pricing.stored_inclusive_of_tax` from `dystore.general.taxation.prices_with_default_tax`
 -   Added endpoints to set and unset shipping options directly to / from current session cart
     ([#210](https://github.com/dystcz/dystore-api/pull/210))
+-   Cart active scope now considers carts with any order as inactive ([#213](https://github.com/dystcz/dystore-api/pull/213))
 
 ### ⚠️ Breaking changes
 
@@ -146,7 +147,7 @@ In the same fashion as shipping options, purchasable payment options are now ava
 
 ## 0.8.3
 
--   Find order redundancy by @theimerj in [https://github.com/dystcz/lunar-api/pull/91](https://github.com/dystcz/lunar-api/pull/91).
+-   Find order redundancy by @theimerj in [https://github.com/dystcz/dystore-api/pull/91](https://github.com/dystcz/dystore-api/pull/91).
     Added more actions which can find order by payment intent id.
     This increases the success rate of identifying the order
     connected with the payment intent.

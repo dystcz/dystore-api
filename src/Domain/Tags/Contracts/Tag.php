@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Tags\Contracts;
+namespace Dystore\Api\Domain\Tags\Contracts;
 
 use Lunar\Models\Contracts\Tag as LunarTag;
 

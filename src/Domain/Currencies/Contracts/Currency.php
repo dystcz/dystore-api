@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Currencies\Contracts;
+namespace Dystore\Api\Domain\Currencies\Contracts;
 
 use Lunar\Models\Contracts\Currency as LunarCurrency;
 

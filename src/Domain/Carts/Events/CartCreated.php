@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Events;
+namespace Dystore\Api\Domain\Carts\Events;
 
 use Illuminate\Foundation\Events\Dispatchable;
 use Lunar\Models\Contracts\Cart as CartContract;

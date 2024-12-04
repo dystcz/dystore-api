@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Currencies\Factories;
+namespace Dystore\Api\Domain\Currencies\Factories;
 
 use Lunar\Database\Factories\CurrencyFactory as LunarCurrencyFactory;
 

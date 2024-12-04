@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\TaxZones\JsonApi\V1;
+namespace Dystore\Api\Domain\TaxZones\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
 use LaravelJsonApi\Eloquent\Filters\WhereIdIn;
 use Lunar\Models\Contracts\TaxZone;
 

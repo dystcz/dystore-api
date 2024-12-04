@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductAssociations\Policies;
+namespace Dystore\Api\Domain\ProductAssociations\Policies;
 
-use Dystcz\LunarApi\Domain\Auth\Concerns\HandlesAuthorization;
+use Dystore\Api\Domain\Auth\Concerns\HandlesAuthorization;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Lunar\Models\Contracts\ProductAssociation as ProductAssociationContract;
 

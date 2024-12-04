@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Products\Builders;
+namespace Dystore\Api\Domain\Products\Builders;
 
 use Illuminate\Database\Eloquent\Builder;
 

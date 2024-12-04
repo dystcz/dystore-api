@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Rules;
+namespace Dystore\Api\Domain\Carts\Rules;
 
 use Lunar\Rules\ValidCoupon as LunarValidCoupon;
 
@@ -13,6 +13,6 @@ class ValidCoupon extends LunarValidCoupon
      */
     public function message(): string|array
     {
-        return __('lunar-api::validations.carts.coupon_code.invalid');
+        return __('dystore::validations.carts.coupon_code.invalid');
     }
 }

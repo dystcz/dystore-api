@@ -1,9 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\JsonApi\Eloquent\Sorts;
+namespace Dystore\Api\Domain\JsonApi\Eloquent\Sorts;
 
 use LaravelJsonApi\Eloquent\Contracts\SortField;
 
+/** @phpstan-consistent-constructor */
 class InRandomOrder implements SortField
 {
     private string $name;

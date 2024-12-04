@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Pipelines;
+namespace Dystore\Api\Domain\Carts\Pipelines;
 
 use Closure;
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
+use Dystore\Api\Domain\Carts\Models\Cart;
 use Lunar\Base\ValueObjects\Cart\TaxBreakdown;
 use Lunar\Base\ValueObjects\Cart\TaxBreakdownAmount;
 use Lunar\DataTypes\Price;

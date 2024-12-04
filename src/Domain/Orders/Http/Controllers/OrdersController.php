@@ -1,12 +1,12 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Http\Controllers;
+namespace Dystore\Api\Domain\Orders\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Orders\Contracts\OrdersController as OrdersControllerContract;
-use Dystcz\LunarApi\Domain\Orders\JsonApi\V1\OrderQuery;
-use Dystcz\LunarApi\Domain\Orders\JsonApi\V1\OrderSchema;
-use Dystcz\LunarApi\Domain\Orders\Models\Order;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Orders\Contracts\OrdersController as OrdersControllerContract;
+use Dystore\Api\Domain\Orders\JsonApi\V1\OrderQuery;
+use Dystore\Api\Domain\Orders\JsonApi\V1\OrderSchema;
+use Dystore\Api\Domain\Orders\Models\Order;
 use Illuminate\Support\Facades\URL;
 use LaravelJsonApi\Core\Responses\DataResponse;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchOne;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Hashids\Facades;
+namespace Dystore\Api\Hashids\Facades;
 
-use Dystcz\LunarApi\Hashids\Contracts\HashidsConnectionsManager;
+use Dystore\Api\Hashids\Contracts\HashidsConnectionsManager;
 use Illuminate\Support\Facades\Facade;
 
 class HashidsConnections extends Facade

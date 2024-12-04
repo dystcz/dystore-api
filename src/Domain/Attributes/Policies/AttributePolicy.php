@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Attributes\Policies;
+namespace Dystore\Api\Domain\Attributes\Policies;
 
-use Dystcz\LunarApi\Domain\Auth\Concerns\HandlesAuthorization;
+use Dystore\Api\Domain\Auth\Concerns\HandlesAuthorization;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Lunar\Models\Contracts\Attribute as AttributeContract;
 

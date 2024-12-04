@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\Contracts;
+namespace Dystore\Api\Domain\Payments\Contracts;
 
 use Illuminate\Contracts\Support\Arrayable;
 

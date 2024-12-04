@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CartLines\JsonApi\V1;
+namespace Dystore\Api\Domain\CartLines\JsonApi\V1;
 
 use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
 
@@ -41,12 +41,12 @@ class CartLineRequest extends ResourceRequest
     public function messages(): array
     {
         return [
-            'quantity.integer' => __('lunar-api::validations.cart_lines.quantity.integer'),
-            'purchasable_id.required' => __('lunar-api::validations.cart_lines.purchasable_id.required'),
-            'purchasable_id.integer' => __('lunar-api::validations.cart_lines.purchasable_id.integer'),
-            'purchasable_type.required' => __('lunar-api::validations.cart_lines.purchasable_type.required'),
-            'purchasable_type.string' => __('lunar-api::validations.cart_lines.purchasable_type.string'),
-            'meta.array' => __('lunar-api::validations.cart_lines.meta.array'),
+            'quantity.integer' => __('dystore::validations.cart_lines.quantity.integer'),
+            'purchasable_id.required' => __('dystore::validations.cart_lines.purchasable_id.required'),
+            'purchasable_id.integer' => __('dystore::validations.cart_lines.purchasable_id.integer'),
+            'purchasable_type.required' => __('dystore::validations.cart_lines.purchasable_type.required'),
+            'purchasable_type.string' => __('dystore::validations.cart_lines.purchasable_type.string'),
+            'meta.array' => __('dystore::validations.cart_lines.meta.array'),
         ];
     }
 }

@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Policies;
+namespace Dystore\Api\Domain\Orders\Policies;
 
-use Dystcz\LunarApi\Domain\Auth\Concerns\HandlesAuthorization;
-use Dystcz\LunarApi\Domain\Checkout\Enums\CheckoutProtectionStrategy;
+use Dystore\Api\Domain\Auth\Concerns\HandlesAuthorization;
+use Dystore\Api\Domain\Checkout\Enums\CheckoutProtectionStrategy;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
@@ -179,7 +179,7 @@ class OrderPolicy
     protected function check(?Authenticatable $user, OrderContract $order): bool
     {
         $protectionStrategy = Config::get(
-            'lunar-api.general.checkout.checkout_protection_strategy',
+            'dystore.general.checkout.checkout_protection_strategy',
             CheckoutProtectionStrategy::SIGNATURE,
         );
 
@@ -200,7 +200,7 @@ class OrderPolicy
 
         if (
             // If cart should not be forgotten after order is created, check if cart id matches
-            ! Config::get('lunar-api.general.checkout.forget_cart_after_order_creation', true)
+            ! Config::get('dystore.general.checkout.forget_cart_after_order_creation', true)
                 && $this->cartSession->current()->getKey() === $order->cart_id) {
             return true;
         }

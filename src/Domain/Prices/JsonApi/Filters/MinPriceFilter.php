@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Prices\JsonApi\Filters;
+namespace Dystore\Api\Domain\Prices\JsonApi\Filters;
 
 use Illuminate\Support\Str;
 use LaravelJsonApi\Eloquent\Contracts\Filter;
@@ -8,6 +8,7 @@ use LaravelJsonApi\Eloquent\Filters\Concerns\DeserializesValue;
 use LaravelJsonApi\Eloquent\Filters\Concerns\HasColumn;
 use LaravelJsonApi\Eloquent\Filters\Concerns\IsSingular;
 
+/** @phpstan-consistent-constructor */
 class MinPriceFilter implements Filter
 {
     use DeserializesValue;

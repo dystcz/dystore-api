@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\Contracts;
+namespace Dystore\Api\Domain\Users\Contracts;
 
 use Lunar\Base\LunarUser;
 

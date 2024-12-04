@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Products\Factories;
+namespace Dystore\Api\Domain\Products\Factories;
 
-use Dystcz\LunarApi\Domain\Media\Factories\MediaFactory;
+use Dystore\Api\Domain\Media\Factories\MediaFactory;
 use Illuminate\Support\Facades\Config;
 use Lunar\Database\Factories\ProductFactory as LunarProductFactory;
 use Lunar\FieldTypes\Text;

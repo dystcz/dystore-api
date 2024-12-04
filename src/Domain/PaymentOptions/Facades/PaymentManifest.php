@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\PaymentOptions\Facades;
+namespace Dystore\Api\Domain\PaymentOptions\Facades;
 
 use Closure;
-use Dystcz\LunarApi\Domain\PaymentOptions\Contracts\PaymentManifest as PaymentManifestContract;
-use Dystcz\LunarApi\Domain\PaymentOptions\Entities\PaymentOption;
+use Dystore\Api\Domain\PaymentOptions\Contracts\PaymentManifest as PaymentManifestContract;
+use Dystore\Api\Domain\PaymentOptions\Entities\PaymentOption;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
 use Lunar\Models\Contracts\Cart as CartContract;
@@ -18,7 +18,7 @@ use Lunar\Models\Contracts\Cart as CartContract;
  * @method static ?PaymentOption getOption(CartContract $cart, string $identifier)
  * @method static ?PaymentOption getPaymentOption(CartContract $cart)
  *
- * @see \Dystcz\LunarApi\Domain\PaymentOptions\Manifests\PaymentManifest
+ * @see \Dystore\Api\Domain\PaymentOptions\Manifests\PaymentManifest
  */
 class PaymentManifest extends Facade
 {

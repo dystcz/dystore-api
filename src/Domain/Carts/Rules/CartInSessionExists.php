@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Rules;
+namespace Dystore\Api\Domain\Carts\Rules;
 
 use Closure;
-use Dystcz\LunarApi\Domain\Carts\Contracts\CurrentSessionCart;
+use Dystore\Api\Domain\Carts\Contracts\CurrentSessionCart;
 use Illuminate\Contracts\Validation\ValidationRule;
 use Illuminate\Support\Facades\App;
 use Lunar\Models\Contracts\Cart as CartContract;

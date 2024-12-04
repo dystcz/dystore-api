@@ -1,12 +1,12 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\PaymentTypes;
+namespace Dystore\Api\Domain\Payments\PaymentTypes;
 
 use Carbon\Carbon;
-use Dystcz\LunarApi\Domain\Payments\Actions\GetLastOrderTransaction;
-use Dystcz\LunarApi\Domain\Payments\Enums\PaymentIntentStatus;
-use Dystcz\LunarApi\Domain\Payments\Enums\TransactionType;
-use Dystcz\LunarApi\Domain\Payments\PaymentAdapters\PaymentAdaptersRegister;
+use Dystore\Api\Domain\Payments\Actions\GetLastOrderTransaction;
+use Dystore\Api\Domain\Payments\Enums\PaymentIntentStatus;
+use Dystore\Api\Domain\Payments\Enums\TransactionType;
+use Dystore\Api\Domain\Payments\PaymentAdapters\PaymentAdaptersRegister;
 use Lunar\Base\DataTransferObjects\PaymentAuthorize;
 use Lunar\Base\DataTransferObjects\PaymentCapture;
 use Lunar\Base\DataTransferObjects\PaymentRefund;

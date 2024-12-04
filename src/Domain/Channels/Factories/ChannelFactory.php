@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Channels\Factories;
+namespace Dystore\Api\Domain\Channels\Factories;
 
 use Lunar\Database\Factories\ChannelFactory as LunarChannelFactory;
 

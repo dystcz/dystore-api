@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\JsonApi\V1;
+namespace Dystore\Api\Domain\Auth\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\Users\Models\User;
+use Dystore\Api\Domain\Users\Models\User;
 use Illuminate\Validation\Rule;
 use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
 
@@ -43,15 +43,15 @@ class UserWithoutPasswordRequest extends ResourceRequest
     public function messages(): array
     {
         return [
-            'name.string' => __('lunar-api::validations.users.name.string'),
-            'name.max' => __('lunar-api::validations.users.name.max'),
-            'email.required' => __('lunar-api::validations.users.email.required'),
-            'email.string' => __('lunar-api::validations.users.email.string'),
-            'email.email' => __('lunar-api::validations.users.email.email'),
-            'email.max' => __('lunar-api::validations.users.email.max'),
-            'email.unique' => __('lunar-api::validations.users.email.unique'),
-            'phone.required' => __('lunar-api::validations.users.phone.required'),
-            'phone.phone' => __('lunar-api::validations.users.phone.phone'),
+            'name.string' => __('dystore::validations.users.name.string'),
+            'name.max' => __('dystore::validations.users.name.max'),
+            'email.required' => __('dystore::validations.users.email.required'),
+            'email.string' => __('dystore::validations.users.email.string'),
+            'email.email' => __('dystore::validations.users.email.email'),
+            'email.max' => __('dystore::validations.users.email.max'),
+            'email.unique' => __('dystore::validations.users.email.unique'),
+            'phone.required' => __('dystore::validations.users.phone.required'),
+            'phone.phone' => __('dystore::validations.users.phone.phone'),
         ];
     }
 }

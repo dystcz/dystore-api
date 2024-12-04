@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Contracts;
+namespace Dystore\Api\Domain\Orders\Contracts;
 
 /**
- * @see \Dystcz\LunarApi\Domain\Orders\Http\Controllers\MarkOrderPendingPaymentController
+ * @see \Dystore\Api\Domain\Orders\Http\Controllers\MarkOrderPendingPaymentController
  */
 interface MarkOrderPendingPaymentController {}

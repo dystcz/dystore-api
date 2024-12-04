@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Media\Http\Controllers;
+namespace Dystore\Api\Domain\Media\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Media\Contracts\MediaController as MediaControllerContract;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Media\Contracts\MediaController as MediaControllerContract;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchOne;
 
 class MediaController extends Controller implements MediaControllerContract

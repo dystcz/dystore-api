@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Contracts;
+namespace Dystore\Api\Base\Contracts;
 
 use Closure;
-use Dystcz\LunarApi\Base\Data\ExtensionValueCollection;
+use Dystore\Api\Base\Data\ExtensionValueCollection;
 
 /**
  * @property class-string<ExtendableContract> $class

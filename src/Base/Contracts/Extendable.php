@@ -1,5 +1,5 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Contracts;
+namespace Dystore\Api\Base\Contracts;
 
 interface Extendable {}

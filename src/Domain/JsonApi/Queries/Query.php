@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\JsonApi\Queries;
+namespace Dystore\Api\Domain\JsonApi\Queries;
 
 use LaravelJsonApi\Laravel\Http\Requests\ResourceQuery;
 use LaravelJsonApi\Validation\Rule as JsonApiRule;

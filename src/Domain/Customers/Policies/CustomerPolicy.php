@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Customers\Policies;
+namespace Dystore\Api\Domain\Customers\Policies;
 
-use Dystcz\LunarApi\Domain\Auth\Concerns\HandlesAuthorization;
-use Dystcz\LunarApi\Domain\Users\Models\User;
+use Dystore\Api\Domain\Auth\Concerns\HandlesAuthorization;
+use Dystore\Api\Domain\Users\Models\User;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Lunar\Models\Contracts\Customer as CustomerContract;
 use Lunar\Models\Customer;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CartAddresses\Contracts;
+namespace Dystore\Api\Domain\CartAddresses\Contracts;
 
 use Lunar\Models\Contracts\CartAddress as LunarCartAddress;
 

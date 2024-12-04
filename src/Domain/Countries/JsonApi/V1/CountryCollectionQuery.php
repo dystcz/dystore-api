@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Countries\JsonApi\V1;
+namespace Dystore\Api\Domain\Countries\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Queries\CollectionQuery;
+use Dystore\Api\Domain\JsonApi\Queries\CollectionQuery;
 use Illuminate\Support\Facades\Config;
 
 class CountryCollectionQuery extends CollectionQuery
@@ -16,7 +16,7 @@ class CountryCollectionQuery extends CollectionQuery
     {
         // Set the maximum page size to 250, so that the frontend can fetch all countries at once.
         // This is not an issue, because the countries are cached.
-        // Config::set('lunar-api.general.pagination.max_size', 250);
+        // Config::set('dystore.general.pagination.max_size', 250);
 
         return [
             ...parent::rules(),

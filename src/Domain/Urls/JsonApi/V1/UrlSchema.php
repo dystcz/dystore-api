@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Urls\JsonApi\V1;
+namespace Dystore\Api\Domain\Urls\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
 use LaravelJsonApi\Eloquent\Fields\Boolean;
 use LaravelJsonApi\Eloquent\Fields\Str;
 use LaravelJsonApi\Eloquent\Filters\Where;

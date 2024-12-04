@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\Listeners;
+namespace Dystore\Api\Domain\Payments\Listeners;
 
-use Dystcz\LunarApi\Domain\Orders\Actions\ChangeOrderStatus;
-use Dystcz\LunarApi\Domain\Orders\Enums\OrderStatus;
-use Dystcz\LunarApi\Domain\Payments\Contracts\FailedPaymentEventContract;
+use Dystore\Api\Domain\Orders\Actions\ChangeOrderStatus;
+use Dystore\Api\Domain\Orders\Enums\OrderStatus;
+use Dystore\Api\Domain\Payments\Contracts\FailedPaymentEventContract;
 
 class HandleFailedPayment
 {

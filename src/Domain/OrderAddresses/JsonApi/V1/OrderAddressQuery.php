@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\OrderAddresses\JsonApi\V1;
+namespace Dystore\Api\Domain\OrderAddresses\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Queries\Query;
+use Dystore\Api\Domain\JsonApi\Queries\Query;
 
 class OrderAddressQuery extends Query
 {

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\Contracts;
+namespace Dystore\Api\Domain\Payments\Contracts;
 
-use Dystcz\LunarApi\Domain\Payments\PaymentAdapters\PaymentAdapter;
+use Dystore\Api\Domain\Payments\PaymentAdapters\PaymentAdapter;
 use Lunar\Models\Contracts\Order as OrderContract;
 
 interface FailedPaymentEventContract

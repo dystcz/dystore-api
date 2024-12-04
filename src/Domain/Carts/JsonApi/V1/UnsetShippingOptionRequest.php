@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\JsonApi\V1;
+namespace Dystore\Api\Domain\Carts\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\Addresses\Http\Enums\AddressType;
-use Dystcz\LunarApi\Domain\Carts\Rules\CartInSessionExists;
+use Dystore\Api\Domain\Addresses\Http\Enums\AddressType;
+use Dystore\Api\Domain\Carts\Rules\CartInSessionExists;
 use Illuminate\Validation\Rule;
 use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
 
@@ -39,9 +39,9 @@ class UnsetShippingOptionRequest extends ResourceRequest
     public function messages(): array
     {
         return [
-            'address_type.required' => __('lunar-api::validations.cart_addresses.address_type.required'),
-            'address_type.string' => __('lunar-api::validations.cart_addresses.address_type.string'),
-            'address_type.in' => __('lunar-api::validations.cart_addresses.address_type.in', [
+            'address_type.required' => __('dystore::validations.cart_addresses.address_type.required'),
+            'address_type.string' => __('dystore::validations.cart_addresses.address_type.string'),
+            'address_type.in' => __('dystore::validations.cart_addresses.address_type.in', [
                 'types' => implode(', ', [
                     AddressType::SHIPPING->value,
                     AddressType::BILLING->value,

@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Extensions;
+namespace Dystore\Api\Base\Extensions;
 
-use Dystcz\LunarApi\Base\Contracts\Extendable as ExtendableContract;
-use Dystcz\LunarApi\Base\Contracts\ResourceExtension as ResourceExtensionContract;
-use Dystcz\LunarApi\Base\Data\ExtensionValueCollection;
+use Dystore\Api\Base\Contracts\Extendable as ExtendableContract;
+use Dystore\Api\Base\Contracts\ResourceExtension as ResourceExtensionContract;
+use Dystore\Api\Base\Data\ExtensionValueCollection;
 
 /**
  * @property class-string<ExtendableContract> $class

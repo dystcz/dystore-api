@@ -1,11 +1,11 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Http\Controllers;
+namespace Dystore\Api\Domain\Orders\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Orders\Contracts\MarkOrderAwaitingPaymentController as MarkOrderAwaitingPaymentControllerContract;
-use Dystcz\LunarApi\Domain\Orders\Models\Order;
-use Dystcz\LunarApi\Domain\Payments\Actions\MarkAwaitingPayment;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Orders\Contracts\MarkOrderAwaitingPaymentController as MarkOrderAwaitingPaymentControllerContract;
+use Dystore\Api\Domain\Orders\Models\Order;
+use Dystore\Api\Domain\Payments\Actions\MarkAwaitingPayment;
 use LaravelJsonApi\Core\Responses\DataResponse;
 use Lunar\Models\Contracts\Order as OrderContract;
 

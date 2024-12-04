@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Contracts;
+namespace Dystore\Api\Base\Contracts;
 
-use Dystcz\LunarApi\Domain\JsonApi\Contracts\Schema as SchemaContract;
+use Dystore\Api\Domain\JsonApi\Contracts\Schema as SchemaContract;
 use Illuminate\Support\Collection;
 
 interface SchemaManifest extends Manifest

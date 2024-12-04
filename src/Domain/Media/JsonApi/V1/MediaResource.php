@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Media\JsonApi\V1;
+namespace Dystore\Api\Domain\Media\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Fields\MediaConversion;
-use Dystcz\LunarApi\Domain\JsonApi\Resources\JsonApiResource;
-use Dystcz\LunarApi\Domain\Media\Contracts\MediaConversion as MediaConversionContract;
+use Dystore\Api\Domain\JsonApi\Eloquent\Fields\MediaConversion;
+use Dystore\Api\Domain\JsonApi\Resources\JsonApiResource;
+use Dystore\Api\Domain\Media\Contracts\MediaConversion as MediaConversionContract;
 use Illuminate\Http\Request;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 

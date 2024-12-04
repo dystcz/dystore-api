@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\JsonApi\V1;
+namespace Dystore\Api\Domain\Carts\JsonApi\V1;
 
 use Illuminate\Validation\Validator;
 use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;

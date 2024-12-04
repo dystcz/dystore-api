@@ -1,5 +1,5 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Addresses\Factories;
+namespace Dystore\Api\Domain\Addresses\Factories;
 
 class AddressFactory extends \Lunar\Database\Factories\AddressFactory {}

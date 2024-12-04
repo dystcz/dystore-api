@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Customers\JsonApi\V1;
+namespace Dystore\Api\Domain\Customers\JsonApi\V1;
 
 use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
 
@@ -49,12 +49,12 @@ class CustomerRequest extends ResourceRequest
     public function messages(): array
     {
         return [
-            'title.string' => __('lunar-api::validations.customers.title.string'),
-            'first_name.string' => __('lunar-api::validations.customers.first_name.string'),
-            'last_name.string' => __('lunar-api::validations.customers.last_name.string'),
-            'company_name.string' => __('lunar-api::validations.customers.company_name.string'),
-            'vat_no.string' => __('lunar-api::validations.customers.vat_no.string'),
-            'account_ref.string' => __('lunar-api::validations.customers.account_ref.string'),
+            'title.string' => __('dystore::validations.customers.title.string'),
+            'first_name.string' => __('dystore::validations.customers.first_name.string'),
+            'last_name.string' => __('dystore::validations.customers.last_name.string'),
+            'company_name.string' => __('dystore::validations.customers.company_name.string'),
+            'vat_no.string' => __('dystore::validations.customers.vat_no.string'),
+            'account_ref.string' => __('dystore::validations.customers.account_ref.string'),
         ];
     }
 }

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Support\Actions;
+namespace Dystore\Api\Support\Actions;
 
 use Exception;
 
@@ -41,6 +41,7 @@ abstract class Action
      */
     public static function run(...$args)
     {
+        /** @phpstan-ignore-next-line */
         $self = new static;
 
         $self->checkIfHandleExists();

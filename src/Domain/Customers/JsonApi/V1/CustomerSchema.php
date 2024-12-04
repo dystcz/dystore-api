@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Customers\JsonApi\V1;
+namespace Dystore\Api\Domain\Customers\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Fields\AttributeData;
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Domain\JsonApi\Eloquent\Fields\AttributeData;
+use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsToMany;
 use LaravelJsonApi\Eloquent\Fields\Relations\HasMany;
 use LaravelJsonApi\Eloquent\Fields\Str;

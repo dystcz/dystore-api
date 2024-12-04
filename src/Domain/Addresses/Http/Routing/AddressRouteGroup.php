@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Addresses\Http\Routing;
+namespace Dystore\Api\Domain\Addresses\Http\Routing;
 
-use Dystcz\LunarApi\Domain\Addresses\Contracts\AddressesController;
-use Dystcz\LunarApi\Facades\LunarApi;
-use Dystcz\LunarApi\Routing\RouteGroup;
+use Dystore\Api\Domain\Addresses\Contracts\AddressesController;
+use Dystore\Api\Facades\Api;
+use Dystore\Api\Routing\RouteGroup;
 use LaravelJsonApi\Laravel\Facades\JsonApiRoute;
 use LaravelJsonApi\Laravel\Routing\Relationships;
 use LaravelJsonApi\Laravel\Routing\ResourceRegistrar;
@@ -18,7 +18,7 @@ class AddressRouteGroup extends RouteGroup
     {
         JsonApiRoute::server('v1')
             ->prefix('v1')
-            ->middleware('auth:'.LunarApi::getAuthGuard())
+            ->middleware('auth:'.Api::getAuthGuard())
             ->resources(function (ResourceRegistrar $server) {
                 $server->resource($this->getPrefix(), AddressesController::class)
                     ->relationships(function (Relationships $relationships) {

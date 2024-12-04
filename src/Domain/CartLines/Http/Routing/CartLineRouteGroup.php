@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CartLines\Http\Routing;
+namespace Dystore\Api\Domain\CartLines\Http\Routing;
 
-use Dystcz\LunarApi\Domain\CartLines\Contracts\CartLinesController;
-use Dystcz\LunarApi\Routing\RouteGroup;
+use Dystore\Api\Domain\CartLines\Contracts\CartLinesController;
+use Dystore\Api\Routing\RouteGroup;
 use LaravelJsonApi\Laravel\Facades\JsonApiRoute;
 use LaravelJsonApi\Laravel\Routing\ResourceRegistrar;
 

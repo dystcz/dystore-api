@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CartLines\Factories;
+namespace Dystore\Api\Domain\CartLines\Factories;
 
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
-use Dystcz\LunarApi\Domain\ProductVariants\Models\ProductVariant;
+use Dystore\Api\Domain\Carts\Models\Cart;
+use Dystore\Api\Domain\ProductVariants\Models\ProductVariant;
 use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Model;
 use Lunar\Database\Factories\CartLineFactory as LunarCartLineFactory;

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Products\Enums;
+namespace Dystore\Api\Domain\Products\Enums;
 
-use Dystcz\LunarApi\Base\Contracts\HasAvailability;
+use Dystore\Api\Base\Contracts\HasAvailability;
 use Illuminate\Contracts\Support\Arrayable;
 
 enum Availability: string implements Arrayable
@@ -35,11 +35,11 @@ enum Availability: string implements Arrayable
     public function label(): string
     {
         return match ($this) {
-            self::ALWAYS => __('lunar-api::availability.labels.always'),
-            self::IN_STOCK => __('lunar-api::availability.labels.in_stock'),
-            self::BACKORDER => __('lunar-api::availability.labels.backorder'),
-            self::PREORDER => __('lunar-api::availability.labels.preorder'),
-            self::OUT_OF_STOCK => __('lunar-api::availability.labels.out_of_stock'),
+            self::ALWAYS => __('dystore::availability.labels.always'),
+            self::IN_STOCK => __('dystore::availability.labels.in_stock'),
+            self::BACKORDER => __('dystore::availability.labels.backorder'),
+            self::PREORDER => __('dystore::availability.labels.preorder'),
+            self::OUT_OF_STOCK => __('dystore::availability.labels.out_of_stock'),
         };
     }
 
@@ -92,7 +92,7 @@ enum Availability: string implements Arrayable
     public function toArray(): array
     {
         return [
-            'name' => __('lunar-api::availability.availability'),
+            'name' => __('dystore::availability.availability'),
             'value' => $this->value,
             'label' => $this->label(),
             'color' => $this->color(),

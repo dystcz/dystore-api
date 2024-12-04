@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CartAddresses\JsonApi\V1;
+namespace Dystore\Api\Domain\CartAddresses\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\Addresses\Http\Enums\AddressType;
+use Dystore\Api\Domain\Addresses\Http\Enums\AddressType;
 use Illuminate\Validation\Rule;
 use LaravelJsonApi\Validation\Rule as JsonApiRule;
 

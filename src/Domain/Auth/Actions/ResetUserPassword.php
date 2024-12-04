@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\Actions;
+namespace Dystore\Api\Domain\Auth\Actions;
 
-use Dystcz\LunarApi\Domain\Users\Contracts\User as UserContract;
-use Dystcz\LunarApi\Domain\Users\Models\User;
-use Dystcz\LunarApi\Support\Actions\Action;
+use Dystore\Api\Domain\Users\Contracts\User as UserContract;
+use Dystore\Api\Domain\Users\Models\User;
+use Dystore\Api\Support\Actions\Action;
 use Illuminate\Support\Facades\Hash;
 
 class ResetUserPassword extends Action

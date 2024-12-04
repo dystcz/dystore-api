@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\Traits;
+namespace Dystore\Api\Domain\Users\Traits;
 
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Auth\Notifications\VerifyEmail;
@@ -14,7 +14,7 @@ trait CanReceiveAuthNotifications
     public function sendPasswordResetNotification($token)
     {
         $notificationClass = Config::get(
-            'lunar-api.domains.auth.notifications.reset_password',
+            'dystore.domains.auth.notifications.reset_password',
             ResetPassword::class,
         );
 
@@ -27,7 +27,7 @@ trait CanReceiveAuthNotifications
     public function sendEmailVerificationNotification()
     {
         $notificationClass = Config::get(
-            'lunar-api.domains.auth.notifications.verify_email',
+            'dystore.domains.auth.notifications.verify_email',
             VerifyEmail::class,
         );
 

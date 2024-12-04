@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Pipelines;
+namespace Dystore\Api\Domain\Orders\Pipelines;
 
 use Closure;
 use Lunar\Models\Contracts\Order as OrderContract;

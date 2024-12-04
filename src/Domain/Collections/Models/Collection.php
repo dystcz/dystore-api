@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Collections\Models;
+namespace Dystore\Api\Domain\Collections\Models;
 
-use Dystcz\LunarApi\Domain\Collections\Concerns\InteractsWithLunarApi;
-use Dystcz\LunarApi\Domain\Collections\Contracts\Collection as CollectionContract;
+use Dystore\Api\Domain\Collections\Concerns\InteractsWithDystoreApi;
+use Dystore\Api\Domain\Collections\Contracts\Collection as CollectionContract;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\MorphMany;
 use Illuminate\Support\Collection as LaravelCollection;
@@ -17,5 +17,5 @@ use Lunar\Models\Collection as LunarCollection;
  */
 class Collection extends LunarCollection implements CollectionContract
 {
-    use InteractsWithLunarApi;
+    use InteractsWithDystoreApi;
 }

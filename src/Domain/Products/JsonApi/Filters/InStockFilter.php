@@ -1,10 +1,12 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Products\JsonApi\Filters;
+namespace Dystore\Api\Domain\Products\JsonApi\Filters;
 
+use Illuminate\Database\Eloquent\Builder;
 use LaravelJsonApi\Eloquent\Contracts\Filter;
 use LaravelJsonApi\Eloquent\Filters\Concerns\DeserializesValue;
 
+/** @phpstan-consistent-constructor */
 class InStockFilter implements Filter
 {
     use DeserializesValue;
@@ -48,7 +50,7 @@ class InStockFilter implements Filter
     /**
      * {@inheritDoc}
      */
-    public function apply($query, $value)
+    public function apply($query, $value): Builder
     {
         $value = in_array($value, [true, 'true', 1, '1']) ? true : false;
 

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\PaymentOptions\Entities;
+namespace Dystore\Api\Domain\PaymentOptions\Entities;
 
-use Dystcz\LunarApi\Domain\PaymentOptions\Facades\PaymentManifest;
+use Dystore\Api\Domain\PaymentOptions\Facades\PaymentManifest;
 use Generator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;

@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Media\Policies;
+namespace Dystore\Api\Domain\Media\Policies;
 
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Illuminate\Foundation\Auth\User as Authenticatable;

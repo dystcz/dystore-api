@@ -1,5 +1,5 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Contracts;
+namespace Dystore\Api\Domain\Carts\Contracts;
 
 interface CheckoutCart {}

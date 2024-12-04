@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductOptionValues\Http\Routing;
+namespace Dystore\Api\Domain\ProductOptionValues\Http\Routing;
 
-use Dystcz\LunarApi\Domain\ProductOptionValues\Contracts\ProductOptionValuesController;
-use Dystcz\LunarApi\Routing\Contracts\RouteGroup as RouteGroupContract;
-use Dystcz\LunarApi\Routing\RouteGroup;
+use Dystore\Api\Domain\ProductOptionValues\Contracts\ProductOptionValuesController;
+use Dystore\Api\Routing\Contracts\RouteGroup as RouteGroupContract;
+use Dystore\Api\Routing\RouteGroup;
 use LaravelJsonApi\Laravel\Facades\JsonApiRoute;
 use LaravelJsonApi\Laravel\Routing\ResourceRegistrar;
 

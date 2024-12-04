@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Actions;
+namespace Dystore\Api\Domain\Carts\Actions;
 
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
+use Dystore\Api\Domain\Carts\Models\Cart;
 use Lunar\Models\Contracts\Cart as CartContract;
 
 class UnsetCoupon

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Auth\JsonApi\Proxies;
+namespace Dystore\Api\Domain\Auth\JsonApi\Proxies;
 
-use Dystcz\LunarApi\Domain\Users\Models\User;
+use Dystore\Api\Domain\Users\Models\User;
 use LaravelJsonApi\Eloquent\Proxy;
 
 class AuthUser extends Proxy

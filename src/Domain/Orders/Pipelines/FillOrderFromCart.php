@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Pipelines;
+namespace Dystore\Api\Domain\Orders\Pipelines;
 
 use Closure;
-use Dystcz\LunarApi\Domain\Orders\Models\Order;
+use Dystore\Api\Domain\Orders\Models\Order;
 use Lunar\Actions\Orders\GenerateOrderReference;
 use Lunar\Models\Contracts\Order as OrderContract;
 use Lunar\Models\Currency;

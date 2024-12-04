@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CartAddresses\JsonApi\V1;
+namespace Dystore\Api\Domain\CartAddresses\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
 use Illuminate\Database\Eloquent\Casts\ArrayObject;
 use LaravelJsonApi\Eloquent\Fields\ArrayHash;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsTo;

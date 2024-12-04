@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Hashids\Traits;
+namespace Dystore\Api\Hashids\Traits;
 
-use Dystcz\LunarApi\Facades\LunarApi;
-use Dystcz\LunarApi\Hashids\Facades\HashidsConnections;
+use Dystore\Api\Facades\Api;
+use Dystore\Api\Hashids\Facades\HashidsConnections;
 use Hashids\Hashids;
 use Illuminate\Support\Arr;
 use Vinkla\Hashids\Facades\Hashids as HashidsFacade;
@@ -15,7 +15,7 @@ trait HashesRouteKey
      */
     public function getRouteKey(): mixed
     {
-        if (! LunarApi::usesHashids()) {
+        if (! Api::usesHashids()) {
             return parent::getRouteKey();
         }
 
@@ -34,7 +34,7 @@ trait HashesRouteKey
      */
     public function resolveRouteBinding($value, $field = null)
     {
-        if (! LunarApi::usesHashids()) {
+        if (! Api::usesHashids()) {
             return parent::resolveRouteBinding($value, $field);
         }
 

@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CartLines\JsonApi\V1;
+namespace Dystore\Api\Domain\CartLines\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Eloquent\Schema;
-use Dystcz\LunarApi\Support\Models\Actions\SchemaType;
+use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Support\Models\Actions\SchemaType;
 use LaravelJsonApi\Eloquent\Fields\ArrayHash;
 use LaravelJsonApi\Eloquent\Fields\Map;
 use LaravelJsonApi\Eloquent\Fields\Number;

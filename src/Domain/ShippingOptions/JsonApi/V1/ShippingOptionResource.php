@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ShippingOptions\JsonApi\V1;
+namespace Dystore\Api\Domain\ShippingOptions\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Resources\JsonApiResource;
-use Dystcz\LunarApi\Domain\ShippingOptions\Entities\ShippingOption;
+use Dystore\Api\Domain\JsonApi\Resources\JsonApiResource;
+use Dystore\Api\Domain\ShippingOptions\Entities\ShippingOption;
 
 class ShippingOptionResource extends JsonApiResource
 {

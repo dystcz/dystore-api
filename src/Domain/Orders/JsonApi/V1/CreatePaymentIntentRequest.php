@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\JsonApi\V1;
+namespace Dystore\Api\Domain\Orders\JsonApi\V1;
 
 use Illuminate\Support\Facades\Config;
 use Illuminate\Validation\Rule;
@@ -42,13 +42,13 @@ class CreatePaymentIntentRequest extends ResourceRequest
     public function messages(): array
     {
         return [
-            'payment_method.required' => __('lunar-api::validations.payments.payment_method.required'),
-            'payment_method.string' => __('lunar-api::validations.payments.payment_method.string'),
+            'payment_method.required' => __('dystore::validations.payments.payment_method.required'),
+            'payment_method.string' => __('dystore::validations.payments.payment_method.string'),
             'payment_method.in' => __(
-                'lunar-api::validations.payments.payment_method.in',
+                'dystore::validations.payments.payment_method.in',
                 ['types' => implode(', ', array_keys(Config::get('lunar.payments.types')))],
             ),
-            'meta.array' => __('lunar-api::validations.payments.meta.array'),
+            'meta.array' => __('dystore::validations.payments.meta.array'),
         ];
     }
 }

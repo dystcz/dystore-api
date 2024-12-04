@@ -1,11 +1,11 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CartAddresses\JsonApi\V1;
+namespace Dystore\Api\Domain\CartAddresses\JsonApi\V1;
 
 use Closure;
-use Dystcz\LunarApi\Domain\Addresses\Http\Enums\AddressType;
-use Dystcz\LunarApi\Domain\Addresses\JsonApi\V1\AddressRequest;
-use Dystcz\LunarApi\Domain\CartAddresses\Models\CartAddress;
+use Dystore\Api\Domain\Addresses\Http\Enums\AddressType;
+use Dystore\Api\Domain\Addresses\JsonApi\V1\AddressRequest;
+use Dystore\Api\Domain\CartAddresses\Models\CartAddress;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Validator;
 use LaravelJsonApi\Validation\Rule as JsonApiRule;
@@ -116,30 +116,30 @@ class CartAddressRequest extends AddressRequest
     public function messages(): array
     {
         return [
-            'title.string' => __('lunar-api::validations.cart_addresses.title.string'),
-            'first_name.required' => __('lunar-api::validations.cart_addresses.first_name.required'),
-            'first_name.string' => __('lunar-api::validations.cart_addresses.first_name.string'),
-            'last_name.required' => __('lunar-api::validations.cart_addresses.last_name.required'),
-            'last_name.string' => __('lunar-api::validations.cart_addresses.last_name.string'),
-            'company_name.string' => __('lunar-api::validations.cart_addresses.company_name.string'),
-            'company_in.string' => __('lunar-api::validations.cart_addresses.company_in.string'),
-            'company_tin.string' => __('lunar-api::validations.cart_addresses.company_tin.string'),
-            'line_one.required' => __('lunar-api::validations.cart_addresses.line_one.required'),
-            'line_one.string' => __('lunar-api::validations.cart_addresses.line_one.string'),
-            'line_two.string' => __('lunar-api::validations.cart_addresses.line_two.string'),
-            'line_three.string' => __('lunar-api::validations.cart_addresses.line_three.string'),
-            'city.required' => __('lunar-api::validations.cart_addresses.city.required'),
-            'city.string' => __('lunar-api::validations.cart_addresses.city.string'),
-            'state.string' => __('lunar-api::validations.cart_addresses.state.string'),
-            'postcode.required' => __('lunar-api::validations.cart_addresses.postcode.required'),
-            'postcode.string' => __('lunar-api::validations.cart_addresses.postcode.string'),
-            'delivery_instructions.string' => __('lunar-api::validations.cart_addresses.delivery_instructions.string'),
-            'contact_email.string' => __('lunar-api::validations.cart_addresses.contact_email.string'),
-            'contact_phone.string' => __('lunar-api::validations.cart_addresses.contact_phone.string'),
-            'shipping_option.string' => __('lunar-api::validations.cart_addresses.shipping_option.string'),
-            'address_type.required' => __('lunar-api::validations.cart_addresses.address_type.required'),
-            'address_type.string' => __('lunar-api::validations.cart_addresses.address_type.string'),
-            'address_type.in' => __('lunar-api::validations.cart_addresses.address_type.in', [
+            'title.string' => __('dystore::validations.cart_addresses.title.string'),
+            'first_name.required' => __('dystore::validations.cart_addresses.first_name.required'),
+            'first_name.string' => __('dystore::validations.cart_addresses.first_name.string'),
+            'last_name.required' => __('dystore::validations.cart_addresses.last_name.required'),
+            'last_name.string' => __('dystore::validations.cart_addresses.last_name.string'),
+            'company_name.string' => __('dystore::validations.cart_addresses.company_name.string'),
+            'company_in.string' => __('dystore::validations.cart_addresses.company_in.string'),
+            'company_tin.string' => __('dystore::validations.cart_addresses.company_tin.string'),
+            'line_one.required' => __('dystore::validations.cart_addresses.line_one.required'),
+            'line_one.string' => __('dystore::validations.cart_addresses.line_one.string'),
+            'line_two.string' => __('dystore::validations.cart_addresses.line_two.string'),
+            'line_three.string' => __('dystore::validations.cart_addresses.line_three.string'),
+            'city.required' => __('dystore::validations.cart_addresses.city.required'),
+            'city.string' => __('dystore::validations.cart_addresses.city.string'),
+            'state.string' => __('dystore::validations.cart_addresses.state.string'),
+            'postcode.required' => __('dystore::validations.cart_addresses.postcode.required'),
+            'postcode.string' => __('dystore::validations.cart_addresses.postcode.string'),
+            'delivery_instructions.string' => __('dystore::validations.cart_addresses.delivery_instructions.string'),
+            'contact_email.string' => __('dystore::validations.cart_addresses.contact_email.string'),
+            'contact_phone.string' => __('dystore::validations.cart_addresses.contact_phone.string'),
+            'shipping_option.string' => __('dystore::validations.cart_addresses.shipping_option.string'),
+            'address_type.required' => __('dystore::validations.cart_addresses.address_type.required'),
+            'address_type.string' => __('dystore::validations.cart_addresses.address_type.string'),
+            'address_type.in' => __('dystore::validations.cart_addresses.address_type.in', [
                 'types' => implode(', ', [
                     AddressType::SHIPPING->value,
                     AddressType::BILLING->value,

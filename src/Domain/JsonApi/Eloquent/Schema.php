@@ -1,14 +1,14 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\JsonApi\Eloquent;
+namespace Dystore\Api\Domain\JsonApi\Eloquent;
 
-use Dystcz\LunarApi\Base\Contracts\Extendable as ExtendableContract;
-use Dystcz\LunarApi\Base\Contracts\SchemaExtension as SchemaExtensionContract;
-use Dystcz\LunarApi\Base\Contracts\SchemaManifest as SchemaManifestContract;
-use Dystcz\LunarApi\Domain\JsonApi\Contracts\Schema as SchemaContract;
-use Dystcz\LunarApi\Domain\JsonApi\Core\Schema\TypeResolver;
-use Dystcz\LunarApi\Facades\LunarApi;
-use Dystcz\LunarApi\Support\Models\Actions\ModelKey;
+use Dystore\Api\Base\Contracts\Extendable as ExtendableContract;
+use Dystore\Api\Base\Contracts\SchemaExtension as SchemaExtensionContract;
+use Dystore\Api\Base\Contracts\SchemaManifest as SchemaManifestContract;
+use Dystore\Api\Domain\JsonApi\Contracts\Schema as SchemaContract;
+use Dystore\Api\Domain\JsonApi\Core\Schema\TypeResolver;
+use Dystore\Api\Facades\Api;
+use Dystore\Api\Support\Models\Actions\ModelKey;
 use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
@@ -122,7 +122,7 @@ abstract class Schema extends BaseSchema implements ExtendableContract, SchemaCo
         $type = Str::snake(static::type());
 
         return Config::get(
-            "lunar-api.domains.{$type}.resource",
+            "dystore.domains.{$type}.resource",
             parent::resource(),
         );
     }
@@ -135,7 +135,7 @@ abstract class Schema extends BaseSchema implements ExtendableContract, SchemaCo
         $type = Str::snake(static::type());
 
         return Config::get(
-            "lunar-api.domains.{$type}.authorizer",
+            "dystore.domains.{$type}.authorizer",
             parent::authorizer(),
         );
     }
@@ -233,7 +233,7 @@ abstract class Schema extends BaseSchema implements ExtendableContract, SchemaCo
     {
         return PagePagination::make()
             ->withDefaultPerPage(
-                Config::get('lunar-api.general.pagination.per_page', 24)
+                Config::get('dystore.general.pagination.per_page', 24)
             );
     }
 
@@ -272,7 +272,7 @@ abstract class Schema extends BaseSchema implements ExtendableContract, SchemaCo
      */
     protected function idField(?string $column = null): ID|HashId
     {
-        if (LunarApi::usesHashids()) {
+        if (Api::usesHashids()) {
             return HashId::make($column)
                 ->useConnection(ModelKey::get(self::model()))
                 ->alreadyHashed();

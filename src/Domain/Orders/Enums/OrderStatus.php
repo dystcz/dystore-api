@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\Enums;
+namespace Dystore\Api\Domain\Orders\Enums;
 
-use Dystcz\LunarApi\Domain\Orders\Contracts\OrderStatusContract;
+use Dystore\Api\Domain\Orders\Contracts\OrderStatusContract;
 
 enum OrderStatus: string implements OrderStatusContract
 {

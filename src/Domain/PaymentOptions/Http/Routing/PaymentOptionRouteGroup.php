@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\PaymentOptions\Http\Routing;
+namespace Dystore\Api\Domain\PaymentOptions\Http\Routing;
 
-use Dystcz\LunarApi\Domain\PaymentOptions\Contracts\PaymentOptionsController;
-use Dystcz\LunarApi\Routing\RouteGroup;
+use Dystore\Api\Domain\PaymentOptions\Contracts\PaymentOptionsController;
+use Dystore\Api\Routing\RouteGroup;
 use LaravelJsonApi\Laravel\Facades\JsonApiRoute;
 use LaravelJsonApi\Laravel\Routing\ResourceRegistrar;
 

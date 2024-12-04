@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\JsonApi\V1;
+namespace Dystore\Api\Domain\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Servers\Server as BaseServer;
+use Dystore\Api\Domain\JsonApi\Servers\Server as BaseServer;
 use Illuminate\Support\Facades\Config;
 
 class Server extends BaseServer
@@ -12,7 +12,7 @@ class Server extends BaseServer
      */
     protected function setBaseUri(string $path = 'v1'): void
     {
-        $prefix = Config::get('lunar-api.general.route_prefix');
+        $prefix = Config::get('dystore.general.route_prefix');
 
         $this->baseUri = "/{$prefix}/{$path}";
     }

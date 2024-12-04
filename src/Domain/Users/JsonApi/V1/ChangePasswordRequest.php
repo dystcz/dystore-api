@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\JsonApi\V1;
+namespace Dystore\Api\Domain\Users\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\Users\Rules\CorrectOldPassword;
+use Dystore\Api\Domain\Users\Rules\CorrectOldPassword;
 use Illuminate\Validation\Rules\Password;
 use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
 
@@ -39,12 +39,12 @@ class ChangePasswordRequest extends ResourceRequest
     public function messages(): array
     {
         return [
-            'password.min' => __('lunar-api::validations.users.password.min'),
-            'password.required' => __('lunar-api::validations.users.password.required'),
-            'password.string' => __('lunar-api::validations.users.password.string'),
-            'password.confirmed' => __('lunar-api::validations.users.password.confirmed'),
-            'old_password.required' => __('lunar-api::validations.users.old_password.required'),
-            'old_password.string' => __('lunar-api::validations.users.old_password.string'),
+            'password.min' => __('dystore::validations.users.password.min'),
+            'password.required' => __('dystore::validations.users.password.required'),
+            'password.string' => __('dystore::validations.users.password.string'),
+            'password.confirmed' => __('dystore::validations.users.password.confirmed'),
+            'old_password.required' => __('dystore::validations.users.old_password.required'),
+            'old_password.string' => __('dystore::validations.users.old_password.string'),
         ];
     }
 }

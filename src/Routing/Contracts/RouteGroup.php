@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Routing\Contracts;
+namespace Dystore\Api\Routing\Contracts;
 
 interface RouteGroup
 {

@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\PaymentOptions\Contracts;
+namespace Dystore\Api\Domain\PaymentOptions\Contracts;
 
 use Closure;
-use Dystcz\LunarApi\Domain\PaymentOptions\Entities\PaymentOption;
+use Dystore\Api\Domain\PaymentOptions\Entities\PaymentOption;
 use Illuminate\Support\Collection;
 use Lunar\Models\Contracts\Cart as CartContract;
 

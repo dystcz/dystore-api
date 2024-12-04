@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\AttributeGroups\Contracts;
+namespace Dystore\Api\Domain\AttributeGroups\Contracts;
 
-use Dystcz\LunarApi\Base\Contracts\Translatable;
+use Dystore\Api\Base\Contracts\Translatable;
 use Lunar\Models\Contracts\AttributeGroup as LunarAttributeGroup;
 
 interface AttributeGroup extends LunarAttributeGroup, Translatable {}

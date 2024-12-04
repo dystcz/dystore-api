@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ShippingOptions\Entities;
+namespace Dystore\Api\Domain\ShippingOptions\Entities;
 
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
+use Dystore\Api\Domain\Carts\Models\Cart;
 use Generator;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;

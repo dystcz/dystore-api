@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\JsonApi\V1;
+namespace Dystore\Api\Domain\Carts\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\CartAddresses\Models\CartAddress;
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
+use Dystore\Api\Domain\CartAddresses\Models\CartAddress;
+use Dystore\Api\Domain\Carts\Models\Cart;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Validation\Validator;
@@ -43,9 +43,9 @@ class CheckoutCartRequest extends ResourceRequest
     public function messages(): array
     {
         return [
-            'create_user.boolean' => __('lunar-api::validations.carts.create_user.boolean'),
-            'meta.array' => __('lunar-api::validations.carts.meta.array'),
-            'agree.accepted' => __('lunar-api::validations.carts.agree.accepted'),
+            'create_user.boolean' => __('dystore::validations.carts.create_user.boolean'),
+            'meta.array' => __('dystore::validations.carts.meta.array'),
+            'agree.accepted' => __('dystore::validations.carts.agree.accepted'),
         ];
     }
 
@@ -79,7 +79,7 @@ class CheckoutCartRequest extends ResourceRequest
         if (! $shippingAddress->hasShippingOption()) {
             $validator->errors()->add(
                 'cart',
-                __('lunar-api::validations.carts.shipping_option.required'),
+                __('dystore::validations.carts.shipping_option.required'),
             );
         }
     }
@@ -89,7 +89,7 @@ class CheckoutCartRequest extends ResourceRequest
      */
     protected function validateStock(Validator $validator, CartContract $cart): void
     {
-        if (! Config::get('lunar-api.general.checkout.check_stock_on_checkout')) {
+        if (! Config::get('dystore.general.checkout.check_stock_on_checkout')) {
             return;
         }
 
@@ -101,7 +101,7 @@ class CheckoutCartRequest extends ResourceRequest
             if ($line->purchasable->inStockQuantity < $line->quantity) {
                 $validator->errors()->add(
                     'cart',
-                    __('lunar-api::validations.carts.products.out_of_stock'),
+                    __('dystore::validations.carts.products.out_of_stock'),
                 );
             }
         });

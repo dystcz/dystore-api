@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\TaxZones\Policies;
+namespace Dystore\Api\Domain\TaxZones\Policies;
 
-use Dystcz\LunarApi\Domain\Auth\Concerns\HandlesAuthorization;
+use Dystore\Api\Domain\Auth\Concerns\HandlesAuthorization;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Lunar\Models\Contracts\TaxZone as TaxZoneContract;
 

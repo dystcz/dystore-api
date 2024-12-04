@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\AttributeGroups\JsonApi\V1;
+namespace Dystore\Api\Domain\AttributeGroups\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\JsonApi\Queries\Query;
+use Dystore\Api\Domain\JsonApi\Queries\Query;
 
 class AttributeGroupQuery extends Query
 {

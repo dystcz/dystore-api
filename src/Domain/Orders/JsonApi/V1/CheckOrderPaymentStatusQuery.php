@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Orders\JsonApi\V1;
+namespace Dystore\Api\Domain\Orders\JsonApi\V1;
 
-use Dystcz\LunarApi\Domain\Orders\Models\Order;
+use Dystore\Api\Domain\Orders\Models\Order;
 use Illuminate\Validation\Validator;
 use LaravelJsonApi\Laravel\Http\Requests\ResourceQuery;
 use LaravelJsonApi\Validation\Rule as JsonApiRule;

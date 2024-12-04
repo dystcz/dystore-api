@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\Http\Controllers;
+namespace Dystore\Api\Domain\Payments\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\Payments\Contracts\HandlePaymentWebhookController as HandlePaymentWebhookControllerContract;
-use Dystcz\LunarApi\Domain\Payments\PaymentAdapters\PaymentAdaptersRegister;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Payments\Contracts\HandlePaymentWebhookController as HandlePaymentWebhookControllerContract;
+use Dystore\Api\Domain\Payments\PaymentAdapters\PaymentAdaptersRegister;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Http\Request;
 

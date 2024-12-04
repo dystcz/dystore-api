@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\ProductVariants\Commands;
+namespace Dystore\Api\Domain\ProductVariants\Commands;
 
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\Config;
@@ -13,7 +13,7 @@ class GenerateUrls extends Command
      *
      * @var string
      */
-    protected $signature = 'lunar-api:variants:generate-urls';
+    protected $signature = 'dystore:variants:generate-urls';
 
     /**
      * The console command description.

@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Prices\Factories;
+namespace Dystore\Api\Domain\Prices\Factories;
 
-use Dystcz\LunarApi\Domain\Currencies\Models\Currency;
+use Dystore\Api\Domain\Currencies\Models\Currency;
 
 class PriceFactory extends \Lunar\Database\Factories\PriceFactory
 {

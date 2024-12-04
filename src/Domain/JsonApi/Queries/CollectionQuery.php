@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\JsonApi\Queries;
+namespace Dystore\Api\Domain\JsonApi\Queries;
 
 use Illuminate\Support\Facades\Config;
 use LaravelJsonApi\Laravel\Http\Requests\ResourceQuery;
@@ -48,7 +48,7 @@ class CollectionQuery extends ResourceQuery
             'page.size' => [
                 'nullable',
                 'integer',
-                'between:1,'.Config::get('lunar-api.general.pagination.max_size', 48),
+                'between:1,'.Config::get('dystore.general.pagination.max_size', 48),
             ],
             'sort' => [
                 'nullable',

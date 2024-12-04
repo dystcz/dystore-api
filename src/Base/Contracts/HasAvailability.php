@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Contracts;
+namespace Dystore\Api\Base\Contracts;
 
-use Dystcz\LunarApi\Domain\Products\Enums\Availability;
+use Dystore\Api\Domain\Products\Enums\Availability;
 
 interface HasAvailability extends Translatable
 {

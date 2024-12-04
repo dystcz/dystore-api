@@ -1,13 +1,13 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Carts\Actions;
+namespace Dystore\Api\Domain\Carts\Actions;
 
-use Dystcz\LunarApi\Domain\Addresses\JsonApi\V1\AddressRequest;
-use Dystcz\LunarApi\Domain\Carts\Models\Cart;
-use Dystcz\LunarApi\Domain\Users\Contracts\CreatesUserFromCart;
-use Dystcz\LunarApi\Domain\Users\Contracts\RegistersUser;
-use Dystcz\LunarApi\Domain\Users\Data\UserData;
-use Dystcz\LunarApi\Domain\Users\Models\User;
+use Dystore\Api\Domain\Addresses\JsonApi\V1\AddressRequest;
+use Dystore\Api\Domain\Carts\Models\Cart;
+use Dystore\Api\Domain\Users\Contracts\CreatesUserFromCart;
+use Dystore\Api\Domain\Users\Contracts\RegistersUser;
+use Dystore\Api\Domain\Users\Data\UserData;
+use Dystore\Api\Domain\Users\Models\User;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Support\Facades\Validator;
 use Lunar\Models\Contracts\Cart as CartContract;

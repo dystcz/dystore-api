@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Collections\Http\Controllers;
+namespace Dystore\Api\Domain\Collections\Http\Controllers;
 
-use Dystcz\LunarApi\Domain\Collections\Contracts\CollectionsController as CollectionsControllerContract;
+use Dystore\Api\Domain\Collections\Contracts\CollectionsController as CollectionsControllerContract;
 use Illuminate\Routing\Controller;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchMany;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchOne;

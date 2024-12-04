@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\PaymentOptions\Http\Controllers;
+namespace Dystore\Api\Domain\PaymentOptions\Http\Controllers;
 
-use Dystcz\LunarApi\Base\Controller;
-use Dystcz\LunarApi\Domain\PaymentOptions\Contracts\PaymentOptionsController as PaymentOptionsControllerContract;
+use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\PaymentOptions\Contracts\PaymentOptionsController as PaymentOptionsControllerContract;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchMany;
 
 class PaymentOptionsController extends Controller implements PaymentOptionsControllerContract

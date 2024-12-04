@@ -1,9 +1,9 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Payments\Actions;
+namespace Dystore\Api\Domain\Payments\Actions;
 
-use Dystcz\LunarApi\Domain\Orders\Actions\ChangeOrderStatus;
-use Dystcz\LunarApi\Domain\Orders\Enums\OrderStatus;
+use Dystore\Api\Domain\Orders\Actions\ChangeOrderStatus;
+use Dystore\Api\Domain\Orders\Enums\OrderStatus;
 use Lunar\Models\Contracts\Order as OrderContract;
 
 class MarkPendingPayment

@@ -23,5 +23,5 @@ with emphasis on the plug and play spirit
 - Configurable checkout flow with guest checkout
 - Solid extensibility (Models, Schemas, Resources, Routes, ...)
 - Payment adapters registrar
-(currently [Stripe](https://github.com/dystcz/lunar-api-stripe-adapter)
+(currently [Stripe](https://github.com/dystcz/dystore-stripe)
 & [Mollie](https://github.com/pixelpillow/lunar-api-mollie-adapter))

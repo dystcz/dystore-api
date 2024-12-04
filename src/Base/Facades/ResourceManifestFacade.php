@@ -1,10 +1,10 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Facades;
+namespace Dystore\Api\Base\Facades;
 
-use Dystcz\LunarApi\Base\Contracts\ResourceManifest as ResourceManifestContract;
-use Dystcz\LunarApi\Base\Extensions\Extension;
-use Dystcz\LunarApi\Domain\JsonApi\Contracts\Schema as SchemaContract;
+use Dystore\Api\Base\Contracts\ResourceManifest as ResourceManifestContract;
+use Dystore\Api\Base\Extensions\Extension;
+use Dystore\Api\Domain\JsonApi\Contracts\Schema as SchemaContract;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
 
@@ -17,7 +17,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static void removeSchema(string $schemaType)
  * @method static Extension extend(string $class)
  *
- * @see \Dystcz\LunarApi\Base\Manifests\SchemaManifest
+ * @see \Dystore\Api\Base\Manifests\SchemaManifest
  */
 class ResourceManifestFacade extends Facade
 {

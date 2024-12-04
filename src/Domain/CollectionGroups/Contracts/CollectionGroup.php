@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\CollectionGroups\Contracts;
+namespace Dystore\Api\Domain\CollectionGroups\Contracts;
 
 use Lunar\Models\Contracts\CollectionGroup as LunarCollectionGroup;
 

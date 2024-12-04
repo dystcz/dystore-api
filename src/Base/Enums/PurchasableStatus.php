@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Base\Enums;
+namespace Dystore\Api\Base\Enums;
 
 enum PurchasableStatus: string
 {

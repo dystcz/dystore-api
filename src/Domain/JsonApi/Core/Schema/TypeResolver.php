@@ -1,8 +1,8 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\JsonApi\Core\Schema;
+namespace Dystore\Api\Domain\JsonApi\Core\Schema;
 
-use Dystcz\LunarApi\Support\Models\Actions\SchemaType;
+use Dystore\Api\Support\Models\Actions\SchemaType;
 
 final class TypeResolver
 {

@@ -1,12 +1,12 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Users\Http\Routing;
+namespace Dystore\Api\Domain\Users\Http\Routing;
 
-use Dystcz\LunarApi\Domain\Users\Contracts\ChangePasswordController;
-use Dystcz\LunarApi\Domain\Users\Contracts\UsersController;
-use Dystcz\LunarApi\Facades\LunarApi;
-use Dystcz\LunarApi\Routing\Contracts\RouteGroup as RouteGroupContract;
-use Dystcz\LunarApi\Routing\RouteGroup;
+use Dystore\Api\Domain\Users\Contracts\ChangePasswordController;
+use Dystore\Api\Domain\Users\Contracts\UsersController;
+use Dystore\Api\Facades\Api;
+use Dystore\Api\Routing\Contracts\RouteGroup as RouteGroupContract;
+use Dystore\Api\Routing\RouteGroup;
 use LaravelJsonApi\Laravel\Facades\JsonApiRoute;
 use LaravelJsonApi\Laravel\Routing\ActionRegistrar;
 use LaravelJsonApi\Laravel\Routing\Relationships;
@@ -22,7 +22,7 @@ class UserRouteGroup extends RouteGroup implements RouteGroupContract
         JsonApiRoute::server('v1')
             ->prefix('v1')
             ->resources(function (ResourceRegistrar $server) {
-                $authGuard = LunarApi::getAuthGuard();
+                $authGuard = Api::getAuthGuard();
 
                 $server
                     ->resource('users', UsersController::class)
@@ -40,7 +40,7 @@ class UserRouteGroup extends RouteGroup implements RouteGroupContract
                             ->patch('change-password', 'update')
                             ->name('users.change-password');
                     })
-                    ->middleware('auth:'.LunarApi::getAuthGuard());
+                    ->middleware('auth:'.Api::getAuthGuard());
             });
     }
 }

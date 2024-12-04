@@ -1,6 +1,6 @@
 <?php
 
-namespace Dystcz\LunarApi\Domain\Prices\Contracts;
+namespace Dystore\Api\Domain\Prices\Contracts;
 
 use Lunar\Models\Contracts\Price as LunarPrice;
 

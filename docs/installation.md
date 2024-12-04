@@ -2,16 +2,16 @@
 
 ## Requirements
 
-- PHP ^8.2
-- Laravel 11
-- [Lunar requirements](https://docs.lunarphp.io/core/installation.html#server-requirements)
+-   PHP ^8.2
+-   Laravel 11
+-   [Lunar requirements](https://docs.lunarphp.io/core/installation.html#server-requirements)
 
 ## Installation
 
 You can install the package via composer
 
 ```bash
-composer require dystcz/lunar-api
+composer require dystcz/dystore-api
 ```
 
 Publish config files
@@ -19,7 +19,7 @@ Publish config files
 > You will probably need them pretty bad
 
 ```bash
-php artisan vendor:publish --provider="Dystcz\LunarApi\LunarApiServiceProvider" --tag="lunar-api"
+php artisan vendor:publish --provider="Dystore\Api\ApiServiceProvider" --tag="dystore-api"
 ```
 
 Publish migrations
@@ -27,7 +27,7 @@ Publish migrations
 > Only in case you want to customize the database schema
 
 ```bash
-php artisan vendor:publish --provider="Dystcz\LunarApi\LunarApiServiceProvider" --tag="lunar-api.migrations"
+php artisan vendor:publish --provider="Dystore\Api\ApiServiceProvider" --tag="dystore-api.migrations"
 ```
 
 ## Let's hit your first endpoint
