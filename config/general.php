@@ -15,7 +15,7 @@ return [
     'route_middleware' => ['api'],
 
     // Enable or disable hashids
-    'use_hashids' => env('LUNAR_API_USE_HASHIDS', false),
+    'use_hashids' => env('DYSTORE_API_USE_HASHIDS', false),
 
     // Pagination defaults
     'pagination' => [
