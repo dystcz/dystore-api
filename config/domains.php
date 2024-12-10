@@ -15,6 +15,11 @@ return [
         ],
     ],
 
+    'storefronts' => [
+        'schema' => Dystore\Api\Domain\Storefront\JsonApi\V1\StorefrontSchema::class,
+        'routes' => Dystore\Api\Domain\Storefront\Http\Routing\StorefrontRouteGroup::class,
+    ],
+
     SchemaType::get(Lunar\Models\Contracts\Address::class) => [
         'model' => Dystore\Api\Domain\Addresses\Models\Address::class,
         'model_contract' => Lunar\Models\Contracts\Address::class,
@@ -167,6 +172,17 @@ return [
         'query' => Dystore\Api\Domain\Customers\JsonApi\V1\CustomerQuery::class,
         'collection_query' => Dystore\Api\Domain\Customers\JsonApi\V1\CustomerCollectionQuery::class,
         'routes' => Dystore\Api\Domain\Customers\Http\Routing\CustomerRouteGroup::class,
+    ],
+
+    SchemaType::get(Lunar\Models\Contracts\CustomerGroup::class) => [
+        'model' => Dystore\Api\Domain\CustomerGroups\Models\CustomerGroup::class,
+        'model_contract' => Lunar\Models\Contracts\CustomerGroup::class,
+        'policy' => Dystore\Api\Domain\CustomerGroups\Policies\CustomerGroupPolicy::class,
+        'schema' => Dystore\Api\Domain\CustomerGroups\JsonApi\V1\CustomerGroupSchema::class,
+        'resource' => Dystore\Api\Domain\CustomerGroups\JsonApi\V1\CustomerGroupResource::class,
+        'query' => Dystore\Api\Domain\CustomerGroups\JsonApi\V1\CustomerGroupQuery::class,
+        'collection_query' => Dystore\Api\Domain\CustomerGroups\JsonApi\V1\CustomerGroupCollectionQuery::class,
+        'routes' => Dystore\Api\Domain\CustomerGroups\Http\Routing\CustomerGroupRouteGroup::class,
     ],
 
     // 'discounts' => [

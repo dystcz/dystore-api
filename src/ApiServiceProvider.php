@@ -71,6 +71,11 @@ class ApiServiceProvider extends ServiceProvider
             fn (Application $app) => $app->make(\Dystore\Api\Domain\PaymentOptions\Manifests\PaymentManifest::class),
         );
 
+        // Register storefront session manager.
+        $this->app->singleton(
+            \Lunar\Base\StorefrontSessionInterface::class,
+            fn (Application $app) => $app->make(\Dystore\Api\Domain\Storefront\Managers\StorefrontSessionManager::class),
+        );
     }
 
     /**
@@ -296,6 +301,11 @@ class ApiServiceProvider extends ServiceProvider
     {
         $controllers = [
             \Dystore\Api\Domain\Addresses\Contracts\AddressesController::class => \Dystore\Api\Domain\Addresses\Http\Controllers\AddressesController::class,
+            \Dystore\Api\Domain\Auth\Contracts\AuthController::class => \Dystore\Api\Domain\Auth\Http\Controllers\AuthController::class,
+            \Dystore\Api\Domain\Auth\Contracts\AuthUserOrdersController::class => \Dystore\Api\Domain\Auth\Http\Controllers\AuthUserOrdersController::class,
+            \Dystore\Api\Domain\Auth\Contracts\NewPasswordController::class => \Dystore\Api\Domain\Auth\Http\Controllers\NewPasswordController::class,
+            \Dystore\Api\Domain\Auth\Contracts\PasswordResetLinkController::class => \Dystore\Api\Domain\Auth\Http\Controllers\PasswordResetLinkController::class,
+            \Dystore\Api\Domain\Auth\Contracts\RegisterUserWithoutPasswordController::class => \Dystore\Api\Domain\Auth\Http\Controllers\RegisterUserWithoutPasswordController::class,
             \Dystore\Api\Domain\Brands\Contracts\BrandsController::class => \Dystore\Api\Domain\Brands\Http\Controllers\BrandsController::class,
             \Dystore\Api\Domain\CartAddresses\Contracts\CartAddressShippingOptionController::class => \Dystore\Api\Domain\CartAddresses\Http\Controllers\CartAddressShippingOptionController::class,
             \Dystore\Api\Domain\CartAddresses\Contracts\CartAddressesController::class => \Dystore\Api\Domain\CartAddresses\Http\Controllers\CartAddressesController::class,
@@ -314,6 +324,7 @@ class ApiServiceProvider extends ServiceProvider
             \Dystore\Api\Domain\Collections\Contracts\CollectionsController::class => \Dystore\Api\Domain\Collections\Http\Controllers\CollectionsController::class,
             \Dystore\Api\Domain\Countries\Contracts\CountriesController::class => \Dystore\Api\Domain\Countries\Http\Controllers\CountriesController::class,
             \Dystore\Api\Domain\Currencies\Contracts\CurrenciesController::class => \Dystore\Api\Domain\Currencies\Http\Controllers\CurrenciesController::class,
+            \Dystore\Api\Domain\CustomerGroups\Contracts\CustomerGroupsController::class => \Dystore\Api\Domain\CustomerGroups\Http\Controllers\CustomerGroupsController::class,
             \Dystore\Api\Domain\Customers\Contracts\CustomersController::class => \Dystore\Api\Domain\Customers\Http\Controllers\CustomersController::class,
             \Dystore\Api\Domain\Media\Contracts\MediaController::class => \Dystore\Api\Domain\Media\Http\Controllers\MediaController::class,
             \Dystore\Api\Domain\Orders\Contracts\CheckOrderPaymentStatusController::class => \Dystore\Api\Domain\Orders\Http\Controllers\CheckOrderPaymentStatusController::class,
@@ -327,15 +338,11 @@ class ApiServiceProvider extends ServiceProvider
             \Dystore\Api\Domain\ProductVariants\Contracts\ProductVariantsController::class => \Dystore\Api\Domain\ProductVariants\Http\Controllers\ProductVariantsController::class,
             \Dystore\Api\Domain\Products\Contracts\ProductsController::class => \Dystore\Api\Domain\Products\Http\Controllers\ProductsController::class,
             \Dystore\Api\Domain\ShippingOptions\Contracts\ShippingOptionsController::class => \Dystore\Api\Domain\ShippingOptions\Http\Controllers\ShippingOptionsController::class,
+            \Dystore\Api\Domain\Storefront\Contracts\StorefrontController::class => \Dystore\Api\Domain\Storefront\Http\Controllers\StorefrontController::class,
             \Dystore\Api\Domain\Tags\Contracts\TagsController::class => \Dystore\Api\Domain\Tags\Http\Controllers\TagsController::class,
             \Dystore\Api\Domain\Urls\Contracts\UrlsController::class => \Dystore\Api\Domain\Urls\Http\Controllers\UrlsController::class,
-            \Dystore\Api\Domain\Users\Contracts\UsersController::class => \Dystore\Api\Domain\Users\Http\Controllers\UsersController::class,
             \Dystore\Api\Domain\Users\Contracts\ChangePasswordController::class => \Dystore\Api\Domain\Users\Http\Controllers\ChangePasswordController::class,
-            \Dystore\Api\Domain\Auth\Contracts\AuthUserOrdersController::class => \Dystore\Api\Domain\Auth\Http\Controllers\AuthUserOrdersController::class,
-            \Dystore\Api\Domain\Auth\Contracts\RegisterUserWithoutPasswordController::class => \Dystore\Api\Domain\Auth\Http\Controllers\RegisterUserWithoutPasswordController::class,
-            \Dystore\Api\Domain\Auth\Contracts\AuthController::class => \Dystore\Api\Domain\Auth\Http\Controllers\AuthController::class,
-            \Dystore\Api\Domain\Auth\Contracts\PasswordResetLinkController::class => \Dystore\Api\Domain\Auth\Http\Controllers\PasswordResetLinkController::class,
-            \Dystore\Api\Domain\Auth\Contracts\NewPasswordController::class => \Dystore\Api\Domain\Auth\Http\Controllers\NewPasswordController::class,
+            \Dystore\Api\Domain\Users\Contracts\UsersController::class => \Dystore\Api\Domain\Users\Http\Controllers\UsersController::class,
         ];
 
         foreach ($controllers as $abstract => $concrete) {

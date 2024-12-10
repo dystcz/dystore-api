@@ -8,11 +8,16 @@ use Dystore\Api\Domain\Prices\Actions\GetPrice;
 use Dystore\Api\Domain\Prices\Actions\GetPriceWithoutDefaultTax;
 use Dystore\Api\Domain\Prices\JsonApi\Filters\MaxPriceFilter;
 use Dystore\Api\Domain\Prices\JsonApi\Filters\MinPriceFilter;
+use Dystore\Api\Support\Models\Actions\SchemaType;
 use LaravelJsonApi\Eloquent\Fields\Boolean;
 use LaravelJsonApi\Eloquent\Fields\Map;
 use LaravelJsonApi\Eloquent\Fields\Number;
+use LaravelJsonApi\Eloquent\Fields\Relations\BelongsTo;
 use LaravelJsonApi\Eloquent\Fields\Str;
 use LaravelJsonApi\Eloquent\Filters\WhereIdIn;
+use LaravelJsonApi\Eloquent\Resources\Relation;
+use Lunar\Models\Contracts\Currency;
+use Lunar\Models\Contracts\CustomerGroup;
 use Lunar\Models\Contracts\Price;
 
 class PriceSchema extends Schema
@@ -21,6 +26,19 @@ class PriceSchema extends Schema
      * {@inheritDoc}
      */
     public static string $model = Price::class;
+
+    /**
+     * {@inheritDoc}
+     */
+    public function includePaths(): iterable
+    {
+        return [
+            'currency',
+            'customer_group',
+
+            ...parent::includePaths(),
+        ];
+    }
 
     /**
      * {@inheritDoc}
@@ -123,6 +141,14 @@ class PriceSchema extends Schema
                         return (new GetComparePriceDiscount($price, $comparePrice))->isOnSale();
                     }),
             ]),
+
+            BelongsTo::make('currency')
+                ->type(SchemaType::get(Currency::class))
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
+
+            BelongsTo::make('customer_group', 'customerGroup')
+                ->type(SchemaType::get(CustomerGroup::class))
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             ...parent::fields(),
         ];

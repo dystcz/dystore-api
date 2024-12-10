@@ -2,11 +2,11 @@
 
 namespace Dystore\Api\Domain\JsonApi\Authorizers;
 
-use Dystore\Api\Domain\JsonApi\Contracts\Schema;
 use Illuminate\Contracts\Auth\Access\Gate;
 use Illuminate\Http\Request;
 use Illuminate\Support\Arr;
 use LaravelJsonApi\Contracts\Auth\Authorizer as AuthorizerContract;
+use LaravelJsonApi\Contracts\Schema\Schema;
 use LaravelJsonApi\Core\Auth\Authorizer as BaseAuthorizer;
 use LaravelJsonApi\Core\JsonApiService;
 use LaravelJsonApi\Core\Support\Str;
