@@ -7,7 +7,6 @@ use Dystore\Api\Domain\Orders\Contracts\OrdersController as OrdersControllerCont
 use Dystore\Api\Domain\Orders\JsonApi\V1\OrderQuery;
 use Dystore\Api\Domain\Orders\JsonApi\V1\OrderSchema;
 use Dystore\Api\Domain\Orders\Models\Order;
-use Illuminate\Support\Facades\URL;
 use LaravelJsonApi\Core\Responses\DataResponse;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchOne;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchRelated;
@@ -37,28 +36,6 @@ class OrdersController extends Controller implements OrdersControllerContract
             ->first();
 
         return DataResponse::make($model)
-            ->withLinks([
-                'self.signed' => URL::signedRoute(
-                    'v1.orders.show',
-                    ['order' => $model->getRouteKey()],
-                ),
-                'create-payment-intent.signed' => URL::signedRoute(
-                    'v1.orders.createPaymentIntent',
-                    ['order' => $model->getRouteKey()],
-                ),
-                'mark-order-pending-payment.signed' => URL::signedRoute(
-                    'v1.orders.markPendingPayment',
-                    ['order' => $model->getRouteKey()],
-                ),
-                'mark-order-awaiting-payment.signed' => URL::signedRoute(
-                    'v1.orders.markAwaitingPayment',
-                    ['order' => $model->getRouteKey()],
-                ),
-                'check-order-payment-status.signed' => URL::signedRoute(
-                    'v1.orders.checkOrderPaymentStatus',
-                    ['order' => $model->getRouteKey()],
-                ),
-            ])
             ->didntCreate();
     }
 }
