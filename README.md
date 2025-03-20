@@ -4,7 +4,7 @@
 [![Total Downloads](https://img.shields.io/packagist/dt/dystcz/dystore-api.svg?style=flat-square)](https://packagist.org/packages/dystcz/dystore-api)
 [![Tests](https://github.com/dystcz/dystore/actions/workflows/tests.yaml/badge.svg)](https://github.com/dystcz/dystore/actions/workflows/tests.yaml)
 
-> [!INFO]
+> [!IMPORTANT]
 > To open issues or contribute, please navigate to the [main repository](https://github.com/dystcz/dystore). This is a subtree split of [dystore](https://github.com/dystcz/dystore) monorepo.
 
 > [!CAUTION]
@@ -44,8 +44,8 @@ composer test
 - [dystore-newsletter](https://github.com/dystcz/dystore-newsletter)
   (Newsletter sign up with support for Mailchimp / Mailcoach / Brevo)
 - [dystore-stripe](https://github.com/dystcz/dystore-stripe) (Stripe payment adapter)
-      <!-- - [Mollie Payment Adapter](https://github.com/pixelpillow/lunar-api-mollie-adapter) -->
-      <!-- -   [PayPal Adapter](https://github.com/dystcz/lunar-paypal) [🚧] -->
+    <!-- - [Mollie Payment Adapter](https://github.com/pixelpillow/lunar-api-mollie-adapter) -->
+    <!-- -   [PayPal Adapter](https://github.com/dystcz/lunar-paypal) [🚧] -->
 
 ### Changelog
 
