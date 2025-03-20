@@ -189,41 +189,6 @@ class ApiServiceProvider extends ServiceProvider
             );
         }
 
-        // // NOTE: Workaround
-        // // Swap calculate lines pipeline
-        // $calculateLinesIndex = array_search(\Lunar\Pipelines\Cart\CalculateLines::class, $cartPipelines);
-        // if (array_key_exists($calculateLinesIndex, $cartPipelines)) {
-        //     $cartPipelines[$calculateLinesIndex] = \Dystore\Api\Domain\Carts\Pipelines\CalculateLines::class;
-        // }
-        //
-        // // NOTE: Workaround
-        // // Swap apply shipping pipeline
-        // $applyShippingIndex = array_search(\Lunar\Pipelines\Cart\ApplyShipping::class, $cartPipelines);
-        // if (array_key_exists($applyShippingIndex, $cartPipelines)) {
-        //     $cartPipelines[$applyShippingIndex] = \Dystore\Api\Domain\Carts\Pipelines\ApplyShipping::class;
-        // }
-        //
-        // // NOTE: Workaround
-        // // Swap apply discounts pipeline
-        // $applyDiscountsIndex = array_search(\Lunar\Pipelines\Cart\ApplyDiscounts::class, $cartPipelines);
-        // if (array_key_exists($applyDiscountsIndex, $cartPipelines)) {
-        //     $cartPipelines[$applyDiscountsIndex] = \Dystore\Api\Domain\Carts\Pipelines\ApplyDiscounts::class;
-        // }
-        //
-        // // NOTE: Workaround
-        // // Swap calculate tax pipeline
-        // $calculateTaxIndex = array_search(\Lunar\Pipelines\Cart\CalculateTax::class, $cartPipelines);
-        // if (array_key_exists($calculateTaxIndex, $cartPipelines)) {
-        //     $cartPipelines[$calculateTaxIndex] = \Dystore\Api\Domain\Carts\Pipelines\CalculateTax::class;
-        // }
-        //
-        // // NOTE: Workaround
-        // // Swap calculate pipeline
-        // $calculateIndex = array_search(\Lunar\Pipelines\Cart\Calculate::class, $cartPipelines);
-        // if (array_key_exists($calculateIndex, $cartPipelines)) {
-        //     $cartPipelines[$calculateIndex] = \Dystore\Api\Domain\Carts\Pipelines\Calculate::class;
-        // }
-
         Config::set('lunar.cart.pipelines.cart', $cartPipelines);
 
         Config::set(
@@ -263,27 +228,6 @@ class ApiServiceProvider extends ServiceProvider
                 array_slice($orderPipelines, $createShippingLineIndex + 1),
             );
         }
-        //
-        // // NOTE: Workaround
-        // // Swap create order lines pipeline
-        // $createOrderLinesIndex = array_search(\Lunar\Pipelines\Order\Creation\CreateOrderLines::class, $orderPipelines);
-        // if (array_key_exists($createOrderLinesIndex, $orderPipelines)) {
-        //     $orderPipelines[$createOrderLinesIndex] = \Dystore\Api\Domain\Orders\Pipelines\CreateOrderLines::class;
-        // }
-        //
-        // // NOTE: Workaround
-        // // Swap create order addresses pipeline
-        // $createOrderAddressesIndex = array_search(\Lunar\Pipelines\Order\Creation\CreateOrderAddresses::class, $orderPipelines);
-        // if (array_key_exists($createOrderAddressesIndex, $orderPipelines)) {
-        //     $orderPipelines[$createOrderAddressesIndex] = \Dystore\Api\Domain\Orders\Pipelines\CreateOrderAddresses::class;
-        // }
-        //
-        // // NOTE: Workaround
-        // // Swap create shipping line pipeline
-        // $createShippingLineIndex = array_search(\Lunar\Pipelines\Order\Creation\CreateShippingLine::class, $orderPipelines);
-        // if (array_key_exists($createShippingLineIndex, $orderPipelines)) {
-        //     $orderPipelines[$createShippingLineIndex] = \Dystore\Api\Domain\Orders\Pipelines\CreateShippingLine::class;
-        // }
 
         // Swap clean up order lines pipeline
         $cleanupOrderLinesIndex = array_search(\Lunar\Pipelines\Order\Creation\CleanUpOrderLines::class, $orderPipelines);

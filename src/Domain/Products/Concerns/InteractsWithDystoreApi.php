@@ -27,9 +27,8 @@ trait InteractsWithDystoreApi
      * Create a new Eloquent query builder for the model.
      *
      * @param  \Illuminate\Database\Query\Builder  $query
-     * @return ProductBuilder|static
      */
-    public function newEloquentBuilder($query): Builder
+    public function newEloquentBuilder($query): ProductBuilder
     {
         return new ProductBuilder($query);
     }

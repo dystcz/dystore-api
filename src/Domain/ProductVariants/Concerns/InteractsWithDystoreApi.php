@@ -6,6 +6,7 @@ use Dystore\Api\Base\Enums\PurchasableStatus;
 use Dystore\Api\Base\Traits\InteractsWithAvailability;
 use Dystore\Api\Domain\Attributes\Traits\InteractsWithAttributes;
 use Dystore\Api\Domain\Products\Models\Product;
+use Dystore\Api\Domain\ProductVariants\Builders\ProductVariantBuilder;
 use Dystore\Api\Domain\ProductVariants\Factories\ProductVariantFactory;
 use Dystore\Api\Domain\ProductVariants\Models\ProductVariantMedia;
 use Dystore\Api\Hashids\Traits\HashesRouteKey;
@@ -36,6 +37,16 @@ trait InteractsWithDystoreApi
     protected static function newFactory(): ProductVariantFactory
     {
         return ProductVariantFactory::new();
+    }
+
+    /**
+     * Create a new Eloquent query builder for the model.
+     *
+     * @param  \Illuminate\Database\Query\Builder  $query
+     */
+    public function newEloquentBuilder($query): ProductVariantBuilder
+    {
+        return new ProductVariantBuilder($query);
     }
 
     /**

@@ -15,6 +15,7 @@ use Staudenmeir\EloquentHasManyDeep\HasManyDeep;
 
 /**
  * @method static ProductBuilder query()
+ * @method static ProductBuilder published()
  * @method MorphToMany attributes() Get the mapped attributes relation.
  * @method HasManyThrough prices() Get prices relation through variants.
  * @method HasManyThrough basePrices() Get base prices relation through variants.
