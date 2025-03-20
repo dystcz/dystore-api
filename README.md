@@ -21,7 +21,7 @@ easily build features to meet your project's needs.
 ## Requirements
 
 - PHP ^8.2
-- Laravel 11
+- Laravel ^11|^12
 - [Lunar requirements](https://docs.lunarphp.io/core/installation.html#server-requirements)
 
 ## Documentation
@@ -33,19 +33,6 @@ easily build features to meet your project's needs.
 ```bash
 composer test
 ```
-
-### Compatible packages
-
-- [dystore-reviews](https://github.com/dystcz/dystore-reviews) (Adds user reviews functionality)
-- [dystore-product-views](https://github.com/dystcz/dystore-product-views)
-  (Store unique product views in Redis)
-- [dystore-product-notifications](https://github.com/dystcz/dystore-product-notifications)
-  (Notify users when product is in stock again)
-- [dystore-newsletter](https://github.com/dystcz/dystore-newsletter)
-  (Newsletter sign up with support for Mailchimp / Mailcoach / Brevo)
-- [dystore-stripe](https://github.com/dystcz/dystore-stripe) (Stripe payment adapter)
-    <!-- - [Mollie Payment Adapter](https://github.com/pixelpillow/lunar-api-mollie-adapter) -->
-    <!-- -   [PayPal Adapter](https://github.com/dystcz/lunar-paypal) [🚧] -->
 
 ### Changelog
 
