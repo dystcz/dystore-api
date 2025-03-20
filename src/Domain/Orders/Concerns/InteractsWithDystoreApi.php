@@ -72,4 +72,21 @@ trait InteractsWithDystoreApi
             ->hasOne(Transaction::modelClass())
             ->latestOfMany();
     }
+
+    /**
+     * Attribute activity log blacklist.
+     *
+     * @return string[]
+     */
+    public static function getDefaultLogExcept(): array
+    {
+        return [
+            ...parent::getDefaultLogExcept(),
+
+            // WARNING: Because of: https://github.com/lunarphp/lunar/commit/e25b7bcef152a94e45251803e80f682d92424f28
+            // NOTICE  Object of class Lunar\DataTypes\Price could not be converted to int in vendor/spatie/laravel-activitylog/src/Traits/LogsActivity.php on line 313.
+            'payment_total',
+            'payment_breakdown',
+        ];
+    }
 }
