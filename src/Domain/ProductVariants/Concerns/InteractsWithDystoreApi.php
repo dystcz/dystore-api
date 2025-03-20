@@ -146,6 +146,8 @@ trait InteractsWithDystoreApi
      */
     public function lowestPrice(): MorphOne
     {
+        /** @var \Dystore\Api\Domain\ProductVariants\Models\ProductVariant $this */
+
         return $this
             ->morphOne(
                 LunarPrice::modelClass(),
@@ -161,6 +163,8 @@ trait InteractsWithDystoreApi
      */
     public function highestPrice(): MorphOne
     {
+        /** @var \Dystore\Api\Domain\ProductVariants\Models\ProductVariant $this */
+
         return $this
             ->morphOne(
                 LunarPrice::modelClass(),

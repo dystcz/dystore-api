@@ -9,6 +9,9 @@ use Dystore\Api\Domain\Prices\Actions\GetPriceWithoutDefaultTax;
 use Dystore\Api\Domain\Prices\JsonApi\Filters\MaxPriceFilter;
 use Dystore\Api\Domain\Prices\JsonApi\Filters\MinPriceFilter;
 use Dystore\Api\Support\Models\Actions\SchemaType;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\Relation as EloquentRelation;
+use Illuminate\Http\Request;
 use LaravelJsonApi\Eloquent\Fields\Boolean;
 use LaravelJsonApi\Eloquent\Fields\Map;
 use LaravelJsonApi\Eloquent\Fields\Number;
@@ -26,6 +29,37 @@ class PriceSchema extends Schema
      * {@inheritDoc}
      */
     public static string $model = Price::class;
+
+    /**
+     * Build an index query for this resource.
+     */
+    public function indexQuery(?Request $request, Builder $query): Builder
+    {
+        /** @var \Dystore\Api\Domain\Prices\Builders\PriceBuilder $query */
+        return $query;
+    }
+
+    /**
+     * Build a "relatable" query for this resource.
+     */
+    public function relatableQuery(?Request $request, EloquentRelation $query): EloquentRelation
+    {
+        /** @var \Dystore\Api\Domain\Prices\Builders\PriceBuilder $query */
+        return $query;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function with(): array
+    {
+        return [
+            'currency',
+            'priceable',
+
+            ...parent::with(),
+        ];
+    }
 
     /**
      * {@inheritDoc}

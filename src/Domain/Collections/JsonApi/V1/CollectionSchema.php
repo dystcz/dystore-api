@@ -39,6 +39,7 @@ class CollectionSchema extends Schema
     {
         return [
             'attributes',
+            'attributes.attributeGroup',
 
             ...parent::with(),
         ];

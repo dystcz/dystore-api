@@ -43,7 +43,7 @@ class ProductVariantFactory extends \Lunar\Database\Factories\ProductVariantFact
     public function withPrice(?int $price = null, ?int $comparePrice = null): static
     {
         return $this->has(
-            Price::modelClass()::factory()->state([
+            Price::modelClass()::factory()->state(fn () => [
                 'price' => $price ?? $this->faker->numberBetween(100, 1000),
                 'compare_price' => $comparePrice ?? $this->faker->numberBetween(100),
                 'currency_id' => Currency::modelClass()::getDefault(),

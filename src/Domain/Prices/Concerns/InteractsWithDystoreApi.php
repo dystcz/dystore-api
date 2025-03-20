@@ -5,7 +5,6 @@ namespace Dystore\Api\Domain\Prices\Concerns;
 use Dystore\Api\Domain\Prices\Builders\PriceBuilder;
 use Dystore\Api\Domain\Prices\Factories\PriceFactory;
 use Dystore\Api\Hashids\Traits\HashesRouteKey;
-use Illuminate\Database\Eloquent\Builder;
 
 trait InteractsWithDystoreApi
 {
@@ -23,9 +22,8 @@ trait InteractsWithDystoreApi
      * Create a new Eloquent query builder for the model.
      *
      * @param  \Illuminate\Database\Query\Builder  $query
-     * @return PriceBuilder|static
      */
-    public function newEloquentBuilder($query): Builder
+    public function newEloquentBuilder($query): PriceBuilder
     {
         return new PriceBuilder($query);
     }

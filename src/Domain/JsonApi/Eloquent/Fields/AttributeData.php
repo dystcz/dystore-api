@@ -132,6 +132,10 @@ class AttributeData extends Attribute
             return Hash::cast([]);
         }
 
+        if ($model->relationLoaded('productType') && $model->productType->relationLoaded('mappedAttributes')) {
+            $model->setRelation('attributes', $model->productType->mappedAttributes);
+        }
+
         if (is_iterable($model->attributes) && count($model->attributes) > 0) {
             $attributes = $model->attributes
                 ->where('attribute_type', $model->getMorphClass())

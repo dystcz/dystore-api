@@ -35,16 +35,18 @@ interface PaymentManifest
 
     /**
      * Return available options for a given cart.
+     *
+     * @return Collection<PaymentOption>
      */
-    public function getOptions(CartContract $cart): Collection;
+    public function getOptions(CartContract $cart, bool $withHidden): Collection;
 
     /**
      * Return available option for a given cart by identifier.
      */
-    public function getOption(CartContract $cart, string $identifier): ?PaymentOption;
+    public function getOption(CartContract $cart, string $identifier, bool $withHidden): ?PaymentOption;
 
     /**
      * Retrieve payment option for a given cart
      */
-    public function getPaymentOption(CartContract $cart): ?PaymentOption;
+    public function getPaymentOption(CartContract $cart, bool $withHidden): ?PaymentOption;
 }

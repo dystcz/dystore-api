@@ -22,6 +22,18 @@ class ProductOptionValueSchema extends Schema
     /**
      * {@inheritDoc}
      */
+    public function with(): array
+    {
+        return [
+            'option',
+
+            ...parent::with(),
+        ];
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function includePaths(): iterable
     {
         return [

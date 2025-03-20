@@ -2,7 +2,6 @@
 
 namespace Dystore\Api\Domain\Products\JsonApi\Filters;
 
-use Illuminate\Database\Eloquent\Builder;
 use LaravelJsonApi\Eloquent\Contracts\Filter;
 use LaravelJsonApi\Eloquent\Filters\Concerns\DeserializesValue;
 
@@ -50,7 +49,7 @@ class InStockFilter implements Filter
     /**
      * {@inheritDoc}
      */
-    public function apply($query, $value): Builder
+    public function apply($query, $value)
     {
         $value = in_array($value, [true, 'true', 1, '1']) ? true : false;
 

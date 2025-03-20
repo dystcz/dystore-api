@@ -12,7 +12,10 @@ return [
     'route_prefix' => 'api',
 
     // Middleware for all the API routes
-    'route_middleware' => ['api'],
+    'route_middleware' => [
+        'api',
+        'api-pricing',
+    ],
 
     // Enable or disable hashids
     'use_hashids' => env('DYSTORE_API_USE_HASHIDS', false),

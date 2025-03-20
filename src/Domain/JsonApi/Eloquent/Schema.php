@@ -270,13 +270,15 @@ abstract class Schema extends BaseSchema implements ExtendableContract, SchemaCo
     /**
      * Get id or hashid field based on configuration.
      */
-    protected function idField(?string $column = null): ID|HashId
+    protected function idField(?string $column = null): ID // ID|HashId
     {
-        if (Api::usesHashids()) {
-            return HashId::make($column)
-                ->useConnection(ModelKey::get(self::model()))
-                ->alreadyHashed();
-        }
+        // WARNING: Hashids (laravel-json-api/laravel) currently incompatible with laravel-json-api/laravel
+        //
+        // if (Api::usesHashids()) {
+        //     return HashId::make($column)
+        //         ->useConnection(ModelKey::get(self::model()))
+        //         ->alreadyHashed();
+        // }
 
         return ID::make($column);
     }

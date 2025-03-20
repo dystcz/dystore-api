@@ -6,9 +6,7 @@ use Illuminate\Support\Collection;
 
 class PaymentModifiers
 {
-    /**
-     * The collection of modifiers to use.
-     */
+    /** @var Collection<PaymentModifier> */
     protected Collection $modifiers;
 
     /**

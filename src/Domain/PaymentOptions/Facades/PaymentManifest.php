@@ -14,9 +14,9 @@ use Lunar\Models\Contracts\Cart as CartContract;
  * @method static PaymentManifest addOptions(Collection $options)
  * @method static PaymentManifest clearOptions()
  * @method static PaymentManifest getOptionUsing(Closure $closure)
- * @method static Collection getOptions(CartContract $cart)
- * @method static ?PaymentOption getOption(CartContract $cart, string $identifier)
- * @method static ?PaymentOption getPaymentOption(CartContract $cart)
+ * @method static Collection<PaymentOption> getOptions(CartContract $cart, bool $withHidden = false)
+ * @method static ?PaymentOption getOption(CartContract $cart, string $identifier, bool $withHidden = true)
+ * @method static ?PaymentOption getPaymentOption(CartContract $cart, bool $withHidden = false)
  *
  * @see \Dystore\Api\Domain\PaymentOptions\Manifests\PaymentManifest
  */

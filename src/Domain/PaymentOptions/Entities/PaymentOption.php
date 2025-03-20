@@ -28,6 +28,7 @@ class PaymentOption implements Arrayable, Purchasable
         public TaxClassContract $taxClass,
         public ?string $taxReference = null,
         public ?string $option = null,
+        public bool $hidden = false,
         public bool $collect = false,
         public ?array $meta = null,
         public ?Closure $modifyCart = null
@@ -45,6 +46,24 @@ class PaymentOption implements Arrayable, Purchasable
         $this->modifyCart = $closure;
 
         return $this;
+    }
+
+    /**
+     * Hide or show the option.
+     */
+    private function setHidden(bool $hidden = true): self
+    {
+        $this->hidden = $hidden;
+
+        return $this;
+    }
+
+    /**
+     * Check if option is hidden.
+     */
+    public function isHidden(): bool
+    {
+        return $this->hidden;
     }
 
     /**
@@ -232,6 +251,7 @@ class PaymentOption implements Arrayable, Purchasable
             ],
             'currency' => Arr::only($this->getCurrency()->toArray(), ['code', 'name']),
             'default' => $this->isDefault(),
+            'hidden' => $this->isHidden(),
             'meta' => $this->getMeta(),
         ];
     }

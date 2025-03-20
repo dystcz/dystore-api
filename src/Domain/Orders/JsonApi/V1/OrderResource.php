@@ -69,36 +69,41 @@ class OrderResource extends JsonApiResource
             new Link(
                 'self.signed',
                 URL::signedRoute(
-                    'v1.orders.show',
-                    ['order' => $this->id()],
+                    name: 'v1.orders.show',
+                    parameters: ['order' => $this->id()],
+                    absolute: false,
                 ),
             ),
             new Link(
                 'create-payment-intent.signed',
                 URL::signedRoute(
-                    'v1.orders.createPaymentIntent',
-                    ['order' => $this->id()],
+                    name: 'v1.orders.createPaymentIntent',
+                    parameters: ['order' => $this->id()],
+                    absolute: false,
                 ),
             ),
             new Link(
                 'mark-order-pending-payment.signed',
                 URL::signedRoute(
-                    'v1.orders.markPendingPayment',
-                    ['order' => $this->id()],
+                    name: 'v1.orders.markPendingPayment',
+                    parameters: ['order' => $this->id()],
+                    absolute: false,
                 ),
             ),
             new Link(
                 'mark-order-awaiting-payment.signed',
                 URL::signedRoute(
-                    'v1.orders.markAwaitingPayment',
-                    ['order' => $this->id()],
+                    name: 'v1.orders.markAwaitingPayment',
+                    parameters: ['order' => $this->id()],
+                    absolute: false,
                 ),
             ),
             new Link(
                 'check-order-payment-status.signed',
                 URL::signedRoute(
-                    'v1.orders.checkOrderPaymentStatus',
-                    ['order' => $this->id()],
+                    name: 'v1.orders.checkOrderPaymentStatus',
+                    parameters: ['order' => $this->id()],
+                    absolute: false
                 ),
             ),
         ];

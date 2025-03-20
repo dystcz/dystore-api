@@ -64,6 +64,8 @@ class ProductSchema extends Schema
             'productType.mappedAttributes',
             'productType.mappedAttributes.attributeGroup',
 
+            'variants',
+
             ...parent::with(),
         ];
     }

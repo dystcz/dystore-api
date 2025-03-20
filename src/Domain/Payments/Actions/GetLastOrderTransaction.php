@@ -14,12 +14,12 @@ class GetLastOrderTransaction
     /**
      * Get last order transaction.
      */
-    public function __invoke(OrderContract $order, string $driver, ?string $type = null): ?TransactionContract
+    public function __invoke(OrderContract $order, ?string $driver = null, ?string $type = null): ?TransactionContract
     {
         return Transaction::modelClass()::query()
-            ->when($type, fn ($query) => $query->where('type', $type))
-            ->where('driver', $driver)
             ->where('order_id', $order->id)
+            ->when($type, fn ($query) => $query->where('type', $type))
+            ->when($driver, fn ($query) => $query->where('driver', $driver))
             ->orderBy('created_at', 'desc')
             ->first();
     }

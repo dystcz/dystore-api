@@ -3,17 +3,20 @@
 namespace Dystore\Api\Domain\Carts\Actions;
 
 use Dystore\Api\Domain\Carts\Contracts\CheckoutCart as CheckoutCartContract;
+use Dystore\Api\Domain\Carts\Events\CartCheckedOut;
 use Dystore\Api\Domain\Carts\Models\Cart;
-use Dystore\Api\Domain\Orders\Events\OrderCreated;
 use Dystore\Api\Domain\Payments\Actions\CreatePaymentIntent;
+use Dystore\Api\Support\Actions\Action;
 use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Validation\ValidationException;
 use Lunar\Base\CartSessionInterface;
+use Lunar\Exceptions\Carts\CartException;
 use Lunar\Models\Contracts\Cart as CartContract;
 use Lunar\Models\Contracts\Order as OrderContract;
 use Lunar\Models\Order;
 
-class CheckoutCart implements CheckoutCartContract
+class CheckoutCart extends Action implements CheckoutCartContract
 {
     /**
      * @var CartSessionManager
@@ -29,16 +32,17 @@ class CheckoutCart implements CheckoutCartContract
         $this->createPaymentIntent = App::make(CreatePaymentIntent::class);
     }
 
-    /**
-     * Checkout cart.
-     */
-    public function __invoke(CartContract $cart): OrderContract
+    public function handle(CartContract $cart): OrderContract
     {
         /** @var Cart $cart */
         /** @var Order $order */
-        $order = $cart->createOrder(
-            allowMultipleOrders: Config::get('lunar.cart_session.allow_multiple_orders_per_cart', false),
-        );
+        try {
+            $order = $cart->createOrder(
+                allowMultipleOrders: Config::get('lunar.cart_session.allow_multiple_orders_per_cart', false),
+            );
+        } catch (CartException $e) {
+            throw ValidationException::withMessages($e->errors()->getMessages());
+        }
 
         $model = Order::modelClass()::query()
             ->with([
@@ -59,7 +63,7 @@ class CheckoutCart implements CheckoutCartContract
             $this->cartSession->forget(delete: false);
         }
 
-        OrderCreated::dispatch($model);
+        CartCheckedOut::dispatch($cart, $model);
 
         return $model;
     }

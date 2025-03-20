@@ -10,10 +10,12 @@ use Dystore\Api\Domain\CartLines\JsonApi\V1\CartLineQuery;
 use Dystore\Api\Domain\CartLines\JsonApi\V1\CartLineRequest;
 use Dystore\Api\Domain\Carts\Actions\AddToCart;
 use Illuminate\Support\Facades\App;
+use Illuminate\Validation\ValidationException;
 use LaravelJsonApi\Core\Responses\DataResponse;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\Destroy;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\Store;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\Update;
+use Lunar\Exceptions\Carts\CartException;
 use Lunar\Models\Contracts\CartLine as CartLineContract;
 
 class CartLinesController extends Controller implements CartLinesControllerContract
@@ -29,7 +31,11 @@ class CartLinesController extends Controller implements CartLinesControllerContr
     {
         $data = CartLineData::fromRequest($request);
 
-        [, $cartLine] = App::make(AddToCart::class)($data);
+        try {
+            [, $cartLine] = App::make(AddToCart::class)($data);
+        } catch (CartException $e) {
+            throw ValidationException::withMessages($e->errors()->getMessages());
+        }
 
         return DataResponse::make($cartLine)
             ->withQueryParameters($query)
@@ -43,7 +49,11 @@ class CartLinesController extends Controller implements CartLinesControllerContr
     {
         $data = CartLineData::fromRequest($request);
 
-        [, $cartLine] = App::make(UpdateCartLine::class)($data, $cartLine);
+        try {
+            [, $cartLine] = App::make(UpdateCartLine::class)($data, $cartLine);
+        } catch (CartException $e) {
+            throw ValidationException::withMessages($e->errors()->getMessages());
+        }
 
         return DataResponse::make($cartLine)
             ->withQueryParameters($query)

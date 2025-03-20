@@ -2,6 +2,7 @@
 
 namespace Dystore\Api\Domain\Products\Concerns;
 
+use Dystore\Api\Domain\Prices\Builders\PriceBuilder;
 use Dystore\Api\Domain\Prices\Models\Price;
 use Dystore\Api\Domain\Products\Models\Product;
 use Dystore\Api\Domain\ProductTypes\Models\ProductType;
@@ -11,11 +12,8 @@ use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Illuminate\Database\Query\Builder as QueryBuilder;
 use Illuminate\Database\Query\JoinClause;
-use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
-use Lunar\Base\StorefrontSessionInterface;
 use Lunar\Models\Attribute;
-use Lunar\Models\Contracts\CustomerGroup as CustomerGroupContract;
 use Lunar\Models\ProductOptionValue;
 use Lunar\Models\ProductVariant;
 use Staudenmeir\EloquentHasManyDeep\HasManyDeep;
@@ -66,7 +64,6 @@ trait HasRelationships
                 'product_id',
                 'priceable_id'
             )
-            ->baseOrAll()
             ->where(
                 'priceable_type',
                 (new (ProductVariant::modelClass()))->getMorphClass()
@@ -79,9 +76,10 @@ trait HasRelationships
     public function basePrices(): HasManyThrough
     {
         /** @var Product $this */
-        return $this
-            ->prices()
-            ->base();
+        /** @var PriceBuilder $builder */
+        $builder = $this->prices();
+
+        return $builder->base();
     }
 
     /**
@@ -100,17 +98,22 @@ trait HasRelationships
                 'product_id',
                 'priceable_id'
             )
-            ->baseOrAll()
-            ->where($pricesTable.'.id', function ($query) use ($variantsTable, $pricesTable) {
-                $query->select($pricesTable.'.id')
+            ->where("{$pricesTable}.id", function (QueryBuilder $query) use ($variantsTable, $pricesTable) {
+                $query
+                    ->select($pricesTable.'.id')
                     ->from($pricesTable)
-                    ->where('priceable_type', (new (ProductVariant::modelClass()))->getMorphClass())
-                    ->whereIn('priceable_id', function ($query) use ($variantsTable) {
+                    ->where("{$pricesTable}.priceable_type", (new (ProductVariant::modelClass()))->getMorphClass())
+                    ->whereIn("{$pricesTable}.priceable_id", function ($query) use ($variantsTable) {
                         $query->select('variants.id')
                             ->from("{$variantsTable} as variants")
                             ->where('variants.deleted_at', null)
                             ->whereRaw("variants.product_id = {$variantsTable}.product_id");
-                    })
+                    });
+
+                PriceBuilder::scopeCurrency($query);
+                PriceBuilder::scopeCustomerGroups($query);
+
+                $query
                     ->orderBy($pricesTable.'.price', 'asc')
                     ->limit(1);
             });
@@ -132,17 +135,21 @@ trait HasRelationships
                 'product_id',
                 'priceable_id'
             )
-            ->baseOrAll()
-            ->where($pricesTable.'.id', function ($query) use ($variantsTable, $pricesTable) {
+            ->where("{$pricesTable}.id", function (QueryBuilder $query) use ($variantsTable, $pricesTable) {
                 $query->select($pricesTable.'.id')
                     ->from($pricesTable)
-                    ->where('priceable_type', (new (ProductVariant::modelClass()))->getMorphClass())
-                    ->whereIn('priceable_id', function ($query) use ($variantsTable) {
+                    ->where("{$pricesTable}.priceable_type", (new (ProductVariant::modelClass()))->getMorphClass())
+                    ->whereIn("{$pricesTable}.priceable_id", function ($query) use ($variantsTable) {
                         $query->select('variants.id')
                             ->from("{$variantsTable} as variants")
                             ->where('variants.deleted_at', null)
                             ->whereRaw("variants.product_id = {$variantsTable}.product_id");
-                    })
+                    });
+
+                PriceBuilder::scopeCurrency($query);
+                PriceBuilder::scopeCustomerGroups($query);
+
+                $query
                     ->orderBy($pricesTable.'.price', 'desc')
                     ->limit(1);
             });
@@ -163,19 +170,15 @@ trait HasRelationships
                 $query
                     ->select('variants.id')
                     ->from("{$variantsTable} as variants")
-                    ->join($pricesTable, function (JoinClause $join) {
-                        $join->on('priceable_id', '=', 'variants.id')
-                            ->where('priceable_type', (new (ProductVariant::modelClass()))->getMorphClass());
+                    ->join($pricesTable, function (JoinClause $join) use ($pricesTable) {
+                        $join
+                            ->on("{$pricesTable}.priceable_id", '=', 'variants.id')
+                            ->where("{$pricesTable}.priceable_type", (new (ProductVariant::modelClass()))->getMorphClass());
+
+                        PriceBuilder::scopeCurrency($join);
+                        PriceBuilder::scopeCustomerGroups($join);
                     })
                     ->whereRaw("variants.product_id = {$variantsTable}.product_id")
-                    ->when(
-                        value: fn () => App::make(StorefrontSessionInterface::class)
-                            ->getCustomerGroups()
-                            ->filter(fn (CustomerGroupContract $group) => ! $group->default)
-                            ->isEmpty(),
-                        callback: fn (QueryBuilder $query) => $query->where("{$pricesTable}.min_quantity", 1)->where("{$pricesTable}.customer_group_id", null),
-                        default: fn (QueryBuilder $query) => $query,
-                    )
                     ->where('variants.deleted_at', null)
                     ->orderBy("{$pricesTable}.price", 'asc')
                     ->limit(1);
@@ -197,19 +200,15 @@ trait HasRelationships
                 $query
                     ->select('variants.id')
                     ->from("{$variantsTable} as variants")
-                    ->join($pricesTable, function (JoinClause $join) {
-                        $join->on('priceable_id', '=', 'variants.id')
-                            ->where('priceable_type', (new (ProductVariant::modelClass()))->getMorphClass());
+                    ->join($pricesTable, function (JoinClause $join) use ($pricesTable) {
+                        $join
+                            ->on("{$pricesTable}.priceable_id", '=', 'variants.id')
+                            ->where("{$pricesTable}.priceable_type", (new (ProductVariant::modelClass()))->getMorphClass());
+
+                        PriceBuilder::scopeCurrency($join);
+                        PriceBuilder::scopeCustomerGroups($join);
                     })
                     ->whereRaw("variants.product_id = {$variantsTable}.product_id")
-                    ->when(
-                        value: fn () => App::make(StorefrontSessionInterface::class)
-                            ->getCustomerGroups()
-                            ->filter(fn (CustomerGroupContract $group) => ! $group->default)
-                            ->isEmpty(),
-                        callback: fn (QueryBuilder $query) => $query->where("{$pricesTable}.min_quantity", 1)->where("{$pricesTable}.customer_group_id", null),
-                        default: fn (QueryBuilder $query) => $query,
-                    )
                     ->where('variants.deleted_at', null)
                     ->orderBy("{$pricesTable}.price", 'desc')
                     ->limit(1);

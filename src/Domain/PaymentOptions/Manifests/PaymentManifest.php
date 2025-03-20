@@ -12,9 +12,7 @@ use Lunar\Models\Contracts\Cart as CartContract;
 
 class PaymentManifest implements PaymentManifestContract
 {
-    /**
-     * The collection of available payment options.
-     */
+    /** @var Collection<PaymentOption> */
     public Collection $options;
 
     public ?Closure $getOptionUsing = null;
@@ -77,21 +75,25 @@ class PaymentManifest implements PaymentManifestContract
     /**
      * {@inheritDoc}
      */
-    public function getOptions(CartContract $cart): Collection
+    public function getOptions(CartContract $cart, bool $withHidden = false): Collection
     {
         app(Pipeline::class)
             ->send($cart)
             ->through(
-                app(PaymentModifiers::class)->getModifiers()->toArray()
+                app(PaymentModifiers::class)->getModifiers($withHidden)->toArray()
             )->thenReturn();
 
-        return $this->options;
+        return $this->options
+            ->when(
+                ! $withHidden,
+                fn ($options) => $options->reject(fn ($option) => $option->isHidden())
+            );
     }
 
     /**
      * {@inheritDoc}
      */
-    public function getOption(CartContract $cart, string $identifier): ?PaymentOption
+    public function getOption(CartContract $cart, string $identifier, bool $withHidden = true): ?PaymentOption
     {
         if (filled($this->getOptionUsing)) {
             $paymentOption = ($this->getOptionUsing)($cart, $identifier);
@@ -101,7 +103,7 @@ class PaymentManifest implements PaymentManifestContract
             }
         }
 
-        return $this->getOptions($cart)
+        return $this->getOptions($cart, $withHidden)
             ->where('identifier', $identifier)
             ->first();
     }
@@ -109,12 +111,12 @@ class PaymentManifest implements PaymentManifestContract
     /**
      * {@inheritDoc}
      */
-    public function getPaymentOption(CartContract $cart): ?PaymentOption
+    public function getPaymentOption(CartContract $cart, bool $withHidden = false): ?PaymentOption
     {
         if (! $cart->payment_option) {
             return null;
         }
 
-        return PaymentManifest::getOption($cart, $cart->payment_option);
+        return PaymentManifest::getOption($cart, $cart->payment_option, $withHidden);
     }
 }

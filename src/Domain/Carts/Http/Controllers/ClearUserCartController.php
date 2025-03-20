@@ -26,7 +26,7 @@ class ClearUserCartController extends Controller implements ClearUserCartControl
      */
     public function clear(): JsonResponse
     {
-        //TODO: Create tests
+        // TODO: Create tests
         $this->authorize('clear', $this->cartSession->current());
 
         $this->cartSession->forget();

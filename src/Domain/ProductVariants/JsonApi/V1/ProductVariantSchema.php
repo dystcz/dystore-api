@@ -51,6 +51,7 @@ class ProductVariantSchema extends Schema
         return [
             'attributes',
             'attributes.attributeGroup',
+
             ...parent::with(),
         ];
     }
@@ -93,6 +94,7 @@ class ProductVariantSchema extends Schema
             Str::make('mpn'),
             Str::make('ean'),
             Str::make('tax_ref'),
+            Str::make('product_id'),
 
             Map::make('availability', [
                 ArrayHash::make('stock')

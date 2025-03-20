@@ -162,7 +162,7 @@ class OrderPolicy
     /**
      * Check if request has valid signature.
      */
-    protected function checkValidSignature(): bool
+    protected function checkValidSignature(bool $relative = true): bool
     {
         return $this->request->hasValidSignatureWhileIgnoring([
             'include',
@@ -170,7 +170,7 @@ class OrderPolicy
             'sort',
             'page',
             'filter',
-        ]);
+        ], ! $relative);
     }
 
     /**

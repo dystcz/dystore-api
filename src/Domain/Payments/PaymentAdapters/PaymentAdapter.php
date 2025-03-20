@@ -31,8 +31,13 @@ abstract class PaymentAdapter
     {
         $adapter = new static;
 
-        App::make(PaymentAdaptersRegister::class)
-            ->add($adapter->getDriver(), static::class);
+        /** @var PaymentAdaptersRegister $register */
+        $register = App::make(PaymentAdaptersRegister::class);
+
+        $register->add(
+            type: $adapter->getType(),
+            adapter: static::class,
+        );
     }
 
     /**
@@ -87,7 +92,10 @@ abstract class PaymentAdapter
                 status: $status,
                 meta: $meta,
             )
-            ->setParentId($parentId)
+            ->when(
+                $parentId,
+                fn (TransactionData $data, int $parentId) => $data->setParentId($parentId),
+            )
             ->setSuccess($success);
 
         return (new CreateTransaction)($data);

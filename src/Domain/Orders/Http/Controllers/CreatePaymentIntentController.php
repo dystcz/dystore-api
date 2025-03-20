@@ -28,9 +28,11 @@ class CreatePaymentIntentController extends Controller implements CreatePaymentI
         try {
             $paymentIntent = $createPaymentIntent($paymentMethod, $order->cart, $meta, $amount);
 
-            $order->update([
-                'meta->payment_intent' => $paymentIntent->getId(),
+            $meta = array_merge((array) $order->meta, [
+                'payment_intent' => $paymentIntent->getId(),
             ]);
+
+            $order->update(['meta' => $meta]);
         } catch (RuntimeException $e) {
             return DataResponse::make($order)->withMeta([
                 'payment_intent' => null,

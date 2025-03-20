@@ -5,6 +5,7 @@ namespace Dystore\Api\Domain\Orders\Http\Controllers;
 use Dystore\Api\Base\Controller;
 use Dystore\Api\Domain\Orders\Contracts\OrdersController as OrdersControllerContract;
 use Dystore\Api\Domain\Orders\JsonApi\V1\OrderQuery;
+use Dystore\Api\Domain\Orders\JsonApi\V1\OrderRequest;
 use Dystore\Api\Domain\Orders\JsonApi\V1\OrderSchema;
 use Dystore\Api\Domain\Orders\Models\Order;
 use LaravelJsonApi\Core\Responses\DataResponse;
@@ -37,5 +38,29 @@ class OrdersController extends Controller implements OrdersControllerContract
 
         return DataResponse::make($model)
             ->didntCreate();
+    }
+
+    public function update(
+        OrderSchema $schema,
+        OrderRequest $request,
+        OrderQuery $query,
+        OrderContract $order
+    ) {
+        $data = $request->validated();
+
+        if ($request->validated('meta')) {
+            $data = array_merge(
+                $request->validated(),
+                ['meta' => array_merge((array) $order->meta, $request->validated('meta'))],
+            );
+        }
+
+        $model = $schema
+            ->repository()
+            ->update($order)
+            ->withRequest($query)
+            ->store($data);
+
+        return new DataResponse($model);
     }
 }

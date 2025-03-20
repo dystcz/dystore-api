@@ -16,28 +16,28 @@ class PaymentAdaptersRegister
      *
      * @param  class-string<PaymentAdapter>  $adapter
      */
-    public function add(string $driver, string $adapter): void
+    public function add(string $type, string $adapter): void
     {
-        $this->adapters[$driver] = $adapter;
+        $this->adapters[$type] = $adapter;
     }
 
     /**
      * Check if payment adapter is registered.
      */
-    public function has(string $driver): bool
+    public function has(string $type): bool
     {
-        return array_key_exists($driver, $this->adapters);
+        return array_key_exists($type, $this->adapters);
     }
 
     /**
      * Get payment adapter.
      */
-    public function get(string $driver): PaymentAdapter
+    public function get(string $type): PaymentAdapter
     {
-        if (! $this->has($driver)) {
-            throw new \RuntimeException("Payment adapter for ['{$driver}'] is not registered");
+        if (! $this->has($type)) {
+            throw new \RuntimeException("Payment adapter for ['{$type}'] is not registered");
         }
 
-        return App::make($this->adapters[$driver]);
+        return App::make($this->adapters[$type]);
     }
 }

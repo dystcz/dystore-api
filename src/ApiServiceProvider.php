@@ -5,11 +5,15 @@ namespace Dystore\Api;
 use Dystore\Api\Api as DystoreApi;
 use Dystore\Api\Domain\Carts\Actions\CheckoutCart;
 use Dystore\Api\Domain\Carts\Actions\CreateUserFromCart;
+use Dystore\Api\Domain\Payments\Contracts\PaymentIntent as PaymentIntentContract;
+use Dystore\Api\Domain\Payments\Data\PaymentIntent;
+use Dystore\Api\Domain\Prices\Http\Middleware\ApiPricing;
 use Dystore\Api\Domain\Users\Actions\CreateUser;
 use Dystore\Api\Domain\Users\Actions\RegisterUser;
 use Dystore\Api\Facades\Api;
 use Dystore\Api\Support\Config\Collections\DomainConfigCollection;
 use Illuminate\Foundation\Application;
+use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Gate;
@@ -76,6 +80,11 @@ class ApiServiceProvider extends ServiceProvider
             \Lunar\Base\StorefrontSessionInterface::class,
             fn (Application $app) => $app->make(\Dystore\Api\Domain\Storefront\Managers\StorefrontSessionManager::class),
         );
+
+        $this->app->bind(
+            PaymentIntentContract::class,
+            PaymentIntent::class,
+        );
     }
 
     /**
@@ -88,6 +97,7 @@ class ApiServiceProvider extends ServiceProvider
 
         $this->registerModels();
         $this->registerDynamicRelations();
+        $this->registerMiddleware();
         $this->registerObservers();
         $this->registerEvents();
         $this->registerPayments();
@@ -418,6 +428,14 @@ class ApiServiceProvider extends ServiceProvider
         foreach (DomainConfigCollection::make()->getModelsForModelManifest() as $contract => $model) {
             ModelManifest::replace($contract, $model);
         }
+    }
+
+    protected function registerMiddleware(): void
+    {
+        /** @var Router $router */
+        $router = $this->app['router'];
+
+        $router->aliasMiddleware('api-pricing', ApiPricing::class);
     }
 
     /**

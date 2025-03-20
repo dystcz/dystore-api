@@ -76,7 +76,7 @@ class OfflinePaymentAdapter extends PaymentAdapter
 
         /** @var Cart $cart */
         $cart->update('meta', [
-            ...$cart->meta,
+            ...(array) $cart->meta,
             ...$meta,
         ]);
 

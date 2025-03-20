@@ -38,6 +38,7 @@ class CheckoutCartController extends Controller implements CheckoutCartControlle
         return DataResponse::make($order)
             ->withIncludePaths([
                 'product_lines',
+                'product_lines.purchasable',
             ])
             ->didCreate();
     }
