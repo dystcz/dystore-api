@@ -97,6 +97,18 @@ class CustomerPolicy
     }
 
     /**
+     * Authorize a user to view customer's customer groups.
+     */
+    public function viewCustomerGroups(?Authenticatable $user, CustomerContract $customer): bool
+    {
+        if ($this->isFilamentAdmin($user)) {
+            return true;
+        }
+
+        return $this->check($user, $customer);
+    }
+
+    /**
      * Determine whether the user can view the model.
      */
     protected function check(?Authenticatable $user, CustomerContract $customer): bool

@@ -24,6 +24,8 @@ class CustomerRouteGroup extends RouteGroup
                     ->relationships(function (Relationships $relationships) {
                         $relationships->hasMany('orders')->readOnly();
                         $relationships->hasMany('addresses')->readOnly();
+                        $relationships->hasMany('users')->readOnly();
+                        $relationships->hasMany('customer_groups')->readOnly();
                     })
                     ->only('show', 'update');
             });
