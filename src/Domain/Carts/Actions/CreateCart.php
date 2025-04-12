@@ -2,25 +2,33 @@
 
 namespace Dystore\Api\Domain\Carts\Actions;
 
+use Dystore\Api\Domain\Storefront\Managers\StorefrontSessionManager;
 use Dystore\Api\Support\Actions\Action;
 use Illuminate\Auth\AuthManager;
 use Illuminate\Support\Facades\App;
 use Lunar\Base\CartSessionInterface;
+use Lunar\Base\StorefrontSessionInterface;
 use Lunar\Managers\CartSessionManager;
 use Lunar\Models\Cart;
 use Lunar\Models\Contracts\Cart as CartContract;
 
 class CreateCart extends Action
 {
-    protected CartSessionManager $cartSession;
+    /** @var CartSessionManager */
+    protected CartSessionInterface $cartSession;
 
     protected AuthManager $authManager;
+
+    /** @var StorefrontSessionManager */
+    protected StorefrontSessionInterface $storefrontSession;
 
     public function __construct(
     ) {
         $this->authManager = App::make(AuthManager::class);
 
         $this->cartSession = App::make(CartSessionInterface::class);
+
+        $this->storefrontSession = App::make(StorefrontSessionInterface::class);
     }
 
     /**
@@ -32,6 +40,7 @@ class CreateCart extends Action
             'currency_id' => $this->cartSession->getCurrency()->id,
             'channel_id' => $this->cartSession->getChannel()->id,
             'user_id' => $this->authManager->user()?->id,
+            'customer_id' => $this->storefrontSession->getCustomer()?->id,
         ]);
 
         return $this->cartSession->use($cart);
