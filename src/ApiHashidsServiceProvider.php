@@ -14,9 +14,9 @@ class ApiHashidsServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        // if (Api::usesHashids()) {
-        //     HashidsConnections::registerConnections();
-        // }
+        if (Api::usesHashids()) {
+            HashidsConnections::registerConnections();
+        }
     }
 
     /**
@@ -24,13 +24,13 @@ class ApiHashidsServiceProvider extends ServiceProvider
      */
     public function register(): void
     {
-        // // Automatically apply the package configuration.
-        // $this->mergeConfigFrom(__DIR__.'/../config/hashids.php', 'hashids');
-        //
-        // // Register payment adapters register.
-        // $this->app->singleton(
-        //     \Dystore\Api\Hashids\Contracts\HashidsConnectionsManager::class,
-        //     fn () => new \Dystore\Api\Hashids\Managers\HashidsConnectionsManager,
-        // );
+        // Automatically apply the package configuration.
+        $this->mergeConfigFrom(__DIR__.'/../config/hashids.php', 'hashids');
+
+        // Register payment adapters register.
+        $this->app->singleton(
+            \Dystore\Api\Hashids\Contracts\HashidsConnectionsManager::class,
+            fn () => new \Dystore\Api\Hashids\Managers\HashidsConnectionsManager,
+        );
     }
 }

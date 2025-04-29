@@ -174,7 +174,7 @@ class ProductVariantSchema extends Schema
         return [
             WhereIdIn::make($this),
 
-            WhereIdNotIn::make($this),
+            WhereIdNotIn::make($this, 'except'),
 
             WhereHas::make($this, 'urls', 'url')
                 ->singular(),
