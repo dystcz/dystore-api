@@ -129,6 +129,10 @@ class ProductSchema extends Schema
 
             Str::make('status'),
 
+            Str::make('created_at')
+                ->hidden()
+                ->sortable(),
+
             HasMany::make('attributes', 'attributes')
                 ->type(SchemaType::get(Attribute::class))
                 ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
@@ -270,8 +274,7 @@ class ProductSchema extends Schema
 
             WhereHas::make($this, 'brand'),
 
-            WhereHas::make($this, 'urls', 'url')
-                ->singular(),
+            WhereHas::make($this, 'urls', 'url')->singular(),
 
             WhereHas::make($this, 'urls', 'urls'),
 
@@ -282,6 +285,8 @@ class ProductSchema extends Schema
             WhereHas::make($this, 'status'),
 
             WhereHas::make($this, 'collections'),
+
+            WhereHas::make($this, 'tags'),
 
             ...(new ProductFilterCollection)->toArray(),
 
