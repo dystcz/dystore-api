@@ -14,13 +14,6 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class MediaDefinitions extends StandardMediaDefinitions implements MediaDefinitionsContract
 {
-    protected function registerCollectionConversions(MediaCollection $collection, HasMedia $model): void
-    {
-        $collection->registerMediaConversions(function (Media $media) use ($model) {
-            self::applyConversions($model);
-        });
-    }
-
     /**
      * Apply conversions to a model.
      */
@@ -80,5 +73,12 @@ class MediaDefinitions extends StandardMediaDefinitions implements MediaDefiniti
                 format: 'webp'
             ),
         ];
+    }
+
+    protected function registerCollectionConversions(MediaCollection $collection, HasMedia $model): void
+    {
+        $collection->registerMediaConversions(function (Media $media) use ($model) {
+            self::applyConversions($model);
+        });
     }
 }

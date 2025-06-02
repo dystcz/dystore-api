@@ -84,18 +84,6 @@ abstract class Schema extends BaseSchema implements ExtendableContract, SchemaCo
     /**
      * {@inheritDoc}
      */
-    public function uriType(): string
-    {
-        if ($this->uriType) {
-            return $this->uriType;
-        }
-
-        return $this->uriType = $this->type();
-    }
-
-    /**
-     * {@inheritDoc}
-     */
     public static function model(): string
     {
         if (! isset(static::$model)) {
@@ -138,6 +126,18 @@ abstract class Schema extends BaseSchema implements ExtendableContract, SchemaCo
             "dystore.domains.{$type}.authorizer",
             parent::authorizer(),
         );
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function uriType(): string
+    {
+        if ($this->uriType) {
+            return $this->uriType;
+        }
+
+        return $this->uriType = $this->type();
     }
 
     /**
@@ -186,16 +186,6 @@ abstract class Schema extends BaseSchema implements ExtendableContract, SchemaCo
 
             ...parent::includePaths(),
         ];
-    }
-
-    /**
-     * Get the merge key for include paths.
-     */
-    private function getMergeKey(string $type): string
-    {
-        $types = [static::type(), $type];
-
-        return implode('.', $types);
     }
 
     /**
@@ -279,5 +269,15 @@ abstract class Schema extends BaseSchema implements ExtendableContract, SchemaCo
         }
 
         return ID::make($column);
+    }
+
+    /**
+     * Get the merge key for include paths.
+     */
+    private function getMergeKey(string $type): string
+    {
+        $types = [static::type(), $type];
+
+        return implode('.', $types);
     }
 }

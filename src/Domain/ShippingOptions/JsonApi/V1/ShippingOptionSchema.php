@@ -19,6 +19,16 @@ class ShippingOptionSchema extends Schema
     /**
      * {@inheritDoc}
      */
+    public static function type(): string
+    {
+        $resolver = new TypeResolver;
+
+        return $resolver(static::class);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function fields(): iterable
     {
         return [
@@ -50,16 +60,6 @@ class ShippingOptionSchema extends Schema
         return ShippingOptionRepository::make()
             ->withServer($this->server)
             ->withSchema($this);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public static function type(): string
-    {
-        $resolver = new TypeResolver;
-
-        return $resolver(static::class);
     }
 
     /**

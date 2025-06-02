@@ -27,9 +27,9 @@ class CreateShippingLine
         ) {
             /** @var OrderLine $shippingLine */
             $shippingLine = $order->lines->first(function ($orderLine) use ($shippingOption) {
-                return $orderLine->type == 'shipping' &&
-                    $orderLine->purchasable_type == ShippingOption::class &&
-                    $orderLine->identifier == $shippingOption->getIdentifier();
+                return $orderLine->type === 'shipping' &&
+                    $orderLine->purchasable_type === ShippingOption::class &&
+                    $orderLine->identifier === $shippingOption->getIdentifier();
             }) ?: App::make(OrderLineContract::class);
 
             $shippingLine->fill([

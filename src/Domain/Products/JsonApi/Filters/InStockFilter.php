@@ -13,6 +13,14 @@ class InStockFilter implements Filter
     private string $name;
 
     /**
+     * CustomFilter constructor.
+     */
+    public function __construct(string $name)
+    {
+        $this->name = $name;
+    }
+
+    /**
      * Create a new filter.
      *
      * @return static
@@ -20,14 +28,6 @@ class InStockFilter implements Filter
     public static function make(string $name): self
     {
         return new static($name);
-    }
-
-    /**
-     * CustomFilter constructor.
-     */
-    public function __construct(string $name)
-    {
-        $this->name = $name;
     }
 
     /**

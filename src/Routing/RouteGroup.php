@@ -34,17 +34,17 @@ abstract class RouteGroup implements RouteGroupContract
     }
 
     /**
+     * Register routes.
+     */
+    abstract public function routes(): void;
+
+    /**
      * Static constructor.
      */
     public static function make(string $prefix = '', array|string $middleware = []): self
     {
         return new static($prefix, $middleware);
     }
-
-    /**
-     * Register routes.
-     */
-    abstract public function routes(): void;
 
     /**
      * Get prefix for route group.

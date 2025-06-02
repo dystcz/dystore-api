@@ -71,20 +71,6 @@ class JsonApiResource extends BaseApiResource implements ExtendableContract
     }
 
     /**
-     * Get all resource's attributes.
-     *
-     * @param  Request|null  $request
-     * @return array<int,mixed>
-     */
-    protected function allAttributes($request): iterable
-    {
-        return [
-            ...$this->schema->attributes(),
-            ...$this->extendedFields($this->extension->attributes()->all()),
-        ];
-    }
-
-    /**
      * Get the resource's relationships.
      *
      * @param  Request|null  $request
@@ -100,6 +86,20 @@ class JsonApiResource extends BaseApiResource implements ExtendableContract
                 yield $relation->serializedFieldName() => $this->serializeRelation($relation);
             }
         }
+    }
+
+    /**
+     * Get all resource's attributes.
+     *
+     * @param  Request|null  $request
+     * @return array<int,mixed>
+     */
+    protected function allAttributes($request): iterable
+    {
+        return [
+            ...$this->schema->attributes(),
+            ...$this->extendedFields($this->extension->attributes()->all()),
+        ];
     }
 
     /**

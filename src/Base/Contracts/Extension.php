@@ -15,7 +15,7 @@ interface Extension
      *
      * @param  iterable|Closure(ExtendableContract):((array))  $value
      */
-    public function set(string $property, iterable|Closure $extension): Extension;
+    public function set(string $property, iterable|Closure $extension): self;
 
     /**
      * Get property extension values.

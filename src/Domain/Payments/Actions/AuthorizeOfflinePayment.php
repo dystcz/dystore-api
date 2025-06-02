@@ -4,6 +4,7 @@ namespace Dystore\Api\Domain\Payments\Actions;
 
 use Dystore\Api\Domain\Orders\Events\OrderPaymentSuccessful;
 use Dystore\Api\Domain\Payments\PaymentTypes\OfflinePaymentType;
+use InvalidArgumentException;
 use Lunar\Base\DataTransferObjects\PaymentAuthorize;
 use Lunar\Facades\Payments;
 use Lunar\Models\Contracts\Cart as CartContract;
@@ -17,7 +18,7 @@ class AuthorizeOfflinePayment
     public function __invoke(?OrderContract $order, ?CartContract $cart, string $paymentType = 'offline', ?array $meta = null): void
     {
         if (! $order && ! $cart) {
-            throw new \InvalidArgumentException('Either order or cart must be provided');
+            throw new InvalidArgumentException('Either order or cart must be provided');
         }
 
         /** @var OfflinePaymentType $driver */

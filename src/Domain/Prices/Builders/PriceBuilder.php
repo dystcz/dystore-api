@@ -31,13 +31,6 @@ class PriceBuilder extends Builder
         );
     }
 
-    public function inCurrency(): self
-    {
-        static::scopeCurrency($this);
-
-        return $this;
-    }
-
     public static function scopeCustomerGroups(BuilderContract $query, string $column = 'customer_group_id', ?string $table = null): void
     {
         $customerGroups = static::getStorefrontSession()->getCustomerGroups();
@@ -63,13 +56,6 @@ class PriceBuilder extends Builder
         );
     }
 
-    public function inCustomerGroups(): self
-    {
-        static::scopeCustomerGroups($this);
-
-        return $this;
-    }
-
     public static function scopeBasePrices(BuilderContract $query, ?string $table = null): void
     {
         $table = $table ?? (new Price)->getModel()->getTable();
@@ -77,6 +63,20 @@ class PriceBuilder extends Builder
         $query
             ->where("{$table}.min_quantity", 1)
             ->where("{$table}.customer_group_id", null);
+    }
+
+    public function inCurrency(): self
+    {
+        static::scopeCurrency($this);
+
+        return $this;
+    }
+
+    public function inCustomerGroups(): self
+    {
+        static::scopeCustomerGroups($this);
+
+        return $this;
     }
 
     public function base(): self

@@ -23,8 +23,8 @@ class CreateOrderAddresses
         foreach ($order->cart->addresses as $address) {
             /** @var OrderAddress $addressModel */
             $addressModel = $orderAddresses->first(function ($orderAddress) use ($address) {
-                return $orderAddress->type == $address->type &&
-                    $orderAddress->postcode == $address->postcode;
+                return $orderAddress->type === $address->type &&
+                    $orderAddress->postcode === $address->postcode;
             }) ?: App::make(OrderAddressContract::class);
 
             $addressModel->fill(

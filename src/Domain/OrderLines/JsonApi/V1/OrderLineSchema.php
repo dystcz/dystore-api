@@ -19,14 +19,14 @@ use Lunar\Models\Contracts\ProductVariant;
 class OrderLineSchema extends Schema
 {
     /**
-     * The default paging parameters to use if the client supplies none.
-     */
-    protected ?array $defaultPagination = ['number' => 1];
-
-    /**
      * {@inheritDoc}
      */
     public static string $model = OrderLine::class;
+
+    /**
+     * The default paging parameters to use if the client supplies none.
+     */
+    protected ?array $defaultPagination = ['number' => 1];
 
     /**
      * {@inheritDoc}

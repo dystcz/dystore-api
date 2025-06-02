@@ -15,6 +15,14 @@ class AuthSchema extends ProxySchema
     public static string $model = AuthUser::class;
 
     /**
+     * {@inheritDoc}
+     */
+    public static function type(): string
+    {
+        return 'auth';
+    }
+
+    /**
      * Get the resource fields.
      */
     public function fields(): array
@@ -26,14 +34,6 @@ class AuthSchema extends ProxySchema
 
             ...parent::fields(),
         ];
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public static function type(): string
-    {
-        return 'auth';
     }
 
     /**

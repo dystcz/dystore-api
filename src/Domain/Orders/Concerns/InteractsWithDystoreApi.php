@@ -16,27 +16,20 @@ trait InteractsWithDystoreApi
     use HashesRouteKey;
 
     /**
-     * Get the attributes that should be cast.
+     * Attribute activity log blacklist.
      *
-     * @return array<string,string>
+     * @return string[]
      */
-    protected function casts(): array
+    public static function getDefaultLogExcept(): array
     {
-        /** @var \Lunar\Models\Order $this */
         return [
-            ...$this->casts,
-            ...parent::casts(),
-            'payment_total' => Price::class,
-            'payment_breakdown' => PaymentBreakdown::class,
-        ];
-    }
+            ...parent::getDefaultLogExcept(),
 
-    /**
-     * Create a new factory instance for the model.
-     */
-    protected static function newFactory(): OrderFactory
-    {
-        return OrderFactory::new();
+            // WARNING: Because of: https://github.com/lunarphp/lunar/commit/e25b7bcef152a94e45251803e80f682d92424f28
+            // NOTICE  Object of class Lunar\DataTypes\Price could not be converted to int in vendor/spatie/laravel-activitylog/src/Traits/LogsActivity.php on line 313.
+            'payment_total',
+            'payment_breakdown',
+        ];
     }
 
     /**
@@ -74,19 +67,26 @@ trait InteractsWithDystoreApi
     }
 
     /**
-     * Attribute activity log blacklist.
-     *
-     * @return string[]
+     * Create a new factory instance for the model.
      */
-    public static function getDefaultLogExcept(): array
+    protected static function newFactory(): OrderFactory
     {
-        return [
-            ...parent::getDefaultLogExcept(),
+        return OrderFactory::new();
+    }
 
-            // WARNING: Because of: https://github.com/lunarphp/lunar/commit/e25b7bcef152a94e45251803e80f682d92424f28
-            // NOTICE  Object of class Lunar\DataTypes\Price could not be converted to int in vendor/spatie/laravel-activitylog/src/Traits/LogsActivity.php on line 313.
-            'payment_total',
-            'payment_breakdown',
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string,string>
+     */
+    protected function casts(): array
+    {
+        /** @var \Lunar\Models\Order $this */
+        return [
+            ...$this->casts,
+            ...parent::casts(),
+            'payment_total' => Price::class,
+            'payment_breakdown' => PaymentBreakdown::class,
         ];
     }
 }

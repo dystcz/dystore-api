@@ -7,6 +7,7 @@ use LaravelJsonApi\Core\Json\Hash;
 use LaravelJsonApi\Core\Support\Arr;
 use LaravelJsonApi\Eloquent\Fields\Attribute;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
+use UnexpectedValueException;
 
 class MediaConversion extends Attribute
 {
@@ -65,7 +66,7 @@ class MediaConversion extends Attribute
     protected function assertValue($value): void
     {
         if ((! is_null($value) && ! is_array($value)) || (! empty($value) && ! Arr::isAssoc($value))) {
-            throw new \UnexpectedValueException(sprintf(
+            throw new UnexpectedValueException(sprintf(
                 'Expecting the value of attribute %s to be an associative array.',
                 $this->name()
             ));

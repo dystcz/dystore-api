@@ -16,14 +16,6 @@ trait InteractsWithDystoreApi
     use InteractsWithAvailability;
 
     /**
-     * Create a new factory instance for the model.
-     */
-    protected static function newFactory(): ProductFactory
-    {
-        return ProductFactory::new();
-    }
-
-    /**
      * Create a new Eloquent query builder for the model.
      *
      * @param  \Illuminate\Database\Query\Builder  $query
@@ -41,5 +33,13 @@ trait InteractsWithDystoreApi
         return Attr::make(
             get: fn () => (new IsPurchasable)($this),
         );
+    }
+
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory(): ProductFactory
+    {
+        return ProductFactory::new();
     }
 }

@@ -10,12 +10,11 @@ use LaravelJsonApi\Core\Support\Arr as JsonApiArr;
 use LaravelJsonApi\Eloquent\Fields\Attribute;
 use Lunar\FieldTypes\Dropdown;
 use Lunar\Models\Contracts\Attribute as AttributeContract;
+use UnexpectedValueException;
 
 /** @phpstan-consistent-constructor */
 class AttributeData extends Attribute
 {
-    private ?Closure $keys = null;
-
     /**
      * Group attributes.
      */
@@ -37,6 +36,8 @@ class AttributeData extends Attribute
      * @var Collection<AttributeContract>|null
      */
     protected Collection $attributes;
+
+    private ?Closure $keys = null;
 
     /**
      * Attribute constructor.
@@ -248,7 +249,7 @@ class AttributeData extends Attribute
     protected function assertValue($value): void
     {
         if ((! is_null($value) && ! is_array($value)) || (! empty($value) && ! JsonApiArr::isAssoc($value))) {
-            throw new \UnexpectedValueException(sprintf(
+            throw new UnexpectedValueException(sprintf(
                 'Expecting the value of attribute %s to be an associative array.',
                 $this->name()
             ));

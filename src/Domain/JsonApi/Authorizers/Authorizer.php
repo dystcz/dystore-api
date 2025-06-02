@@ -89,6 +89,14 @@ class Authorizer extends BaseAuthorizer implements AuthorizerContract
     }
 
     /**
+     * Get schema.
+     */
+    protected function schema(): Schema
+    {
+        return $this->service->route()->schema();
+    }
+
+    /**
      * Should default resource authorization be run?
      *
      * For authorization to be triggered, authorization must
@@ -101,13 +109,5 @@ class Authorizer extends BaseAuthorizer implements AuthorizerContract
         }
 
         return false;
-    }
-
-    /**
-     * Get schema.
-     */
-    protected function schema(): Schema
-    {
-        return $this->service->route()->schema();
     }
 }

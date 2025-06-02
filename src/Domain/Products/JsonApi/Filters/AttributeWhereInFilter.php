@@ -20,16 +20,6 @@ class AttributeWhereInFilter implements Filter
     private readonly string $name;
 
     /**
-     * Create a new filter.
-     *
-     * @return static
-     */
-    public static function make(string $name, ?string $attribute = null): self
-    {
-        return new static($name, $attribute);
-    }
-
-    /**
      * CustomFilter constructor.
      */
     public function __construct(string $name, ?string $attribute = null)
@@ -37,6 +27,16 @@ class AttributeWhereInFilter implements Filter
         $this->name = $name;
         $this->column = 'attribute_data';
         $this->attribute = $attribute ?? Str::snake($this->name);
+    }
+
+    /**
+     * Create a new filter.
+     *
+     * @return static
+     */
+    public static function make(string $name, ?string $attribute = null): self
+    {
+        return new static($name, $attribute);
     }
 
     /**

@@ -25,22 +25,6 @@ abstract class PaymentAdapter
     public function __construct() {}
 
     /**
-     * Register payment adapter.
-     */
-    public static function register(): void
-    {
-        $adapter = new static;
-
-        /** @var PaymentAdaptersRegister $register */
-        $register = App::make(PaymentAdaptersRegister::class);
-
-        $register->add(
-            type: $adapter->getType(),
-            adapter: static::class,
-        );
-    }
-
-    /**
      * Get payment driver.
      */
     abstract public function getDriver(): string;
@@ -60,6 +44,22 @@ abstract class PaymentAdapter
      * Handle incoming webhook call.
      */
     abstract public function handleWebhook(Request $request): JsonResponse;
+
+    /**
+     * Register payment adapter.
+     */
+    public static function register(): void
+    {
+        $adapter = new static;
+
+        /** @var PaymentAdaptersRegister $register */
+        $register = App::make(PaymentAdaptersRegister::class);
+
+        $register->add(
+            type: $adapter->getType(),
+            adapter: static::class,
+        );
+    }
 
     /**
      * Create transaction.

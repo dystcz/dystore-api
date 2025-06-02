@@ -56,7 +56,7 @@ class ProductVariantFactory extends \Lunar\Database\Factories\ProductVariantFact
      *
      * @param  array<string,mixed>  $state
      */
-    public function withThumbnail(array $state = []): ProductVariantFactory
+    public function withThumbnail(array $state = []): self
     {
         $prefix = Config::get('lunar.database.table_prefix');
 
@@ -76,7 +76,7 @@ class ProductVariantFactory extends \Lunar\Database\Factories\ProductVariantFact
      *
      * @param  array<string,mixed>  $state
      */
-    public function withImages(int $count = 1, array $state = []): ProductVariantFactory
+    public function withImages(int $count = 1, array $state = []): self
     {
         $prefix = Config::get('lunar.database.table_prefix');
 

@@ -16,7 +16,7 @@ trait InteractsWithAttributes
      */
     public function attributeType(): Attribute
     {
-        /** @var \Illuminate\Database\Eloquent\Model $this */
+        /** @var Model $this */
 
         return Attribute::make(
             get: fn () => $this->getMorphClass(),
@@ -30,7 +30,7 @@ trait InteractsWithAttributes
      */
     public function attributes(): HasMany
     {
-        /** @var \Illuminate\Database\Eloquent\Model $this */
+        /** @var Model $this */
 
         return $this->hasMany(
             LunarAttribute::modelClass(),

@@ -9,14 +9,14 @@ use Illuminate\Support\Facades\Hash;
 
 class CorrectOldPassword implements ValidationRule
 {
-    public function __construct(protected User $user) {}
-
     /**
      * All of the data under validation.
      *
      * @var array<string, mixed>
      */
     protected array $data = [];
+
+    public function __construct(protected User $user) {}
 
     /**
      * Run the validation rule.

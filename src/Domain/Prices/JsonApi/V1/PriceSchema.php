@@ -5,7 +5,6 @@ namespace Dystore\Api\Domain\Prices\JsonApi\V1;
 use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
 use Dystore\Api\Domain\Prices\Actions\GetComparePriceDiscount;
 use Dystore\Api\Domain\Prices\Actions\GetPrice;
-use Dystore\Api\Domain\Prices\Actions\GetPriceWithoutDefaultTax;
 use Dystore\Api\Domain\Prices\JsonApi\Filters\MaxPriceFilter;
 use Dystore\Api\Domain\Prices\JsonApi\Filters\MinPriceFilter;
 use Dystore\Api\Support\Models\Actions\SchemaType;
@@ -55,7 +54,6 @@ class PriceSchema extends Schema
     {
         return [
             'currency',
-            'priceable',
 
             ...parent::with(),
         ];
@@ -83,94 +81,49 @@ class PriceSchema extends Schema
             $this->idField(),
 
             Map::make('base_price', [
-                Str::make('formatted')
-                    ->extractUsing(static function (Price $model) {
-                        $price = (new GetPrice)($model->price, $model->priceable);
-
-                        return $price->formatted();
-                    }),
-                Number::make('decimal')
-                    ->extractUsing(static function (Price $model) {
-                        $price = (new GetPrice)($model->price, $model->priceable);
-
-                        return $price->decimal;
-                    }),
-                Number::make('value')
-                    ->extractUsing(static function (Price $model) {
-                        $price = (new GetPrice)($model->price, $model->priceable);
-
-                        return $price->value;
-                    }),
+                Str::make('formatted')->extractUsing(static fn (Price $model) => (new GetPrice)($model)->formatted()),
+                Number::make('decimal')->extractUsing(static fn (Price $model) => (new GetPrice)($model)->decimal()),
+                Number::make('value')->extractUsing(static fn (Price $model) => (new GetPrice)($model)->value),
             ]),
 
             Map::make('sub_price', [
-                Str::make('formatted')
-                    ->extractUsing(static function (Price $model) {
-                        $price = (new GetPriceWithoutDefaultTax)($model->price, $model->priceable);
-
-                        return $price->formatted();
-                    }),
-                Number::make('decimal')
-                    ->extractUsing(static function (Price $model) {
-                        $price = (new GetPriceWithoutDefaultTax)($model->price, $model->priceable);
-
-                        return $price->decimal;
-                    }),
-                Number::make('value')
-                    ->extractUsing(static function (Price $model) {
-                        $price = (new GetPriceWithoutDefaultTax)($model->price, $model->priceable);
-
-                        return $price->value;
-                    }),
+                Str::make('formatted')->extractUsing(static fn (Price $model) => $model->priceExTax()->formatted()),
+                Number::make('decimal')->extractUsing(static fn (Price $model) => $model->priceExTax()->decimal()),
+                Number::make('value')->extractUsing(static fn (Price $model) => $model->priceExTax()->value),
             ]),
 
             Map::make('compare_price', [
-                Str::make('formatted')
-                    ->extractUsing(static function (Price $model) {
-                        $comparePrice = (new GetPrice)($model->compare_price, $model->priceable);
-
-                        return $comparePrice->formatted();
-                    }),
-                Number::make('decimal')
-                    ->extractUsing(static function (Price $model) {
-                        $comparePrice = (new GetPrice)($model->compare_price, $model->priceable);
-
-                        return $comparePrice->decimal;
-                    }),
-                Number::make('value')
-                    ->extractUsing(static function (Price $model) {
-                        $comparePrice = (new GetPrice)($model->compare_price, $model->priceable);
-
-                        return $comparePrice->value;
-                    }),
+                Str::make('formatted')->extractUsing(static fn (Price $model) => (new GetPrice)($model, 'compare_price')->formatted()),
+                Number::make('decimal')->extractUsing(static fn (Price $model) => (new GetPrice)($model, 'compare_price')->decimal()),
+                Number::make('value')->extractUsing(static fn (Price $model) => (new GetPrice)($model, 'compare_price')->value),
             ]),
 
             Map::make('discount', [
                 Number::make('formatted')
                     ->extractUsing(static function (Price $model) {
-                        $price = (new GetPrice)($model->price, $model->priceable);
-                        $comparePrice = (new GetPrice)($model->compare_price, $model->priceable);
+                        $price = (new GetPrice)($model);
+                        $comparePrice = (new GetPrice)($model, 'compare_price');
 
                         return (new GetComparePriceDiscount($price, $comparePrice))->formatted();
                     }),
                 Number::make('decimal')
                     ->extractUsing(static function (Price $model) {
-                        $price = (new GetPrice)($model->price, $model->priceable);
-                        $comparePrice = (new GetPrice)($model->compare_price, $model->priceable);
+                        $price = (new GetPrice)($model);
+                        $comparePrice = (new GetPrice)($model, 'compare_price');
 
                         return (new GetComparePriceDiscount($price, $comparePrice))->decimal();
                     }),
                 Number::make('value')
                     ->extractUsing(static function (Price $model) {
-                        $price = (new GetPrice)($model->price, $model->priceable);
-                        $comparePrice = (new GetPrice)($model->compare_price, $model->priceable);
+                        $price = (new GetPrice)($model);
+                        $comparePrice = (new GetPrice)($model, 'compare_price');
 
                         return (new GetComparePriceDiscount($price, $comparePrice))->value();
                     }),
                 Boolean::make('on_sale')
                     ->extractUsing(static function (Price $model) {
-                        $price = (new GetPrice)($model->price, $model->priceable);
-                        $comparePrice = (new GetPrice)($model->compare_price, $model->priceable);
+                        $price = (new GetPrice)($model);
+                        $comparePrice = (new GetPrice)($model, 'compare_price');
 
                         return (new GetComparePriceDiscount($price, $comparePrice))->isOnSale();
                     }),

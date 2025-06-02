@@ -17,7 +17,7 @@ trait InteractsWithDystoreApi
         $key = 'lunar_default_tax_zone_percentage';
 
         return BlinkFacade::once($key, function () {
-            return floatval(static::getDefault()->taxAmounts->first()?->percentage);
+            return (float) (static::getDefault()->taxAmounts->first()?->percentage);
         });
     }
 }

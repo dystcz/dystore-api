@@ -41,17 +41,10 @@ class OrderResource extends JsonApiResource
         return parent::selfUrl();
     }
 
-    private function hasSignedUrls(): bool
-    {
-        $protectionStrategy = Config::get('dystore.general.checkout.checkout_protection_strategy');
-
-        return $protectionStrategy === CheckoutProtectionStrategy::SIGNATURE;
-    }
-
     /**
      * Get the resource's links.
      *
-     * @param  \Illuminate\Http\Request|null  $request
+     * @param  Request|null  $request
      */
     public function links($request): Links
     {
@@ -111,5 +104,12 @@ class OrderResource extends JsonApiResource
         $links->push(...$signedUrls);
 
         return $links;
+    }
+
+    private function hasSignedUrls(): bool
+    {
+        $protectionStrategy = Config::get('dystore.general.checkout.checkout_protection_strategy');
+
+        return $protectionStrategy === CheckoutProtectionStrategy::SIGNATURE;
     }
 }

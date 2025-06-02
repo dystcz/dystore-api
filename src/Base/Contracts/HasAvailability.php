@@ -29,7 +29,7 @@ interface HasAvailability extends Translatable
     /**
      * Determine when model is considered to be preorderable.
      */
-    public function isPreorderable(): bool;
+    public function isPreorderable(): ?bool;
 
     /**
      * Determine when model is considered to be backorderable.

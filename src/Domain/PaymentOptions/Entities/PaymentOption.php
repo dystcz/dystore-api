@@ -49,31 +49,11 @@ class PaymentOption implements Arrayable, Purchasable
     }
 
     /**
-     * Hide or show the option.
-     */
-    private function setHidden(bool $hidden = true): self
-    {
-        $this->hidden = $hidden;
-
-        return $this;
-    }
-
-    /**
      * Check if option is hidden.
      */
     public function isHidden(): bool
     {
         return $this->hidden;
-    }
-
-    /**
-     * Determine wether this payment option is default.
-     */
-    private function setDefault(): self
-    {
-        $this->default = $this->driver === Config::get('lunar.payments.default');
-
-        return $this;
     }
 
     /**
@@ -254,5 +234,25 @@ class PaymentOption implements Arrayable, Purchasable
             'hidden' => $this->isHidden(),
             'meta' => $this->getMeta(),
         ];
+    }
+
+    /**
+     * Hide or show the option.
+     */
+    private function setHidden(bool $hidden = true): self
+    {
+        $this->hidden = $hidden;
+
+        return $this;
+    }
+
+    /**
+     * Determine wether this payment option is default.
+     */
+    private function setDefault(): self
+    {
+        $this->default = $this->driver === Config::get('lunar.payments.default');
+
+        return $this;
     }
 }

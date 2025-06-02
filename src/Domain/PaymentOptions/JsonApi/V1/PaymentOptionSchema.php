@@ -12,6 +12,11 @@ use LaravelJsonApi\NonEloquent\Fields\ID;
 class PaymentOptionSchema extends Schema
 {
     /**
+     * {@inheritDoc}
+     */
+    public static string $model = PaymentOption::class;
+
+    /**
      * Whether resources of this type have a self link.
      */
     protected bool $selfLink = false;
@@ -19,7 +24,12 @@ class PaymentOptionSchema extends Schema
     /**
      * {@inheritDoc}
      */
-    public static string $model = PaymentOption::class;
+    public static function type(): string
+    {
+        $resolver = new TypeResolver;
+
+        return $resolver(static::class);
+    }
 
     /**
      * {@inheritDoc}
@@ -57,16 +67,6 @@ class PaymentOptionSchema extends Schema
         return PaymentOptionRepository::make()
             ->withServer($this->server)
             ->withSchema($this);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public static function type(): string
-    {
-        $resolver = new TypeResolver;
-
-        return $resolver(static::class);
     }
 
     /**

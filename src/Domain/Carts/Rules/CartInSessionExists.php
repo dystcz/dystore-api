@@ -12,17 +12,17 @@ class CartInSessionExists implements ValidationRule
 {
     protected ?CartContract $cart;
 
-    public function __construct(
-    ) {
-        $this->cart = App::make(CurrentSessionCart::class);
-    }
-
     /**
      * All of the data under validation.
      *
      * @var array<string, mixed>
      */
     protected array $data = [];
+
+    public function __construct(
+    ) {
+        $this->cart = App::make(CurrentSessionCart::class);
+    }
 
     /**
      * Run the validation rule.

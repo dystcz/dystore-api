@@ -52,46 +52,9 @@ class User extends Authenticatable implements LunarUserContract, UserContract
         'remember_token',
     ];
 
-    /**
-     * Get the attributes that should be cast.
-     *
-     * @return array<string, string>
-     */
-    protected function casts(): array
-    {
-        return [
-            ...$this->casts,
-            'email_verified_at' => 'datetime',
-        ];
-    }
-
     public function getTable(): string
     {
         return 'users';
-    }
-
-    /**
-     * Return a new factory instance for the model.
-     */
-    protected static function newFactory(): UserFactory
-    {
-        return UserFactory::new();
-    }
-
-    /**
-     * Get full name attribute.
-     */
-    protected function fullName(): Attribute
-    {
-        return Attribute::make(
-            get: function () {
-                if (! $this->first_name && ! $this->last_name) {
-                    return null;
-                }
-
-                return implode(' ', array_filter([$this->first_name, $this->last_name]));
-            }
-        );
     }
 
     /**
@@ -140,5 +103,42 @@ class User extends Authenticatable implements LunarUserContract, UserContract
     public function orders(): HasMany
     {
         return $this->hasMany(Order::modelClass());
+    }
+
+    /**
+     * Return a new factory instance for the model.
+     */
+    protected static function newFactory(): UserFactory
+    {
+        return UserFactory::new();
+    }
+
+    /**
+     * Get the attributes that should be cast.
+     *
+     * @return array<string, string>
+     */
+    protected function casts(): array
+    {
+        return [
+            ...$this->casts,
+            'email_verified_at' => 'datetime',
+        ];
+    }
+
+    /**
+     * Get full name attribute.
+     */
+    protected function fullName(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                if (! $this->first_name && ! $this->last_name) {
+                    return null;
+                }
+
+                return implode(' ', array_filter([$this->first_name, $this->last_name]));
+            }
+        );
     }
 }

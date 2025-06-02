@@ -11,18 +11,6 @@ use Exception;
 abstract class Action
 {
     /**
-     * Check if handle method exists.
-     *
-     * @throws Exception
-     */
-    private function checkIfHandleExists(): void
-    {
-        if (! method_exists($this, 'handle')) {
-            throw new Exception('Action must have handle method.');
-        }
-    }
-
-    /**
      * Invoke the action.
      *
      * @param  mixed  $args
@@ -47,5 +35,17 @@ abstract class Action
         $self->checkIfHandleExists();
 
         return call_user_func_array([$self, 'handle'], $args);
+    }
+
+    /**
+     * Check if handle method exists.
+     *
+     * @throws Exception
+     */
+    private function checkIfHandleExists(): void
+    {
+        if (! method_exists($this, 'handle')) {
+            throw new Exception('Action must have handle method.');
+        }
     }
 }

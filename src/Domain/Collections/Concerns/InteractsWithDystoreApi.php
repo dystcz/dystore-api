@@ -14,14 +14,6 @@ trait InteractsWithDystoreApi
     use HashesRouteKey;
     use InteractsWithAttributes;
 
-    /**
-     * Return a new factory instance for the model.
-     */
-    protected static function newFactory(): CollectionFactory
-    {
-        return CollectionFactory::new();
-    }
-
     public function images(): MorphMany
     {
         /** @var Collection $this */
@@ -31,5 +23,13 @@ trait InteractsWithDystoreApi
                 'collection_name',
                 Config::get('lunar.media.collection'),
             );
+    }
+
+    /**
+     * Return a new factory instance for the model.
+     */
+    protected static function newFactory(): CollectionFactory
+    {
+        return CollectionFactory::new();
     }
 }

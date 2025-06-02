@@ -64,8 +64,6 @@ class ProductSchema extends Schema
             'productType.mappedAttributes',
             'productType.mappedAttributes.attributeGroup',
 
-            'variants',
-
             ...parent::with(),
         ];
     }
@@ -88,8 +86,16 @@ class ProductSchema extends Schema
             'brand.thumbnail',
 
             'cheapest_product_variant',
+            'cheapest_product_variant.lowest_price',
+            'cheapest_product_variant.highest_price',
             'cheapest_product_variant.images',
             'cheapest_product_variant.prices',
+
+            'most_expensive_product_variant',
+            'most_expensive_product_variant.lowest_price',
+            'most_expensive_product_variant.highest_price',
+            'most_expensive_product_variant.images',
+            'most_expensive_product_variant.prices',
 
             'collections',
             'collections.default_url',

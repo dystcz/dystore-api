@@ -9,14 +9,6 @@ final class TypeResolver
     private static array $cache = [];
 
     /**
-     * Manually register the resource type to use for a schema class.
-     */
-    public static function register(string $schemaClass, string $resourceType): void
-    {
-        self::$cache[$schemaClass] = $resourceType;
-    }
-
-    /**
      * Resolve the JSON:API resource type from the fully-qualified schema class.
      *
      * @param  class-string  $schemaClass
@@ -28,5 +20,13 @@ final class TypeResolver
         }
 
         return SchemaType::get($schemaClass::model());
+    }
+
+    /**
+     * Manually register the resource type to use for a schema class.
+     */
+    public static function register(string $schemaClass, string $resourceType): void
+    {
+        self::$cache[$schemaClass] = $resourceType;
     }
 }

@@ -80,6 +80,22 @@ class OfflinePaymentType extends AbstractPayment
     }
 
     /**
+     * {@inheritDoc}
+     */
+    public function refund(TransactionContract $transaction, int $amount = 0, $notes = null): PaymentRefund
+    {
+        return new PaymentRefund(true);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public function capture(TransactionContract $transaction, $amount = 0): PaymentCapture
+    {
+        return new PaymentCapture(true);
+    }
+
+    /**
      * Create transaction for the payment.
      */
     protected function createCaptureTransaction(string $paymentType = 'offline'): TransactionContract
@@ -117,21 +133,5 @@ class OfflinePaymentType extends AbstractPayment
         );
 
         return $transaction;
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function refund(TransactionContract $transaction, int $amount = 0, $notes = null): PaymentRefund
-    {
-        return new PaymentRefund(true);
-    }
-
-    /**
-     * {@inheritDoc}
-     */
-    public function capture(TransactionContract $transaction, $amount = 0): PaymentCapture
-    {
-        return new PaymentCapture(true);
     }
 }

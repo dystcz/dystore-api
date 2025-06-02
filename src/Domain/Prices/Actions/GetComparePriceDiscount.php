@@ -42,7 +42,7 @@ class GetComparePriceDiscount
      */
     public function value(): string
     {
-        return intval($this->raw());
+        return (int) ($this->raw());
     }
 
     /**

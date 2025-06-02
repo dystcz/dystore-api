@@ -27,7 +27,7 @@ use LaravelJsonApi\Eloquent\Fields\Relations\Relation;
 interface SchemaExtension extends Extension
 {
     /** {@inheritdoc} */
-    public function set(string $property, iterable|Relation|Closure $extension): SchemaExtension;
+    public function set(string $property, iterable|Relation|Closure $extension): self;
 
     /** {@inheritdoc} */
     public function get(string $key): iterable;

@@ -32,19 +32,31 @@ abstract class Extension implements ExtensionContract
     }
 
     /**
-     * Set extendable class.
-     *
-     * @param  class-string<ExtendableContract>  $class
+     * Dynamically call setter or getter.
      */
-    protected function setExtendable(string $class): void
+    public function __call(string $method, $arguments): mixed
     {
-        if (is_subclass_of($class, ExtendableContract::class)) {
-            $this->class = $class;
 
-            return;
+        $property = Str::of($method)->after('set')->camel()->toString();
+        $action = $property === $method ? $action = 'get' : 'set';
+
+        if (! property_exists($this, $property)) {
+            throw new BadMethodCallException("{$property} is not extendable.");
         }
 
-        throw new InvalidArgumentException("{$class} cannot be extended.");
+        if ($action === 'set' && empty($arguments)) {
+            throw new BadMethodCallException("You are trying to set property {$property} without a value.");
+        }
+
+        return $this->forwardCallTo($this, $action, [$property, ...$arguments]);
+    }
+
+    /**
+     * Get manifest caller.
+     */
+    public static function caller(): string
+    {
+        return debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 3)[2]['class'];
     }
 
     /**
@@ -88,30 +100,18 @@ abstract class Extension implements ExtensionContract
     }
 
     /**
-     * Dynamically call setter or getter.
+     * Set extendable class.
+     *
+     * @param  class-string<ExtendableContract>  $class
      */
-    public function __call(string $method, $arguments): mixed
+    protected function setExtendable(string $class): void
     {
+        if (is_subclass_of($class, ExtendableContract::class)) {
+            $this->class = $class;
 
-        $property = Str::of($method)->after('set')->camel()->toString();
-        $action = $property === $method ? $action = 'get' : 'set';
-
-        if (! property_exists($this, $property)) {
-            throw new BadMethodCallException("{$property} is not extendable.");
+            return;
         }
 
-        if ($action === 'set' && empty($arguments)) {
-            throw new BadMethodCallException("You are trying to set property {$property} without a value.");
-        }
-
-        return $this->forwardCallTo($this, $action, [$property, ...$arguments]);
-    }
-
-    /**
-     * Get manifest caller.
-     */
-    public static function caller(): string
-    {
-        return debug_backtrace(DEBUG_BACKTRACE_IGNORE_ARGS, 3)[2]['class'];
+        throw new InvalidArgumentException("{$class} cannot be extended.");
     }
 }

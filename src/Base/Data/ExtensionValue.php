@@ -16,6 +16,14 @@ class ExtensionValue
     ) {}
 
     /**
+     * Get value.
+     */
+    public function __invoke(): string|Closure
+    {
+        return $this->value;
+    }
+
+    /**
      * Create new instance from value.
      */
     public static function from(string|Closure|Relation|Field|Filter|SortField $value): self
@@ -31,14 +39,6 @@ class ExtensionValue
         return $this->value instanceof Closure
             ? ($this->value)($extendable)
             : $this->value;
-    }
-
-    /**
-     * Get value.
-     */
-    public function __invoke(): string|Closure
-    {
-        return $this->value;
     }
 
     /**

@@ -3,6 +3,7 @@
 namespace Dystore\Api\Domain\Payments\PaymentAdapters;
 
 use Illuminate\Support\Facades\App;
+use RuntimeException;
 
 class PaymentAdaptersRegister
 {
@@ -35,7 +36,7 @@ class PaymentAdaptersRegister
     public function get(string $type): PaymentAdapter
     {
         if (! $this->has($type)) {
-            throw new \RuntimeException("Payment adapter for ['{$type}'] is not registered");
+            throw new RuntimeException("Payment adapter for ['{$type}'] is not registered");
         }
 
         return App::make($this->adapters[$type]);

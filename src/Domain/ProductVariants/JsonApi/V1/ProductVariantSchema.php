@@ -39,7 +39,7 @@ class ProductVariantSchema extends Schema
     {
         return $query->whereHas(
             'product',
-            fn ($query) => $query->where('status', '!=', 'draft'),
+            fn ($query) => $query->published()
         );
     }
 

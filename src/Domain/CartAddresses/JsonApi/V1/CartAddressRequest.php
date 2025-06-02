@@ -149,26 +149,6 @@ class CartAddressRequest extends AddressRequest
     }
 
     /**
-     * Determine if address type is shipping.
-     *
-     * @return Closure(): bool
-     */
-    protected function isShippingAddress(): Closure
-    {
-        return fn () => $this->input('data.attributes.address_type') === AddressType::SHIPPING->value;
-    }
-
-    /**
-     * Determine if address type is billing.
-     *
-     * @return Closure(): bool
-     */
-    protected function isBillingAddress(): Closure
-    {
-        return fn () => $this->input('data.attributes.address_type') === AddressType::BILLING->value;
-    }
-
-    /**
      * Configure the validator instance.
      */
     public function withValidator(Validator $validator): void
@@ -194,5 +174,25 @@ class CartAddressRequest extends AddressRequest
                 );
             }
         });
+    }
+
+    /**
+     * Determine if address type is shipping.
+     *
+     * @return Closure(): bool
+     */
+    protected function isShippingAddress(): Closure
+    {
+        return fn () => $this->input('data.attributes.address_type') === AddressType::SHIPPING->value;
+    }
+
+    /**
+     * Determine if address type is billing.
+     *
+     * @return Closure(): bool
+     */
+    protected function isBillingAddress(): Closure
+    {
+        return fn () => $this->input('data.attributes.address_type') === AddressType::BILLING->value;
     }
 }

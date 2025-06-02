@@ -8,6 +8,8 @@ use Lunar\Models\Price as LunarPrice;
 
 /**
  * @method static \Dystore\Api\Domain\Prices\Builders\PriceBuilder query()
+ * @method \Lunar\DataTypes\Price priceExTax(string $priceField = 'price') Return the price exclusive of tax.
+ * @method \Lunar\DataTypes\Price priceIncTax(string $priceField = 'price') Return the price inclusive of tax.
  */
 class Price extends LunarPrice implements PriceContract
 {

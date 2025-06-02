@@ -24,9 +24,9 @@ class CreatePaymentLine
         if ($paymentOption = $cart->getPaymentOption()) {
             /** @var OrderLine $paymentLine */
             $paymentLine = $order->lines->first(function ($orderLine) use ($paymentOption) {
-                return $orderLine->type == 'payment' &&
-                    $orderLine->purchasable_type == PaymentOption::class &&
-                    $orderLine->identifier == $paymentOption->getIdentifier();
+                return $orderLine->type === 'payment' &&
+                    $orderLine->purchasable_type === PaymentOption::class &&
+                    $orderLine->identifier === $paymentOption->getIdentifier();
             }) ?: App::make(OrderLineContract::class);
 
             $paymentLine->fill([

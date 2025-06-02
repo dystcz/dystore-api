@@ -16,7 +16,6 @@ use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
-use InvalidArgumentException;
 use Lunar\Base\Traits\HasUrls;
 use Lunar\Models\Price as LunarPrice;
 use Lunar\Models\ProductVariant as LunarPoductVariant;
@@ -32,14 +31,6 @@ trait InteractsWithDystoreApi
     use InteractsWithMedia;
 
     /**
-     * Create a new factory instance for the model.
-     */
-    protected static function newFactory(): ProductVariantFactory
-    {
-        return ProductVariantFactory::new();
-    }
-
-    /**
      * Create a new Eloquent query builder for the model.
      *
      * @param  \Illuminate\Database\Query\Builder  $query
@@ -52,12 +43,16 @@ trait InteractsWithDystoreApi
     /**
      * Determine when model is considered to be preorderable.
      */
-    public function isPreorderable(): bool
+    public function isPreorderable(): ?bool
     {
-        /** @var Product $product */
-        $product = $this->product;
+        /** @var \Dystore\Api\Domain\ProductVariants\Models\ProductVariant $model */
+        $model = $this;
 
-        return $product->isPreorderable()
+        if (! $model->relationLoaded('product')) {
+            return null;
+        }
+
+        return $model->product->isPreorderable()
             && (
                 $this->isAlwaysPurchasable()
                 || $this->isInStock()
@@ -150,45 +145,28 @@ trait InteractsWithDystoreApi
             ->where('primary', true);
     }
 
-    /**
-     * Lowest price relation.
-     *
-     * @throws InvalidArgumentException
-     */
     public function lowestPrice(): MorphOne
     {
         /** @var \Dystore\Api\Domain\ProductVariants\Models\ProductVariant $this */
-
         return $this
-            ->morphOne(
-                LunarPrice::modelClass(),
-                'priceable'
-            )
+            ->morphOne(LunarPrice::modelClass(), 'priceable')
             ->ofMany('price', 'min');
     }
 
-    /**
-     * Highest price relation.
-     *
-     * @throws InvalidArgumentException
-     */
     public function highestPrice(): MorphOne
     {
         /** @var \Dystore\Api\Domain\ProductVariants\Models\ProductVariant $this */
-
         return $this
-            ->morphOne(
-                LunarPrice::modelClass(),
-                'priceable'
-            )
+            ->morphOne(LunarPrice::modelClass(), 'priceable')
             ->ofMany('price', 'max');
     }
 
     /**
-     * Other variants relation.
+     * Variants except the current one.
      */
     public function otherVariants(): HasMany
     {
+        /** @var \Dystore\Api\Domain\ProductVariants\Models\ProductVariant $this */
         return $this
             ->hasMany(
                 LunarPoductVariant::modelClass(),
@@ -200,5 +178,10 @@ trait InteractsWithDystoreApi
                 '!=',
                 $this->getAttribute($this->getRouteKeyName()),
             );
+    }
+
+    public static function newFactory(): ProductVariantFactory
+    {
+        return ProductVariantFactory::new();
     }
 }

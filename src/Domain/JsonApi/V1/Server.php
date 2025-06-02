@@ -8,6 +8,14 @@ use Illuminate\Support\Facades\Config;
 class Server extends BaseServer
 {
     /**
+     * Bootstrap the server when it is handling an HTTP request.
+     */
+    public function serving(): void
+    {
+        //
+    }
+
+    /**
      * Set base server URI.
      */
     protected function setBaseUri(string $path = 'v1'): void
@@ -15,14 +23,6 @@ class Server extends BaseServer
         $prefix = Config::get('dystore.general.route_prefix');
 
         $this->baseUri = "/{$prefix}/{$path}";
-    }
-
-    /**
-     * Bootstrap the server when it is handling an HTTP request.
-     */
-    public function serving(): void
-    {
-        //
     }
 
     /**

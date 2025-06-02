@@ -29,8 +29,8 @@ class ApiHashidsServiceProvider extends ServiceProvider
 
         // Register payment adapters register.
         $this->app->singleton(
-            \Dystore\Api\Hashids\Contracts\HashidsConnectionsManager::class,
-            fn () => new \Dystore\Api\Hashids\Managers\HashidsConnectionsManager,
+            Hashids\Contracts\HashidsConnectionsManager::class,
+            fn () => new Hashids\Managers\HashidsConnectionsManager,
         );
     }
 }

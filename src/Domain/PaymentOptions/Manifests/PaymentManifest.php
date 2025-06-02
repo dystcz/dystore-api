@@ -31,7 +31,7 @@ class PaymentManifest implements PaymentManifestContract
     public function addOption(PaymentOption $option): self
     {
         $exists = $this->options->first(function ($opt) use ($option) {
-            return $opt->getIdentifier() == $option->getIdentifier();
+            return $opt->getIdentifier() === $option->getIdentifier();
         });
 
         // Does this option already exist?
@@ -117,6 +117,6 @@ class PaymentManifest implements PaymentManifestContract
             return null;
         }
 
-        return PaymentManifest::getOption($cart, $cart->payment_option, $withHidden);
+        return self::getOption($cart, $cart->payment_option, $withHidden);
     }
 }

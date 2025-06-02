@@ -21,8 +21,8 @@ class MapDiscountBreakdown
 
         foreach ($order->lines as $orderLine) {
             $cartLine = $cart->lines->first(function ($cartLine) use ($orderLine) {
-                return $cartLine->purchasable_type == $orderLine->purchasable_type &&
-                    $cartLine->purchasable_id == $orderLine->purchasable_id;
+                return $cartLine->purchasable_type === $orderLine->purchasable_type &&
+                    $cartLine->purchasable_id === $orderLine->purchasable_id;
             });
 
             if ($cartLine) {

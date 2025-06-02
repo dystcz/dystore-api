@@ -45,14 +45,6 @@ trait InteractsWithDystoreApi
     }
 
     /**
-     * Create a new factory instance for the model.
-     */
-    protected static function newFactory(): CartFactory
-    {
-        return CartFactory::new();
-    }
-
-    /**
      * @param  Builder<Model>  $query
      */
     public function scopeActive(Builder $query): Builder
@@ -60,5 +52,13 @@ trait InteractsWithDystoreApi
         // NOTE: When cart has order, it is considered inactive
         // @see scopeActive method on \Lunar\Models\Cart
         return $query->whereDoesntHave('orders');
+    }
+
+    /**
+     * Create a new factory instance for the model.
+     */
+    protected static function newFactory(): CartFactory
+    {
+        return CartFactory::new();
     }
 }

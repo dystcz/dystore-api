@@ -4,6 +4,7 @@ namespace Dystore\Api\Domain\PaymentOptions\Casts;
 
 use Dystore\Api\Domain\Carts\ValueObjects\PaymentBreakdown as PaymentBreakdownValue;
 use Dystore\Api\Domain\Carts\ValueObjects\PaymentBreakdownItem;
+use Exception;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Contracts\Database\Eloquent\SerializesCastableAttributes;
 use Illuminate\Support\Collection;
@@ -58,7 +59,7 @@ class PaymentBreakdown implements CastsAttributes, SerializesCastableAttributes
         $breakdownClass = PaymentBreakdownValue::class;
 
         if ($value && ! is_a($value, $breakdownClass)) {
-            throw new \Exception("Payment breakdown must be instance of {$breakdownClass}");
+            throw new Exception("Payment breakdown must be instance of {$breakdownClass}");
         }
 
         if (! $value) {
@@ -83,7 +84,7 @@ class PaymentBreakdown implements CastsAttributes, SerializesCastableAttributes
      *
      * @param  \Illuminate\Database\Eloquent\Model  $model
      * @param  string  $key
-     * @param  \Illuminate\Support\Collection  $value
+     * @param  Collection  $value
      * @param  array<string, mixed>  $attributes
      */
     public function serialize($model, $key, $value, $attributes)

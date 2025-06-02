@@ -29,8 +29,8 @@ class CreateOrderLines
         foreach ($cart->lines as $cartLine) {
             /** @var OrderLine $orderLine */
             $orderLine = $order->lines->first(function ($line) use ($cartLine) {
-                return $line->purchasable_id == $cartLine->purchasable_id &&
-                    $line->purchasable_type == $cartLine->purchasable_type;
+                return $line->purchasable_id === $cartLine->purchasable_id &&
+                    $line->purchasable_type === $cartLine->purchasable_type;
             }) ?: App::make(OrderLineContract::class);
 
             $orderLine->fill([

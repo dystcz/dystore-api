@@ -20,6 +20,15 @@ class MinPriceFilter implements Filter
     private string $column;
 
     /**
+     * CustomFilter constructor.
+     */
+    public function __construct(string $name, ?string $column = null)
+    {
+        $this->name = $name;
+        $this->column = $column ?: Str::snake($name);
+    }
+
+    /**
      * Create a new filter.
      *
      * @return static
@@ -27,15 +36,6 @@ class MinPriceFilter implements Filter
     public static function make(string $name, ?string $column = null): self
     {
         return new static($name, $column);
-    }
-
-    /**
-     * CustomFilter constructor.
-     */
-    public function __construct(string $name, ?string $column = null)
-    {
-        $this->name = $name;
-        $this->column = $column ?: Str::snake($name);
     }
 
     /**

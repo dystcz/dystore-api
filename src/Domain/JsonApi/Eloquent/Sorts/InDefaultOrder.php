@@ -12,14 +12,6 @@ class InDefaultOrder implements SortField
     private ?string $column = null;
 
     /**
-     * Create a new sort field.
-     */
-    public static function make(string $name, ?string $column = null): self
-    {
-        return new static($name);
-    }
-
-    /**
      * CustomSort constructor.
      */
     public function __construct(string $name, ?string $column = null)
@@ -27,6 +19,14 @@ class InDefaultOrder implements SortField
         $this->name = $name;
 
         $this->column = $column;
+    }
+
+    /**
+     * Create a new sort field.
+     */
+    public static function make(string $name, ?string $column = null): self
+    {
+        return new static($name);
     }
 
     /**

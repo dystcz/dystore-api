@@ -9,6 +9,7 @@ use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
 use Dystore\Api\Support\Config\Collections\DomainConfigCollection;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\App;
+use InvalidArgumentException;
 
 /**
  * @property array<SchemaExtensionContract> $extensions
@@ -16,14 +17,14 @@ use Illuminate\Support\Facades\App;
 class SchemaManifest extends Manifest implements SchemaManifestContract
 {
     /**
-     * Collection of registered schemas.
-     */
-    protected Collection $schemas;
-
-    /**
      * @var Dystore\Api\Base\Contracts\SchemaExtension[]
      */
     public array $extensions;
+
+    /**
+     * Collection of registered schemas.
+     */
+    protected Collection $schemas;
 
     /**
      * The schema manifest instance.
@@ -33,6 +34,32 @@ class SchemaManifest extends Manifest implements SchemaManifestContract
         $this->schemas = new Collection([]);
 
         $this->registerBaseSchemas();
+    }
+
+    /**
+     * Get schema extension for a given schema class.
+     *
+     * @param  class-string<Schema>  $class
+     *
+     * @deprecated Use SchemaManifest::extend() instead.
+     */
+    public static function for(string $class): SchemaExtensionContract
+    {
+        return self::extend($class);
+    }
+
+    /**
+     * Get schema extension for a given schema class.
+     *
+     * @param  class-string<Schema>  $class
+     */
+    public static function extend(string $class): SchemaExtensionContract
+    {
+        $self = App::make(SchemaManifestContract::class);
+
+        $extension = $self->extensions[$class] ??= App::make(SchemaExtensionContract::class, ['class' => $class]);
+
+        return $extension;
     }
 
     /**
@@ -104,32 +131,6 @@ class SchemaManifest extends Manifest implements SchemaManifestContract
     }
 
     /**
-     * Get schema extension for a given schema class.
-     *
-     * @param  class-string<Schema>  $class
-     *
-     * @deprecated Use SchemaManifest::extend() instead.
-     */
-    public static function for(string $class): SchemaExtensionContract
-    {
-        return self::extend($class);
-    }
-
-    /**
-     * Get schema extension for a given schema class.
-     *
-     * @param  class-string<Schema>  $class
-     */
-    public static function extend(string $class): SchemaExtensionContract
-    {
-        $self = App::make(SchemaManifestContract::class);
-
-        $extension = $self->extensions[$class] ??= App::make(SchemaExtensionContract::class, ['class' => $class]);
-
-        return $extension;
-    }
-
-    /**
      * Register base schemas from config.
      */
     private function registerBaseSchemas(): void
@@ -143,12 +144,12 @@ class SchemaManifest extends Manifest implements SchemaManifestContract
     /**
      * Validate class is a schema.
      *
-     * @throws \InvalidArgumentException
+     * @throws InvalidArgumentException
      */
     private function validateClassIsSchema(string $class): void
     {
         if (! class_implements($class, SchemaContract::class)) {
-            throw new \InvalidArgumentException(sprintf('Given [%s] is not a subclass of [%s].', $class, Schema::class));
+            throw new InvalidArgumentException(sprintf('Given [%s] is not a subclass of [%s].', $class, Schema::class));
         }
     }
 }

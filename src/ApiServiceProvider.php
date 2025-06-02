@@ -59,26 +59,26 @@ class ApiServiceProvider extends ServiceProvider
 
         // Register payment adapters register.
         $this->app->singleton(
-            \Dystore\Api\Domain\Payments\PaymentAdapters\PaymentAdaptersRegister::class,
-            fn () => new \Dystore\Api\Domain\Payments\PaymentAdapters\PaymentAdaptersRegister,
+            Domain\Payments\PaymentAdapters\PaymentAdaptersRegister::class,
+            fn () => new Domain\Payments\PaymentAdapters\PaymentAdaptersRegister,
         );
 
         // Register payment modifiers.
         $this->app->singleton(
-            \Dystore\Api\Domain\PaymentOptions\Modifiers\PaymentModifiers::class,
-            fn (Application $app) => new \Dystore\Api\Domain\PaymentOptions\Modifiers\PaymentModifiers,
+            Domain\PaymentOptions\Modifiers\PaymentModifiers::class,
+            fn (Application $app) => new Domain\PaymentOptions\Modifiers\PaymentModifiers,
         );
 
         // Register payment manifest.
         $this->app->singleton(
-            \Dystore\Api\Domain\PaymentOptions\Contracts\PaymentManifest::class,
-            fn (Application $app) => $app->make(\Dystore\Api\Domain\PaymentOptions\Manifests\PaymentManifest::class),
+            Domain\PaymentOptions\Contracts\PaymentManifest::class,
+            fn (Application $app) => $app->make(Domain\PaymentOptions\Manifests\PaymentManifest::class),
         );
 
         // Register storefront session manager.
         $this->app->singleton(
             \Lunar\Base\StorefrontSessionInterface::class,
-            fn (Application $app) => $app->make(\Dystore\Api\Domain\Storefront\Managers\StorefrontSessionManager::class),
+            fn (Application $app) => $app->make(Domain\Storefront\Managers\StorefrontSessionManager::class),
         );
 
         $this->app->bind(
@@ -113,6 +113,18 @@ class ApiServiceProvider extends ServiceProvider
             $this->publishMigrations();
             $this->registerCommands();
         }
+    }
+
+    /**
+     * Register the application's policies.
+     */
+    public function registerPolicies(): void
+    {
+        DomainConfigCollection::make()
+            ->getPolicies()
+            ->each(
+                fn (string $policy, string $model) => Gate::policy($model, $policy),
+            );
     }
 
     /**
@@ -173,7 +185,7 @@ class ApiServiceProvider extends ServiceProvider
         if (array_key_exists($applyShippingIndex, $cartPipelines)) {
             $cartPipelines = array_merge(
                 array_slice($cartPipelines, 0, $applyShippingIndex + 1),
-                [\Dystore\Api\Domain\Carts\Pipelines\ApplyPayment::class],
+                [Domain\Carts\Pipelines\ApplyPayment::class],
                 array_slice($cartPipelines, $applyShippingIndex + 1),
             );
         }
@@ -184,7 +196,7 @@ class ApiServiceProvider extends ServiceProvider
         if (array_key_exists($calculateIndex, $cartPipelines)) {
             $cartPipelines = array_merge(
                 array_slice($cartPipelines, 0, $calculateIndex + 1),
-                [\Dystore\Api\Domain\Carts\Pipelines\CalculatePayment::class],
+                [Domain\Carts\Pipelines\CalculatePayment::class],
                 array_slice($cartPipelines, $calculateIndex + 1),
             );
         }
@@ -193,22 +205,22 @@ class ApiServiceProvider extends ServiceProvider
 
         Config::set(
             'lunar.cart.validators.set_payment_option',
-            [\Dystore\Api\Domain\Carts\Validation\PaymentOptionValidator::class],
+            [Domain\Carts\Validation\PaymentOptionValidator::class],
         );
 
         Config::set(
             'lunar.cart.actions.set_payment_option',
-            \Dystore\Api\Domain\Carts\Actions\SetPaymentOption::class,
+            Domain\Carts\Actions\SetPaymentOption::class,
         );
 
         Config::set(
             'lunar.cart.actions.unset_payment_option',
-            \Dystore\Api\Domain\Carts\Actions\UnsetPaymentOption::class,
+            Domain\Carts\Actions\UnsetPaymentOption::class,
         );
 
         Config::set(
             'lunar.cart.actions.order_create',
-            \Dystore\Api\Domain\Carts\Actions\CreateOrder::class,
+            Domain\Carts\Actions\CreateOrder::class,
         );
 
         $orderPipelines = Config::get('lunar.orders.pipelines.creation', []);
@@ -216,7 +228,7 @@ class ApiServiceProvider extends ServiceProvider
         // Swap fill order from cart pipeline
         $fillOrderFromCartIndex = array_search(\Lunar\Pipelines\Order\Creation\FillOrderFromCart::class, $orderPipelines);
         if (array_key_exists($fillOrderFromCartIndex, $orderPipelines)) {
-            $orderPipelines[$fillOrderFromCartIndex] = \Dystore\Api\Domain\Orders\Pipelines\FillOrderFromCart::class;
+            $orderPipelines[$fillOrderFromCartIndex] = Domain\Orders\Pipelines\FillOrderFromCart::class;
         }
 
         // Push create payment line pipeline after create shipping line pipeline
@@ -224,7 +236,7 @@ class ApiServiceProvider extends ServiceProvider
         if (array_key_exists($createShippingLineIndex, $orderPipelines)) {
             $orderPipelines = array_merge(
                 array_slice($orderPipelines, 0, $createShippingLineIndex + 1),
-                [\Dystore\Api\Domain\Orders\Pipelines\CreatePaymentLine::class],
+                [Domain\Orders\Pipelines\CreatePaymentLine::class],
                 array_slice($orderPipelines, $createShippingLineIndex + 1),
             );
         }
@@ -232,7 +244,7 @@ class ApiServiceProvider extends ServiceProvider
         // Swap clean up order lines pipeline
         $cleanupOrderLinesIndex = array_search(\Lunar\Pipelines\Order\Creation\CleanUpOrderLines::class, $orderPipelines);
         if (array_key_exists($cleanupOrderLinesIndex, $orderPipelines)) {
-            $orderPipelines[$cleanupOrderLinesIndex] = \Dystore\Api\Domain\Orders\Pipelines\CleanUpOrderLines::class;
+            $orderPipelines[$cleanupOrderLinesIndex] = Domain\Orders\Pipelines\CleanUpOrderLines::class;
         }
 
         Config::set('lunar.orders.pipelines.creation', $orderPipelines);
@@ -254,49 +266,49 @@ class ApiServiceProvider extends ServiceProvider
     protected function bindControllers(): void
     {
         $controllers = [
-            \Dystore\Api\Domain\Addresses\Contracts\AddressesController::class => \Dystore\Api\Domain\Addresses\Http\Controllers\AddressesController::class,
-            \Dystore\Api\Domain\Auth\Contracts\AuthController::class => \Dystore\Api\Domain\Auth\Http\Controllers\AuthController::class,
-            \Dystore\Api\Domain\Auth\Contracts\AuthUserOrdersController::class => \Dystore\Api\Domain\Auth\Http\Controllers\AuthUserOrdersController::class,
-            \Dystore\Api\Domain\Auth\Contracts\NewPasswordController::class => \Dystore\Api\Domain\Auth\Http\Controllers\NewPasswordController::class,
-            \Dystore\Api\Domain\Auth\Contracts\PasswordResetLinkController::class => \Dystore\Api\Domain\Auth\Http\Controllers\PasswordResetLinkController::class,
-            \Dystore\Api\Domain\Auth\Contracts\RegisterUserWithoutPasswordController::class => \Dystore\Api\Domain\Auth\Http\Controllers\RegisterUserWithoutPasswordController::class,
-            \Dystore\Api\Domain\Brands\Contracts\BrandsController::class => \Dystore\Api\Domain\Brands\Http\Controllers\BrandsController::class,
-            \Dystore\Api\Domain\CartAddresses\Contracts\CartAddressShippingOptionController::class => \Dystore\Api\Domain\CartAddresses\Http\Controllers\CartAddressShippingOptionController::class,
-            \Dystore\Api\Domain\CartAddresses\Contracts\CartAddressesController::class => \Dystore\Api\Domain\CartAddresses\Http\Controllers\CartAddressesController::class,
-            \Dystore\Api\Domain\CartAddresses\Contracts\ContinuousUpdateCartAddressController::class => \Dystore\Api\Domain\CartAddresses\Http\Controllers\ContinuousUpdateCartAddressController::class,
-            \Dystore\Api\Domain\CartAddresses\Contracts\UpdateCartAddressCountryController::class => \Dystore\Api\Domain\CartAddresses\Http\Controllers\UpdateCartAddressCountryController::class,
-            \Dystore\Api\Domain\CartLines\Contracts\CartLinesController::class => \Dystore\Api\Domain\CartLines\Http\Controllers\CartLinesController::class,
-            \Dystore\Api\Domain\Carts\Contracts\CartCouponsController::class => \Dystore\Api\Domain\Carts\Http\Controllers\CartCouponsController::class,
-            \Dystore\Api\Domain\Carts\Contracts\CartPaymentOptionController::class => \Dystore\Api\Domain\Carts\Http\Controllers\CartPaymentOptionController::class,
-            \Dystore\Api\Domain\Carts\Contracts\CartShippingOptionController::class => \Dystore\Api\Domain\Carts\Http\Controllers\CartShippingOptionController::class,
-            \Dystore\Api\Domain\Carts\Contracts\CartsController::class => \Dystore\Api\Domain\Carts\Http\Controllers\CartsController::class,
-            \Dystore\Api\Domain\Carts\Contracts\CheckoutCartController::class => \Dystore\Api\Domain\Carts\Http\Controllers\CheckoutCartController::class,
-            \Dystore\Api\Domain\Carts\Contracts\ClearUserCartController::class => \Dystore\Api\Domain\Carts\Http\Controllers\ClearUserCartController::class,
-            \Dystore\Api\Domain\Carts\Contracts\CreateEmptyCartAddressesController::class => \Dystore\Api\Domain\Carts\Http\Controllers\CreateEmptyCartAddressesController::class,
-            \Dystore\Api\Domain\Carts\Contracts\ReadUserCartController::class => \Dystore\Api\Domain\Carts\Http\Controllers\ReadUserCartController::class,
-            \Dystore\Api\Domain\Channels\Contracts\ChannelsController::class => \Dystore\Api\Domain\Channels\Http\Controllers\ChannelsController::class,
-            \Dystore\Api\Domain\Collections\Contracts\CollectionsController::class => \Dystore\Api\Domain\Collections\Http\Controllers\CollectionsController::class,
-            \Dystore\Api\Domain\Countries\Contracts\CountriesController::class => \Dystore\Api\Domain\Countries\Http\Controllers\CountriesController::class,
-            \Dystore\Api\Domain\Currencies\Contracts\CurrenciesController::class => \Dystore\Api\Domain\Currencies\Http\Controllers\CurrenciesController::class,
-            \Dystore\Api\Domain\CustomerGroups\Contracts\CustomerGroupsController::class => \Dystore\Api\Domain\CustomerGroups\Http\Controllers\CustomerGroupsController::class,
-            \Dystore\Api\Domain\Customers\Contracts\CustomersController::class => \Dystore\Api\Domain\Customers\Http\Controllers\CustomersController::class,
-            \Dystore\Api\Domain\Media\Contracts\MediaController::class => \Dystore\Api\Domain\Media\Http\Controllers\MediaController::class,
-            \Dystore\Api\Domain\Orders\Contracts\CheckOrderPaymentStatusController::class => \Dystore\Api\Domain\Orders\Http\Controllers\CheckOrderPaymentStatusController::class,
-            \Dystore\Api\Domain\Orders\Contracts\CreatePaymentIntentController::class => \Dystore\Api\Domain\Orders\Http\Controllers\CreatePaymentIntentController::class,
-            \Dystore\Api\Domain\Orders\Contracts\MarkOrderAwaitingPaymentController::class => \Dystore\Api\Domain\Orders\Http\Controllers\MarkOrderAwaitingPaymentController::class,
-            \Dystore\Api\Domain\Orders\Contracts\MarkOrderPendingPaymentController::class => \Dystore\Api\Domain\Orders\Http\Controllers\MarkOrderPendingPaymentController::class,
-            \Dystore\Api\Domain\Orders\Contracts\OrdersController::class => \Dystore\Api\Domain\Orders\Http\Controllers\OrdersController::class,
-            \Dystore\Api\Domain\PaymentOptions\Contracts\PaymentOptionsController::class => \Dystore\Api\Domain\PaymentOptions\Http\Controllers\PaymentOptionsController::class,
-            \Dystore\Api\Domain\Payments\Contracts\HandlePaymentWebhookController::class => \Dystore\Api\Domain\Payments\Http\Controllers\HandlePaymentWebhookController::class,
-            \Dystore\Api\Domain\ProductOptionValues\Contracts\ProductOptionValuesController::class => \Dystore\Api\Domain\ProductOptionValues\Http\Controllers\ProductOptionValuesController::class,
-            \Dystore\Api\Domain\ProductVariants\Contracts\ProductVariantsController::class => \Dystore\Api\Domain\ProductVariants\Http\Controllers\ProductVariantsController::class,
-            \Dystore\Api\Domain\Products\Contracts\ProductsController::class => \Dystore\Api\Domain\Products\Http\Controllers\ProductsController::class,
-            \Dystore\Api\Domain\ShippingOptions\Contracts\ShippingOptionsController::class => \Dystore\Api\Domain\ShippingOptions\Http\Controllers\ShippingOptionsController::class,
-            \Dystore\Api\Domain\Storefront\Contracts\StorefrontController::class => \Dystore\Api\Domain\Storefront\Http\Controllers\StorefrontController::class,
-            \Dystore\Api\Domain\Tags\Contracts\TagsController::class => \Dystore\Api\Domain\Tags\Http\Controllers\TagsController::class,
-            \Dystore\Api\Domain\Urls\Contracts\UrlsController::class => \Dystore\Api\Domain\Urls\Http\Controllers\UrlsController::class,
-            \Dystore\Api\Domain\Users\Contracts\ChangePasswordController::class => \Dystore\Api\Domain\Users\Http\Controllers\ChangePasswordController::class,
-            \Dystore\Api\Domain\Users\Contracts\UsersController::class => \Dystore\Api\Domain\Users\Http\Controllers\UsersController::class,
+            Domain\Addresses\Contracts\AddressesController::class => Domain\Addresses\Http\Controllers\AddressesController::class,
+            Domain\Auth\Contracts\AuthController::class => Domain\Auth\Http\Controllers\AuthController::class,
+            Domain\Auth\Contracts\AuthUserOrdersController::class => Domain\Auth\Http\Controllers\AuthUserOrdersController::class,
+            Domain\Auth\Contracts\NewPasswordController::class => Domain\Auth\Http\Controllers\NewPasswordController::class,
+            Domain\Auth\Contracts\PasswordResetLinkController::class => Domain\Auth\Http\Controllers\PasswordResetLinkController::class,
+            Domain\Auth\Contracts\RegisterUserWithoutPasswordController::class => Domain\Auth\Http\Controllers\RegisterUserWithoutPasswordController::class,
+            Domain\Brands\Contracts\BrandsController::class => Domain\Brands\Http\Controllers\BrandsController::class,
+            Domain\CartAddresses\Contracts\CartAddressShippingOptionController::class => Domain\CartAddresses\Http\Controllers\CartAddressShippingOptionController::class,
+            Domain\CartAddresses\Contracts\CartAddressesController::class => Domain\CartAddresses\Http\Controllers\CartAddressesController::class,
+            Domain\CartAddresses\Contracts\ContinuousUpdateCartAddressController::class => Domain\CartAddresses\Http\Controllers\ContinuousUpdateCartAddressController::class,
+            Domain\CartAddresses\Contracts\UpdateCartAddressCountryController::class => Domain\CartAddresses\Http\Controllers\UpdateCartAddressCountryController::class,
+            Domain\CartLines\Contracts\CartLinesController::class => Domain\CartLines\Http\Controllers\CartLinesController::class,
+            Domain\Carts\Contracts\CartCouponsController::class => Domain\Carts\Http\Controllers\CartCouponsController::class,
+            Domain\Carts\Contracts\CartPaymentOptionController::class => Domain\Carts\Http\Controllers\CartPaymentOptionController::class,
+            Domain\Carts\Contracts\CartShippingOptionController::class => Domain\Carts\Http\Controllers\CartShippingOptionController::class,
+            Domain\Carts\Contracts\CartsController::class => Domain\Carts\Http\Controllers\CartsController::class,
+            Domain\Carts\Contracts\CheckoutCartController::class => Domain\Carts\Http\Controllers\CheckoutCartController::class,
+            Domain\Carts\Contracts\ClearUserCartController::class => Domain\Carts\Http\Controllers\ClearUserCartController::class,
+            Domain\Carts\Contracts\CreateEmptyCartAddressesController::class => Domain\Carts\Http\Controllers\CreateEmptyCartAddressesController::class,
+            Domain\Carts\Contracts\ReadUserCartController::class => Domain\Carts\Http\Controllers\ReadUserCartController::class,
+            Domain\Channels\Contracts\ChannelsController::class => Domain\Channels\Http\Controllers\ChannelsController::class,
+            Domain\Collections\Contracts\CollectionsController::class => Domain\Collections\Http\Controllers\CollectionsController::class,
+            Domain\Countries\Contracts\CountriesController::class => Domain\Countries\Http\Controllers\CountriesController::class,
+            Domain\Currencies\Contracts\CurrenciesController::class => Domain\Currencies\Http\Controllers\CurrenciesController::class,
+            Domain\CustomerGroups\Contracts\CustomerGroupsController::class => Domain\CustomerGroups\Http\Controllers\CustomerGroupsController::class,
+            Domain\Customers\Contracts\CustomersController::class => Domain\Customers\Http\Controllers\CustomersController::class,
+            Domain\Media\Contracts\MediaController::class => Domain\Media\Http\Controllers\MediaController::class,
+            Domain\Orders\Contracts\CheckOrderPaymentStatusController::class => Domain\Orders\Http\Controllers\CheckOrderPaymentStatusController::class,
+            Domain\Orders\Contracts\CreatePaymentIntentController::class => Domain\Orders\Http\Controllers\CreatePaymentIntentController::class,
+            Domain\Orders\Contracts\MarkOrderAwaitingPaymentController::class => Domain\Orders\Http\Controllers\MarkOrderAwaitingPaymentController::class,
+            Domain\Orders\Contracts\MarkOrderPendingPaymentController::class => Domain\Orders\Http\Controllers\MarkOrderPendingPaymentController::class,
+            Domain\Orders\Contracts\OrdersController::class => Domain\Orders\Http\Controllers\OrdersController::class,
+            Domain\PaymentOptions\Contracts\PaymentOptionsController::class => Domain\PaymentOptions\Http\Controllers\PaymentOptionsController::class,
+            Domain\Payments\Contracts\HandlePaymentWebhookController::class => Domain\Payments\Http\Controllers\HandlePaymentWebhookController::class,
+            Domain\ProductOptionValues\Contracts\ProductOptionValuesController::class => Domain\ProductOptionValues\Http\Controllers\ProductOptionValuesController::class,
+            Domain\ProductVariants\Contracts\ProductVariantsController::class => Domain\ProductVariants\Http\Controllers\ProductVariantsController::class,
+            Domain\Products\Contracts\ProductsController::class => Domain\Products\Http\Controllers\ProductsController::class,
+            Domain\ShippingOptions\Contracts\ShippingOptionsController::class => Domain\ShippingOptions\Http\Controllers\ShippingOptionsController::class,
+            Domain\Storefront\Contracts\StorefrontController::class => Domain\Storefront\Http\Controllers\StorefrontController::class,
+            Domain\Tags\Contracts\TagsController::class => Domain\Tags\Http\Controllers\TagsController::class,
+            Domain\Urls\Contracts\UrlsController::class => Domain\Urls\Http\Controllers\UrlsController::class,
+            Domain\Users\Contracts\ChangePasswordController::class => Domain\Users\Http\Controllers\ChangePasswordController::class,
+            Domain\Users\Contracts\UsersController::class => Domain\Users\Http\Controllers\UsersController::class,
         ];
 
         foreach ($controllers as $abstract => $concrete) {
@@ -310,7 +322,7 @@ class ApiServiceProvider extends ServiceProvider
     protected function registerCommands(): void
     {
         $this->commands([
-            \Dystore\Api\Domain\ProductVariants\Commands\GenerateUrls::class,
+            Domain\ProductVariants\Commands\GenerateUrls::class,
         ]);
     }
 
@@ -320,14 +332,14 @@ class ApiServiceProvider extends ServiceProvider
     protected function registerEvents(): void
     {
         $events = [
-            \Dystore\Api\Domain\Orders\Events\OrderPaymentFailed::class => [
-                \Dystore\Api\Domain\Payments\Listeners\HandleFailedPayment::class,
+            Domain\Orders\Events\OrderPaymentFailed::class => [
+                Domain\Payments\Listeners\HandleFailedPayment::class,
             ],
-            \Dystore\Api\Domain\Orders\Events\OrderPaymentCanceled::class => [
-                \Dystore\Api\Domain\Payments\Listeners\HandleFailedPayment::class,
+            Domain\Orders\Events\OrderPaymentCanceled::class => [
+                Domain\Payments\Listeners\HandleFailedPayment::class,
             ],
             \Illuminate\Auth\Events\Login::class => [
-                \Dystore\Api\Domain\Auth\Listeners\CartSessionAuthListener::class,
+                Domain\Auth\Listeners\CartSessionAuthListener::class,
             ],
         ];
 
@@ -344,14 +356,14 @@ class ApiServiceProvider extends ServiceProvider
     protected function registerPayments(): void
     {
         // Offline payments
-        \Dystore\Api\Domain\Payments\PaymentAdapters\OfflinePaymentAdapter::register();
-        \Dystore\Api\Domain\Payments\PaymentAdapters\BankTransferPaymentAdapter::register();
-        \Dystore\Api\Domain\Payments\PaymentAdapters\CashOnDeliveryPaymentAdapter::register();
+        Domain\Payments\PaymentAdapters\OfflinePaymentAdapter::register();
+        Domain\Payments\PaymentAdapters\BankTransferPaymentAdapter::register();
+        Domain\Payments\PaymentAdapters\CashOnDeliveryPaymentAdapter::register();
 
         \Lunar\Facades\Payments::extend(
             'offline',
             fn (Application $app) => $app->make(
-                \Dystore\Api\Domain\Payments\PaymentTypes\OfflinePaymentType::class,
+                Domain\Payments\PaymentTypes\OfflinePaymentType::class,
             ),
         );
     }
@@ -361,7 +373,7 @@ class ApiServiceProvider extends ServiceProvider
      */
     protected function registerObservers(): void
     {
-        \Lunar\Models\Order::observe(\Dystore\Api\Domain\Orders\Observers\OrderObserver::class);
+        \Lunar\Models\Order::observe(Domain\Orders\Observers\OrderObserver::class);
     }
 
     /**
@@ -425,7 +437,7 @@ class ApiServiceProvider extends ServiceProvider
     protected function bindModels(): void
     {
         $this->app->bind(
-            \Dystore\Api\Domain\Carts\Contracts\CurrentSessionCart::class,
+            Domain\Carts\Contracts\CurrentSessionCart::class,
             function (Application $app): ?\Lunar\Models\Contracts\Cart {
                 /** @var \Lunar\Managers\CartSessionManager $cartSession */
                 $cartSession = $this->app->make(CartSessionInterface::class);
@@ -433,17 +445,5 @@ class ApiServiceProvider extends ServiceProvider
                 return $cartSession->current();
             }
         );
-    }
-
-    /**
-     * Register the application's policies.
-     */
-    public function registerPolicies(): void
-    {
-        DomainConfigCollection::make()
-            ->getPolicies()
-            ->each(
-                fn (string $policy, string $model) => Gate::policy($model, $policy),
-            );
     }
 }

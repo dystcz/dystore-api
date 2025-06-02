@@ -35,7 +35,7 @@ trait CanBePreordered
     /**
      * Determine when model is considered to be preorderable.
      */
-    public function isPreorderable(): bool
+    public function isPreorderable(): ?bool
     {
         return $this->hasEtaDate();
     }

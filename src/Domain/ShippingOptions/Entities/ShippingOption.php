@@ -24,6 +24,25 @@ class ShippingOption implements Arrayable
     ) {}
 
     /**
+     * Create a new shipping option entity from shipping option data type.
+     */
+    public static function fromOption(
+        \Lunar\DataTypes\ShippingOption $shippingOption
+    ): self {
+        $id = Str::slug($shippingOption->identifier);
+
+        return new self(
+            id: $id,
+            identifier: $shippingOption->identifier,
+            name: $shippingOption->name,
+            description: $shippingOption->description,
+            price: $shippingOption->price,
+            currency: $shippingOption->price->currency,
+            meta: $shippingOption->meta,
+        );
+    }
+
+    /**
      * Get name.
      */
     public function getName(): string
@@ -79,25 +98,6 @@ class ShippingOption implements Arrayable
     public function getMeta(): array
     {
         return $this->meta;
-    }
-
-    /**
-     * Create a new shipping option entity from shipping option data type.
-     */
-    public static function fromOption(
-        \Lunar\DataTypes\ShippingOption $shippingOption
-    ): ShippingOption {
-        $id = Str::slug($shippingOption->identifier);
-
-        return new self(
-            id: $id,
-            identifier: $shippingOption->identifier,
-            name: $shippingOption->name,
-            description: $shippingOption->description,
-            price: $shippingOption->price,
-            currency: $shippingOption->price->currency,
-            meta: $shippingOption->meta,
-        );
     }
 
     /**

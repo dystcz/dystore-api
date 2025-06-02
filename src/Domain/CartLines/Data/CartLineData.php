@@ -14,7 +14,7 @@ class CartLineData
         public ?array $meta = [],
     ) {}
 
-    public static function fromRequest(CartLineRequest $request): CartLineData
+    public static function fromRequest(CartLineRequest $request): self
     {
         return new self(
             ...Arr::only($request->validationData(), ['purchasable_type', 'purchasable_id', 'quantity', 'meta'])
