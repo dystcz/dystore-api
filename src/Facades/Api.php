@@ -14,6 +14,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Dystore\Api\Api checkoutCartUsing(class-string $class)
  * @method static \Dystore\Api\Api hashIds(bool $value) Set ID hashing
  * @method static bool usesHashids() Check if the API hashes resource IDs
+ * @method static \Dystore\Api\Api routes() Register routes
  *
  * @see \Dystore\Api\Api
  */

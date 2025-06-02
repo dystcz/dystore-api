@@ -7,7 +7,7 @@ use Dystore\Api\Domain\Prices\Scopes\ApiPricingScope;
 use Illuminate\Http\Request;
 use Lunar\Models\Price;
 
-class ApiPricing
+class SetApiPricing
 {
     /**
      * Handle an incoming request.

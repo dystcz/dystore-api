@@ -15,6 +15,7 @@ return [
     'route_middleware' => [
         'api',
         'api-pricing',
+        'api-headers',
     ],
 
     // Enable or disable hashids

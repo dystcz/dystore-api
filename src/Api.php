@@ -8,4 +8,5 @@ class Api
 {
     use Concerns\HasAuth;
     use Concerns\HashesIds;
+    use Concerns\HasRoutes;
 }
