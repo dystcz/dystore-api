@@ -5,16 +5,16 @@ namespace Dystore\Api\Facades;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static \Illuminate\Contracts\Auth\Guard|\Illuminate\Contracts\Auth\StatefulGuard guard(string|null $name = null)
- * @method static \Dystore\Api\Api authGuard(string $name) Set the auth guard
- * @method static string getAuthGuard() Get the auth guard
- * @method static \Dystore\Api\Api createUserUsing(class-string $class)
- * @method static \Dystore\Api\Api createUserFromCartUsing(class-string $class)
- * @method static \Dystore\Api\Api registerUserUsing(class-string $class)
- * @method static \Dystore\Api\Api checkoutCartUsing(class-string $class)
- * @method static \Dystore\Api\Api hashIds(bool $value) Set ID hashing
- * @method static bool usesHashids() Check if the API hashes resource IDs
- * @method static \Dystore\Api\Api routes() Register routes
+ * @method static \Illuminate\Contracts\Auth\Guard auth()
+ * @method static \Dystore\Api\Api authGuard(string $guard)
+ * @method static string getAuthGuard()
+ * @method static \Dystore\Api\Api createUserUsing(string $class)
+ * @method static \Dystore\Api\Api createUserFromCartUsing(string $class)
+ * @method static \Dystore\Api\Api registerUserUsing(string $class)
+ * @method static \Dystore\Api\Api checkoutCartUsing(string $class)
+ * @method static \Dystore\Api\Api hashIds(bool $value)
+ * @method static bool usesHashids()
+ * @method static \Dystore\Api\Api routes()
  *
  * @see \Dystore\Api\Api
  */

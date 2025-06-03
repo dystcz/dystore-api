@@ -4,6 +4,7 @@ namespace Dystore\Api\Support\Config\Data;
 
 use Exception;
 use Illuminate\Support\Str;
+use Lunar\Facades\ModelManifest;
 
 class DomainConfig
 {
@@ -26,7 +27,11 @@ class DomainConfig
         public array $actions = [],
         public array $notifications = [],
         public array $settings = [],
-        /** @deprecated lunar_model is deprecated, use model_contract instead */
+
+        /**
+         * @deprecated
+         * Parameter $lunar_model is deprecated, use $model_contract instead
+         **/
         ?string $lunar_model = null,
     ) {
         if ($lunar_model) {
@@ -92,6 +97,17 @@ class DomainConfig
         $this->validateClassExistence();
 
         // TODO: Add remaining checks
+    }
+
+    public function validateModel(): void
+    {
+        if (! $this->hasModel() || ! $this->hasModelContract()) {
+            return;
+        }
+
+        if ($modelClass = ModelManifest::get($this->model_contract)) {
+            $this->validateClassImplements('Model', $modelClass, $this->model_contract);
+        }
     }
 
     /**

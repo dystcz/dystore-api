@@ -19,7 +19,7 @@ use Illuminate\Support\Facades\Facade;
  *
  * @see \Dystore\Api\Base\Manifests\SchemaManifest
  */
-class ResourceManifestFacade extends Facade
+class ResourceManifest extends Facade
 {
     /**
      * Get the registered name of the component.

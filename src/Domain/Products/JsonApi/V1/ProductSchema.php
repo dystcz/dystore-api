@@ -10,6 +10,7 @@ use Dystore\Api\Domain\Products\JsonApi\Filters\InStockFilter;
 use Dystore\Api\Domain\Products\JsonApi\Filters\ProductFilterCollection;
 use Dystore\Api\Support\Models\Actions\SchemaType;
 use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\Relation as EloquentRelation;
 use Illuminate\Http\Request;
 use LaravelJsonApi\Eloquent\Fields\ArrayHash;
 use LaravelJsonApi\Eloquent\Fields\Map;
@@ -51,7 +52,17 @@ class ProductSchema extends Schema
      */
     public function indexQuery(?Request $request, Builder $query): Builder
     {
-        return $query->where('status', '!=', 'draft');
+        /** @var \Dystore\Api\Domain\Products\Builders\ProductBuilder $query */
+        return $query->published();
+    }
+
+    /**
+     * Build a "relatable" query for this resource.
+     */
+    public function relatableQuery(?Request $request, EloquentRelation $query): EloquentRelation
+    {
+        /** @var \Dystore\Api\Domain\Products\Builders\ProductBuilder $query */
+        return $query->published();
     }
 
     /**
