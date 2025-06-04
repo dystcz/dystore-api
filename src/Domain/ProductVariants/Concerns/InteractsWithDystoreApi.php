@@ -145,6 +145,11 @@ trait InteractsWithDystoreApi
             ->where('primary', true);
     }
 
+    public function price(): MorphOne
+    {
+        return $this->lowestPrice();
+    }
+
     public function lowestPrice(): MorphOne
     {
         /** @var \Dystore\Api\Domain\ProductVariants\Models\ProductVariant $this */

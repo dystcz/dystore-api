@@ -23,6 +23,7 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
  * @method Media|null getThumbnail() Get either variant thumbnail or fallback to product thumbnail.
  * @method Collection getImages() Get either variant images or fallback to product images.
  * @method HasOneThrough thumbnail() Get the thumbnail relation.
+ * @method MorphOne price() Alias to lowestPrice().
  * @method MorphOne lowestPrice() Get the lowest price relation.
  * @method MorphOne highestPrice() Get the highest price relation.
  * @method HasMany otherVariants() Get the other variants relation.

@@ -126,18 +126,14 @@ class CartSchema extends Schema
             Str::make('payment_option'),
 
             // NOTE: Attributes used for setting shipping options to current session cart
-            Str::make('shipping_option')
-                ->hidden(),
+            Str::make('shipping_option')->hidden(),
 
-            Str::make('address_type')
-                ->hidden(),
+            Str::make('address_type')->hidden(),
 
             // NOTE: Attributes used for determining if user should be created during checkout
-            Boolean::make('create_user')
-                ->hidden(),
+            Boolean::make('create_user')->hidden(),
 
-            Boolean::make('agree')
-                ->hidden(),
+            Boolean::make('agree')->hidden(),
 
             ArrayHash::make('meta'),
 

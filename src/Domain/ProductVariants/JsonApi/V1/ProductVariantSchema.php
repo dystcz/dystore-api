@@ -134,6 +134,11 @@ class ProductVariantSchema extends Schema
             HasMany::make('prices')
                 ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
+            HasOne::make('price', 'price')
+                ->type(SchemaType::get(Price::class))
+                ->retainFieldName()
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
+
             HasOne::make('lowest_price', 'lowestPrice')
                 ->type(SchemaType::get(Price::class))
                 ->retainFieldName()

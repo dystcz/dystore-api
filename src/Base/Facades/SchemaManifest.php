@@ -3,20 +3,17 @@
 namespace Dystore\Api\Base\Facades;
 
 use Dystore\Api\Base\Contracts\SchemaManifest as SchemaManifestContract;
-use Dystore\Api\Base\Extensions\Extension;
-use Dystore\Api\Domain\JsonApi\Contracts\Schema as SchemaContract;
-use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Facade;
 
 /**
- * @method static void register(Collection $schemas) Register collection of schemas
- * @method static void registerSchema(string $schemaClass) Register a schema
- * @method static Collection getRegisteredSchemas() Get registered schemas
- * @method static array getServerSchemas() Get server schemas
- * @method static Collection getSchemaTypes() Get registered schema types
- * @method static SchemaContract getRegisteredSchema(string $schemaType) Get registered schema by type
- * @method static void removeSchema(string $schemaType) Remove schema from manifest
- * @method static Extension extend(string $class) Extend a schema
+ * @method static \Dystore\Api\Base\Contracts\SchemaExtension extend(string $class)
+ * @method static void register(\Illuminate\Support\Collection $schemas)
+ * @method static void registerSchema(string $schemaClass)
+ * @method static \Illuminate\Support\Collection getRegisteredSchemas()
+ * @method static array getServerSchemas()
+ * @method static \Illuminate\Support\Collection getSchemaTypes()
+ * @method static \Dystore\Api\Domain\JsonApi\Contracts\Schema getRegisteredSchema(string $schemaType)
+ * @method static void removeSchema(string $schemaType)
  *
  * @see \Dystore\Api\Base\Manifests\SchemaManifest
  */

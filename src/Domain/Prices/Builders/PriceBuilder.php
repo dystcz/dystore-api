@@ -2,8 +2,8 @@
 
 namespace Dystore\Api\Domain\Prices\Builders;
 
-use Illuminate\Contracts\Database\Query\Builder as BuilderContract;
-use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Contracts\Database\Query\Builder;
+use Illuminate\Database\Eloquent\Builder as EloquentBuilder;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\App;
 use Lunar\Base\StorefrontSessionInterface;
@@ -13,14 +13,14 @@ use Lunar\Models\Price;
 /**
  * @extends Builder<Model>
  */
-class PriceBuilder extends Builder
+class PriceBuilder extends EloquentBuilder
 {
     public static function getStorefrontSession(): StorefrontSessionInterface
     {
         return App::make(StorefrontSessionInterface::class);
     }
 
-    public static function scopeCurrency(BuilderContract $query, string $column = 'currency_id', ?string $table = null): void
+    public static function scopeCurrency(Builder $query, string $column = 'currency_id', ?string $table = null): void
     {
         $table = $table ?? (new Price)->getModel()->getTable();
 
@@ -31,7 +31,14 @@ class PriceBuilder extends Builder
         );
     }
 
-    public static function scopeCustomerGroups(BuilderContract $query, string $column = 'customer_group_id', ?string $table = null): void
+    /**
+     * Scope the query to only include prices for the current customer groups
+     * inlusive of prices with no customer group as a fallback.
+     *
+     * @param  string  $column  The column to filter by, defaults to 'customer_group_id'
+     * @param  string|null  $table  The table name, defaults to the prices table
+     */
+    public static function scopeCustomerGroups(Builder $query, string $column = 'customer_group_id', ?string $table = null): void
     {
         $customerGroups = static::getStorefrontSession()->getCustomerGroups();
         $table = $table ?? (new Price)->getModel()->getTable();
@@ -41,8 +48,8 @@ class PriceBuilder extends Builder
             value: fn () => $customerGroups
                 ->filter(fn (?CustomerGroupContract $group = null) => $group)
                 ->isNotEmpty(),
-            callback: fn (BuilderContract $query) => $query
-                ->where(fn (BuilderContract $query) => $query
+            callback: fn (Builder $query) => $query
+                ->where(fn (Builder $query) => $query
                     ->whereIn(
                         "{$table}.customer_group_id",
                         $customerGroups->pluck('id')->toArray()
@@ -52,11 +59,11 @@ class PriceBuilder extends Builder
                         null
                     )
                 ),
-            default: fn (BuilderContract $query) => static::scopeBasePrices($query, $table),
+            default: fn (Builder $query) => static::scopeBasePrices($query, $table),
         );
     }
 
-    public static function scopeBasePrices(BuilderContract $query, ?string $table = null): void
+    public static function scopeBasePrices(Builder $query, ?string $table = null): void
     {
         $table = $table ?? (new Price)->getModel()->getTable();
 

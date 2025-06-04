@@ -56,34 +56,20 @@ class CartLineSchema extends Schema
 
             Map::make('prices', [
                 Number::make('unit_price', 'unitPrice')
-                    ->serializeUsing(
-                        static fn ($value) => $value?->decimal,
-                    ),
+                    ->serializeUsing(static fn ($value) => $value?->decimal()),
                 Number::make('quantity', 'quantity'),
-                Number::make('sub_total', 'subTotal')
-                    ->serializeUsing(
-                        static fn ($value) => $value?->decimal,
-                    ),
+                Number::make('sub_total', 'subTotal')->serializeUsing(static fn ($value) => $value?->decimal()),
                 Number::make('sub_total_discounted', 'subTotalDiscounted')
-                    ->serializeUsing(
-                        static fn ($value) => $value?->decimal,
-                    ),
+                    ->serializeUsing(static fn ($value) => $value?->decimal()),
                 Number::make('total', 'total')
-                    ->serializeUsing(
-                        static fn ($value) => $value?->decimal,
-                    ),
+                    ->serializeUsing(static fn ($value) => $value?->decimal()),
                 Number::make('tax_amount', 'taxAmount')
-                    ->serializeUsing(
-                        static fn ($value) => $value?->decimal,
-                    ),
+                    ->serializeUsing(static fn ($value) => $value?->decimal()),
                 Number::make('discount_total', 'discounTotal')
-                    ->serializeUsing(
-                        static fn ($value) => $value?->decimal,
-                    ),
+                    ->serializeUsing(static fn ($value) => $value?->decimal()),
             ]),
 
             Number::make('quantity'),
-
             ArrayHash::make('meta'),
 
             BelongsTo::make('cart')
