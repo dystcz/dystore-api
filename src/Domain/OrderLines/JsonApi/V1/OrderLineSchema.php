@@ -41,6 +41,9 @@ class OrderLineSchema extends Schema
             'purchasable',
             'purchasable.images',
             'purchasable.prices',
+            'purchasable.price',
+            'purchasable.lowest_price',
+            'purchasable.highest_price',
             'purchasable.product',
             'purchasable.product.thumbnail',
 
