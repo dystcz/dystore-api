@@ -72,8 +72,10 @@ class ProductVariantSchema extends Schema
         return [
             'default_url',
             'images',
-            'lowest_price',
             'prices',
+            'price',
+            'lowest_price',
+            'highest_price',
             'thumbnail',
             'urls',
             'values',

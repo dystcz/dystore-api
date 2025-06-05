@@ -67,31 +67,19 @@ class OrderLineSchema extends Schema
 
             Map::make('prices', [
                 Number::make('unit_price', 'unit_price')
-                    ->serializeUsing(
-                        static fn ($value) => $value?->decimal,
-                    ),
+                    ->serializeUsing(static fn ($value) => $value?->decimal()),
                 Number::make('unit_quantity', 'unit_quantity'),
                 Number::make('quantity', 'quantity'),
                 Number::make('sub_total', 'sub_total')
-                    ->serializeUsing(
-                        static fn ($value) => $value?->decimal,
-                    ),
+                    ->serializeUsing(static fn ($value) => $value?->decimal()),
                 Number::make('total', 'total')
-                    ->serializeUsing(
-                        static fn ($value) => $value?->decimal,
-                    ),
+                    ->serializeUsing(static fn ($value) => $value?->decimal()),
                 Number::make('tax_total', 'tax_total')
-                    ->serializeUsing(
-                        static fn ($value) => $value?->decimal,
-                    ),
+                    ->serializeUsing(static fn ($value) => $value?->decimal()),
                 Number::make('discount_total', 'discount_total')
-                    ->serializeUsing(
-                        static fn ($value) => $value?->decimal,
-                    ),
+                    ->serializeUsing(static fn ($value) => $value?->decimal()),
                 ArrayHash::make('tax_breakdown', 'tax_breakdown')
-                    ->serializeUsing(
-                        static fn ($value) => $value?->amounts,
-                    ),
+                    ->serializeUsing(static fn ($value) => $value?->amounts),
             ]),
 
             ArrayHash::make('meta'),

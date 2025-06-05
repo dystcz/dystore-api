@@ -87,8 +87,9 @@ class ProductSchema extends Schema
         return [
             'default_url',
             'images',
-            'lowest_price',
             'prices',
+            'lowest_price',
+            'highest_price',
             'thumbnail',
             'urls',
 
@@ -208,14 +209,19 @@ class ProductSchema extends Schema
                 ->retainFieldName()
                 ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
-            HasOneThrough::make('highest_price', 'highestPrice')
+            HasManyThrough::make('prices')
+                ->canCount()
+                ->countAs('prices_count')
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
+
+            HasOneThrough::make('price', 'price')
                 ->type(SchemaType::get(Price::class))
                 ->retainFieldName()
                 ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
-            HasManyThrough::make('prices')
-                ->canCount()
-                ->countAs('prices_count')
+            HasOneThrough::make('highest_price', 'highestPrice')
+                ->type(SchemaType::get(Price::class))
+                ->retainFieldName()
                 ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
             BelongsTo::make('product_type', 'productType')

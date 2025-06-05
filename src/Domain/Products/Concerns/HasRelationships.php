@@ -83,7 +83,15 @@ trait HasRelationships
     }
 
     /**
-     * Lowest price relation.
+     * Get lowest price through variants.
+     */
+    public function price(): HasOneThrough
+    {
+        return $this->lowestPrice();
+    }
+
+    /**
+     * Get lowest price through variants.
      */
     public function lowestPrice(): HasOneThrough
     {
@@ -120,7 +128,7 @@ trait HasRelationships
     }
 
     /**
-     * Highest price relation.
+     * Get highest price through variants.
      */
     public function highestPrice(): HasOneThrough
     {
@@ -155,9 +163,6 @@ trait HasRelationships
             });
     }
 
-    /**
-     * Cheapest variant relation.
-     */
     public function cheapestVariant(): HasOne
     {
         /** @var Product $this */
@@ -185,9 +190,6 @@ trait HasRelationships
             });
     }
 
-    /**
-     * Most expensive variant relation.
-     */
     public function mostExpensiveVariant(): HasOne
     {
         /** @var Product $this */
