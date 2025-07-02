@@ -47,6 +47,8 @@ class StorefrontSessionManager extends LunarStorefrontSessionManager
 
         $this->currency = null;
 
+        $this->initCurrency();
+
         return $this;
     }
 
@@ -55,6 +57,8 @@ class StorefrontSessionManager extends LunarStorefrontSessionManager
         $this->sessionManager->forget("{$this->getSessionKey()}_channel");
 
         $this->channel = null;
+
+        $this->initChannel();
 
         return $this;
     }

@@ -6,7 +6,6 @@ use Dystore\Api\Facades\Api;
 use Dystore\Api\Hashids\Facades\HashidsConnections;
 use Illuminate\Support\ServiceProvider;
 
-// WARNING: Hashids (laravel-json-api/laravel) currently incompatible with laravel-json-api/laravel
 class ApiHashidsServiceProvider extends ServiceProvider
 {
     /**

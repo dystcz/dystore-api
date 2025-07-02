@@ -20,6 +20,7 @@ class CreatePaymentIntent extends Action
      */
     public function handle(string $paymentMethod, CartContract $cart, array $meta = [], ?int $amount = null): PaymentIntent
     {
+        // TODO: Remove amount and add opts
         $payment = $this->register->get($paymentMethod);
 
         $intent = $payment->createIntent($cart, $meta, $amount);
