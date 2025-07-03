@@ -23,7 +23,7 @@ class AuthController extends Controller
         /** @var User|null $user */
         $user = $request->user();
 
-        /** @var Order $model */
+        /** @var User $model */
         $model = $schema
             ->repository()
             ->queryOne($user)
@@ -45,7 +45,7 @@ class AuthController extends Controller
         /** @var User|null $user */
         $user = $request->user();
 
-        /** @var Order $model */
+        /** @var User $model */
         $model = $schema
             ->repository()
             ->queryOne($user)

@@ -11,8 +11,9 @@ trait CanReceiveAuthNotifications
     /**
      * Send the password reset notification.
      */
-    public function sendPasswordResetNotification($token)
+    public function sendPasswordResetNotification($token): void
     {
+        /** @var \Dystore\Api\Domain\Users\Models\User $this */
         $notificationClass = Config::get(
             'dystore.domains.auth.notifications.reset_password',
             ResetPassword::class,
@@ -24,8 +25,9 @@ trait CanReceiveAuthNotifications
     /**
      * Send the email verification notification.
      */
-    public function sendEmailVerificationNotification()
+    public function sendEmailVerificationNotification(): void
     {
+        /** @var \Dystore\Api\Domain\Users\Models\User $this */
         $notificationClass = Config::get(
             'dystore.domains.auth.notifications.verify_email',
             VerifyEmail::class,
