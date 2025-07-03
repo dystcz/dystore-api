@@ -7,11 +7,9 @@ use Dystore\Api\Domain\Carts\Actions\CheckoutCart;
 use Dystore\Api\Domain\Carts\Actions\CreateUserFromCart;
 use Dystore\Api\Domain\Payments\Contracts\PaymentIntent as PaymentIntentContract;
 use Dystore\Api\Domain\Payments\Data\PaymentIntent;
-use Dystore\Api\Domain\Prices\Http\Middleware\SetApiPricing;
 use Dystore\Api\Domain\Users\Actions\CreateUser;
 use Dystore\Api\Domain\Users\Actions\RegisterUser;
 use Dystore\Api\Facades\Api;
-use Dystore\Api\Routing\Middleware\SetApiHeaders;
 use Dystore\Api\Support\Config\Collections\DomainConfigCollection;
 use Illuminate\Foundation\Application;
 use Illuminate\Routing\Router;
@@ -392,8 +390,16 @@ class ApiServiceProvider extends ServiceProvider
         /** @var Router $router */
         $router = $this->app['router'];
 
-        $router->aliasMiddleware('api-pricing', SetApiPricing::class);
-        $router->aliasMiddleware('api-headers', SetApiHeaders::class);
+        $router->aliasMiddleware('api-pricing', \Dystore\Api\Domain\Prices\Http\Middleware\SetApiPricing::class);
+        $router->aliasMiddleware('api-headers', \Dystore\Api\Routing\Middleware\SetApiHeaders::class);
+
+        /** @var \Illuminate\Foundation\Http\Kernel $kernel */
+        $kernel = $this->app->make(\Illuminate\Contracts\Http\Kernel::class);
+
+        $kernel->addToMiddlewarePriorityBefore(
+            before: \Dystore\Api\Routing\Middleware\SetApiHeaders::class,
+            middleware: \Illuminate\Auth\Middleware\Authenticate::class
+        );
     }
 
     /**
