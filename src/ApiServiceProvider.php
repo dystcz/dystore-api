@@ -11,7 +11,6 @@ use Dystore\Api\Domain\Users\Actions\CreateUser;
 use Dystore\Api\Domain\Users\Actions\RegisterUser;
 use Dystore\Api\Facades\Api;
 use Dystore\Api\Support\Config\Collections\DomainConfigCollection;
-use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Foundation\Application;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Config;
@@ -102,8 +101,6 @@ class ApiServiceProvider extends ServiceProvider
         $this->registerEvents();
         $this->registerPayments();
 
-        $this->configureAuth();
-
         Api::createUserUsing(CreateUser::class);
         Api::createUserFromCartUsing(CreateUserFromCart::class);
         Api::registerUserUsing(RegisterUser::class);
@@ -115,20 +112,6 @@ class ApiServiceProvider extends ServiceProvider
             $this->publishMigrations();
             $this->registerCommands();
         }
-    }
-
-    /**
-     * Configure the authentication.
-     */
-    public function configureAuth(): void
-    {
-        ResetPassword::createUrlUsing(
-            fn ($notifiable, $token) => url(route(
-                'v1.auth.users.passwords.set-new-password', [
-                    'token' => $token,
-                    'email' => $notifiable->getEmailForPasswordReset(),
-                ], false))
-        );
     }
 
     /**

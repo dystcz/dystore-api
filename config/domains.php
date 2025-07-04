@@ -10,7 +10,7 @@ return [
         'schema' => Dystore\Api\Domain\Auth\JsonApi\V1\AuthSchema::class,
         'routes' => Dystore\Api\Domain\Auth\Http\Routing\AuthRouteGroup::class,
         'notifications' => [
-            'reset_password' => Illuminate\Auth\Notifications\ResetPassword::class,
+            'reset_password' => Dystore\Api\Domain\Auth\Notifications\ResetPassword::class,
             'verify_email' => Illuminate\Auth\Notifications\VerifyEmail::class,
         ],
     ],
