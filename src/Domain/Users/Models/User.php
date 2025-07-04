@@ -5,6 +5,7 @@ namespace Dystore\Api\Domain\Users\Models;
 use Dystore\Api\Domain\Users\Concerns\InteractsWithDystoreApi;
 use Dystore\Api\Domain\Users\Contracts\User as UserContract;
 use Dystore\Api\Domain\Users\Factories\UserFactory;
+use Dystore\Api\Domain\Users\Traits\CanReceiveAuthNotifications;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
@@ -22,6 +23,7 @@ use Lunar\Models\Order;
 
 class User extends Authenticatable implements LunarUserContract, UserContract
 {
+    use CanReceiveAuthNotifications;
     use HasFactory;
     use HasModelExtending;
     use InteractsWithDystoreApi;

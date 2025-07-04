@@ -66,7 +66,7 @@ class AuthRouteGroup extends RouteGroup implements RouteGroupContract
                             ->post('reset-password')
                             ->name('users.passwords.reset');
                         $actions
-                            ->get('reset-password/{token}', 'create')
+                            ->get('reset-password/{token}/{email}', 'create')
                             ->name('users.passwords.set-new-password');
                     })
                     ->middleware('guest:'.Api::getAuthGuard());
