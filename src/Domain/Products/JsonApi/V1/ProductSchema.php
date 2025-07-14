@@ -24,6 +24,7 @@ use LaravelJsonApi\Eloquent\Filters\WhereHas;
 use LaravelJsonApi\Eloquent\Filters\WhereIdIn;
 use LaravelJsonApi\Eloquent\Filters\WhereIdNotIn;
 use LaravelJsonApi\Eloquent\Resources\Relation;
+use Lunar\Facades\StorefrontSession;
 use Lunar\Models\Contracts\Attribute;
 use Lunar\Models\Contracts\Brand;
 use Lunar\Models\Contracts\Price;
@@ -53,7 +54,9 @@ class ProductSchema extends Schema
     public function indexQuery(?Request $request, Builder $query): Builder
     {
         /** @var \Dystore\Api\Domain\Products\Builders\ProductBuilder $query */
-        return $query->published();
+        return $query
+            ->customerGroup(StorefrontSession::getCustomerGroups())
+            ->published();
     }
 
     /**
@@ -62,7 +65,9 @@ class ProductSchema extends Schema
     public function relatableQuery(?Request $request, EloquentRelation $query): EloquentRelation
     {
         /** @var \Dystore\Api\Domain\Products\Builders\ProductBuilder $query */
-        return $query->published();
+        return $query
+            ->customerGroup(StorefrontSession::getCustomerGroups())
+            ->published();
     }
 
     /**
