@@ -4,6 +4,9 @@ namespace Dystore\Api\Domain\ProductAssociations\JsonApi\V1;
 
 use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
 use Dystore\Api\Support\Models\Actions\SchemaType;
+use Illuminate\Database\Eloquent\Builder;
+use Illuminate\Database\Eloquent\Relations\Relation as EloquentRelation;
+use Illuminate\Http\Request;
 use LaravelJsonApi\Eloquent\Fields\Relations\HasOne;
 use LaravelJsonApi\Eloquent\Fields\Str;
 use LaravelJsonApi\Eloquent\Filters\Where;
@@ -18,6 +21,24 @@ class ProductAssociationSchema extends Schema
      * {@inheritDoc}
      */
     public static string $model = ProductAssociation::class;
+
+    /**
+     * Build an index query for this resource.
+     */
+    public function indexQuery(?Request $request, Builder $query): Builder
+    {
+        /** @var \Dystore\Api\Domain\ProductAssociations\Builders\ProductAssociationBuilder $query */
+        return $query->published();
+    }
+
+    /**
+     * Build a "relatable" query for this resource.
+     */
+    public function relatableQuery(?Request $request, EloquentRelation $query): EloquentRelation
+    {
+        /** @var \Dystore\Api\Domain\ProductAssociations\Builders\ProductAssociationBuilder $query */
+        return $query->published();
+    }
 
     /**
      * {@inheritDoc}
