@@ -6,6 +6,7 @@ use Dystore\Api\Domain\Auth\JsonApi\Proxies\AuthUser;
 use Dystore\Api\Domain\JsonApi\Eloquent\ProxySchema;
 use Dystore\Api\Domain\Users\JsonApi\V1\UserSchema;
 use Illuminate\Support\Facades\App;
+use LaravelJsonApi\Eloquent\Fields\ArrayHash;
 
 class AuthSchema extends ProxySchema
 {
@@ -31,6 +32,8 @@ class AuthSchema extends ProxySchema
 
         return [
             ...$userSchema->fields(),
+
+            ArrayHash::make('data'),
 
             ...parent::fields(),
         ];

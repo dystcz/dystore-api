@@ -16,6 +16,7 @@ use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Str;
 use Lunar\Base\Traits\HasUrls;
 use Lunar\Models\Price as LunarPrice;
 use Lunar\Models\ProductVariant as LunarPoductVariant;
@@ -38,6 +39,30 @@ trait InteractsWithDystoreApi
     public function newEloquentBuilder($query): ProductVariantBuilder
     {
         return new ProductVariantBuilder($query);
+    }
+
+    /**
+     * Get the name attribute.
+     */
+    public function name(): Attribute
+    {
+        return Attribute::make(
+            get: function () {
+                /** @var \Dystore\Api\Domain\ProductVariants\Models\ProductVariant $this */
+                $productName = $this->product->translateAttribute('name');
+                $variantName = $this->translateAttribute('name');
+
+                if ($variantName === $productName) {
+                    return $variantName;
+                }
+
+                if (Str::contains($variantName, $productName)) {
+                    return Str::replace($productName, '', $variantName, false);
+                }
+
+                return implode(' ', array_filter([$this->product->attr('name'), $this->attr('name')]));
+            }
+        );
     }
 
     /**
