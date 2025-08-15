@@ -141,4 +141,9 @@ class ProductPolicy
     {
         return true;
     }
+
+    public function viewProductVariantReviews(?Authenticatable $user, ProductContract $product): bool
+    {
+        return true;
+    }
 }

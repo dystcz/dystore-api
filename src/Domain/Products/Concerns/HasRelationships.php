@@ -52,25 +52,6 @@ trait HasRelationships
     }
 
     /**
-     * Get prices through variants.
-     */
-    public function prices(): HasManyThrough
-    {
-        /** @var Product $this */
-        return $this
-            ->hasManyThrough(
-                Price::modelClass(),
-                ProductVariant::modelClass(),
-                'product_id',
-                'priceable_id'
-            )
-            ->where(
-                'priceable_type',
-                (new (ProductVariant::modelClass()))->getMorphClass()
-            );
-    }
-
-    /**
      * Get base prices through variants.
      */
     public function basePrices(): HasManyThrough
