@@ -249,8 +249,12 @@ class CartPolicy
         return $this->check($user, $cart);
     }
 
-    public function updateCustomerRelationship(?Authenticatable $user, CartContract $cart): bool
+    public function updateCustomerRelationship(?Authenticatable $user, ?CartContract $cart): bool
     {
+        if (is_null($cart)) {
+            return false;
+        }
+
         return $this->check($user, $cart);
     }
 
@@ -273,7 +277,7 @@ class CartPolicy
     /**
      * Determine whether the user can update payment option.
      */
-    public function updateShippingOption(?Authenticatable $user, CartContract $cart): bool
+    public function updateShippingOption(?Authenticatable $user, ?CartContract $cart): bool
     {
         return $this->check($user, $cart);
     }
@@ -281,7 +285,7 @@ class CartPolicy
     /**
      * Determine whether the user can update payment option.
      */
-    public function updatePaymentOption(?Authenticatable $user, CartContract $cart): bool
+    public function updatePaymentOption(?Authenticatable $user, ?CartContract $cart): bool
     {
         return $this->check($user, $cart);
     }
@@ -317,8 +321,12 @@ class CartPolicy
     /**
      * Determine whether the user can view the model.
      */
-    protected function check(?Authenticatable $user, CartContract $cart): bool
+    protected function check(?Authenticatable $user, ?CartContract $cart): bool
     {
+        if (is_null($cart)) {
+            return false;
+        }
+
         return (string) App::make(CurrentSessionCart::class)?->getRouteKey() === (string) $cart->getRouteKey();
     }
 }

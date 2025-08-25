@@ -3,6 +3,7 @@
 namespace Dystore\Api\Domain\Carts\JsonApi\V1;
 
 use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
+use LaravelJsonApi\Validation\Rule as JsonApiRule;
 
 class CartRequest extends ResourceRequest
 {
@@ -14,9 +15,7 @@ class CartRequest extends ResourceRequest
     public function rules(): array
     {
         return [
-            'customer' => ['nullable', 'array'],
-            'customer.type' => ['required_with:customer', 'in:customers'],
-            'customer.id' => ['required_with:customer', 'string'],
+            'customer' => JsonApiRule::toOne(),
         ];
     }
 }

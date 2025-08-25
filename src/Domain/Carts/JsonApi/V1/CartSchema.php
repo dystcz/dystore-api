@@ -78,6 +78,8 @@ class CartSchema extends Schema
             'billing_address.country',
 
             'customer',
+            'customer.addresses',
+            'customer.addresses.country',
 
             ...parent::includePaths(),
         ];

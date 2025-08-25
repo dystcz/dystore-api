@@ -3,6 +3,7 @@
 namespace Dystore\Api\Domain\Carts\Http\Routing;
 
 use Dystore\Api\Domain\Carts\Contracts\CartCouponsController;
+use Dystore\Api\Domain\Carts\Contracts\CartCustomersController;
 use Dystore\Api\Domain\Carts\Contracts\CartPaymentOptionController;
 use Dystore\Api\Domain\Carts\Contracts\CartsController;
 use Dystore\Api\Domain\Carts\Contracts\CartShippingOptionController;
@@ -68,6 +69,12 @@ class CartRouteGroup extends RouteGroup
                     ->only('')
                     ->actions('-actions', function (ActionRegistrar $actions) {
                         $actions->post('checkout');
+                    });
+
+                $server->resource($this->getPrefix(), CartCustomersController::class)
+                    ->only('')
+                    ->actions('-actions', function (ActionRegistrar $actions) {
+                        $actions->post('set-customer');
                     });
 
                 $server->resource($this->getPrefix(), CartCouponsController::class)

@@ -278,6 +278,7 @@ class ApiServiceProvider extends ServiceProvider
             Domain\CartAddresses\Contracts\UpdateCartAddressCountryController::class => Domain\CartAddresses\Http\Controllers\UpdateCartAddressCountryController::class,
             Domain\CartLines\Contracts\CartLinesController::class => Domain\CartLines\Http\Controllers\CartLinesController::class,
             Domain\Carts\Contracts\CartCouponsController::class => Domain\Carts\Http\Controllers\CartCouponsController::class,
+            Domain\Carts\Contracts\CartCustomersController::class => Domain\Carts\Http\Controllers\CartCustomersController::class,
             Domain\Carts\Contracts\CartPaymentOptionController::class => Domain\Carts\Http\Controllers\CartPaymentOptionController::class,
             Domain\Carts\Contracts\CartShippingOptionController::class => Domain\Carts\Http\Controllers\CartShippingOptionController::class,
             Domain\Carts\Contracts\CartsController::class => Domain\Carts\Http\Controllers\CartsController::class,
