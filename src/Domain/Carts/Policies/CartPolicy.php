@@ -7,6 +7,7 @@ use Dystore\Api\Domain\Carts\Contracts\CurrentSessionCart;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\App;
+use LaravelJsonApi\Core\Store\LazyRelation;
 use Lunar\Models\Contracts\Cart as CartContract;
 
 class CartPolicy
@@ -209,6 +210,14 @@ class CartPolicy
     }
 
     /**
+     * Authorize a user to view cart's customer relationship (showRelationship route).
+     */
+    public function viewCustomerRelationship(?Authenticatable $user, CartContract $cart): bool
+    {
+        return $this->viewCustomer($user, $cart);
+    }
+
+    /**
      * Determine if the given user can create posts.
      */
     public function create(?Authenticatable $user): bool
@@ -226,6 +235,23 @@ class CartPolicy
         }
 
         return false;
+    }
+
+    /**
+     * Authorize a user to update cart's customer.
+     */
+    public function updateCustomer(?Authenticatable $user, CartContract $cart, LazyRelation $relation): bool
+    {
+        if ($this->isFilamentAdmin($user)) {
+            return true;
+        }
+
+        return $this->check($user, $cart);
+    }
+
+    public function updateCustomerRelationship(?Authenticatable $user, CartContract $cart): bool
+    {
+        return $this->check($user, $cart);
     }
 
     /**

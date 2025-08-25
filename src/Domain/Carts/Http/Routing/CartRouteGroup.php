@@ -32,8 +32,12 @@ class CartRouteGroup extends RouteGroup
                         $relationships->hasMany('cart_addresses')->readOnly();
                         $relationships->hasOne('shipping_address')->readOnly();
                         $relationships->hasOne('billing_address')->readOnly();
+                        $relationships->hasOne('customer')->ownAction(
+                            'updateRelationship',
+                            'updateCustomer'
+                        );
                     })
-                    ->only('show');
+                    ->only('show', 'showRelated', 'updateCustomer');
 
                 $server->resource($this->getPrefix(), ClearUserCartController::class)
                     ->only('')
