@@ -54,6 +54,7 @@ class PriceSchema extends Schema
     {
         return [
             'currency',
+            'priceable',
 
             ...parent::with(),
         ];
@@ -67,6 +68,7 @@ class PriceSchema extends Schema
         return [
             'currency',
             'customer_group',
+            'priceable',
 
             ...parent::includePaths(),
         ];
