@@ -20,7 +20,10 @@ class ProductsController extends Controller implements ProductsControllerContrac
     use FetchRelated;
     use FetchRelationship;
 
-    public function read(?ProductContract $product, ProductQuery $query): void
+    /**
+     * @return void
+     */
+    public function read(?ProductContract $product, ProductQuery $query)
     {
         /** @var Product $product */
         $productId = $product?->getKey();
