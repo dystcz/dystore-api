@@ -7,6 +7,7 @@ use Dystore\Api\Domain\Users\Contracts\User as UserContract;
 use Dystore\Api\Domain\Users\Factories\UserFactory;
 use Dystore\Api\Domain\Users\Traits\CanReceiveAuthNotifications;
 use Illuminate\Database\Eloquent\Casts\Attribute;
+use Illuminate\Database\Eloquent\Factories\Factory;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasMany;
@@ -110,7 +111,7 @@ class User extends Authenticatable implements LunarUserContract, UserContract
     /**
      * Return a new factory instance for the model.
      */
-    protected static function newFactory(): UserFactory
+    protected static function newFactory(): Factory
     {
         return UserFactory::new();
     }

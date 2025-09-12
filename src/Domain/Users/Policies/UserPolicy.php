@@ -57,4 +57,12 @@ class UserPolicy
     {
         return $model->id === $user?->id;
     }
+
+    /**
+     * Authorize a user to view a user's customers.
+     */
+    public function viewCustomers(User $user, User $model): bool
+    {
+        return $model->id === $user?->id;
+    }
 }
