@@ -13,6 +13,7 @@ use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchOne;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchRelated;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchRelationship;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\UpdateRelationship;
+use Lunar\Facades\StorefrontSession;
 
 class CartsController extends Controller implements CartsControllerContract
 {
@@ -32,6 +33,8 @@ class CartsController extends Controller implements CartsControllerContract
             ->modifyToOne($cart, 'customer')
             ->withRequest($query)
             ->associate($request->validatedForRelation());
+
+        StorefrontSession::setCustomerGroups($customer->customerGroups);
 
         $cart->setCustomer($customer);
 

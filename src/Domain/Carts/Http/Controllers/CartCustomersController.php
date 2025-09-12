@@ -10,6 +10,7 @@ use Dystore\Api\Domain\Carts\JsonApi\V1\CartSchema;
 use Dystore\Api\Domain\Carts\Models\Cart;
 use Dystore\Api\Domain\Customers\JsonApi\V1\CustomerQuery;
 use LaravelJsonApi\Core\Responses\RelationshipResponse;
+use Lunar\Facades\StorefrontSession;
 
 class CartCustomersController extends Controller implements CartCustomersControllerContract
 {
@@ -27,6 +28,8 @@ class CartCustomersController extends Controller implements CartCustomersControl
             ->modifyToOne($cart, 'customer')
             ->withRequest($query)
             ->associate($request->validated('customer'));
+
+        StorefrontSession::setCustomerGroups($customer->customerGroups);
 
         $cart->setCustomer($customer);
 
