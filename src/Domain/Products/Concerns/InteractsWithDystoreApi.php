@@ -36,6 +36,16 @@ trait InteractsWithDystoreApi
     }
 
     /**
+     * Determine if the model is a draft.
+     */
+    public function isDraft(): Attr
+    {
+        return Attr::make(
+            get: fn () => $this->status === 'draft',
+        );
+    }
+
+    /**
      * Create a new factory instance for the model.
      */
     protected static function newFactory(): ProductFactory

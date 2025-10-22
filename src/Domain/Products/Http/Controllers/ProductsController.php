@@ -25,6 +25,10 @@ class ProductsController extends Controller implements ProductsControllerContrac
      */
     public function read(?ProductContract $product, ProductQuery $query)
     {
+        if ($product->is_draft) {
+            abort(404);
+        }
+
         /** @var Product $product */
         $productId = $product?->getKey();
 
