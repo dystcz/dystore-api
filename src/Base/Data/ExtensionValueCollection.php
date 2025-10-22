@@ -76,9 +76,9 @@ class ExtensionValueCollection implements IteratorAggregate
     /**
      * Forget value.
      */
-    public function forget(ExtensionValue $value): void
+    public function forget(string $property): void
     {
-        unset($this->values[$value]);
+        unset($this->values[$property]);
     }
 
     /**
