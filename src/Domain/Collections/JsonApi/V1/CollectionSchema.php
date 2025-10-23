@@ -81,6 +81,9 @@ class CollectionSchema extends Schema
             AttributeData::make('attribute_data')
                 ->groupAttributes(),
 
+            Number::make('product_position')
+                ->extractUsing(fn (Collection $model) => $model->pivot?->position),
+
             Number::make('parent_id', 'parent_id')
                 ->hidden(),
 
