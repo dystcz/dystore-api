@@ -139,7 +139,13 @@ class BelongsToManyThrough extends BelongsToMany
      */
     public function addEagerConstraints(array $models): void
     {
-        parent::addEagerConstraints($models);
+        // Don't call parent - we need custom constraints for the "through" relationship
+        $whereIn = $this->whereInMethod($this->parent, $this->parentKey);
+
+        $this->query->{$whereIn}(
+            $this->throughTable.'.'.$this->throughForeignKey,
+            $this->getKeys($models, $this->parentKey)
+        );
 
         // Apply GROUP BY to ensure distinct results during eager loading
         $this->applyDistinctConstraints();
