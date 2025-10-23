@@ -5,13 +5,12 @@ namespace Dystore\Api\Domain\Products\Models;
 use Dystore\Api\Domain\Products\Builders\ProductBuilder;
 use Dystore\Api\Domain\Products\Concerns\InteractsWithDystoreApi;
 use Dystore\Api\Domain\Products\Contracts\Product as ProductContract;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Eloquent\Relations\MorphToMany;
 use Lunar\Models\Product as LunarProduct;
-use Lunar\Models\ProductOptionValue;
-use Staudenmeir\EloquentHasManyDeep\HasManyDeep;
 
 /**
  * @method static ProductBuilder query()
@@ -23,7 +22,7 @@ use Staudenmeir\EloquentHasManyDeep\HasManyDeep;
  * @method HasOneThrough highestPrice() Get the highest price relation through variants.
  * @method HasOne cheapestVariant() Get the cheapest variant relation.
  * @method HasOne mostExpensiveVariant() Get the most expensive variant relation.
- * @method HasManyDeep<ProductOptionValue, Product> variantValues() Get product option values relation through variants.
+ * @method BelongsToMany variantValues() Get distinct product option values from all variants.
  */
 class Product extends LunarProduct implements ProductContract
 {

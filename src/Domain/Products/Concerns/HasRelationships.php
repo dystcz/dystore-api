@@ -5,7 +5,9 @@ namespace Dystore\Api\Domain\Products\Concerns;
 use Dystore\Api\Domain\Prices\Builders\PriceBuilder;
 use Dystore\Api\Domain\Prices\Models\Price;
 use Dystore\Api\Domain\Products\Models\Product;
+use Dystore\Api\Domain\Products\Relations\BelongsToManyThrough;
 use Dystore\Api\Domain\ProductTypes\Models\ProductType;
+use Illuminate\Database\Eloquent\Relations\BelongsToMany;
 use Illuminate\Database\Eloquent\Relations\HasManyThrough;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
@@ -16,13 +18,9 @@ use Illuminate\Support\Facades\Config;
 use Lunar\Models\Attribute;
 use Lunar\Models\ProductOptionValue;
 use Lunar\Models\ProductVariant;
-use Staudenmeir\EloquentHasManyDeep\HasManyDeep;
-use Staudenmeir\EloquentHasManyDeep\HasRelationships as DeepRelationships;
 
 trait HasRelationships
 {
-    use DeepRelationships;
-
     /**
      * Get the mapped attributes relation.
      */
@@ -199,17 +197,28 @@ trait HasRelationships
     }
 
     /**
-     * @return HasManyDeep<ProductOptionValue,Product>
+     * Get distinct product option values from all variants.
      */
-    public function variantValues(): HasManyDeep
+    public function variantValues(): BelongsToMany
     {
         /** @var Product $this */
-        $variantsTable = $this->variants()->getModel()->getTable();
         $prefix = Config::get('lunar.database.table_prefix');
+        $pivotTable = "{$prefix}product_option_value_product_variant";
+        $variantsTable = (new (ProductVariant::modelClass()))->getTable();
 
-        return $this->hasManyDeepFromRelations(
-            $this->variants(),
-            (new ProductVariant)->values(),
+        $instance = $this->newRelatedInstance(ProductOptionValue::modelClass());
+
+        return new BelongsToManyThrough(
+            $instance->newQuery(),
+            $this,
+            $pivotTable,
+            'variant_id',
+            'value_id',
+            'id',
+            'id',
+            $variantsTable,
+            'product_id',
+            'variantValues'
         );
     }
 }
