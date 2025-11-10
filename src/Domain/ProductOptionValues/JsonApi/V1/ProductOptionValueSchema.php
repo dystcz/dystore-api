@@ -7,6 +7,8 @@ use Dystore\Api\Support\Models\Actions\SchemaType;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsTo;
 use LaravelJsonApi\Eloquent\Fields\Relations\HasMany;
 use LaravelJsonApi\Eloquent\Fields\Str;
+use LaravelJsonApi\Eloquent\Filters\Where;
+use LaravelJsonApi\Eloquent\Filters\WhereHas;
 use LaravelJsonApi\Eloquent\Resources\Relation;
 use Lunar\Models\Contracts\ProductOption;
 use Lunar\Models\Contracts\ProductOptionValue;
@@ -83,6 +85,10 @@ class ProductOptionValueSchema extends Schema
     public function filters(): array
     {
         return [
+            Where::make('name'),
+
+            WhereHas::make($this, 'product_option'),
+
             ...parent::filters(),
         ];
     }

@@ -308,6 +308,8 @@ class ProductSchema extends Schema
 
             WhereHas::make($this, 'product_type'),
 
+            WhereHas::make($this, 'product_option_values'),
+
             WhereHas::make($this, 'channels'),
 
             WhereHas::make($this, 'status'),
