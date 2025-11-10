@@ -205,10 +205,11 @@ trait HasRelationships
         $prefix = Config::get('lunar.database.table_prefix');
         $pivotTable = "{$prefix}product_option_value_product_variant";
         $variantsTable = (new (ProductVariant::modelClass()))->getTable();
+        $productOptionValuesTable = "{$prefix}product_option_values";
 
         $instance = $this->newRelatedInstance(ProductOptionValue::modelClass());
 
-        return new BelongsToManyThrough(
+        $relation = new BelongsToManyThrough(
             $instance->newQuery(),
             $this,
             $pivotTable,
@@ -220,5 +221,8 @@ trait HasRelationships
             'product_id',
             'variantValues'
         );
+
+        return $relation
+            ->orderBy("{$productOptionValuesTable}.position");
     }
 }
