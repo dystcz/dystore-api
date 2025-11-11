@@ -4,6 +4,7 @@ namespace Dystore\Api\Domain\ProductVariants\JsonApi\V1;
 
 use Dystore\Api\Domain\JsonApi\Eloquent\Fields\AttributeData;
 use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Domain\ProductVariants\JsonApi\Filters\WhereProductOptionValueSlugs;
 use Dystore\Api\Support\Models\Actions\SchemaType;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation as EloquentRelation;
@@ -191,8 +192,11 @@ class ProductVariantSchema extends Schema
 
             WhereIdNotIn::make($this, 'except'),
 
-            WhereHas::make($this, 'urls', 'url')
-                ->singular(),
+            WhereProductOptionValueSlugs::make('product_option_value_slugs')->delimiter(',')->singular(),
+
+            WhereHas::make($this, 'product_option_values'),
+
+            WhereHas::make($this, 'urls', 'url')->singular(),
 
             WhereHas::make($this, 'urls', 'urls'),
 

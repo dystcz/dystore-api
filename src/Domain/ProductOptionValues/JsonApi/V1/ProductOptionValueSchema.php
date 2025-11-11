@@ -8,6 +8,7 @@ use Dystore\Api\Support\Models\Actions\SchemaType;
 use LaravelJsonApi\Eloquent\Fields\Number;
 use LaravelJsonApi\Eloquent\Fields\Relations\BelongsTo;
 use LaravelJsonApi\Eloquent\Fields\Relations\HasMany;
+use LaravelJsonApi\Eloquent\Fields\Relations\HasOne;
 use LaravelJsonApi\Eloquent\Fields\Str;
 use LaravelJsonApi\Eloquent\Filters\Where;
 use LaravelJsonApi\Eloquent\Filters\WhereHas;
@@ -15,6 +16,7 @@ use LaravelJsonApi\Eloquent\Resources\Relation;
 use LaravelJsonApi\Eloquent\Sorting\SortColumn;
 use Lunar\Models\Contracts\ProductOption;
 use Lunar\Models\Contracts\ProductOptionValue;
+use Lunar\Models\Contracts\Url;
 use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 class ProductOptionValueSchema extends Schema
@@ -86,6 +88,14 @@ class ProductOptionValueSchema extends Schema
                 ->countAs('images_count')
                 ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
 
+            HasOne::make('default_url', 'defaultUrl')
+                ->type(SchemaType::get(Url::class))
+                ->retainFieldName()
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
+
+            HasMany::make('urls')
+                ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
+
             ...parent::fields(),
         ];
     }
@@ -112,6 +122,10 @@ class ProductOptionValueSchema extends Schema
             Where::make('name'),
 
             WhereHas::make($this, 'product_option'),
+
+            WhereHas::make($this, 'urls', 'url')->singular(),
+
+            WhereHas::make($this, 'urls', 'urls'),
 
             ...parent::filters(),
         ];
