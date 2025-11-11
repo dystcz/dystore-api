@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Pagination\LengthAwarePaginator;
 
 class BelongsToManyThrough extends BelongsToMany
 {
@@ -153,6 +154,7 @@ class BelongsToManyThrough extends BelongsToMany
         // Ensure we only select related table columns for GROUP BY to work
         $this->query->getQuery()->columns = null;
         $this->query->select($this->related->getTable().'.*');
+
     }
 
     /**
@@ -180,7 +182,7 @@ class BelongsToManyThrough extends BelongsToMany
         // each result belongs to since we don't have pivot data
         $dictionary = [];
 
-        // Get all the result IDs
+        // Get all the result IDs in their current order
         $resultIds = $results->pluck($this->relatedKey)->all();
 
         if (empty($resultIds)) {
@@ -200,29 +202,21 @@ class BelongsToManyThrough extends BelongsToMany
             ->distinct()
             ->get();
 
-        // Build dictionary from mappings
+        // Build a mapping of parent => set of related ids
+        $parentToRelatedMap = [];
         foreach ($mappings as $mapping) {
             $parentKey = $this->getDictionaryKey($mapping->parent_key);
             $relatedKey = $mapping->related_key;
+            $parentToRelatedMap[$parentKey][$relatedKey] = true;
+        }
 
-            // Find the result with this related key
-            $result = $results->firstWhere($this->relatedKey, $relatedKey);
-
-            if ($result && ! isset($dictionary[$parentKey])) {
-                $dictionary[$parentKey] = [];
-            }
-
-            if ($result) {
-                // Only add if not already in the dictionary (ensure distinct per parent)
-                $alreadyAdded = false;
-                foreach ($dictionary[$parentKey] as $existing) {
-                    if ($existing->getKey() === $result->getKey()) {
-                        $alreadyAdded = true;
-                        break;
-                    }
-                }
-
-                if (! $alreadyAdded) {
+        // Now, for each parent, build its related collection by iterating
+        // over $results in order so we preserve the ordering from the query
+        foreach ($parentToRelatedMap as $parentKey => $relatedSet) {
+            $dictionary[$parentKey] = [];
+            foreach ($results as $result) {
+                $key = $result->getAttribute($this->relatedKey);
+                if (isset($relatedSet[$key])) {
                     $dictionary[$parentKey][] = $result;
                 }
             }
@@ -417,7 +411,7 @@ class BelongsToManyThrough extends BelongsToMany
 
         // Replace the paginator's items with deduplicated ones
         // We need to create a new paginator with the correct count
-        return new \Illuminate\Pagination\LengthAwarePaginator(
+        return new LengthAwarePaginator(
             $uniqueItems,
             $paginator->total(),  // Keep the correct total
             $paginator->perPage(),
