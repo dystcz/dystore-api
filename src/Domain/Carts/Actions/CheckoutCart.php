@@ -4,6 +4,7 @@ namespace Dystore\Api\Domain\Carts\Actions;
 
 use Dystore\Api\Domain\Carts\Contracts\CheckoutCart as CheckoutCartContract;
 use Dystore\Api\Domain\Carts\Events\CartCheckedOut;
+use Dystore\Api\Domain\Carts\JsonApi\V1\CheckoutCartRequest;
 use Dystore\Api\Domain\Carts\Models\Cart;
 use Dystore\Api\Domain\Payments\Actions\CreatePaymentIntent;
 use Dystore\Api\Support\Actions\Action;
@@ -32,7 +33,7 @@ class CheckoutCart extends Action implements CheckoutCartContract
         $this->createPaymentIntent = App::make(CreatePaymentIntent::class);
     }
 
-    public function handle(CartContract $cart): OrderContract
+    public function handle(CartContract $cart, ?CheckoutCartRequest $request = null): OrderContract
     {
         /** @var Cart $cart */
         /** @var Order $order */
@@ -44,18 +45,23 @@ class CheckoutCart extends Action implements CheckoutCartContract
             throw ValidationException::withMessages($e->errors()->getMessages());
         }
 
-        $model = Order::modelClass()::query()
-            ->with([
-                'cart' => fn ($query) => $query->with(Config::get('lunar.cart.eager_load', [])),
-            ])
-            ->where('id', $order->id)
-            ->firstOrFail();
+        // Update order from checkout request
+        $order->update(
+            $request?->validated('order_data', []) ?? []
+        );
+
+        // Load cart to order
+        $order->load([
+            'cart' => fn ($query) => $query->with(
+                Config::get('lunar.cart.eager_load', [])
+            ),
+        ]);
 
         if ($paymentOption = $cart->getPaymentOption()) {
             $drivers = Config::get('dystore.general.checkout.auto_create_payment_intent_for_drivers', []);
 
             if (in_array($paymentOption->getDriver(), $drivers)) {
-                ($this->createPaymentIntent)($paymentOption->getDriver(), $model->cart);
+                ($this->createPaymentIntent)($paymentOption->getDriver(), $order->cart);
             }
         }
 
@@ -63,8 +69,8 @@ class CheckoutCart extends Action implements CheckoutCartContract
             $this->cartSession->forget(delete: false);
         }
 
-        CartCheckedOut::dispatch($cart, $model);
+        CartCheckedOut::dispatch($cart, $order);
 
-        return $model;
+        return $order;
     }
 }

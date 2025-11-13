@@ -134,16 +134,6 @@ class CartSchema extends Schema
 
             Str::make('payment_option'),
 
-            // NOTE: Attributes used for setting shipping options to current session cart
-            Str::make('shipping_option')->hidden(),
-
-            Str::make('address_type')->hidden(),
-
-            // NOTE: Attributes used for determining if user should be created during checkout
-            Boolean::make('create_user')->hidden(),
-
-            Boolean::make('agree')->hidden(),
-
             ArrayHash::make('meta'),
 
             BelongsTo::make('customer', 'customer')
@@ -173,6 +163,16 @@ class CartSchema extends Schema
                 ->type(SchemaType::get(CartAddress::class))
                 ->retainFieldName()
                 ->serializeUsing(static fn (Relation $relation) => $relation->withoutLinks()),
+
+            Str::make('shipping_option')->hidden(), // Used for setting a shipping option to cart
+
+            Str::make('address_type')->hidden(), // Used for setting a shipping option to cart
+
+            Boolean::make('create_user')->hidden(), // Used to determine if user should be created during checkout
+
+            Boolean::make('agree')->hidden(), // Agreement with store conditions
+
+            ArrayHash::make('order_data')->hidden(), // Used for updating order data during checkout
 
             ...parent::fields(),
         ];

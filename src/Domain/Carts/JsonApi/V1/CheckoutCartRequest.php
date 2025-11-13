@@ -22,6 +22,7 @@ class CheckoutCartRequest extends ResourceRequest
     public function rules(): array
     {
         return [
+            // Checkout
             'create_user' => [
                 'boolean',
             ],
@@ -31,6 +32,20 @@ class CheckoutCartRequest extends ResourceRequest
             ],
             'agree' => [
                 'accepted',
+            ],
+
+            // Order
+            'order_data' => [
+                'nullable',
+                'array',
+            ],
+            'order_data.notes' => [
+                'nullable',
+                'string',
+            ],
+            'order_data.meta' => [
+                'nullable',
+                'array',
             ],
         ];
     }
