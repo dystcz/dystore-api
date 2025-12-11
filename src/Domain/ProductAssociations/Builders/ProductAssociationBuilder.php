@@ -16,7 +16,7 @@ class ProductAssociationBuilder extends Builder
     public function published(): self
     {
         return $this
-            ->whereHas('target', fn ($query) => $query->published())
-            ->whereHas('parent', fn ($query) => $query->published());
+            ->whereHas('target', fn ($query) => $query->where('status', 'published'))
+            ->whereHas('parent', fn ($query) => $query->where('status', 'published'));
     }
 }
