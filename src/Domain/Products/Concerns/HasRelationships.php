@@ -223,6 +223,7 @@ trait HasRelationships
         );
 
         return $relation
+            ->has('variants')
             ->orderBy("{$productOptionValuesTable}.position");
     }
 }

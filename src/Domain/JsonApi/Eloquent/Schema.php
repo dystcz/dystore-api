@@ -39,7 +39,7 @@ abstract class Schema extends BaseSchema implements ExtendableContract, SchemaCo
     /**
      * The default paging parameters to use if the client supplies none.
      */
-    protected ?array $defaultPagination = ['number' => 1];
+    protected ?array $defaultPagination = null;
 
     /**
      * Allow viewing of related resources.
