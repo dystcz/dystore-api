@@ -43,6 +43,9 @@ class CheckoutCartController extends Controller implements CheckoutCartControlle
                 'product_lines',
                 'product_lines.purchasable',
             ])
+            ->withMeta([
+                'order_signature' => $order->getSelfLinkSignature(),
+            ])
             ->didCreate();
     }
 }

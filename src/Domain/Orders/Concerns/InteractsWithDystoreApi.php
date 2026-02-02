@@ -8,12 +8,33 @@ use Dystore\Api\Hashids\Traits\HashesRouteKey;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\Config;
+use Illuminate\Support\Facades\URL;
 use Lunar\Base\Casts\Price;
 use Lunar\Models\Transaction;
 
 trait InteractsWithDystoreApi
 {
     use HashesRouteKey;
+
+    public function getSelfLinkSignature(): ?string
+    {
+        $signedUrl = URL::signedRoute(
+            name: 'v1.orders.show',
+            parameters: ['order' => $this->getRouteKey()],
+            absolute: false,
+        );
+
+        $signature = null;
+
+        $query = (string) parse_url($signedUrl, PHP_URL_QUERY);
+        if ($query !== '') {
+            /** @var array<string, mixed> $params */
+            parse_str($query, $params);
+            $signature = is_string($params['signature'] ?? null) ? $params['signature'] : null;
+        }
+
+        return $signature;
+    }
 
     /**
      * Attribute activity log blacklist.
