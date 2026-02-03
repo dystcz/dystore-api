@@ -175,6 +175,7 @@ class BelongsToManyThrough extends BelongsToMany
     /**
      * Build model dictionary keyed by the relation's foreign key.
      * Override to work without pivot data by using the through table.
+     * This version applies the WHERE constraints from the relationship query.
      */
     protected function buildDictionary(Collection $results): array
     {
@@ -191,10 +192,46 @@ class BelongsToManyThrough extends BelongsToMany
 
         // Query the relationship to get parent-child mappings
         // Use a fresh query builder to avoid duplicate joins
-        $mappings = $this->related->getConnection()
+        $relatedTable = $this->related->getTable();
+
+        $query = $this->related->getConnection()
             ->table($this->table)
             ->join($this->throughTable, $this->table.'.'.$this->foreignPivotKey, '=', $this->throughTable.'.id')
-            ->whereIn($this->table.'.'.$this->relatedPivotKey, $resultIds)
+            ->join($relatedTable, $this->table.'.'.$this->relatedPivotKey, '=', $relatedTable.'.id')
+            ->whereIn($this->table.'.'.$this->relatedPivotKey, $resultIds);
+
+        // Apply WHERE constraints from the relationship query
+        // This is critical to ensure we only get mappings that match the relationship criteria
+        $baseQuery = $this->getQuery()->getQuery();
+
+        // Apply all WHERE clauses from the base query
+        if (! empty($baseQuery->wheres)) {
+            foreach ($baseQuery->wheres as $where) {
+                // Skip the product_id constraint as we'll handle all products
+                if (isset($where['column']) && str_contains($where['column'], 'product_id')) {
+                    continue;
+                }
+
+                // Apply basic where clauses
+                if ($where['type'] === 'Basic') {
+                    $query->where($where['column'], $where['operator'], $where['value']);
+                }
+                // Apply whereExists clauses (for the option handle check)
+                elseif ($where['type'] === 'Exists') {
+                    $query->whereExists($where['query']);
+                }
+                // Apply whereNull clauses
+                elseif ($where['type'] === 'Null') {
+                    $query->whereNull($where['column']);
+                }
+                // Apply whereNotNull clauses
+                elseif ($where['type'] === 'NotNull') {
+                    $query->whereNotNull($where['column']);
+                }
+            }
+        }
+
+        $mappings = $query
             ->select([
                 $this->throughTable.'.'.$this->throughForeignKey.' as parent_key',
                 $this->table.'.'.$this->relatedPivotKey.' as related_key',

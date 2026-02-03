@@ -223,7 +223,7 @@ trait HasRelationships
         );
 
         return $relation
-            ->has('variants')
+            ->where("{$variantsTable}.deleted_at", null)
             ->orderBy("{$productOptionValuesTable}.position");
     }
 }
