@@ -27,7 +27,12 @@ class NewPasswordRequest extends ResourceRequest
                 'required',
                 'string',
                 Password::min(8),
-                'confirmed',
+            ],
+            'password_confirmation' => [
+                'required',
+                'string',
+                Password::min(8),
+                'same:password',
             ],
         ];
     }
@@ -47,7 +52,10 @@ class NewPasswordRequest extends ResourceRequest
             'password.min' => __('dystore::validations.users.password.min'),
             'password.required' => __('dystore::validations.users.password.required'),
             'password.string' => __('dystore::validations.users.password.string'),
-            'password.confirmed' => __('dystore::validations.users.password.confirmed'),
+            'password_confirmation.min' => __('dystore::validations.users.password.min'),
+            'password_confirmation.required' => __('dystore::validations.users.password.required'),
+            'password_confirmation.string' => __('dystore::validations.users.password.string'),
+            'password_confirmation.same' => __('dystore::validations.users.password.confirmed'),
         ];
     }
 }
