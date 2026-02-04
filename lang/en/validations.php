@@ -113,11 +113,11 @@ return [
             'string' => 'Title field must be a string.',
         ],
         'first_name' => [
-            'required' => 'First name field is required.',
+            'required' => 'Please fill in your first name.',
             'string' => 'First name field must be a string.',
         ],
         'last_name' => [
-            'required' => 'Last name field is required.',
+            'required' => 'Please fill in your last name.',
             'string' => 'Last name field must be a string.',
         ],
         'company_name' => [
@@ -154,9 +154,11 @@ return [
             'string' => 'Delivery instructions field must be a string.',
         ],
         'contact_email' => [
+            'required' => 'Please fill in your e-mail address.',
             'string' => 'Contact email field must be a string.',
         ],
         'contact_phone' => [
+            'required' => 'Please fill in your contact phone.',
             'string' => 'Contact phone field must be a string.',
         ],
         'shipping_option' => [

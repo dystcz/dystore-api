@@ -113,11 +113,11 @@ return [
             'string' => 'Pole titul musí být řetězec.',
         ],
         'first_name' => [
-            'required' => 'Pole jméno je povinné.',
+            'required' => 'Vyplňte prosím své jméno.',
             'string' => 'Pole jméno musí být řetězec.',
         ],
         'last_name' => [
-            'required' => 'Pole příjmení je povinné.',
+            'required' => 'Vyplňte prosím své příjmení.',
             'string' => 'Pole příjmení musí být řetězec.',
         ],
         'company_name' => [
@@ -154,9 +154,11 @@ return [
             'string' => 'Pole instrukce pro doručení musí být řetězec.',
         ],
         'contact_email' => [
+            'required' => 'Vyplňte prosím svůj e-mail.',
             'string' => 'Pole kontaktní e-mail musí být řetězec.',
         ],
         'contact_phone' => [
+            'required' => 'Vyplňte prosím své telefonní číslo.',
             'string' => 'Pole kontaktní telefon musí být řetězec.',
         ],
         'shipping_option' => [
