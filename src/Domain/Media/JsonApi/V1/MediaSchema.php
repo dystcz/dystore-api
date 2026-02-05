@@ -47,7 +47,7 @@ class MediaSchema extends Schema
             ),
 
             Str::make('srcset')->extractUsing(
-                static fn (Media $model) => ($model->getSrcSet('webp') ? ($model->getSrcSet('webp').', ') : '').$model->getSrcSet()
+                static fn (Media $model) => $model->getSrcSet('webp') ?? $model->getSrcSet()
             ),
 
             ArrayHash::make('custom_properties'),
