@@ -24,7 +24,7 @@
     "laravel-json-api/laravel": "^5.1",
     "laravel-json-api/non-eloquent": "^4.2",
     "laravel-json-api/hashids": "^3.2",
-    "lunarphp/lunar": "1.1.0"
+    "lunarphp/lunar": "1.3.0"
   },
   "autoload": {
     "psr-4": {

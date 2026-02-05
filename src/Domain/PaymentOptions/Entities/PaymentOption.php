@@ -173,6 +173,16 @@ class PaymentOption implements Arrayable, Purchasable
     }
 
     /**
+     * Return the options for this purchasable
+     */
+    public function getOptions(): Collection
+    {
+        return new Collection([
+            $this->option,
+        ]);
+    }
+
+    /**
      * Get id.
      */
     public function getId(): string
