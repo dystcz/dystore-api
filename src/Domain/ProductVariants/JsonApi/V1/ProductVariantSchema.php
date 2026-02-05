@@ -40,7 +40,7 @@ class ProductVariantSchema extends Schema
     public function indexQuery(?Request $request, Builder $query): Builder
     {
         /** @var \Dystore\Api\Domain\ProductVariants\Builders\ProductVariantBuilder $query */
-        return $query->whereHas('product', fn ($query) => $query->published());
+        return $query->whereHas('product', fn ($query) => $query->visible());
     }
 
     /**
@@ -49,7 +49,7 @@ class ProductVariantSchema extends Schema
     public function relatableQuery(?Request $request, EloquentRelation $query): EloquentRelation
     {
         /** @var \Dystore\Api\Domain\ProductVariants\Builders\ProductVariantBuilder $query */
-        return $query->whereHas('product', fn ($query) => $query->published());
+        return $query->whereHas('product', fn ($query) => $query->visible());
     }
 
     /**

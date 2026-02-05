@@ -56,7 +56,7 @@ class ProductSchema extends Schema
         /** @var \Dystore\Api\Domain\Products\Builders\ProductBuilder $query */
         return $query
             ->customerGroup(StorefrontSession::getCustomerGroups())
-            ->published();
+            ->visible();
     }
 
     /**
@@ -67,7 +67,7 @@ class ProductSchema extends Schema
         /** @var \Dystore\Api\Domain\Products\Builders\ProductBuilder $query */
         return $query
             ->customerGroup(StorefrontSession::getCustomerGroups())
-            ->published();
+            ->visible();
     }
 
     /**

@@ -15,6 +15,14 @@ use Lunar\Models\Contracts\CustomerGroup as CustomerGroupContract;
 class ProductBuilder extends Builder
 {
     /**
+     * Scope a query to only include visible models.
+     */
+    public function visible(): self
+    {
+        return $this->published();
+    }
+
+    /**
      * Scope a query to only include published models.
      */
     public function published(): self
