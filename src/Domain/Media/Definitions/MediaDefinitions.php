@@ -19,7 +19,7 @@ class MediaDefinitions extends StandardMediaDefinitions implements MediaDefiniti
      */
     public static function applyConversions(HasMedia $model): void
     {
-        foreach (self::conversions() as $options) {
+        foreach (static::conversions() as $options) {
             /** @var ConversionOptions $options */
             $model->addMediaConversion($options->key)
                 ->when(
@@ -78,7 +78,7 @@ class MediaDefinitions extends StandardMediaDefinitions implements MediaDefiniti
     protected function registerCollectionConversions(MediaCollection $collection, HasMedia $model): void
     {
         $collection->registerMediaConversions(function (Media $media) use ($model) {
-            self::applyConversions($model);
+            static::applyConversions($model);
         });
     }
 }
