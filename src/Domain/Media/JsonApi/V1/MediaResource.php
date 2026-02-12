@@ -30,13 +30,31 @@ class MediaResource extends JsonApiResource
      */
     protected function allAttributes($request): iterable
     {
-        if (! $request->has('media_conversions')) {
+        if (! $request->has('media_conversions') && ! $request->has('media_conversion')) {
             return parent::allAttributes($request);
         }
 
         /** @var Media $model */
         $model = $this->resource;
 
+        // Only one conversion
+        if ($request->has('media_conversion')) {
+            $conversion = $request->get('media_conversion', '');
+
+            // If the conversion is not available, return the default attributes
+            if (! $model->hasGeneratedConversion($conversion)) {
+                return parent::allAttributes($request);
+            }
+
+            return [
+                ...parent::allAttributes($request),
+                'path' => $model->getPath($conversion),
+                'url' => $model->getFullUrl($conversion),
+                'srcset' => $model->getSrcset($conversion),
+            ];
+        }
+
+        // Multiple conversions
         $conversions = array_filter(
             explode(',', $request->get('media_conversions', '')),
             fn ($conversion) => $model->hasGeneratedConversion($conversion),
