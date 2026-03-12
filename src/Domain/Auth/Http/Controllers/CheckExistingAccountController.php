@@ -18,7 +18,8 @@ class CheckExistingAccountController extends Controller implements CheckExisting
         $model = Config::get('auth.providers.users.model');
 
         $exists = $model::query()
-            ->exists('email', $request->validated('email'));
+            ->where('email', $request->validated('email'))
+            ->exists();
 
         return new JsonResponse([
             'exists' => $exists,
