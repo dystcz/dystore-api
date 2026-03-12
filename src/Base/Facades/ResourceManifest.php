@@ -3,6 +3,7 @@
 namespace Dystore\Api\Base\Facades;
 
 use Dystore\Api\Base\Contracts\ResourceManifest as ResourceManifestContract;
+use Dystore\Api\Base\Manifests\SchemaManifest;
 use Illuminate\Support\Facades\Facade;
 
 /**
@@ -15,7 +16,7 @@ use Illuminate\Support\Facades\Facade;
  * @method static \Dystore\Api\Domain\JsonApi\Contracts\Schema getRegisteredSchema(string $schemaType)
  * @method static void removeSchema(string $schemaType)
  *
- * @see \Dystore\Api\Base\Manifests\SchemaManifest
+ * @see SchemaManifest
  */
 class ResourceManifest extends Facade
 {

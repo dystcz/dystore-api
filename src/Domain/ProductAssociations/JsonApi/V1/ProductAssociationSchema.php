@@ -3,6 +3,7 @@
 namespace Dystore\Api\Domain\ProductAssociations\JsonApi\V1;
 
 use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Domain\ProductAssociations\Builders\ProductAssociationBuilder;
 use Dystore\Api\Support\Models\Actions\SchemaType;
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Relations\Relation as EloquentRelation;
@@ -27,7 +28,7 @@ class ProductAssociationSchema extends Schema
      */
     public function indexQuery(?Request $request, Builder $query): Builder
     {
-        /** @var \Dystore\Api\Domain\ProductAssociations\Builders\ProductAssociationBuilder $query */
+        /** @var ProductAssociationBuilder $query */
         return $query->published();
     }
 
@@ -36,7 +37,7 @@ class ProductAssociationSchema extends Schema
      */
     public function relatableQuery(?Request $request, EloquentRelation $query): EloquentRelation
     {
-        /** @var \Dystore\Api\Domain\ProductAssociations\Builders\ProductAssociationBuilder $query */
+        /** @var ProductAssociationBuilder $query */
         return $query->published();
     }
 

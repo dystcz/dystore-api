@@ -7,18 +7,36 @@ use Dystore\Api\Domain\Carts\Actions\CheckoutCart;
 use Dystore\Api\Domain\Carts\Actions\CreateUserFromCart;
 use Dystore\Api\Domain\Payments\Contracts\PaymentIntent as PaymentIntentContract;
 use Dystore\Api\Domain\Payments\Data\PaymentIntent;
+use Dystore\Api\Domain\Prices\Http\Middleware\SetApiPricing;
 use Dystore\Api\Domain\Users\Actions\CreateUser;
 use Dystore\Api\Domain\Users\Actions\RegisterUser;
 use Dystore\Api\Facades\Api;
+use Dystore\Api\Routing\Middleware\SetApiHeaders;
 use Dystore\Api\Support\Config\Collections\DomainConfigCollection;
+use Illuminate\Auth\Events\Login;
+use Illuminate\Auth\Middleware\Authenticate;
 use Illuminate\Foundation\Application;
+use Illuminate\Foundation\Http\Kernel;
 use Illuminate\Routing\Router;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\Event;
 use Illuminate\Support\Facades\Gate;
 use Illuminate\Support\ServiceProvider;
 use Lunar\Base\CartSessionInterface;
+use Lunar\Base\StorefrontSessionInterface;
 use Lunar\Facades\ModelManifest;
+use Lunar\Facades\Payments;
+use Lunar\Managers\CartSessionManager;
+use Lunar\Models\Attribute;
+use Lunar\Models\Contracts\Cart;
+use Lunar\Models\Order;
+use Lunar\Models\ProductVariant;
+use Lunar\Models\Url;
+use Lunar\Pipelines\Cart\ApplyShipping;
+use Lunar\Pipelines\Cart\Calculate;
+use Lunar\Pipelines\Order\Creation\CleanUpOrderLines;
+use Lunar\Pipelines\Order\Creation\CreateShippingLine;
+use Lunar\Pipelines\Order\Creation\FillOrderFromCart;
 
 class ApiServiceProvider extends ServiceProvider
 {
@@ -76,7 +94,7 @@ class ApiServiceProvider extends ServiceProvider
 
         // Register storefront session manager.
         $this->app->singleton(
-            \Lunar\Base\StorefrontSessionInterface::class,
+            StorefrontSessionInterface::class,
             fn (Application $app) => $app->make(Domain\Storefront\Managers\StorefrontSessionManager::class),
         );
 
@@ -179,7 +197,7 @@ class ApiServiceProvider extends ServiceProvider
         $cartPipelines = Config::get('lunar.cart.pipelines.cart', []);
 
         // Push apply payment pipeline after apply shipping pipeline
-        $applyShippingIndex = array_search(\Lunar\Pipelines\Cart\ApplyShipping::class, $cartPipelines);
+        $applyShippingIndex = array_search(ApplyShipping::class, $cartPipelines);
 
         if (array_key_exists($applyShippingIndex, $cartPipelines)) {
             $cartPipelines = array_merge(
@@ -190,7 +208,7 @@ class ApiServiceProvider extends ServiceProvider
         }
 
         // Push calculate payment pipeline after calculate pipeline
-        $calculateIndex = array_search(\Lunar\Pipelines\Cart\Calculate::class, $cartPipelines);
+        $calculateIndex = array_search(Calculate::class, $cartPipelines);
 
         if (array_key_exists($calculateIndex, $cartPipelines)) {
             $cartPipelines = array_merge(
@@ -225,13 +243,13 @@ class ApiServiceProvider extends ServiceProvider
         $orderPipelines = Config::get('lunar.orders.pipelines.creation', []);
 
         // Swap fill order from cart pipeline
-        $fillOrderFromCartIndex = array_search(\Lunar\Pipelines\Order\Creation\FillOrderFromCart::class, $orderPipelines);
+        $fillOrderFromCartIndex = array_search(FillOrderFromCart::class, $orderPipelines);
         if (array_key_exists($fillOrderFromCartIndex, $orderPipelines)) {
             $orderPipelines[$fillOrderFromCartIndex] = Domain\Orders\Pipelines\FillOrderFromCart::class;
         }
 
         // Push create payment line pipeline after create shipping line pipeline
-        $createShippingLineIndex = array_search(\Lunar\Pipelines\Order\Creation\CreateShippingLine::class, $orderPipelines);
+        $createShippingLineIndex = array_search(CreateShippingLine::class, $orderPipelines);
         if (array_key_exists($createShippingLineIndex, $orderPipelines)) {
             $orderPipelines = array_merge(
                 array_slice($orderPipelines, 0, $createShippingLineIndex + 1),
@@ -241,7 +259,7 @@ class ApiServiceProvider extends ServiceProvider
         }
 
         // Swap clean up order lines pipeline
-        $cleanupOrderLinesIndex = array_search(\Lunar\Pipelines\Order\Creation\CleanUpOrderLines::class, $orderPipelines);
+        $cleanupOrderLinesIndex = array_search(CleanUpOrderLines::class, $orderPipelines);
         if (array_key_exists($cleanupOrderLinesIndex, $orderPipelines)) {
             $orderPipelines[$cleanupOrderLinesIndex] = Domain\Orders\Pipelines\CleanUpOrderLines::class;
         }
@@ -268,6 +286,7 @@ class ApiServiceProvider extends ServiceProvider
             Domain\Addresses\Contracts\AddressesController::class => Domain\Addresses\Http\Controllers\AddressesController::class,
             Domain\Auth\Contracts\AuthController::class => Domain\Auth\Http\Controllers\AuthController::class,
             Domain\Auth\Contracts\AuthUserOrdersController::class => Domain\Auth\Http\Controllers\AuthUserOrdersController::class,
+            Domain\Auth\Contracts\CheckExistingAccountController::class => Domain\Auth\Http\Controllers\CheckExistingAccountController::class,
             Domain\Auth\Contracts\NewPasswordController::class => Domain\Auth\Http\Controllers\NewPasswordController::class,
             Domain\Auth\Contracts\PasswordResetLinkController::class => Domain\Auth\Http\Controllers\PasswordResetLinkController::class,
             Domain\Auth\Contracts\RegisterUserWithoutPasswordController::class => Domain\Auth\Http\Controllers\RegisterUserWithoutPasswordController::class,
@@ -338,7 +357,7 @@ class ApiServiceProvider extends ServiceProvider
             Domain\Orders\Events\OrderPaymentCanceled::class => [
                 Domain\Payments\Listeners\HandleFailedPayment::class,
             ],
-            \Illuminate\Auth\Events\Login::class => [
+            Login::class => [
                 Domain\Auth\Listeners\CartSessionAuthListener::class,
             ],
         ];
@@ -360,7 +379,7 @@ class ApiServiceProvider extends ServiceProvider
         Domain\Payments\PaymentAdapters\BankTransferPaymentAdapter::register();
         Domain\Payments\PaymentAdapters\CashOnDeliveryPaymentAdapter::register();
 
-        \Lunar\Facades\Payments::extend(
+        Payments::extend(
             'offline',
             fn (Application $app) => $app->make(
                 Domain\Payments\PaymentTypes\OfflinePaymentType::class,
@@ -373,7 +392,7 @@ class ApiServiceProvider extends ServiceProvider
      */
     protected function registerObservers(): void
     {
-        \Lunar\Models\Order::observe(Domain\Orders\Observers\OrderObserver::class);
+        Order::observe(Domain\Orders\Observers\OrderObserver::class);
     }
 
     /**
@@ -391,15 +410,15 @@ class ApiServiceProvider extends ServiceProvider
         /** @var Router $router */
         $router = $this->app['router'];
 
-        $router->aliasMiddleware('api-pricing', \Dystore\Api\Domain\Prices\Http\Middleware\SetApiPricing::class);
-        $router->aliasMiddleware('api-headers', \Dystore\Api\Routing\Middleware\SetApiHeaders::class);
+        $router->aliasMiddleware('api-pricing', SetApiPricing::class);
+        $router->aliasMiddleware('api-headers', SetApiHeaders::class);
 
-        /** @var \Illuminate\Foundation\Http\Kernel $kernel */
+        /** @var Kernel $kernel */
         $kernel = $this->app->make(\Illuminate\Contracts\Http\Kernel::class);
 
         $kernel->addToMiddlewarePriorityBefore(
-            before: \Dystore\Api\Routing\Middleware\SetApiHeaders::class,
-            middleware: \Illuminate\Auth\Middleware\Authenticate::class
+            before: SetApiHeaders::class,
+            middleware: Authenticate::class
         );
     }
 
@@ -408,34 +427,34 @@ class ApiServiceProvider extends ServiceProvider
      */
     protected function registerDynamicRelations(): void
     {
-        \Lunar\Models\ProductVariant::resolveRelationUsing('attributes', function ($model) {
+        ProductVariant::resolveRelationUsing('attributes', function ($model) {
             return $model
                 ->hasMany(
-                    \Lunar\Models\Attribute::modelClass(),
+                    Attribute::modelClass(),
                     'attribute_type',
                     'attribute_type',
                 );
         });
 
-        \Lunar\Models\ProductVariant::resolveRelationUsing('urls', function ($model) {
+        ProductVariant::resolveRelationUsing('urls', function ($model) {
             return $model
                 ->morphMany(
-                    \Lunar\Models\Url::modelClass(),
+                    Url::modelClass(),
                     'element'
                 );
         });
 
-        \Lunar\Models\ProductVariant::resolveRelationUsing('defaultUrl', function ($model) {
+        ProductVariant::resolveRelationUsing('defaultUrl', function ($model) {
             return $model
                 ->morphOne(
-                    \Lunar\Models\Url::modelClass(),
+                    Url::modelClass(),
                     'element'
                 )->whereDefault(true);
         });
 
-        \Lunar\Models\ProductVariant::resolveRelationUsing('otherVariants', function ($model) {
+        ProductVariant::resolveRelationUsing('otherVariants', function ($model) {
             return $model
-                ->hasMany(\Lunar\Models\ProductVariant::modelClass(), 'product_id', 'product_id')
+                ->hasMany(ProductVariant::modelClass(), 'product_id', 'product_id')
                 ->where($model->getRouteKeyName(), '!=', $model->getAttribute($model->getRouteKeyName()));
         });
     }
@@ -447,8 +466,8 @@ class ApiServiceProvider extends ServiceProvider
     {
         $this->app->bind(
             Domain\Carts\Contracts\CurrentSessionCart::class,
-            function (Application $app): ?\Lunar\Models\Contracts\Cart {
-                /** @var \Lunar\Managers\CartSessionManager $cartSession */
+            function (Application $app): ?Cart {
+                /** @var CartSessionManager $cartSession */
                 $cartSession = $this->app->make(CartSessionInterface::class);
 
                 return $cartSession->current();

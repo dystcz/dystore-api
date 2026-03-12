@@ -2,6 +2,7 @@
 
 namespace Dystore\Api\Domain\JsonApi\Eloquent\Sorts;
 
+use Illuminate\Database\Eloquent\Builder;
 use LaravelJsonApi\Eloquent\Contracts\SortField;
 
 /** @phpstan-consistent-constructor */
@@ -38,8 +39,8 @@ class InRandomOrder implements SortField
     /**
      * Apply the sort order to the query.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param  Builder  $query
+     * @return Builder
      */
     public function sort($query, string $direction = 'asc')
     {

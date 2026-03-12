@@ -8,12 +8,14 @@ use Dystore\Api\Domain\Attributes\Traits\InteractsWithAttributes;
 use Dystore\Api\Domain\Products\Models\Product;
 use Dystore\Api\Domain\ProductVariants\Builders\ProductVariantBuilder;
 use Dystore\Api\Domain\ProductVariants\Factories\ProductVariantFactory;
+use Dystore\Api\Domain\ProductVariants\Models\ProductVariant;
 use Dystore\Api\Domain\ProductVariants\Models\ProductVariantMedia;
 use Dystore\Api\Hashids\Traits\HashesRouteKey;
 use Illuminate\Database\Eloquent\Casts\Attribute;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Database\Eloquent\Relations\HasOneThrough;
 use Illuminate\Database\Eloquent\Relations\MorphOne;
+use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Str;
@@ -34,7 +36,7 @@ trait InteractsWithDystoreApi
     /**
      * Create a new Eloquent query builder for the model.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  Builder  $query
      */
     public function newEloquentBuilder($query): ProductVariantBuilder
     {
@@ -48,7 +50,7 @@ trait InteractsWithDystoreApi
     {
         return Attribute::make(
             get: function () {
-                /** @var \Dystore\Api\Domain\ProductVariants\Models\ProductVariant $this */
+                /** @var ProductVariant $this */
                 $productName = $this->product->translateAttribute('name');
                 $variantName = $this->translateAttribute('name');
 
@@ -70,7 +72,7 @@ trait InteractsWithDystoreApi
      */
     public function isPreorderable(): ?bool
     {
-        /** @var \Dystore\Api\Domain\ProductVariants\Models\ProductVariant $model */
+        /** @var ProductVariant $model */
         $model = $this;
 
         if (! $model->relationLoaded('product')) {
@@ -177,7 +179,7 @@ trait InteractsWithDystoreApi
 
     public function lowestPrice(): MorphOne
     {
-        /** @var \Dystore\Api\Domain\ProductVariants\Models\ProductVariant $this */
+        /** @var ProductVariant $this */
         return $this
             ->morphOne(LunarPrice::modelClass(), 'priceable')
             ->ofMany('price', 'min');
@@ -185,7 +187,7 @@ trait InteractsWithDystoreApi
 
     public function highestPrice(): MorphOne
     {
-        /** @var \Dystore\Api\Domain\ProductVariants\Models\ProductVariant $this */
+        /** @var ProductVariant $this */
         return $this
             ->morphOne(LunarPrice::modelClass(), 'priceable')
             ->ofMany('price', 'max');
@@ -196,7 +198,7 @@ trait InteractsWithDystoreApi
      */
     public function otherVariants(): HasMany
     {
-        /** @var \Dystore\Api\Domain\ProductVariants\Models\ProductVariant $this */
+        /** @var ProductVariant $this */
         return $this
             ->hasMany(
                 LunarPoductVariant::modelClass(),

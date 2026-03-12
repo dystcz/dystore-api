@@ -10,6 +10,8 @@ use Dystore\Api\Domain\Carts\JsonApi\V1\CartQuery;
 use Dystore\Api\Domain\Carts\JsonApi\V1\CartSchema;
 use Dystore\Api\Domain\Carts\JsonApi\V1\CreateEmptyCartAddressesRequest;
 use Dystore\Api\Domain\Carts\Models\Cart;
+use Illuminate\Contracts\Support\Responsable;
+use Illuminate\Http\Response;
 use LaravelJsonApi\Core\Responses\DataResponse;
 
 class CreateEmptyCartAddressesController extends Controller implements CreateEmptyCartAddressesControllerContract
@@ -17,7 +19,7 @@ class CreateEmptyCartAddressesController extends Controller implements CreateEmp
     /**
      * Update an existing resource.
      *
-     * @return \Illuminate\Contracts\Support\Responsable|\Illuminate\Http\Response
+     * @return Responsable|Response
      */
     public function createEmptyAddresses(
         CartSchema $schema,

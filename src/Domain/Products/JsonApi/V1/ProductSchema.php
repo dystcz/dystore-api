@@ -6,6 +6,7 @@ use Dystore\Api\Domain\JsonApi\Eloquent\Fields\AttributeData;
 use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
 use Dystore\Api\Domain\JsonApi\Eloquent\Sorts\InDefaultOrder;
 use Dystore\Api\Domain\JsonApi\Eloquent\Sorts\InRandomOrder;
+use Dystore\Api\Domain\Products\Builders\ProductBuilder;
 use Dystore\Api\Domain\Products\JsonApi\Filters\InStockFilter;
 use Dystore\Api\Domain\Products\JsonApi\Filters\ProductFilterCollection;
 use Dystore\Api\Support\Models\Actions\SchemaType;
@@ -53,7 +54,7 @@ class ProductSchema extends Schema
      */
     public function indexQuery(?Request $request, Builder $query): Builder
     {
-        /** @var \Dystore\Api\Domain\Products\Builders\ProductBuilder $query */
+        /** @var ProductBuilder $query */
         return $query
             ->customerGroup(StorefrontSession::getCustomerGroups())
             ->visible();
@@ -64,7 +65,7 @@ class ProductSchema extends Schema
      */
     public function relatableQuery(?Request $request, EloquentRelation $query): EloquentRelation
     {
-        /** @var \Dystore\Api\Domain\Products\Builders\ProductBuilder $query */
+        /** @var ProductBuilder $query */
         return $query
             ->customerGroup(StorefrontSession::getCustomerGroups())
             ->visible();

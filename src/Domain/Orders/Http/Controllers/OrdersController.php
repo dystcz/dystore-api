@@ -8,6 +8,8 @@ use Dystore\Api\Domain\Orders\JsonApi\V1\OrderQuery;
 use Dystore\Api\Domain\Orders\JsonApi\V1\OrderRequest;
 use Dystore\Api\Domain\Orders\JsonApi\V1\OrderSchema;
 use Dystore\Api\Domain\Orders\Models\Order;
+use Illuminate\Contracts\Support\Responsable;
+use Illuminate\Http\Response;
 use LaravelJsonApi\Core\Responses\DataResponse;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchOne;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchRelated;
@@ -25,7 +27,7 @@ class OrdersController extends Controller implements OrdersControllerContract
     /**
      * Fetch zero to one JSON API resource by id.
      *
-     * @return \Illuminate\Contracts\Support\Responsable|\Illuminate\Http\Response
+     * @return Responsable|Response
      */
     public function show(OrderSchema $schema, OrderQuery $request, OrderContract $order): DataResponse
     {

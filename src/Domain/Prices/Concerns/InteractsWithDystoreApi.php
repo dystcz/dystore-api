@@ -6,6 +6,7 @@ use Dystore\Api\Domain\Prices\Builders\PriceBuilder;
 use Dystore\Api\Domain\Prices\Factories\PriceFactory;
 use Dystore\Api\Domain\Prices\Models\Price;
 use Dystore\Api\Hashids\Traits\HashesRouteKey;
+use Illuminate\Database\Query\Builder;
 
 trait InteractsWithDystoreApi
 {
@@ -14,7 +15,7 @@ trait InteractsWithDystoreApi
     /**
      * Create a new Eloquent query builder for the model.
      *
-     * @param  \Illuminate\Database\Query\Builder  $query
+     * @param  Builder  $query
      */
     public function newEloquentBuilder($query): PriceBuilder
     {

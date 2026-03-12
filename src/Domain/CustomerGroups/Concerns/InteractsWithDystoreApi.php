@@ -4,6 +4,7 @@ namespace Dystore\Api\Domain\CustomerGroups\Concerns;
 
 use Dystore\Api\Domain\CustomerGroups\Factories\CustomerGroupFactory;
 use Dystore\Api\Hashids\Traits\HashesRouteKey;
+use Illuminate\Database\Eloquent\Model;
 
 trait InteractsWithDystoreApi
 {
@@ -11,7 +12,7 @@ trait InteractsWithDystoreApi
 
     public function initializeInteractsWithDystoreApi(): void
     {
-        /** @var \Illuminate\Database\Eloquent\Model $this */
+        /** @var Model $this */
         $this->mergeCasts([
             'default' => 'boolean',
         ]);

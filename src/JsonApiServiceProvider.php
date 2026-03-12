@@ -4,6 +4,8 @@ namespace Dystore\Api;
 
 use Illuminate\Foundation\Application;
 use Illuminate\Support\ServiceProvider;
+use LaravelJsonApi\Eloquent\Repository;
+use LaravelJsonApi\Laravel\LaravelJsonApi;
 
 class JsonApiServiceProvider extends ServiceProvider
 {
@@ -12,19 +14,19 @@ class JsonApiServiceProvider extends ServiceProvider
      */
     public function boot(): void
     {
-        \LaravelJsonApi\Laravel\LaravelJsonApi::defaultResource(
+        LaravelJsonApi::defaultResource(
             Domain\JsonApi\Resources\JsonApiResource::class,
         );
-        \LaravelJsonApi\Laravel\LaravelJsonApi::defaultAuthorizer(
+        LaravelJsonApi::defaultAuthorizer(
             Domain\JsonApi\Authorizers\Authorizer::class,
         );
-        \LaravelJsonApi\Laravel\LaravelJsonApi::defaultQuery(
+        LaravelJsonApi::defaultQuery(
             Domain\JsonApi\Queries\Query::class,
         );
-        \LaravelJsonApi\Laravel\LaravelJsonApi::defaultCollectionQuery(
+        LaravelJsonApi::defaultCollectionQuery(
             Domain\JsonApi\Queries\CollectionQuery::class,
         );
-        \LaravelJsonApi\Laravel\LaravelJsonApi::withCountQueryParameter(
+        LaravelJsonApi::withCountQueryParameter(
             'with_count',
         );
     }
@@ -36,7 +38,7 @@ class JsonApiServiceProvider extends ServiceProvider
     {
         // Register custom repository
         $this->app->bind(
-            \LaravelJsonApi\Eloquent\Repository::class,
+            Repository::class,
             fn () => Domain\JsonApi\Eloquent\Repository::class,
         );
 

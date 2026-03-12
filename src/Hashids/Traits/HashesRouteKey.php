@@ -5,7 +5,9 @@ namespace Dystore\Api\Hashids\Traits;
 use Dystore\Api\Facades\Api;
 use Dystore\Api\Hashids\Facades\HashidsConnections;
 use Hashids\Hashids;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Arr;
+use Lunar\Base\BaseModel;
 use Vinkla\Hashids\Facades\Hashids as HashidsFacade;
 
 trait HashesRouteKey
@@ -19,7 +21,7 @@ trait HashesRouteKey
             return parent::getRouteKey();
         }
 
-        /** @var \Lunar\Base\BaseModel $model */
+        /** @var BaseModel $model */
         $model = $this;
 
         return $this->hashIds()->encode($model->getAttribute($model->getRouteKeyName()));
@@ -30,7 +32,7 @@ trait HashesRouteKey
      *
      * @param  mixed  $value
      * @param  string|null  $field
-     * @return \Illuminate\Database\Eloquent\Model|null
+     * @return Model|null
      */
     public function resolveRouteBinding($value, $field = null)
     {
@@ -38,7 +40,7 @@ trait HashesRouteKey
             return parent::resolveRouteBinding($value, $field);
         }
 
-        /** @var \Lunar\Base\BaseModel $model */
+        /** @var BaseModel $model */
         $model = $this;
 
         if (empty($field) || $field === $model->getRouteKeyName()) {
@@ -83,7 +85,7 @@ trait HashesRouteKey
      */
     protected function getHashidsConnection(): string
     {
-        /** @var \Lunar\Base\BaseModel $model */
+        /** @var BaseModel $model */
         $model = $this;
 
         return HashidsConnections::getModelConnection($model->getMorphClass());

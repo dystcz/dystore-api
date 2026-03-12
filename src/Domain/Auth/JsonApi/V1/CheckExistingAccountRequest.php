@@ -1,0 +1,40 @@
+<?php
+
+namespace Dystore\Api\Domain\Auth\JsonApi\V1;
+
+use LaravelJsonApi\Laravel\Http\Requests\ResourceRequest;
+
+class CheckExistingAccountRequest extends ResourceRequest
+{
+    /**
+     * Get the validation rules for the resource.
+     *
+     * @return array<string,array>
+     */
+    public function rules(): array
+    {
+        return [
+            'email' => [
+                'required',
+                'string',
+                'email',
+                'max:255',
+            ],
+        ];
+    }
+
+    /**
+     * Get the validation messages for the request.
+     *
+     * @return array<string,string>
+     */
+    public function messages(): array
+    {
+        return [
+            'email.string' => __('dystore::validations.users.email.string'),
+            'email.email' => __('dystore::validations.users.email.email'),
+            'email.max' => __('dystore::validations.users.email.max'),
+            'email.unique' => __('dystore::validations.users.email.unique'),
+        ];
+    }
+}

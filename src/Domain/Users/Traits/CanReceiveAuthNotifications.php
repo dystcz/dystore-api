@@ -2,6 +2,7 @@
 
 namespace Dystore\Api\Domain\Users\Traits;
 
+use Dystore\Api\Domain\Users\Models\User;
 use Illuminate\Auth\Notifications\ResetPassword;
 use Illuminate\Auth\Notifications\VerifyEmail;
 use Illuminate\Support\Facades\Config;
@@ -13,7 +14,7 @@ trait CanReceiveAuthNotifications
      */
     public function sendPasswordResetNotification($token): void
     {
-        /** @var \Dystore\Api\Domain\Users\Models\User $this */
+        /** @var User $this */
         $notificationClass = Config::get(
             'dystore.domains.auth.notifications.reset_password',
             ResetPassword::class,
@@ -27,7 +28,7 @@ trait CanReceiveAuthNotifications
      */
     public function sendEmailVerificationNotification(): void
     {
-        /** @var \Dystore\Api\Domain\Users\Models\User $this */
+        /** @var User $this */
         $notificationClass = Config::get(
             'dystore.domains.auth.notifications.verify_email',
             VerifyEmail::class,

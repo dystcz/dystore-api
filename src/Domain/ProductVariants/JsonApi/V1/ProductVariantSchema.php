@@ -4,6 +4,7 @@ namespace Dystore\Api\Domain\ProductVariants\JsonApi\V1;
 
 use Dystore\Api\Domain\JsonApi\Eloquent\Fields\AttributeData;
 use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
+use Dystore\Api\Domain\ProductVariants\Builders\ProductVariantBuilder;
 use Dystore\Api\Domain\ProductVariants\JsonApi\Filters\WhereProductOptionValueSlugs;
 use Dystore\Api\Support\Models\Actions\SchemaType;
 use Illuminate\Database\Eloquent\Builder;
@@ -39,7 +40,7 @@ class ProductVariantSchema extends Schema
      */
     public function indexQuery(?Request $request, Builder $query): Builder
     {
-        /** @var \Dystore\Api\Domain\ProductVariants\Builders\ProductVariantBuilder $query */
+        /** @var ProductVariantBuilder $query */
         return $query->whereHas('product', fn ($query) => $query->visible());
     }
 
@@ -48,7 +49,7 @@ class ProductVariantSchema extends Schema
      */
     public function relatableQuery(?Request $request, EloquentRelation $query): EloquentRelation
     {
-        /** @var \Dystore\Api\Domain\ProductVariants\Builders\ProductVariantBuilder $query */
+        /** @var ProductVariantBuilder $query */
         return $query->whereHas('product', fn ($query) => $query->visible());
     }
 

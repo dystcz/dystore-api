@@ -1,5 +1,7 @@
 <?php
 
+use Dystore\Api\Domain\JsonApi\V1\Server;
+
 return [
 
     /*
@@ -27,6 +29,6 @@ return [
     | class name of the server class.
     */
     'servers' => [
-        'v1' => Dystore\Api\Domain\JsonApi\V1\Server::class,
+        'v1' => Server::class,
     ],
 ];

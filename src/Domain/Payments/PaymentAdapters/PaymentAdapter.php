@@ -15,6 +15,7 @@ use Illuminate\Support\Facades\App;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\MessageBag;
 use Lunar\Exceptions\Carts\CartException;
+use Lunar\Exceptions\DisallowMultipleCartOrdersException;
 use Lunar\Models\Contracts\Cart as CartContract;
 use Lunar\Models\Contracts\Order as OrderContract;
 use Lunar\Models\Contracts\Transaction as TransactionContract;
@@ -184,7 +185,7 @@ abstract class PaymentAdapter
     /**
      * Get or create order from cart.
      *
-     * @throws \Lunar\Exceptions\DisallowMultipleCartOrdersException
+     * @throws DisallowMultipleCartOrdersException
      */
     protected function getOrCreateOrder(CartContract $cart): OrderContract
     {

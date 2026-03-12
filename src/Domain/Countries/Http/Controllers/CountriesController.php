@@ -6,6 +6,8 @@ use Dystore\Api\Base\Controller;
 use Dystore\Api\Domain\Countries\Contracts\CountriesController as CountriesControllerContract;
 use Dystore\Api\Domain\Countries\JsonApi\V1\CountryCollectionQuery;
 use Dystore\Api\Domain\Countries\JsonApi\V1\CountrySchema;
+use Illuminate\Contracts\Support\Responsable;
+use Illuminate\Http\Response;
 use Illuminate\Support\Facades\Cache;
 use LaravelJsonApi\Core\Responses\DataResponse;
 
@@ -16,7 +18,7 @@ class CountriesController extends Controller implements CountriesControllerContr
      *
      * @param  PostSchema  $schema
      * @param  PostCollectionQuery  $request
-     * @return \Illuminate\Contracts\Support\Responsable|\Illuminate\Http\Response
+     * @return Responsable|Response
      */
     public function index(CountrySchema $schema, CountryCollectionQuery $request): DataResponse
     {

@@ -4,12 +4,13 @@ namespace Dystore\Api\Base\Concerns;
 
 use Carbon\Carbon;
 use Dystore\Api\Base\Enums\PublishedStatus;
+use Illuminate\Database\Eloquent\Model;
 
 trait Publishable
 {
     public static function bootPublishable(): void
     {
-        static::creating(function (\Illuminate\Database\Eloquent\Model $model) {
+        static::creating(function (Model $model) {
             if ($model->status === PublishedStatus::PUBLISHED && ! $model->published_at) {
                 $model->published_at = Carbon::now();
 
@@ -17,7 +18,7 @@ trait Publishable
             }
         });
 
-        static::updating(function (\Illuminate\Database\Eloquent\Model $model) {
+        static::updating(function (Model $model) {
             if ($model->status === PublishedStatus::PUBLISHED && ! $model->published_at) {
                 $model->published_at = Carbon::now();
 
@@ -28,7 +29,7 @@ trait Publishable
 
     public function initializePublishable(): void
     {
-        /** @var \Illuminate\Database\Eloquent\Model $this */
+        /** @var Model $this */
         $this->mergeCasts([
             'status' => PublishedStatus::class,
             'published_at' => 'datetime',
@@ -37,7 +38,7 @@ trait Publishable
 
     public function isPublished(): bool
     {
-        /** @var \Illuminate\Database\Eloquent\Model $this */
+        /** @var Model $this */
         return $this->status === PublishedStatus::PUBLISHED && $this->published_at <= Carbon::now();
     }
 }

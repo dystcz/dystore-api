@@ -6,6 +6,7 @@ use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Database\Eloquent\Collection;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsToMany;
+use Illuminate\Database\Query\Expression;
 use Illuminate\Pagination\LengthAwarePaginator;
 
 class BelongsToManyThrough extends BelongsToMany
@@ -342,7 +343,7 @@ class BelongsToManyThrough extends BelongsToMany
                 $countExpression
             );
 
-            $columns = new \Illuminate\Database\Query\Expression($distinctCount);
+            $columns = new Expression($distinctCount);
         }
 
         return $query->select($columns)->whereColumn(

@@ -7,6 +7,8 @@ use Dystore\Api\Domain\CartAddresses\Contracts\CartAddressesController as CartAd
 use Dystore\Api\Domain\CartAddresses\JsonApi\V1\CartAddressQuery;
 use Dystore\Api\Domain\CartAddresses\JsonApi\V1\CartAddressRequest;
 use Dystore\Api\Domain\CartAddresses\JsonApi\V1\CartAddressSchema;
+use Illuminate\Contracts\Support\Responsable;
+use Illuminate\Http\Response;
 use LaravelJsonApi\Core\Responses\DataResponse;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\Store;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\Update;
@@ -21,7 +23,7 @@ class CartAddressesController extends Controller implements CartAddressesControl
     /**
      * Create a new resource.
      *
-     * @return \Illuminate\Contracts\Support\Responsable|\Illuminate\Http\Response
+     * @return Responsable|Response
      */
     public function store(
         CartAddressSchema $schema,
@@ -54,7 +56,7 @@ class CartAddressesController extends Controller implements CartAddressesControl
     /**
      * Update an existing resource.
      *
-     * @return \Illuminate\Contracts\Support\Responsable|\Illuminate\Http\Response
+     * @return Responsable|Response
      */
     public function update(
         CartAddressSchema $schema,

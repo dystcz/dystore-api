@@ -2,6 +2,8 @@
 
 namespace Dystore\Api\Domain\JsonApi\Eloquent\Sorts;
 
+use Illuminate\Database\Eloquent\Builder;
+use Kalnoy\Nestedset\QueryBuilder;
 use LaravelJsonApi\Eloquent\Contracts\SortField;
 
 /** @phpstan-consistent-constructor */
@@ -40,8 +42,8 @@ class InDefaultOrder implements SortField
     /**
      * Apply the sort order to the query.
      *
-     * @param  \Illuminate\Database\Eloquent\Builder  $query
-     * @return \Illuminate\Database\Eloquent\Builder
+     * @param  Builder  $query
+     * @return Builder
      */
     public function sort($query, string $direction = 'asc')
     {
@@ -50,7 +52,7 @@ class InDefaultOrder implements SortField
         }
 
         if (method_exists($query, 'defaultOrder')) {
-            /** @var \Kalnoy\Nestedset\QueryBuilder $query */
+            /** @var QueryBuilder $query */
             return $query->defaultOrder();
         }
 

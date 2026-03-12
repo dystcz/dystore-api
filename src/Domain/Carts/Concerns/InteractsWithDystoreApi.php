@@ -6,6 +6,7 @@ use Dystore\Api\Domain\Carts\Events\CartCreated;
 use Dystore\Api\Domain\Carts\Factories\CartFactory;
 use Dystore\Api\Hashids\Traits\HashesRouteKey;
 use Illuminate\Database\Eloquent\Builder;
+use Lunar\Models\Cart;
 use Lunar\Models\Contracts\Cart as CartContract;
 
 trait InteractsWithDystoreApi
@@ -19,7 +20,7 @@ trait InteractsWithDystoreApi
     public static function bootInteractsWithLunarApi(): void
     {
         static::retrieved(function (CartContract $model) {
-            /** @var \Lunar\Models\Cart $model */
+            /** @var Cart $model */
             $model->cachableProperties = [
                 ...$model->cachableProperties,
                 'paymentOption',

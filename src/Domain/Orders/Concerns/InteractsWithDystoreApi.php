@@ -10,6 +10,7 @@ use Illuminate\Database\Eloquent\Relations\HasOne;
 use Illuminate\Support\Facades\Config;
 use Illuminate\Support\Facades\URL;
 use Lunar\Base\Casts\Price;
+use Lunar\Models\Order;
 use Lunar\Models\Transaction;
 
 trait InteractsWithDystoreApi
@@ -58,7 +59,7 @@ trait InteractsWithDystoreApi
      */
     public function productLines(): HasMany
     {
-        /** @var \Lunar\Models\Order $this */
+        /** @var Order $this */
         return $this
             ->lines()
             ->whereNotIn(
@@ -72,7 +73,7 @@ trait InteractsWithDystoreApi
      */
     public function paymentLines(): HasMany
     {
-        /** @var \Lunar\Models\Order $this */
+        /** @var Order $this */
         return $this->lines()->where('type', 'payment');
     }
 
@@ -81,7 +82,7 @@ trait InteractsWithDystoreApi
      */
     public function latestTransaction(): HasOne
     {
-        /** @var \Lunar\Models\Order $this */
+        /** @var Order $this */
         return $this
             ->hasOne(Transaction::modelClass())
             ->latestOfMany();
@@ -102,7 +103,7 @@ trait InteractsWithDystoreApi
      */
     protected function casts(): array
     {
-        /** @var \Lunar\Models\Order $this */
+        /** @var Order $this */
         return [
             ...$this->casts,
             ...parent::casts(),

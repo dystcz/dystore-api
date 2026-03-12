@@ -7,6 +7,7 @@ use Dystore\Api\Domain\Carts\ValueObjects\PaymentBreakdownItem;
 use Exception;
 use Illuminate\Contracts\Database\Eloquent\CastsAttributes;
 use Illuminate\Contracts\Database\Eloquent\SerializesCastableAttributes;
+use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Collection;
 use Lunar\DataTypes\Price;
 use Lunar\Models\Currency;
@@ -16,7 +17,7 @@ class PaymentBreakdown implements CastsAttributes, SerializesCastableAttributes
     /**
      * Cast the given value.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  Model  $model
      * @param  string  $key
      * @param  mixed  $value
      * @param  array  $attributes
@@ -48,7 +49,7 @@ class PaymentBreakdown implements CastsAttributes, SerializesCastableAttributes
     /**
      * Prepare the given value for storage.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  Model  $model
      * @param  string  $key
      * @param  PaymentBreakdownValue  $value
      * @param  array  $attributes
@@ -82,7 +83,7 @@ class PaymentBreakdown implements CastsAttributes, SerializesCastableAttributes
     /**
      * Get the serialized representation of the value.
      *
-     * @param  \Illuminate\Database\Eloquent\Model  $model
+     * @param  Model  $model
      * @param  string  $key
      * @param  Collection  $value
      * @param  array<string, mixed>  $attributes

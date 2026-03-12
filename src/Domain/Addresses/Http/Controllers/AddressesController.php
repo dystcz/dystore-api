@@ -7,6 +7,8 @@ use Dystore\Api\Domain\Addresses\Contracts\AddressesController as AddressesContr
 use Dystore\Api\Domain\Addresses\JsonApi\V1\AddressQuery;
 use Dystore\Api\Domain\Addresses\JsonApi\V1\AddressRequest;
 use Dystore\Api\Domain\Addresses\JsonApi\V1\AddressSchema;
+use Illuminate\Contracts\Support\Responsable;
+use Illuminate\Http\Response;
 use LaravelJsonApi\Core\Responses\DataResponse;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\Destroy;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchMany;
@@ -31,7 +33,7 @@ class AddressesController extends Controller implements AddressesControllerContr
     /**
      * Create a new resource.
      *
-     * @return \Illuminate\Contracts\Support\Responsable|\Illuminate\Http\Response
+     * @return Responsable|Response
      */
     public function store(
         AddressSchema $schema,
@@ -63,7 +65,7 @@ class AddressesController extends Controller implements AddressesControllerContr
     /**
      * Update an existing resource.
      *
-     * @return \Illuminate\Contracts\Support\Responsable|\Illuminate\Http\Response
+     * @return Responsable|Response
      */
     public function update(
         AddressSchema $schema,

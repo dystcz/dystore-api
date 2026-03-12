@@ -5,6 +5,7 @@ namespace Dystore\Api\Domain\Prices\JsonApi\V1;
 use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
 use Dystore\Api\Domain\Prices\Actions\GetComparePriceDiscount;
 use Dystore\Api\Domain\Prices\Actions\GetPrice;
+use Dystore\Api\Domain\Prices\Builders\PriceBuilder;
 use Dystore\Api\Domain\Prices\JsonApi\Filters\MaxPriceFilter;
 use Dystore\Api\Domain\Prices\JsonApi\Filters\MinPriceFilter;
 use Dystore\Api\Support\Models\Actions\SchemaType;
@@ -34,7 +35,7 @@ class PriceSchema extends Schema
      */
     public function indexQuery(?Request $request, Builder $query): Builder
     {
-        /** @var \Dystore\Api\Domain\Prices\Builders\PriceBuilder $query */
+        /** @var PriceBuilder $query */
         return $query;
     }
 
@@ -43,7 +44,7 @@ class PriceSchema extends Schema
      */
     public function relatableQuery(?Request $request, EloquentRelation $query): EloquentRelation
     {
-        /** @var \Dystore\Api\Domain\Prices\Builders\PriceBuilder $query */
+        /** @var PriceBuilder $query */
         return $query;
     }
 

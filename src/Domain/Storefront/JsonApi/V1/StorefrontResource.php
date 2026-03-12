@@ -3,12 +3,13 @@
 namespace Dystore\Api\Domain\Storefront\JsonApi\V1;
 
 use Dystore\Api\Domain\JsonApi\Resources\JsonApiResource;
+use Dystore\Api\Domain\Storefront\Entities\Storefront;
 
 class StorefrontResource extends JsonApiResource
 {
     public function id(): string
     {
-        /** @var \Dystore\Api\Domain\Storefront\Entities\Storefront $resource */
+        /** @var Storefront $resource */
         $resource = $this->resource;
 
         return $resource->getSlug();
@@ -33,7 +34,7 @@ class StorefrontResource extends JsonApiResource
      */
     public function relationships($request): iterable
     {
-        /** @var \Dystore\Api\Domain\Storefront\Entities\Storefront $resource */
+        /** @var Storefront $resource */
         $resource = $this->resource;
 
         return [

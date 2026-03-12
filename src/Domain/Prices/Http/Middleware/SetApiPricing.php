@@ -4,7 +4,9 @@ namespace Dystore\Api\Domain\Prices\Http\Middleware;
 
 use Closure;
 use Dystore\Api\Domain\Prices\Scopes\ApiPricingScope;
+use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
+use Illuminate\Http\Response;
 use Lunar\Models\Price;
 
 class SetApiPricing
@@ -12,7 +14,7 @@ class SetApiPricing
     /**
      * Handle an incoming request.
      *
-     * @param  Closure(Request): (\Illuminate\Http\Response|\Illuminate\Http\RedirectResponse)  $next
+     * @param  Closure(Request): (Response|RedirectResponse)  $next
      * @return mixed
      */
     public function handle(Request $request, Closure $next)
