@@ -3,6 +3,7 @@
 namespace Dystore\Api\Domain\Users\Http\Controllers;
 
 use Dystore\Api\Base\Controller;
+use Dystore\Api\Domain\Users\Contracts\DeletesUser;
 use Dystore\Api\Domain\Users\Contracts\RegistersUser;
 use Dystore\Api\Domain\Users\Contracts\User as UserContract;
 use Dystore\Api\Domain\Users\Contracts\UsersController as UsersControllerContract;
@@ -14,6 +15,7 @@ use Dystore\Api\Domain\Users\JsonApi\V1\UserSchema;
 use Dystore\Api\Domain\Users\Models\User;
 use Dystore\Api\Facades\Api;
 use Illuminate\Contracts\Auth\Guard;
+use Illuminate\Http\Response;
 use LaravelJsonApi\Core\Responses\DataResponse;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchRelated;
 use LaravelJsonApi\Laravel\Http\Controllers\Actions\FetchRelationship;
@@ -76,5 +78,19 @@ class UsersController extends Controller implements UsersControllerContract
         return DataResponse::make($model)
             ->withQueryParameters($query)
             ->didntCreate();
+    }
+
+    /**
+     * Delete user.
+     */
+    public function destroy(
+        UserContract $user,
+        DeletesUser $deleteUser,
+    ): Response {
+        $this->authorize('delete', $user);
+
+        $deleteUser->handle($user);
+
+        return response()->noContent();
     }
 }

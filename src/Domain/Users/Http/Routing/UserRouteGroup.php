@@ -29,7 +29,7 @@ class UserRouteGroup extends RouteGroup implements RouteGroupContract
                     ->relationships(function (Relationships $relationships) {
                         $relationships->hasMany('customers')->readOnly();
                     })
-                    ->only('store', 'update');
+                    ->only('store', 'update', 'delete');
 
                 $server
                     ->resource('users', ChangePasswordController::class)

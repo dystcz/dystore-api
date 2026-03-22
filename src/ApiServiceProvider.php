@@ -9,6 +9,7 @@ use Dystore\Api\Domain\Payments\Contracts\PaymentIntent as PaymentIntentContract
 use Dystore\Api\Domain\Payments\Data\PaymentIntent;
 use Dystore\Api\Domain\Prices\Http\Middleware\SetApiPricing;
 use Dystore\Api\Domain\Users\Actions\CreateUser;
+use Dystore\Api\Domain\Users\Actions\DeleteUser;
 use Dystore\Api\Domain\Users\Actions\RegisterUser;
 use Dystore\Api\Facades\Api;
 use Dystore\Api\Routing\Middleware\SetApiHeaders;
@@ -122,6 +123,7 @@ class ApiServiceProvider extends ServiceProvider
         Api::createUserUsing(CreateUser::class);
         Api::createUserFromCartUsing(CreateUserFromCart::class);
         Api::registerUserUsing(RegisterUser::class);
+        Api::deleteUserUsing(DeleteUser::class);
         Api::checkoutCartUsing(CheckoutCart::class);
 
         if ($this->app->runningInConsole()) {

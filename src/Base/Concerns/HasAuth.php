@@ -5,6 +5,7 @@ namespace Dystore\Api\Base\Concerns;
 use Dystore\Api\Domain\Carts\Contracts\CheckoutCart;
 use Dystore\Api\Domain\Users\Contracts\CreatesNewUsers;
 use Dystore\Api\Domain\Users\Contracts\CreatesUserFromCart;
+use Dystore\Api\Domain\Users\Contracts\DeletesUser;
 use Dystore\Api\Domain\Users\Contracts\RegistersUser;
 use Illuminate\Contracts\Auth\Guard;
 use Illuminate\Support\Facades\App;
@@ -67,6 +68,16 @@ trait HasAuth
     public function checkoutCartUsing(string $class): static
     {
         App::singleton(CheckoutCart::class, $class);
+
+        return $this;
+    }
+
+    /**
+     * Delete user using class.
+     */
+    public function deleteUserUsing(string $class): static
+    {
+        App::singleton(DeletesUser::class, $class);
 
         return $this;
     }
