@@ -23,6 +23,7 @@ class ChangePasswordController extends Controller implements ChangePasswordContr
 
         $user->update([
             'password' => Hash::make($request->validated('password')),
+            'password_set' => true,
         ]);
 
         $model = $schema

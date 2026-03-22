@@ -60,6 +60,7 @@ class UserSchema extends Schema
 
             Str::make('password')->hidden(),
             Str::make('password_confirmation')->hidden(),
+            Boolean::make('password_set', 'password_set')->readOnly(),
             Str::make('old_password')->hidden(),
             Str::make('token')->hidden(),
 

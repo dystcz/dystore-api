@@ -43,6 +43,7 @@ class User extends Authenticatable implements LunarUserContract, UserContract
         'email',
         'phone',
         'password',
+        'password_set',
     ];
 
     /**
@@ -126,6 +127,7 @@ class User extends Authenticatable implements LunarUserContract, UserContract
         return [
             ...$this->casts,
             'email_verified_at' => 'datetime',
+            'password_set' => 'boolean',
         ];
     }
 

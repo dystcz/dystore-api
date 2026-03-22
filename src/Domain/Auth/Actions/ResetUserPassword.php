@@ -19,6 +19,7 @@ class ResetUserPassword extends Action
         /** @var User $user */
         $user->forceFill([
             'password' => Hash::make($input['password']),
+            'password_set' => true,
         ])->save();
     }
 }

@@ -38,12 +38,18 @@ class RegisterUser implements RegistersUser
      */
     protected function createUser(UserDataContract $data): Authenticatable
     {
+        $hasPassword = $data->password() !== null;
+
         $data = new UserData(
             name: $data->name(),
             email: $data->email(),
             password: $data->password() ?? Str::random(32),
         );
 
-        return $this->createUser->create($data);
+        $user = $this->createUser->create($data);
+
+        $user->forceFill(['password_set' => $hasPassword])->save();
+
+        return $user;
     }
 }
