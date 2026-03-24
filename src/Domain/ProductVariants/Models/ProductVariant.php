@@ -18,6 +18,10 @@ use Spatie\MediaLibrary\MediaCollections\Models\Media;
 
 /**
  * @method static ProductVariantBuilder query()
+ * @method static ProductVariantBuilder alwaysPurchasable()
+ * @method static ProductVariantBuilder available()
+ * @method static ProductVariantBuilder backorderable()
+ * @method static ProductVariantBuilder inStock()
  * @method bool isPreorderable() Determine when model is considered to be preorderable.
  * @method MorphMany notifications() Get the notifications relation if `dystore-product-notifications` package is installed.
  * @method Media|null getThumbnail() Get either variant thumbnail or fallback to product thumbnail.

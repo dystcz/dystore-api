@@ -14,6 +14,10 @@ use Lunar\Models\Product as LunarProduct;
 
 /**
  * @method static ProductBuilder query()
+ * @method static ProductBuilder alwaysPurchasable()
+ * @method static ProductBuilder available()
+ * @method static ProductBuilder backorderable()
+ * @method static ProductBuilder inStock()
  * @method static ProductBuilder published()
  * @method static ProductBuilder visible()
  * @method MorphToMany attributes() Get the mapped attributes relation.
