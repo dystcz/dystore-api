@@ -146,6 +146,15 @@ class OrderPolicy
         return $this->check($user, $order);
     }
 
+    public function viewReviews(?Authenticatable $user, OrderContract $order): bool
+    {
+        if ($this->isFilamentAdmin($user)) {
+            return true;
+        }
+
+        return $this->check($user, $order);
+    }
+
     /**
      * Determine whether the user can view the model.
      */
