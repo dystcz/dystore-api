@@ -11,7 +11,7 @@ use Illuminate\Support\Facades\Config;
 class CheckExistingAccountController extends Controller implements CheckExistingAccountControllerContract
 {
     /**
-     * Register a user without a password.
+     * Check if account exists for given email.
      */
     public function checkExistingAccount(CheckExistingAccountRequest $request): JsonResponse
     {

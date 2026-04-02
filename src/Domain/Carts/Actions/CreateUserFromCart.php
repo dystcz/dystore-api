@@ -29,6 +29,8 @@ class CreateUserFromCart implements CreatesUserFromCart
         CartContract $cart,
     ): ?Authenticatable {
         /** @var Cart $cart */
+        $cart->load(['user']);
+
         if ($cart->user_id) {
             return $cart->user;
         }
