@@ -51,7 +51,7 @@ class InStockFilter implements Filter
      */
     public function apply($query, $value)
     {
-        $value = in_array($value, [true, 'true', 1, '1']) ? true : false;
+        $value = filter_var($value, FILTER_VALIDATE_BOOL);
 
         // Check if the filter should be applied based on the $value.
         if (! $value) {

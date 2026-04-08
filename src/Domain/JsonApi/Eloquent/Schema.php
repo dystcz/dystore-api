@@ -202,7 +202,7 @@ abstract class Schema extends BaseSchema implements ExtendableContract, SchemaCo
     public function filters(): iterable
     {
         return [
-            WhereIdIn::make($this),
+            WhereIdIn::make()->delimiter(','),
 
             ...$this->extension->filters()->resolve($this),
         ];
