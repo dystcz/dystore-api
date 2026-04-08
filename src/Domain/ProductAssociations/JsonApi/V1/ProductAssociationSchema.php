@@ -79,7 +79,7 @@ class ProductAssociationSchema extends Schema
     public function filters(): array
     {
         return [
-            WhereIdIn::make()->delimiter(','),
+            WhereIdIn::make($this)->delimiter(','),
 
             Where::make('type'),
 

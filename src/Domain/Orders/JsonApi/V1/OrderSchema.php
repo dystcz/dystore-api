@@ -267,7 +267,7 @@ class OrderSchema extends Schema
     public function filters(): array
     {
         return [
-            WhereIdIn::make()->delimiter(','),
+            WhereIdIn::make($this)->delimiter(','),
 
             Where::make('user_id'),
             Where::make('reference')->singular(),

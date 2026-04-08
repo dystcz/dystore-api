@@ -37,7 +37,7 @@ class CollectionGroupSchema extends Schema
     public function filters(): array
     {
         return [
-            WhereIdIn::make()->delimiter(','),
+            WhereIdIn::make($this)->delimiter(','),
 
             Where::make('name', 'name'),
 

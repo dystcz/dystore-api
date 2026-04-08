@@ -136,7 +136,7 @@ class CollectionSchema extends Schema
     public function filters(): array
     {
         return [
-            WhereIdIn::make()->delimiter(','),
+            WhereIdIn::make($this)->delimiter(','),
 
             WhereHas::make($this, 'urls', 'url')
                 ->singular(),
