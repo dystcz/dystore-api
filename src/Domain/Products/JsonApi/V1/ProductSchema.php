@@ -7,6 +7,7 @@ use Dystore\Api\Domain\JsonApi\Eloquent\Schema;
 use Dystore\Api\Domain\JsonApi\Eloquent\Sorts\InDefaultOrder;
 use Dystore\Api\Domain\JsonApi\Eloquent\Sorts\InRandomOrder;
 use Dystore\Api\Domain\Products\Builders\ProductBuilder;
+use Dystore\Api\Domain\Products\JsonApi\Filters\CollectionGroupFilter;
 use Dystore\Api\Domain\Products\JsonApi\Filters\InStockFilter;
 use Dystore\Api\Domain\Products\JsonApi\Filters\ProductFilterCollection;
 use Dystore\Api\Support\Models\Actions\SchemaType;
@@ -316,6 +317,8 @@ class ProductSchema extends Schema
             WhereHas::make($this, 'status'),
 
             WhereHas::make($this, 'collections'),
+
+            CollectionGroupFilter::make('collection_groups'),
 
             WhereHas::make($this, 'tags'),
 
