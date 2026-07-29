@@ -7,6 +7,7 @@ use Dystore\Api\Domain\Prices\Factories\PriceFactory;
 use Dystore\Api\Domain\Prices\Models\Price;
 use Dystore\Api\Hashids\Traits\HashesRouteKey;
 use Illuminate\Database\Query\Builder;
+use Lunar\Models\Contracts\TaxZone as TaxZoneContract;
 
 trait InteractsWithDystoreApi
 {
@@ -33,7 +34,7 @@ trait InteractsWithDystoreApi
     /**
      * Return the price exclusive of tax.
      */
-    public function priceExTax(string $priceField = 'price'): \Lunar\DataTypes\Price
+    public function priceExTax(?TaxZoneContract $taxZone = null): \Lunar\DataTypes\Price
     {
         /** @var Price $model */
         $model = $this;
@@ -42,7 +43,7 @@ trait InteractsWithDystoreApi
             return $model->price;
         }
 
-        $priceExTax = clone $model->{$priceField};
+        $priceExTax = clone $model->price;
 
         $priceExTax->value = (int) round($priceExTax->value / (1 + $model->getPriceableTaxRate()));
 
@@ -52,16 +53,16 @@ trait InteractsWithDystoreApi
     /**
      * Return the price inclusive of tax.
      */
-    public function priceIncTax(string $priceField = 'price'): int|\Lunar\DataTypes\Price
+    public function priceIncTax(?TaxZoneContract $taxZone = null): int|\Lunar\DataTypes\Price
     {
         /** @var Price $model */
         $model = $this;
 
         if (prices_inc_tax()) {
-            return $model->{$priceField};
+            return $model->price;
         }
 
-        $priceIncTax = clone $model->{$priceField};
+        $priceIncTax = clone $model->price;
         $priceIncTax->value = (int) round($priceIncTax->value * (1 + $model->getPriceableTaxRate()));
 
         return $priceIncTax;

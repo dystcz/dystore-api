@@ -209,6 +209,14 @@ class PaymentOption implements Arrayable, Purchasable
     /**
      * {@inheritDoc}
      */
+    public function isPurchasable(): bool
+    {
+        return true;
+    }
+
+    /**
+     * {@inheritDoc}
+     */
     public function getThumbnail(): ?string
     {
         return null;
